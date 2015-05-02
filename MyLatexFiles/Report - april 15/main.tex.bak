@@ -11,9 +11,8 @@
 \title{State of The Art}
 
 \begin{document}
-%\renewcommand{\chaptername}{}
+%\renewcommand{\chaptername}{} tira o nome "chapter"
 \titleformat{\chapter}[hang]{\bf\huge}{\thechapter}{2pc}{}
-%-------------------------------------------------------------------------------------------------------%
 \maketitle
 \chapter{Report april - 2015}
 
@@ -34,17 +33,24 @@ In~\cite{001}, the authors propose a framework for dynamic specification of SLAs
 \end{description}
 
 \bigskip
-In~\cite{002}, a review about SLAs is presented. The authors are interested in challenges associated to trust, SLA management and cloud computing \textit{(in my opinion they focus on frameworks for SLA and cloud computing definition)}. To examine/analize this challenges, the definition of cloud computing is discussed and an analisys of the use/approaches of SLAs for different domains web services, grid computing and cloud computing is performed. They finish their work discussing challenges for SLAs in cloud computing.
+In~\cite{003}, a review about SLAs is presented. The authors are interested in challenges associated to trust, SLA management and cloud computing \textit{(in my opinion they focus on frameworks for SLA and cloud computing definition)}. To examine/analize this challenges, the definition of cloud computing is discussed and an analisys of the use/approaches of SLAs for different domains web services, grid computing and cloud computing is performed. They finish their work discussing challenges for SLAs in cloud computing.
 
 \bigskip
-\cite{004} is an extended version of~\cite{002}. The authors surveyed performance measurement models in different domains (such as SOA, distributed systems, grid computing and cloud services) in order to develop a general trust model for cloud community. They presented.. their work discussing challenges for SLAs in cloud computing and performance models cloud computing...
+\cite{004} is an extended version of~\cite{003}. The authors surveyed performance measurement models in different domains (such as SOA, distributed systems, grid computing and cloud services) in order to develop a general trust model for cloud community. They presented.. their work discussing challenges for SLAs in cloud computing and performance models cloud computing...
 
-%∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞%
+\bigskip
+\cite{013} presents (early) research ideas for a automated control for SLA-aware elastic clouds. The SLA aware Service model integrates QoS and SLA to the cloud, enabling the consumer to transparently compare service levels before choosing the (best/adequate) one for him. The need for an automated dynamic elasticity of the cloud to is also highlighted. The objective is to meet QoS (performance and availability) while reducing the cost. The author discusses research directions in this context such as \textit{online observation and monitoring of the cloud} (aumatically capture variations in cloud usage and workload to detect SLA violation and trigger reconfigurations if necessary), \textit{modeling the cloud} (to create a model capable of rendering the nonlinear variation of workloads) and \textit{automated control of the cloud} (to build dynamic cloud reconfiguration that meets QoS preferences in SLAs while reducing costs). Different challenges for this scenario are presented: definition of scalable and optimal control algorithms for the cloud; handling of different QoS requirements; monitoring of the distributed system; and proposal of techniques for online cloud reconfiguration.
 
-%-------------------------------------------------------------------------------------------------------%
+\bigskip
+In~\cite{010}, the authors presented a description of the elements of cloud providers SLA. SLAs from five different service providers were compared (Amazon, Rackspace, Microsoft Azure, Terremark vCloud Express and Storm on Demand) in order to identify which are the elements missing and common that should be part of SLA for the cloud services in the future. The work identified that performance based SLAs are missing in these providers and all of them leave the burden of providing evidence for SLA violation on the customer. They also ask for a standarization of SLAs in order to make easy comparisons between them.
+
+\bigskip
+A conceptual framework for cloud computing is presented in~\cite{005}. The authors focus on the desing step of the SLA in cloud computing. Functional and non-functional requirements of IaaS, PaaS and SaaS cloud services were analyzed/identified to build the framework. In their proposed framework, the SLA parameters are specified by metrics which defines how the paramenter can be measured and specifies values for the measurable parameter. They defined metrics for each type of service (IaaS, ...) based on the most important parameters that consumers can use to create a reliable negotiation model. It is still missing the implementation and simulation experiments in order to validate our framework.
+
+\bigskip
+The authors in \cite{009} presented a generic SLA model that includes management capabilities as a service which are agreed and negotiated in contracts. These management capabilites (elasticity, high availability, scalability and on demand provisioning) are performed by management services called Pcloud services that are defined in to achieve application requirements (specified as SLOs by users). The idea is to help the user to choose the appropriated providers that fits his requirements. As non-functional aspects in their model, they consider availability, delay, capacity and reliability. There is no implementation and experiments.
+
 \bibliographystyle{plain}
 \bibliography{bibliography}
-%∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞%
-
 
 \end{document}

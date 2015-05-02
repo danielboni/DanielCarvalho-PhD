@@ -7,10 +7,32 @@ Asma {Al Falasi} and Mohamed {Adel Serhani}.
 \newblock In {\em 2011 International Conference on Innovations in Information
   Technology}, pages 287--292. IEEE, April 2011.
 
-\bibitem{002}
-Abdel-Rahman~F. Al-Ghuwairi.
-\newblock {Formal modeling and dynamic verification of service level agreements
-  in cloud computing}.
-\newblock January 2013.
+\bibitem{005}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {Conceptual SLA framework for cloud computing}.
+\newblock In {\em 4th IEEE International Conference on Digital Ecosystems and
+  Technologies}, pages 606--610. IEEE, April 2010.
+
+\bibitem{004}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {A survey on SLA and performance measurement in cloud computing}.
+\newblock pages 469--477, October 2011.
+
+\bibitem{003}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {Service Level Agreement for Distributed Services: A Review}.
+\newblock In {\em 2011 IEEE Ninth International Conference on Dependable,
+  Autonomic and Secure Computing}, pages 1051--1054. IEEE, December 2011.
+
+\bibitem{010}
+Salman~A. Baset.
+\newblock {Cloud SLAs: Present and Future}.
+
+\bibitem{013}
+Sara Bouchenak.
+\newblock {Automated control for SLA-aware elastic clouds}.
+\newblock In {\em Proceedings of the Fifth International Workshop on Feedback
+  Control Implementation and Design in Computing Systems and Networks - FeBiD
+  '10}, pages 27--28, New York, New York, USA, April 2010. ACM Press.
 
 \end{thebibliography}
