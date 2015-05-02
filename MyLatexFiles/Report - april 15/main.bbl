@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{001}
 Asma {Al Falasi} and Mohamed {Adel Serhani}.
@@ -13,20 +13,77 @@ Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
 \newblock In {\em 4th IEEE International Conference on Digital Ecosystems and
   Technologies}, pages 606--610. IEEE, April 2010.
 
-\bibitem{004}
-Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
-\newblock {A survey on SLA and performance measurement in cloud computing}.
-\newblock pages 469--477, October 2011.
-
 \bibitem{003}
 Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
 \newblock {Service Level Agreement for Distributed Services: A Review}.
 \newblock In {\em 2011 IEEE Ninth International Conference on Dependable,
   Autonomic and Secure Computing}, pages 1051--1054. IEEE, December 2011.
 
+\bibitem{004}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock A survey on sla and performance measurement in cloud computing.
+\newblock In {\em Proceedings of the 2011th Confederated International
+  Conference on On the Move to Meaningful Internet Systems - Volume Part II},
+  OTM'11, pages 469--477, Berlin, Heidelberg, 2011. Springer-Verlag.
+
+\bibitem{066}
+Sattam Alsubaiee, Alexander Behm, Raman Grover, Rares Vernica, Vinayak Borkar,
+  Michael~J. Carey, and Chen Li.
+\newblock Asterix: Scalable warehouse-style web data integration.
+\newblock In {\em Proceedings of the Ninth International Workshop on
+  Information Integration on the Web}, IIWeb '12, pages 2:1--2:4, New York, NY,
+  USA, 2012. ACM.
+
+\bibitem{067}
+Mohammed~Abdullatif ALzain and E~Pardede.
+\newblock {Using Multi Shares for Ensuring Privacy in Database-as-a-Service}.
+\newblock In {\em 2011 44th Hawaii International Conference on System
+  Sciences}, pages 1--9. IEEE, January 2011.
+
+\bibitem{008}
+Tatiana Aubonnet and Noemie Simoni.
+\newblock {Self-Control Cloud Services}.
+\newblock In {\em 2014 IEEE 13th International Symposium on Network Computing
+  and Applications}, pages 282--286. IEEE, August 2014.
+
+\bibitem{009}
+Ines Ayadi, Noemie Simoni, and Tatiana Aubonnet.
+\newblock {SLA Approach for "Cloud as a Service"}.
+\newblock In {\em 2013 IEEE Sixth International Conference on Cloud Computing},
+  pages 966--967. IEEE, June 2013.
+
 \bibitem{010}
 Salman~A. Baset.
-\newblock {Cloud SLAs: Present and Future}.
+\newblock Cloud slas: Present and future.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 46(2):57--66, July 2012.
+
+\bibitem{070}
+S.~Benkner, C.~Borckholder, M.~Bubak, Y.~Kaniovskyi, R.~Knight, M.~Koehler,
+  S.~Koulouzis, P.~Nowakowski, and S.~Wood.
+\newblock {A Cloud-Based Framework for Collaborative Data Management in the
+  VPH-Share Project}.
+\newblock In {\em 2013 27th International Conference on Advanced Information
+  Networking and Applications Workshops}, pages 1203--1210. IEEE, March 2013.
+
+\bibitem{011}
+Karin Bernsmed, Martin~Gilje Jaatun, Per~Hakon Meland, and Astrid Undheim.
+\newblock Security slas for federated cloud services.
+\newblock {\em 2012 Seventh International Conference on Availability,
+  Reliability and Security}, 0:202--209, 2011.
+
+\bibitem{BernsmedJU11}
+Karin Bernsmed, Martin~Gilje Jaatun, and Astrid Undheim.
+\newblock Security in service level agreements for cloud computing.
+\newblock In Frank Leymann, Ivan Ivanov, Marten van Sinderen, and Boris
+  Shishkov, editors, {\em {CLOSER} 2011 - Proceedings of the 1st International
+  Conference on Cloud Computing and Services Science, Noordwijkerhout,
+  Netherlands, 7-9 May, 2011}, pages 636--642. SciTePress, 2011.
+
+\bibitem{072}
+{Bin Lu} and {Wei Song}.
+\newblock {Research on heterogeneous data integration for Smart Grid}.
+\newblock In {\em 2010 3rd International Conference on Computer Science and
+  Information Technology}, volume~3, pages 52--56. IEEE, July 2010.
 
 \bibitem{013}
 Sara Bouchenak.
@@ -34,5 +91,123 @@ Sara Bouchenak.
 \newblock In {\em Proceedings of the Fifth International Workshop on Feedback
   Control Implementation and Design in Computing Systems and Networks - FeBiD
   '10}, pages 27--28, New York, New York, USA, April 2010. ACM Press.
+
+\bibitem{113}
+Reinhard Braumandl.
+\newblock {\em Quality of Service and Optimization in Data Integration
+  Systems}.
+\newblock PhD thesis, University of Passau, 2002.
+
+\bibitem{075}
+Gianluca Correndo, Manuel Salvadores, Ian Millard, Hugh Glaser, and Nigel
+  Shadbolt.
+\newblock {SPARQL query rewriting for implementing data integration over linked
+  data}.
+\newblock In {\em Proceedings of the 1st International Workshop on Data
+  Semantics - DataSem '10}, page~1, New York, New York, USA, March 2010. ACM
+  Press.
+
+\bibitem{025}
+Shirlei~Aparecida de~Chaves, Carlos~Becker Westphall, and Flavio~Rodrigo Lamin.
+\newblock {SLA Perspective in Security Management for Cloud Computing}.
+\newblock In {\em 2010 Sixth International Conference on Networking and
+  Services}, pages 212--217. IEEE, March 2010.
+
+\bibitem{077}
+Christopher Duffy, Lorne Leonard, Gopal Bhatt, Xuan Yu, and Lee Giles.
+\newblock {Watershed Reanalysis: Towards a National Strategy for Model-Data
+  Integration}.
+\newblock In {\em 2011 IEEE Seventh International Conference on e-Science
+  Workshops}, pages 61--65. IEEE, December 2011.
+
+\bibitem{Dustdar:2012}
+Schahram Dustdar, Reinhard Pichler, Vadim Savenkov, and Hong-Linh Truong.
+\newblock Quality-aware service-oriented data integration: Requirements, state
+  of the art and open challenges.
+\newblock {\em SIGMOD Rec.}, 41(1):11--19, April 2012.
+
+\bibitem{078}
+Ghada ElSheikh, Mustafa~Y. ElNainay, Saleh ElShehaby, and Mohamed~S. Abougabal.
+\newblock {SODIM: Service Oriented Data Integration based on MapReduce}.
+\newblock {\em Alexandria Engineering Journal}, 52(3):313--318, September 2013.
+
+\bibitem{Gonzalez:2010}
+Hector Gonzalez, Alon Halevy, Christian~S. Jensen, Anno Langen, Jayant
+  Madhavan, Rebecca Shapley, and Warren Shen.
+\newblock Google fusion tables: Data management, integration and collaboration
+  in the cloud.
+\newblock In {\em Proceedings of the 1st ACM Symposium on Cloud Computing},
+  SoCC '10, pages 175--180, New York, NY, USA, 2010. ACM.
+
+\bibitem{Gonzalez:2010b}
+Hector Gonzalez, Alon~Y. Halevy, Christian~S. Jensen, Anno Langen, Jayant
+  Madhavan, Rebecca Shapley, Warren Shen, and Jonathan Goldberg-Kidon.
+\newblock Google fusion tables: Web-centered data management and collaboration.
+\newblock In {\em Proceedings of the 2010 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '10, pages 1061--1066, New York, NY, USA,
+  2010. ACM.
+
+\bibitem{081}
+Xin Hong and ChunMing Rong.
+\newblock {Multiple Data Integration Service}.
+\newblock In {\em 2014 28th International Conference on Advanced Information
+  Networking and Applications Workshops}, pages 860--865. IEEE, May 2014.
+
+\bibitem{110}
+Herald Kllapi, Dimitris Bilidas, Ian Horrocks, Yannis~E. Ioannidis, Ernesto
+  Jim{\'{e}}nez{-}Ruiz, Evgeny Kharlamov, Manolis Koubarakis, and Dmitriy
+  Zheleznyakov.
+\newblock Distributed query processing on the cloud: the optique point of view
+  (short paper).
+\newblock In Mariano Rodriguez{-}Muro, Simon Jupp, and Kavitha Srinivas,
+  editors, {\em Proceedings of the 10th International Workshop on {OWL:}
+  Experiences and Directions {(OWLED} 2013) co-located with 10th Extended
+  Semantic Web Conference {(ESWC} 2013), Montpellier, France, May 26-27,
+  2013.}, volume 1080 of {\em {CEUR} Workshop Proceedings}. CEUR-WS.org, 2013.
+
+\bibitem{Lenzerini:2002}
+Maurizio Lenzerini.
+\newblock Data integration: A theoretical perspective.
+\newblock In {\em Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART
+  Symposium on Principles of Database Systems}, PODS '02, pages 233--246, New
+  York, NY, USA, 2002. ACM.
+
+\bibitem{111}
+Asfia Mubeen, Mohd Murtuza~Ahmed Khan, and Sana~Mubeen Zubedi.
+\newblock {Web Service Integration Using Cloud Data Store}, 2012.
+
+\bibitem{Nie07}
+Tiezheng Nie, Guangqi Wang, Derong Shen, Meifang Li, and Ge~Yu.
+\newblock Sla-based data integration on database grids.
+\newblock In {\em Computer Software and Applications Conference, 2007. COMPSAC
+  2007. 31st Annual International}, volume~2, pages 613--618, July 2007.
+
+\bibitem{094}
+Andreas Thor and Erhard Rahm.
+\newblock Cloudfuice: A flexible cloud-based data integration system.
+\newblock In Sören Auer, Oscar Díaz, and GeorgeA. Papadopoulos, editors, {\em
+  Web Engineering}, volume 6757 of {\em Lecture Notes in Computer Science},
+  pages 304--318. Springer Berlin Heidelberg, 2011.
+
+\bibitem{096}
+Yuan Tian, Biao Song, Jimupimg Park, and Eui-Nam Huh.
+\newblock Inter-cloud data integration system considering privacy and cost.
+\newblock In Jeng-Shyang Pan, Shyi-Ming Chen, and NgocThanh Nguyen, editors,
+  {\em Computational Collective Intelligence. Technologies and Applications},
+  volume 6421 of {\em Lecture Notes in Computer Science}, pages 195--204.
+  Springer Berlin Heidelberg, 2010.
+
+\bibitem{099}
+Yanxia Wang.
+\newblock {Research on web data integration framework based on cloud
+  computing}.
+\newblock In {\em 2012 2nd International Conference on Consumer Electronics,
+  Communications and Networks (CECNet)}, pages 2823--2826. IEEE, April 2012.
+
+\bibitem{102}
+Peng Zhang, Yanbo Han, Zhuofeng Zhao, and Guiling Wang.
+\newblock {Cost Optimization of Cloud-Based Data Integration System}.
+\newblock In {\em 2012 Ninth Web Information Systems and Applications
+  Conference}, pages 183--188. IEEE, November 2012.
 
 \end{thebibliography}

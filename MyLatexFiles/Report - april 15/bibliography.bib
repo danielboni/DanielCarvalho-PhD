@@ -37,15 +37,21 @@ url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6118864},
 year = {2011}
 }
 
-@article{004,
-author = {Alhamad, Mohammed and Dillon, Tharam and Chang, Elizabeth},
-keywords = {SLA,cloud computing,measurement},
-month = oct,
-pages = {469--477},
-publisher = {Springer-Verlag},
-title = {{A survey on SLA and performance measurement in cloud computing}},
-url = {http://dl.acm.org/citation.cfm?id=2075764.2075770},
-year = {2011}
+@inproceedings{004,
+ author = {Alhamad, Mohammed and Dillon, Tharam and Chang, Elizabeth},
+ title = {A Survey on SLA and Performance Measurement in Cloud Computing},
+ booktitle = {Proceedings of the 2011th Confederated International Conference on On the Move to Meaningful Internet Systems - Volume Part II},
+ series = {OTM'11},
+ year = {2011},
+ isbn = {978-3-642-25105-4},
+ location = {Crete, Greece},
+ pages = {469--477},
+ numpages = {9},
+ url = {http://dl.acm.org/citation.cfm?id=2075764.2075770},
+ acmid = {2075770},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+ keywords = {SLA, cloud computing, measurement},
 }
 
 @inproceedings{005,
@@ -118,12 +124,24 @@ url = {http://dl.acm.org/citation.cfm?id=2514940.2515092 http://ieeexplore.ieee.
 year = {2013}
 }
 
-@misc{010,
-author = {Baset, Salman A.},
-file = {:Users/danielaguiar/Library/Application Support/Mendeley Desktop/Downloaded/Baset - Unknown - Cloud SLAs Present and Future.pdf:pdf},
-title = {{Cloud SLAs: Present and Future}},
-url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.295.9965}
-}
+@article{010,
+ author = {Baset, Salman A.},
+ title = {Cloud SLAs: Present and Future},
+ journal = {SIGOPS Oper. Syst. Rev.},
+ issue_date = {July 2012},
+ volume = {46},
+ number = {2},
+ month = jul,
+ year = {2012},
+ issn = {0163-5980},
+ pages = {57--66},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/2331576.2331586},
+ doi = {10.1145/2331576.2331586},
+ acmid = {2331586},
+ publisher = {ACM},
+ address = {New York, NY, USA}
+} 
 
 @article{011,
 author = {Karin Bernsmed and Martin Gilje Jaatun and Per Hakon Meland and Astrid Undheim},
@@ -1272,17 +1290,23 @@ title = {{Framework to Improve Data Integrity in Multi Cloud Environment}},
 url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.428.9705}
 }
 
-@article{094,
-author = {Thor, Andreas and Rahm, Erhard},
-file = {::},
-keywords = {cloud data management,data integration,mashups},
-month = jun,
-pages = {304--318},
-publisher = {Springer-Verlag},
-title = {{CloudFuice: a flexible cloud-based data integration system}},
-url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.204.2571 http://dl.acm.org/citation.cfm?id=2027776.2027799},
-year = {2011}
+@incollection{094,
+year={2011},
+isbn={978-3-642-22232-0},
+booktitle={Web Engineering},
+volume={6757},
+series={Lecture Notes in Computer Science},
+editor={Auer, Sören and Díaz, Oscar and Papadopoulos, GeorgeA.},
+doi={10.1007/978-3-642-22233-7_21},
+title={CloudFuice: A Flexible Cloud-Based Data Integration System},
+url={http://dx.doi.org/10.1007/978-3-642-22233-7_21},
+publisher={Springer Berlin Heidelberg},
+keywords={Cloud Data Management; Data Integration; Mashups},
+author={Thor, Andreas and Rahm, Erhard},
+pages={304-318},
+language={English}
 }
+
 
 @inproceedings{095,
 address = {New York, New York, USA},
@@ -1296,15 +1320,21 @@ url = {http://dl.acm.org/citation.cfm?id=2030376.2030399},
 year = {2011}
 }
 
-@article{096,
-author = {Tian, Yuan and Song, Biao and Park, Junyoung and Huh, Eui-Nam},
-keywords = {cloud computing,privacy,service pricing},
-month = nov,
-pages = {195--204},
-publisher = {Springer-Verlag},
-title = {{Inter-cloud data integration system considering privacy and cost}},
-url = {http://dl.acm.org/citation.cfm?id=1947662.1947688},
-year = {2010}
+@incollection{096,
+year={2010},
+isbn={978-3-642-16692-1},
+booktitle={Computational Collective Intelligence. Technologies and Applications},
+volume={6421},
+series={Lecture Notes in Computer Science},
+editor={Pan, Jeng-Shyang and Chen, Shyi-Ming and Nguyen, NgocThanh},
+doi={10.1007/978-3-642-16693-8_22},
+title={Inter-cloud Data Integration System Considering Privacy and Cost},
+url={http://dx.doi.org/10.1007/978-3-642-16693-8_22},
+publisher={Springer Berlin Heidelberg},
+keywords={Cloud computing; Privacy; Service pricing},
+author={Tian, Yuan and Song, Biao and Park, Jimupimg and Huh, Eui-Nam},
+pages={195-204},
+language={English}
 }
 
 @inproceedings{097,
@@ -1445,33 +1475,65 @@ title = {{Volume 1 – No. 13 Moving Towards Non-Relational Databases}},
 url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.184.7707}
 }
 
-@misc{110,
-file = {::},
-title = {{Distributed Query Processing on the Cloud: the Optique Point of View (Short Paper)}},
-url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.402.7899}
+@inproceedings{110,
+  author    = {Herald Kllapi and
+               Dimitris Bilidas and
+               Ian Horrocks and
+               Yannis E. Ioannidis and
+               Ernesto Jim{\'{e}}nez{-}Ruiz and
+               Evgeny Kharlamov and
+               Manolis Koubarakis and
+               Dmitriy Zheleznyakov},
+  title     = {Distributed Query Processing on the Cloud: the Optique Point of View
+               (Short Paper)},
+  booktitle = {Proceedings of the 10th International Workshop on {OWL:} Experiences
+               and Directions {(OWLED} 2013) co-located with 10th Extended Semantic
+               Web Conference {(ESWC} 2013), Montpellier, France, May 26-27, 2013.},
+  year      = {2013},
+  crossref  = {DBLP:conf/owled/2013},
+  url       = {http://ceur-ws.org/Vol-1080/owled2013_22.pdf},
+  timestamp = {Sun, 08 Dec 2013 13:04:04 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/owled/KllapiBHIJKKZ13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@proceedings{DBLP:conf/owled/2013,
+  editor    = {Mariano Rodriguez{-}Muro and
+               Simon Jupp and
+               Kavitha Srinivas},
+  title     = {Proceedings of the 10th International Workshop on {OWL:} Experiences
+               and Directions {(OWLED} 2013) co-located with 10th Extended Semantic
+               Web Conference {(ESWC} 2013), Montpellier, France, May 26-27, 2013},
+  series    = {{CEUR} Workshop Proceedings},
+  volume    = {1080},
+  publisher = {CEUR-WS.org},
+  year      = {2013},
+  url       = {http://ceur-ws.org/Vol-1080},
+  timestamp = {Sun, 08 Dec 2013 12:58:54 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/owled/2013},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
 @misc{111,
-file = {::},
+author = {Asfia Mubeen and Mohd Murtuza Ahmed Khan and Sana Mubeen Zubedi},
+journal = {International Journal of Computer Science and Network (IJCSN)},
+year = {2012},
 title = {{Web Service Integration Using Cloud Data Store}},
 url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.300.4381}
 }
 
 @article{112,
 author = {unknown Authors and Stankovic, John and Son, Sang H. and Nguyen, Chi D.},
-file = {:Users/danielaguiar/Library/Application Support/Mendeley Desktop/Downloaded/Stankovic, Son, Nguyen - 1998 - The Cogency Monitor An External Interface Architecture For a Distributed Object-Oriented Real-Time Datab.pdf:pdf;:Users/danielaguiar/Library/Application Support/Mendeley Desktop/Downloaded/authors - Unknown - The Cogency Monitor An External Interface Architecture For a Distributed Object-Oriented Real-Time Database System.pdf:pdf},
 journal = {IEEE REAL-TIME TECHNOLOGY AND APPLICATION SYMPOSIUM (RTAS\&APOS;98},
 title = {{The Cogency Monitor: An External Interface Architecture For a Distributed Object-Oriented Real-Time Database System}},
 url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.7254 http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.78.5884},
 year = {1998}
 }
 
-@misc{113,
-author = {Braumandl, Reinhard},
-file = {:Users/danielaguiar/Library/Application Support/Mendeley Desktop/Downloaded/Braumandl - 2002 - Quality of Service and Optimization in Data Integration Systems.pdf:pdf},
-title = {{Quality of Service and Optimization in  Data Integration Systems}},
-url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.138.1074},
-year = {2002}
+@PhdThesis{113,
+  author    = {Reinhard Braumandl},
+  title     = {Quality of Service and Optimization in Data Integration Systems},
+  school    = {University of Passau},
+  year      = {2002}
 }
 
 @misc{114,
@@ -1480,3 +1542,119 @@ file = {:Users/danielaguiar/Library/Application Support/Mendeley Desktop/Downloa
 title = {{Data Integration in Heterogeneous Environments: Multi-Source Policies, Cost Model, and Implementation}},
 url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.126.5926}
 }
+
+@inproceedings{BernsmedJU11,
+  author    = {Karin Bernsmed and
+               Martin Gilje Jaatun and
+               Astrid Undheim},
+  title     = {Security in Service Level Agreements for Cloud Computing},
+  booktitle = {{CLOSER} 2011 - Proceedings of the 1st International Conference on
+               Cloud Computing and Services Science, Noordwijkerhout, Netherlands,
+               7-9 May, 2011},
+  pages     = {636--642},
+  year      = {2011},
+  crossref  = {DBLP:conf/closer/2011},
+  timestamp = {Thu, 29 Sep 2011 12:14:53 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/closer/BernsmedJU11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@proceedings{DBLP:conf/closer/2011,
+  editor    = {Frank Leymann and
+               Ivan Ivanov and
+               Marten van Sinderen and
+               Boris Shishkov},
+  title     = {{CLOSER} 2011 - Proceedings of the 1st International Conference on
+               Cloud Computing and Services Science, Noordwijkerhout, Netherlands,
+               7-9 May, 2011},
+  publisher = {SciTePress},
+  year      = {2011},
+  isbn      = {978-989-8425-52-2},
+  timestamp = {Thu, 29 Sep 2011 11:30:23 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/closer/2011},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Lenzerini:2002,
+ author = {Lenzerini, Maurizio},
+ title = {Data Integration: A Theoretical Perspective},
+ booktitle = {Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART Symposium on Principles of Database Systems},
+ series = {PODS '02},
+ year = {2002},
+ isbn = {1-58113-507-6},
+ location = {Madison, Wisconsin},
+ pages = {233--246},
+ numpages = {14},
+ url = {http://doi.acm.org/10.1145/543613.543644},
+ doi = {10.1145/543613.543644},
+ acmid = {543644},
+ publisher = {ACM},
+ address = {New York, NY, USA}
+} 
+
+@INPROCEEDINGS{Nie07, 
+author={Tiezheng Nie and Guangqi Wang and Derong Shen and Meifang Li and Ge Yu}, 
+booktitle={Computer Software and Applications Conference, 2007. COMPSAC 2007. 31st Annual International}, 
+title={SLA-based Data Integration on Database Grids}, 
+year={2007}, 
+month={July}, 
+volume={2}, 
+pages={613-618}, 
+keywords={database management systems;grid computing;query processing;data integration;database grid;database resource management;distributed environment;evaluation model;matching algorithm;query model;resource description;service level agreement;Computer architecture;Costs;Distributed computing;Distributed databases;Grid computing;Quality management;Query processing;Resource management;Robustness;Web services}, 
+doi={10.1109/COMPSAC.2007.190}, 
+ISSN={0730-3157}
+}
+
+@article{Dustdar:2012,
+ author = {Dustdar, Schahram and Pichler, Reinhard and Savenkov, Vadim and Truong, Hong-Linh},
+ title = {Quality-aware Service-oriented Data Integration: Requirements, State of the Art and Open Challenges},
+ journal = {SIGMOD Rec.},
+ issue_date = {March 2012},
+ volume = {41},
+ number = {1},
+ month = apr,
+ year = {2012},
+ issn = {0163-5808},
+ pages = {11--19},
+ numpages = {9},
+ url = {http://doi.acm.org/10.1145/2206869.2206873},
+ doi = {10.1145/2206869.2206873},
+ acmid = {2206873},
+ publisher = {ACM},
+ address = {New York, NY, USA}
+} 
+
+@inproceedings{Gonzalez:2010,
+ author = {Gonzalez, Hector and Halevy, Alon and Jensen, Christian S. and Langen, Anno and Madhavan, Jayant and Shapley, Rebecca and Shen, Warren},
+ title = {Google Fusion Tables: Data Management, Integration and Collaboration in the Cloud},
+ booktitle = {Proceedings of the 1st ACM Symposium on Cloud Computing},
+ series = {SoCC '10},
+ year = {2010},
+ isbn = {978-1-4503-0036-0},
+ location = {Indianapolis, Indiana, USA},
+ pages = {175--180},
+ numpages = {6},
+ url = {http://doi.acm.org/10.1145/1807128.1807158},
+ doi = {10.1145/1807128.1807158},
+ acmid = {1807158},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {cloud-services, geo-spatial data, visualization}
+} 
+
+@inproceedings{Gonzalez:2010b,
+ author = {Gonzalez, Hector and Halevy, Alon Y. and Jensen, Christian S. and Langen, Anno and Madhavan, Jayant and Shapley, Rebecca and Shen, Warren and Goldberg-Kidon, Jonathan},
+ title = {Google Fusion Tables: Web-centered Data Management and Collaboration},
+ booktitle = {Proceedings of the 2010 ACM SIGMOD International Conference on Management of Data},
+ series = {SIGMOD '10},
+ year = {2010},
+ isbn = {978-1-4503-0032-2},
+ location = {Indianapolis, Indiana, USA},
+ pages = {1061--1066},
+ numpages = {6},
+ url = {http://doi.acm.org/10.1145/1807167.1807286},
+ doi = {10.1145/1807167.1807286},
+ acmid = {1807286},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {cloud services, collaboration, visualization}
+} 
