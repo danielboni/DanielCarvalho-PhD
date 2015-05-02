@@ -1529,7 +1529,7 @@ url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.7254 http://ci
 year = {1998}
 }
 
-@PhdThesis{013a,
+@PhdThesis{113,
   author    = {Reinhard Braumandl},
   title     = {Quality of Service and Optimization in Data Integration Systems},
   school    = {University of Passau},
@@ -1640,3 +1640,35 @@ ISSN={0730-3157}
  address = {New York, NY, USA},
  keywords = {cloud-services, geo-spatial data, visualization}
 } 
+
+@inproceedings{Gonzalez:2010b,
+ author = {Gonzalez, Hector and Halevy, Alon Y. and Jensen, Christian S. and Langen, Anno and Madhavan, Jayant and Shapley, Rebecca and Shen, Warren and Goldberg-Kidon, Jonathan},
+ title = {Google Fusion Tables: Web-centered Data Management and Collaboration},
+ booktitle = {Proceedings of the 2010 ACM SIGMOD International Conference on Management of Data},
+ series = {SIGMOD '10},
+ year = {2010},
+ isbn = {978-1-4503-0032-2},
+ location = {Indianapolis, Indiana, USA},
+ pages = {1061--1066},
+ numpages = {6},
+ url = {http://doi.acm.org/10.1145/1807167.1807286},
+ doi = {10.1145/1807167.1807286},
+ acmid = {1807286},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {cloud services, collaboration, visualization}
+} 
+
+@ARTICLE{Yau08, 
+author={Yau, S.S. and Yin Yin}, 
+journal={Services Computing, IEEE Transactions on}, 
+title={A Privacy Preserving Repository for Data Integration across Data Sharing Services}, 
+year={2008}, 
+month={July}, 
+volume={1}, 
+number={3}, 
+pages={130-140}, 
+keywords={data integrity;data privacy;data integration;data sharing services;data sources;privacy preserving repository;services composition;Business communication;Centralized control;Data privacy;Data security;Data warehouses;Hospitals;Information security;Protection;Robustness;Waste materials;Data sharing;Distributed systems;Security;and protection;integrity}, 
+doi={10.1109/TSC.2008.14}, 
+ISSN={1939-1374}
+}
