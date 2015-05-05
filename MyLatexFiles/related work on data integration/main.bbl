@@ -1,5 +1,31 @@
 \begin{thebibliography}{10}
 
+\bibitem{001}
+Asma {Al Falasi} and Mohamed {Adel Serhani}.
+\newblock {A Framework for SLA-based cloud services verification and
+  composition}.
+\newblock In {\em 2011 International Conference on Innovations in Information
+  Technology}, pages 287--292. IEEE, April 2011.
+
+\bibitem{005}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {Conceptual SLA framework for cloud computing}.
+\newblock In {\em 4th IEEE International Conference on Digital Ecosystems and
+  Technologies}, pages 606--610. IEEE, April 2010.
+
+\bibitem{003}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {Service Level Agreement for Distributed Services: A Review}.
+\newblock In {\em 2011 IEEE Ninth International Conference on Dependable,
+  Autonomic and Secure Computing}, pages 1051--1054. IEEE, December 2011.
+
+\bibitem{004}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock A survey on sla and performance measurement in cloud computing.
+\newblock In {\em Proceedings of the 2011th Confederated International
+  Conference on On the Move to Meaningful Internet Systems - Volume Part II},
+  OTM'11, pages 469--477, Berlin, Heidelberg, 2011. Springer-Verlag.
+
 \bibitem{066}
 Sattam Alsubaiee, Alexander Behm, Raman Grover, Rares Vernica, Vinayak Borkar,
   Michael~J. Carey, and Chen Li.
@@ -14,6 +40,23 @@ Mohammed~Abdullatif ALzain and E~Pardede.
 \newblock In {\em 2011 44th Hawaii International Conference on System
   Sciences}, pages 1--9. IEEE, January 2011.
 
+\bibitem{008}
+Tatiana Aubonnet and Noemie Simoni.
+\newblock {Self-Control Cloud Services}.
+\newblock In {\em 2014 IEEE 13th International Symposium on Network Computing
+  and Applications}, pages 282--286. IEEE, August 2014.
+
+\bibitem{009}
+Ines Ayadi, Noemie Simoni, and Tatiana Aubonnet.
+\newblock {SLA Approach for "Cloud as a Service"}.
+\newblock In {\em 2013 IEEE Sixth International Conference on Cloud Computing},
+  pages 966--967. IEEE, June 2013.
+
+\bibitem{010}
+Salman~A. Baset.
+\newblock Cloud slas: Present and future.
+\newblock {\em SIGOPS Oper. Syst. Rev.}, 46(2):57--66, July 2012.
+
 \bibitem{070}
 S.~Benkner, C.~Borckholder, M.~Bubak, Y.~Kaniovskyi, R.~Knight, M.~Koehler,
   S.~Koulouzis, P.~Nowakowski, and S.~Wood.
@@ -22,11 +65,32 @@ S.~Benkner, C.~Borckholder, M.~Bubak, Y.~Kaniovskyi, R.~Knight, M.~Koehler,
 \newblock In {\em 2013 27th International Conference on Advanced Information
   Networking and Applications Workshops}, pages 1203--1210. IEEE, March 2013.
 
+\bibitem{011}
+Karin Bernsmed, Martin~Gilje Jaatun, Per~Hakon Meland, and Astrid Undheim.
+\newblock Security slas for federated cloud services.
+\newblock {\em 2012 Seventh International Conference on Availability,
+  Reliability and Security}, 0:202--209, 2011.
+
+\bibitem{BernsmedJU11}
+Karin Bernsmed, Martin~Gilje Jaatun, and Astrid Undheim.
+\newblock Security in service level agreements for cloud computing.
+\newblock In Frank Leymann, Ivan Ivanov, Marten van Sinderen, and Boris
+  Shishkov, editors, {\em {CLOSER} 2011 - Proceedings of the 1st International
+  Conference on Cloud Computing and Services Science, Noordwijkerhout,
+  Netherlands, 7-9 May, 2011}, pages 636--642. SciTePress, 2011.
+
 \bibitem{072}
 {Bin Lu} and {Wei Song}.
 \newblock {Research on heterogeneous data integration for Smart Grid}.
 \newblock In {\em 2010 3rd International Conference on Computer Science and
   Information Technology}, volume~3, pages 52--56. IEEE, July 2010.
+
+\bibitem{013}
+Sara Bouchenak.
+\newblock {Automated control for SLA-aware elastic clouds}.
+\newblock In {\em Proceedings of the Fifth International Workshop on Feedback
+  Control Implementation and Design in Computing Systems and Networks - FeBiD
+  '10}, pages 27--28, New York, New York, USA, April 2010. ACM Press.
 
 \bibitem{113}
 Reinhard Braumandl.
@@ -42,6 +106,12 @@ Gianluca Correndo, Manuel Salvadores, Ian Millard, Hugh Glaser, and Nigel
 \newblock In {\em Proceedings of the 1st International Workshop on Data
   Semantics - DataSem '10}, page~1, New York, New York, USA, March 2010. ACM
   Press.
+
+\bibitem{025}
+Shirlei~Aparecida de~Chaves, Carlos~Becker Westphall, and Flavio~Rodrigo Lamin.
+\newblock {SLA Perspective in Security Management for Cloud Computing}.
+\newblock In {\em 2010 Sixth International Conference on Networking and
+  Services}, pages 212--217. IEEE, March 2010.
 
 \bibitem{077}
 Christopher Duffy, Lorne Leonard, Gopal Bhatt, Xuan Yu, and Lee Giles.
@@ -111,6 +181,13 @@ Tiezheng Nie, Guangqi Wang, Derong Shen, Meifang Li, and Ge~Yu.
 \newblock Sla-based data integration on database grids.
 \newblock In {\em Computer Software and Applications Conference, 2007. COMPSAC
   2007. 31st Annual International}, volume~2, pages 613--618, July 2007.
+
+\bibitem{050}
+Massimiliano Rak, Neeraj Suri, Jesus Luna, Dana Petcu, Valentina Casola, and
+  Umberto Villano.
+\newblock {Security as a Service Using an SLA-Based Approach via SPECS}.
+\newblock In {\em 2013 IEEE 5th International Conference on Cloud Computing
+  Technology and Science}, volume~2, pages 1--6. IEEE, December 2013.
 
 \bibitem{094}
 Andreas Thor and Erhard Rahm.

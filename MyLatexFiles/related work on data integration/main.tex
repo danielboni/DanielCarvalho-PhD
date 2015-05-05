@@ -7,14 +7,53 @@
 \usepackage{graphicx}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{titlesec}
+\usepackage{graphicx,color}
 \author{Daniel Aguiar da Silva Carvalho}
 %\title{State of The Art}
 
 \begin{document}
 
-\section{State of the art}
+\section{Related work on Service Level Agreements Approaches}
 
-\subsection{Related work on data integration and cloud services}
+In~\cite{001}, the authors propose a framework for dynamic specification of SLAs. The focus of their approach is on a SLA-based model for the verification and composition of the services. Their approach starts from the dynamic SLAs negotiation, then the verification and composition process, until the agreement. The framework is composed by three components: (i) \textit{A Third-Party Cloud Directory} is the intermediary between the costumers and providers. Providers should sign up with the directory and customers can search and initiate a negotiation with a selected provider. Customers define their SLOs using WSOL; (ii) \textit{The Cloud providers} expose their infrastructure as web services. During a SLA negotiation, the provider search for candidate concrete services that realizes the customers' requirements. After that the provider asks for the composition broker to come up with the optimal service SLA with the requirements; and (iii) \textit{A Trusted Composition Broker} uses the E$^{3}$-MOGA genetic algorithm to find the optimal cloud services composition. (\textit{my comments}: The strongest aspect of the framework is that it enables the client to change his SLOs at runtime (but in fact, it is not clear in the paper how it works). There is no example to illustrate neither simulation/tests in order to know if it is efficient or not. There is no way to know if the algorithm used in the verification process is the best choice (there is no comparison). Maybe other QoS parameters should be considered in the SLA. Not only throughput, response and cost.)
+
+\bigskip
+In~\cite{003}, a review about SLAs is presented. The authors are interested in challenges associated to trust, SLA management and cloud computing \textit{(in my opinion they focus on frameworks for SLA and cloud computing definition)}. To examine/analyze this challenges, the definition of cloud computing is discussed and an analysis of the use of SLAs for different domains (web services, grid computing and cloud computing) is performed. They also discussed challenges regarding SLAs in cloud computing.
+
+\bigskip
+\cite{004} is an extended version of~\cite{003}. The authors added to the previous research a survey on performance measurement models in different domains (such as SOA, distributed systems, grid computing and cloud services) in order to develop a general trust model for cloud community. As result, they presented challenges concerning SLAs in cloud computing and performance models cloud computing.
+
+\bigskip
+\cite{013} presents (early) research ideas for a automated control for SLA-aware elastic clouds. The SLA aware Service model integrates QoS and SLA to the cloud, enabling the consumer to transparently compare service levels before choosing the adequate one for him. The need for an automated dynamic elasticity of the cloud to is also highlighted. The objective is to meet QoS (performance and availability) while reducing the cost. The author discusses research directions in this context such as \textit{online observation and monitoring of the cloud} (automatically capture variations in cloud usage and workload to detect SLA violation and trigger reconfigurations if necessary), \textit{modeling the cloud} (to create a model capable of rendering the nonlinear variation of workloads) and \textit{automated control of the cloud} (to build dynamic cloud reconfiguration that meets QoS preferences in SLAs while reducing costs). Different challenges for this scenario are presented: definition of scalable and optimal control algorithms for the cloud; handling of different QoS requirements; monitoring of the distributed system; and proposal of techniques for online cloud reconfiguration.
+
+\bigskip
+In~\cite{010}, the authors presented a description of the elements present in a cloud provider SLA. SLAs from five different service providers were compared (Amazon, Rackspace, Microsoft Azure, Terremark vCloud Express and Storm on Demand) in order to identify which are the elements missing and common that should be part of SLA for the cloud services in the future. The work identified that performance based SLAs are missing in these providers and also all of them leave the responsibility of providing evidence for SLA violation on the customer. They also ask for a standardization of SLAs in order to make easy comparisons between the SLAs of different cloud providers.
+
+\bigskip
+A conceptual framework for cloud computing is presented in~\cite{005}. The authors focus on the designing step of the SLA in cloud computing. Functional and non-functional requirements of IaaS, PaaS and SaaS cloud services were analyzed/identified to build the framework. In their proposed framework, the SLA parameters are specified by metrics which defines how the parameter can be measured and specifies values for the measurable parameter. They defined metrics for each type of service (IaaS, ...) based on the most important parameters that consumers can use to create a reliable negotiation model. It is still missing the implementation and simulation experiments in order to validate our framework.
+
+\bigskip
+The authors in \cite{009} presented a generic SLA model that includes management capabilities as a service which are agreed and negotiated in contracts. These management capabilities (elasticity, high availability, scalability and on demand provisioning) are performed by management services called Pcloud services that are defined in order to achieve application requirements (specified as SLOs by users). The idea is to help the user to choose the appropriated providers that fits his requirements. In the approach, the provider offers four levels of SLA contract which is created in the negotiation phase. First, the user chooses the SLA level and specifies his requirements. Then, the provider exposes the Pcloud services according to the SLA level and the usage services based on the QoS requirements. After that the user can choose the services that fits its need. As non-functional aspects in their model, they consider availability, delay, capacity and reliability. There is no implementation and experiments.
+
+\bigskip
+\cite{008} is an extended work of~\cite{009}. This work proposes an efficient SLA management by introducing a self-control service component. It uses the approach explained above but it does not focus on the SLA (schema, model...). It seem out of our context.
+
+\bigskip
+\cite{011} presented a approach for cloud security service level agreements on hybrid clouds. The author focus on two parts of the proposed method: the lifecycle of a security SLA and a framework for a cloud security mechanism to include SLA. The lifecycle is composed by six steps: \textit{publishing}: phase in which the providers will design their security SLA templates; \textit{negotiation}: the customer and provider agree in the security SLA. The resulting SLA is composed by a set of security requirements stated by the customer and offered by the provider. Then, the provider will match the agreed SLA with other service provider who can provide the service meeting the security requirements. The result of this phase will be a contract between the customer and the provider; and possibly contracts between the provider and other service providers; \textit{commitment}: the security SLAs are digitally signed in this phase; \textit{provisioning} step to configure and reach the security mechanisms; \textit{monitoring}; and \textit{termination}. The security requirements are defined based in a framework for security mechanisms in SLA for cloud services. The mechanisms suggested are: secure resource pooling, secure elasticity, access control, audit, verification and compliance and incident management and response. A case study is presented and also some challenges are discussed.
+
+\subsection{Security as a Service Using an SLA-based Approach via SPECS}
+
+In~\cite{050}, the authors proposed an approach called SPECS to add security mechanisms and to manage the SLA life cycle considering these mechanisms. The approach assumes that  security aspects are included in the SLA, \textcolor{red}{but there is no description of the parameters related to security that should be present in the SLA}. Three interaction models are proposed, \textcolor{red}{but none of them have been implemented yet}: (i) SPECS can work as a intermediate between the user and provider offering security services, but the provider is not aware of SPECS; (ii) a provider can use SPECS in to improve its security mechanisms; and (iii) a single user can use the platform to manage security aspects over remote services; 
+
+\textcolor{red}{I don't think this work is close to our idea. I miss the clauses of their SLA, but I like the idea of having a service to manage the SLA and also flexible to be used in different scenarios (interaction models)}.
+
+\bigskip These are the other papers I have read but I did not make a summary yet~\cite{BernsmedJU11,025}.
+Analyzing the SLA models, most of the proposals do not have even a small example and implementation, experiments/simulations of the proposed approaches are still missing. There is need for a standard way of writing the SLA in order to be capable to compare SLAs from different providers. None of the models is related to data integration, but they can help to identify: the SLA measures could be related to data such as storage scalability, backup, recovery, privacy, security, etc~\cite{005}; and the measures associated to the different types of cloud delivery model: IaaS, PaaS and SaaS.
+
+
+
+
+\section{Related work on data integration and cloud services}
 
 In \cite{Gonzalez:2010b}, a cloud-based data management and integration system called Fusion Tables is presented. It enables data sharing, integration and collaboration between different and multiple users. Users, that can be non-IT experts, can visualize and manipulate their data in the web in a easy way. The system enables users to (i) uploading of data files from different formats; (ii) visualizing the data in different ways; (iii) integrating data from different sources belonging to multiple users. The integration process consists in a join between tables; (iv) sharing and controlling data in at levels; and (v) interacting with data in a web interface or through an API. The authors described the design foundations of Fusion Tables (such as integration with the web, easy of use, incentives for sharing and facilitate collaboration) and some examples of applications that can take advantages from the system. 
 
