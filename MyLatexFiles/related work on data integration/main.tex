@@ -65,6 +65,12 @@ In~\cite{050}, the authors proposed an approach called SPECS to add security mec
 
 \textcolor{red}{I don't think this work is close to our idea. I miss the clauses of their SLA, but I like the idea of having a service to manage the SLA and also flexible to be used in different scenarios (interaction models)}.
 
+\subsection{A QoS-oriented Inter-Cloud Federation Framework}
+
+In~\cite{054}, the authors propose the primary ideas of a QoS-oriented framework in a federated environment.  Their architecture propose a \textit{federation coordinator} which responsible to mediate different \textit{cloud coordinators} in order to provide resources for the federation; and the \textit{cloud coordinators} will manage the agreements, resources allocation and scheduling based on QoS defined on SLAs (each provider has one CC). This coordinator also ensures that the provider will offer the better SLA to the user based on the QoS \textcolor{red}{(but there is no information about how this process works)}.\\
+\textcolor{red}{-- There is no information about their SLAs structure \\
+--  Their proposal seems to be focused on resources allocation and avoiding SLA violations}.
+
 \bigskip These are the other papers I have read but I did not make a summary yet~\cite{BernsmedJU11,025}.
 Analyzing the SLA models, most of the proposals do not have even a small example and implementation, experiments/simulations of the proposed approaches are still missing. There is need for a standard way of writing the SLA in order to be capable to compare SLAs from different providers. None of the models is related to data integration, but they can help to identify: the SLA measures could be related to data such as storage scalability, backup, recovery, privacy, security, etc~\cite{005}; and the measures associated to the different types of cloud delivery model: IaaS, PaaS and SaaS.
 
