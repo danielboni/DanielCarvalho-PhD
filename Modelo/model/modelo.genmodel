@@ -6,55 +6,67 @@
   <foreignModel>modelo.ecore</foreignModel>
   <genPackages prefix="Modelo" disposableProviderFactory="true" ecorePackage="modelo.ecore#/">
     <genClasses ecoreClass="modelo.ecore#//SLA">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/slaparameters"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/integrationsla"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/party"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/obligation"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/slaparameters"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/integrationsla"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/party"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/obligation"/>
     </genClasses>
-    <genClasses ecoreClass="modelo.ecore#//UserSLA"/>
-    <genClasses ecoreClass="modelo.ecore#//ServiceSLA"/>
+    <genClasses ecoreClass="modelo.ecore#//UserSLA">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//UserSLA/user"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//UserSLA/cloud"/>
+    </genClasses>
+    <genClasses ecoreClass="modelo.ecore#//ServiceSLA">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//ServiceSLA/cloud"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//ServiceSLA/service"/>
+    </genClasses>
     <genClasses ecoreClass="modelo.ecore#//User">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//User/cloud"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//User/usersla"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Cloud">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Cloud/user"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Cloud/service"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Cloud/usersla"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Cloud/servicesla"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Service">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/query"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/servicecomposition"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/query"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/cloud"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/servicesla"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Service/servicecomposition"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Party">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Party/sla"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Query">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/concepts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/query"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/concepts"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/query"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/queryeOpposite"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/service"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/servicecomposition"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/servicecomposition"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//ServiceComposition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//ServiceComposition/service"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//ServiceComposition/query"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//ServiceComposition/service"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Concepts">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Concepts/integrationsla"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Concepts/integrationsla"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Concepts/query"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//IntegrationSLA">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//IntegrationSLA/sla"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//IntegrationSLA/concepts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//IntegrationSLA/negotiationrules"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//IntegrationSLA/negotiationrules"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//NegotiationRules">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//NegotiationRules/integrationsla"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//NegotiationRules/guaranty"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Guaranty">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/slaparameters"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/guaranty"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/slaparameters"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/guaranty"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/guarantyeOpposite"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Guaranty/negotiationrules"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Obligation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Obligation/sla"/>
