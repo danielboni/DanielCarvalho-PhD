@@ -10,6 +10,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/integrationsla"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/party"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//SLA/obligation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelo.ecore#//SLA/slaID"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//UserSLA">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//UserSLA/user"/>
@@ -37,6 +38,7 @@
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Party">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Party/sla"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelo.ecore#//Party/name"/>
     </genClasses>
     <genClasses ecoreClass="modelo.ecore#//Query">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference modelo.ecore#//Query/concepts"/>

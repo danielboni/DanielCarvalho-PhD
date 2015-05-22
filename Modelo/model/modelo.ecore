@@ -10,6 +10,7 @@
         eType="#//Party" containment="true" eOpposite="#//Party/sla"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="obligation" upperBound="-1"
         eType="#//Obligation" containment="true" eOpposite="#//Obligation/sla"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slaID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UserSLA" eSuperTypes="#//SLA">
     <eStructuralFeatures xsi:type="ecore:EReference" name="user" lowerBound="1" eType="#//User"
@@ -50,6 +51,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Party">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/party"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Query">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"

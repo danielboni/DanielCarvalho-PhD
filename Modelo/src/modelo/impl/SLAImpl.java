@@ -9,10 +9,12 @@ import modelo.Obligation;
 import modelo.Party;
 import modelo.SLA;
 import modelo.SLAParameters;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link modelo.impl.SLAImpl#getIntegrationsla <em>Integrationsla</em>}</li>
  *   <li>{@link modelo.impl.SLAImpl#getParty <em>Party</em>}</li>
  *   <li>{@link modelo.impl.SLAImpl#getObligation <em>Obligation</em>}</li>
+ *   <li>{@link modelo.impl.SLAImpl#getSlaID <em>Sla ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +76,26 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 	 * @ordered
 	 */
 	protected EList<Obligation> obligation;
+
+	/**
+	 * The default value of the '{@link #getSlaID() <em>Sla ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSlaID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SLA_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSlaID() <em>Sla ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSlaID()
+	 * @generated
+	 * @ordered
+	 */
+	protected String slaID = SLA_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +169,27 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSlaID() {
+		return slaID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSlaID(String newSlaID) {
+		String oldSlaID = slaID;
+		slaID = newSlaID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModeloPackage.SLA__SLA_ID, oldSlaID, slaID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -198,6 +242,8 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				return getParty();
 			case ModeloPackage.SLA__OBLIGATION:
 				return getObligation();
+			case ModeloPackage.SLA__SLA_ID:
+				return getSlaID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,6 +273,9 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				getObligation().clear();
 				getObligation().addAll((Collection<? extends Obligation>)newValue);
 				return;
+			case ModeloPackage.SLA__SLA_ID:
+				setSlaID((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -251,6 +300,9 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 			case ModeloPackage.SLA__OBLIGATION:
 				getObligation().clear();
 				return;
+			case ModeloPackage.SLA__SLA_ID:
+				setSlaID(SLA_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -271,8 +323,26 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				return party != null && !party.isEmpty();
 			case ModeloPackage.SLA__OBLIGATION:
 				return obligation != null && !obligation.isEmpty();
+			case ModeloPackage.SLA__SLA_ID:
+				return SLA_ID_EDEFAULT == null ? slaID != null : !SLA_ID_EDEFAULT.equals(slaID);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (slaID: ");
+		result.append(slaID);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SLAImpl

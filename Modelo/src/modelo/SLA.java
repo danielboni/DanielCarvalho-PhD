@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link modelo.SLA#getIntegrationsla <em>Integrationsla</em>}</li>
  *   <li>{@link modelo.SLA#getParty <em>Party</em>}</li>
  *   <li>{@link modelo.SLA#getObligation <em>Obligation</em>}</li>
+ *   <li>{@link modelo.SLA#getSlaID <em>Sla ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,5 +97,31 @@ public interface SLA extends EObject {
 	 * @generated
 	 */
 	EList<Obligation> getObligation();
+
+	/**
+	 * Returns the value of the '<em><b>Sla ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sla ID</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sla ID</em>' attribute.
+	 * @see #setSlaID(String)
+	 * @see modelo.ModeloPackage#getSLA_SlaID()
+	 * @model
+	 * @generated
+	 */
+	String getSlaID();
+
+	/**
+	 * Sets the value of the '{@link modelo.SLA#getSlaID <em>Sla ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sla ID</em>' attribute.
+	 * @see #getSlaID()
+	 * @generated
+	 */
+	void setSlaID(String value);
 
 } // SLA

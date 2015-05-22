@@ -2,6 +2,7 @@
  */
 package modelo;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -102,13 +103,22 @@ public interface ModeloPackage extends EPackage {
 	int SLA__OBLIGATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Sla ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLA__SLA_ID = 4;
+
+	/**
 	 * The number of structural features of the '<em>SLA</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLA_FEATURE_COUNT = 4;
+	int SLA_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>SLA</em>' class.
@@ -164,6 +174,15 @@ public interface ModeloPackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_SLA__OBLIGATION = SLA__OBLIGATION;
+
+	/**
+	 * The feature id for the '<em><b>Sla ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_SLA__SLA_ID = SLA__SLA_ID;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' containment reference.
@@ -248,6 +267,15 @@ public interface ModeloPackage extends EPackage {
 	int SERVICE_SLA__OBLIGATION = SLA__OBLIGATION;
 
 	/**
+	 * The feature id for the '<em><b>Sla ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SLA__SLA_ID = SLA__SLA_ID;
+
+	/**
 	 * The feature id for the '<em><b>Cloud</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,13 +331,22 @@ public interface ModeloPackage extends EPackage {
 	int PARTY__SLA = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTY__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Party</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTY_FEATURE_COUNT = 1;
+	int PARTY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Party</em>' class.
@@ -338,6 +375,15 @@ public interface ModeloPackage extends EPackage {
 	 * @ordered
 	 */
 	int USER__SLA = PARTY__SLA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__NAME = PARTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Cloud</b></em>' reference.
@@ -393,6 +439,15 @@ public interface ModeloPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLOUD__SLA = PARTY__SLA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD__NAME = PARTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' reference.
@@ -466,6 +521,15 @@ public interface ModeloPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE__SLA = PARTY__SLA;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__NAME = PARTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' containment reference list.
@@ -1026,6 +1090,17 @@ public interface ModeloPackage extends EPackage {
 	EReference getSLA_Obligation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link modelo.SLA#getSlaID <em>Sla ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sla ID</em>'.
+	 * @see modelo.SLA#getSlaID()
+	 * @see #getSLA()
+	 * @generated
+	 */
+	EAttribute getSLA_SlaID();
+
+	/**
 	 * Returns the meta object for class '{@link modelo.UserSLA <em>User SLA</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1249,6 +1324,17 @@ public interface ModeloPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParty_Sla();
+
+	/**
+	 * Returns the meta object for the attribute '{@link modelo.Party#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see modelo.Party#getName()
+	 * @see #getParty()
+	 * @generated
+	 */
+	EAttribute getParty_Name();
 
 	/**
 	 * Returns the meta object for class '{@link modelo.Query <em>Query</em>}'.
@@ -1627,6 +1713,14 @@ public interface ModeloPackage extends EPackage {
 		EReference SLA__OBLIGATION = eINSTANCE.getSLA_Obligation();
 
 		/**
+		 * The meta object literal for the '<em><b>Sla ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLA__SLA_ID = eINSTANCE.getSLA_SlaID();
+
+		/**
 		 * The meta object literal for the '{@link modelo.impl.UserSLAImpl <em>User SLA</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1805,6 +1899,14 @@ public interface ModeloPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARTY__SLA = eINSTANCE.getParty_Sla();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARTY__NAME = eINSTANCE.getParty_Name();
 
 		/**
 		 * The meta object literal for the '{@link modelo.impl.QueryImpl <em>Query</em>}' class.

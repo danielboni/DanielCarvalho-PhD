@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SLAModel" nsURI="urimodel" nsPrefix="prefixmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="SLA">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligations" lowerBound="1"
+        upperBound="-1" eType="#//Obligations" containment="true" eOpposite="#//Obligations/sla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
+        containment="true" eOpposite="#//Parties/sla"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Obligations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/obligations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="garantee" upperBound="-1"
+        eType="#//Garantee" containment="true" eOpposite="#//Garantee/obligations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceconsumer" eType="#//ServiceConsumer"
+        containment="true" eOpposite="#//ServiceConsumer/parties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceprovider" eType="#//ServiceProvider"
+        containment="true" eOpposite="#//ServiceProvider/parties"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/parties"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceConsumer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
+        eOpposite="#//Parties/serviceconsumer"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceConsumerName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
+        eOpposite="#//Parties/serviceprovider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceProviderName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Garantee">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligations" eType="#//Obligations"
+        eOpposite="#//Obligations/garantee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metric" lowerBound="1"
+        upperBound="-1" eType="#//Metric" containment="true" eOpposite="#//Metric/garantee"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="garanteeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metric">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="garantee" eType="#//Garantee"
+        eOpposite="#//Garantee/metric"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metricName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metricID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

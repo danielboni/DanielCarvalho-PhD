@@ -19,6 +19,7 @@ import modelo.ServiceSLA;
 import modelo.User;
 import modelo.UserSLA;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -248,6 +249,15 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSLA_SlaID() {
+		return (EAttribute)slaEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserSLA() {
 		return userSLAEClass;
 	}
@@ -430,6 +440,15 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 	 */
 	public EReference getParty_Sla() {
 		return (EReference)partyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParty_Name() {
+		return (EAttribute)partyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -726,6 +745,7 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 		createEReference(slaEClass, SLA__INTEGRATIONSLA);
 		createEReference(slaEClass, SLA__PARTY);
 		createEReference(slaEClass, SLA__OBLIGATION);
+		createEAttribute(slaEClass, SLA__SLA_ID);
 
 		userSLAEClass = createEClass(USER_SLA);
 		createEReference(userSLAEClass, USER_SLA__USER);
@@ -753,6 +773,7 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 
 		partyEClass = createEClass(PARTY);
 		createEReference(partyEClass, PARTY__SLA);
+		createEAttribute(partyEClass, PARTY__NAME);
 
 		queryEClass = createEClass(QUERY);
 		createEReference(queryEClass, QUERY__CONCEPTS);
@@ -833,6 +854,7 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 		initEReference(getSLA_Integrationsla(), this.getIntegrationSLA(), this.getIntegrationSLA_Sla(), "integrationsla", null, 0, -1, modelo.SLA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSLA_Party(), this.getParty(), this.getParty_Sla(), "party", null, 0, -1, modelo.SLA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSLA_Obligation(), this.getObligation(), this.getObligation_Sla(), "obligation", null, 0, -1, modelo.SLA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSLA_SlaID(), ecorePackage.getEString(), "slaID", null, 0, 1, modelo.SLA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userSLAEClass, UserSLA.class, "UserSLA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserSLA_User(), this.getUser(), this.getUser_Usersla(), "user", null, 1, 1, UserSLA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -860,6 +882,7 @@ public class ModeloPackageImpl extends EPackageImpl implements ModeloPackage {
 
 		initEClass(partyEClass, Party.class, "Party", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParty_Sla(), this.getSLA(), this.getSLA_Party(), "sla", null, 0, 1, Party.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Party.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuery_Concepts(), this.getConcepts(), this.getConcepts_Query(), "concepts", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

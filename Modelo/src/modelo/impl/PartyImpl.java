@@ -24,12 +24,32 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link modelo.impl.PartyImpl#getSla <em>Sla</em>}</li>
+ *   <li>{@link modelo.impl.PartyImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +115,27 @@ public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModeloPackage.PARTY__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -144,6 +185,8 @@ public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
 		switch (featureID) {
 			case ModeloPackage.PARTY__SLA:
 				return getSla();
+			case ModeloPackage.PARTY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +201,9 @@ public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
 		switch (featureID) {
 			case ModeloPackage.PARTY__SLA:
 				setSla((SLA)newValue);
+				return;
+			case ModeloPackage.PARTY__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,6 +220,9 @@ public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
 			case ModeloPackage.PARTY__SLA:
 				setSla((SLA)null);
 				return;
+			case ModeloPackage.PARTY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -188,8 +237,26 @@ public class PartyImpl extends MinimalEObjectImpl.Container implements Party {
 		switch (featureID) {
 			case ModeloPackage.PARTY__SLA:
 				return getSla() != null;
+			case ModeloPackage.PARTY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PartyImpl

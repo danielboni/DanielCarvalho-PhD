@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/SLAModel/src" modelPluginID="SLAModel" modelName="SLAModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>SLAModel.ecore</foreignModel>
+  <genPackages prefix="SLAModel" disposableProviderFactory="true" ecorePackage="SLAModel.ecore#/">
+    <genClasses ecoreClass="SLAModel.ecore#//SLA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/obligations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/parties"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Obligations">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Obligations/sla"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Obligations/garantee"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Parties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Parties/serviceconsumer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Parties/serviceprovider"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Parties/sla"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//ServiceConsumer">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceConsumer/parties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//ServiceConsumer/serviceConsumerName"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//ServiceProvider">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceProvider/parties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//ServiceProvider/serviceProviderName"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Garantee">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Garantee/obligations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Garantee/metric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Garantee/garanteeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Garantee/serviceName"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Metric">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Metric/garantee"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/metricName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/predicate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/metricID"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
