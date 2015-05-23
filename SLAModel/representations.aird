@@ -106,7 +106,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_MSaqsgBmEeWZ2r05Ucsigw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_MSZckQBmEeWZ2r05Ucsigw" fontName=".Helvetica Neue DeskInterface" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MSZckgBmEeWZ2r05Ucsigw" x="120" y="208" width="120" height="100"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MSZckgBmEeWZ2r05Ucsigw" x="124" y="220" width="120" height="100"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_nzvRsABmEeWZ2r05Ucsigw" type="2003" element="_nzbvsABmEeWZ2r05Ucsigw">
             <children xmi:type="notation:Node" xmi:id="_nzv4wgBmEeWZ2r05Ucsigw" type="5007"/>
