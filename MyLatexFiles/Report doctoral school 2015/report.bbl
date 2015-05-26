@@ -1,0 +1,75 @@
+\begin{thebibliography}{10}
+
+\bibitem{005}
+Mohammed Alhamad, Tharam Dillon, and Elizabeth Chang.
+\newblock {Conceptual SLA framework for cloud computing}.
+\newblock In {\em 4th IEEE International Conference on Digital Ecosystems and
+  Technologies}, pages 606--610. IEEE, April 2010.
+
+\bibitem{009}
+Ines Ayadi, Noemie Simoni, and Tatiana Aubonnet.
+\newblock {SLA Approach for "Cloud as a Service"}.
+\newblock In {\em 2013 IEEE Sixth International Conference on Cloud Computing},
+  pages 966--967. IEEE, June 2013.
+
+\bibitem{011}
+Karin Bernsmed, Martin~Gilje Jaatun, Per~Hakon Meland, and Astrid Undheim.
+\newblock Security slas for federated cloud services.
+\newblock {\em 2012 Seventh International Conference on Availability,
+  Reliability and Security}, 0:202--209, 2011.
+
+\bibitem{Dustdar:2012}
+Schahram Dustdar, Reinhard Pichler, Vadim Savenkov, and Hong-Linh Truong.
+\newblock Quality-aware service-oriented data integration: Requirements, state
+  of the art and open challenges.
+\newblock {\em SIGMOD Rec.}, 41(1):11--19, April 2012.
+
+\bibitem{078}
+Ghada ElSheikh, Mustafa~Y. ElNainay, Saleh ElShehaby, and Mohamed~S. Abougabal.
+\newblock {SODIM: Service Oriented Data Integration based on MapReduce}.
+\newblock {\em Alexandria Engineering Journal}, 52(3):313--318, September 2013.
+
+\bibitem{Gonzalez:2010}
+Hector Gonzalez, Alon Halevy, Christian~S. Jensen, Anno Langen, Jayant
+  Madhavan, Rebecca Shapley, and Warren Shen.
+\newblock Google fusion tables: Data management, integration and collaboration
+  in the cloud.
+\newblock In {\em Proceedings of the 1st ACM Symposium on Cloud Computing},
+  SoCC '10, pages 175--180, New York, NY, USA, 2010. ACM.
+
+\bibitem{Gonzalez:2010b}
+Hector Gonzalez, Alon~Y. Halevy, Christian~S. Jensen, Anno Langen, Jayant
+  Madhavan, Rebecca Shapley, Warren Shen, and Jonathan Goldberg-Kidon.
+\newblock Google fusion tables: Web-centered data management and collaboration.
+\newblock In {\em Proceedings of the 2010 ACM SIGMOD International Conference
+  on Management of Data}, SIGMOD '10, pages 1061--1066, New York, NY, USA,
+  2010. ACM.
+
+\bibitem{Lenzerini:2002}
+Maurizio Lenzerini.
+\newblock Data integration: A theoretical perspective.
+\newblock In {\em Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART
+  Symposium on Principles of Database Systems}, PODS '02, pages 233--246, New
+  York, NY, USA, 2002. ACM.
+
+\bibitem{Nie07}
+Tiezheng Nie, Guangqi Wang, Derong Shen, Meifang Li, and Ge~Yu.
+\newblock Sla-based data integration on database grids.
+\newblock In {\em Computer Software and Applications Conference, 2007. COMPSAC
+  2007. 31st Annual International}, volume~2, pages 613--618, July 2007.
+
+\bibitem{096}
+Yuan Tian, Biao Song, Jimupimg Park, and Eui-Nam Huh.
+\newblock Inter-cloud data integration system considering privacy and cost.
+\newblock In Jeng-Shyang Pan, Shyi-Ming Chen, and NgocThanh Nguyen, editors,
+  {\em Computational Collective Intelligence. Technologies and Applications},
+  volume 6421 of {\em Lecture Notes in Computer Science}, pages 195--204.
+  Springer Berlin Heidelberg, 2010.
+
+\bibitem{YauY08}
+Stephen~S. Yau and Yin Yin.
+\newblock A privacy preserving repository for data integration across data
+  sharing services.
+\newblock {\em IEEE T. Services Computing}, 1(3):130--140, 2008.
+
+\end{thebibliography}
