@@ -7,45 +7,45 @@ Repeated entry---line 1641 of file bibliography.bib
  : @article{Dustdar:2012
  :                      ,
 I'm skipping whatever remains of this entry
-You've used 11 entries,
+You've used 9 entries,
             2118 wiz_defined-function locations,
-            579 strings with 6644 characters,
-and the built_in function-call counts, 5384 in all, are:
-= -- 544
-> -- 268
-< -- 9
-+ -- 105
-- -- 93
-* -- 408
-:= -- 833
-add.period$ -- 39
-call.type$ -- 11
-change.case$ -- 78
+            563 strings with 6161 characters,
+and the built_in function-call counts, 4466 in all, are:
+= -- 457
+> -- 221
+< -- 7
++ -- 87
+- -- 78
+* -- 335
+:= -- 687
+add.period$ -- 32
+call.type$ -- 9
+change.case$ -- 66
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 209
-empty$ -- 392
-format.name$ -- 93
-if$ -- 1177
+cite$ -- 9
+duplicate$ -- 173
+empty$ -- 322
+format.name$ -- 78
+if$ -- 976
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 11
-newline$ -- 58
-num.names$ -- 24
-pop$ -- 78
+int.to.str$ -- 9
+missing$ -- 9
+newline$ -- 48
+num.names$ -- 18
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 67
+purify$ -- 57
 quote$ -- 0
-skip$ -- 165
+skip$ -- 140
 stack$ -- 0
-substring$ -- 366
-swap$ -- 82
-text.length$ -- 9
+substring$ -- 306
+swap$ -- 69
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
+type$ -- 36
 warning$ -- 0
-while$ -- 48
-width$ -- 13
-write$ -- 137
+while$ -- 40
+width$ -- 10
+write$ -- 113
 (There was 1 error message)
