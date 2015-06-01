@@ -1,0 +1,181 @@
+\documentclass[11pt,a4paper,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Daniel Aguiar da Silva Carvalho}
+\begin{document}
+\sffamily
+\begin{center}
+\textbf{\large{Thesis Advancement Report 2014-2015 (First Year)}}
+\end{center}
+
+\begin{flushleft}
+\textbf{Thesis title:} Trusted-SLA Guided on Multi-cloud Environments \\
+\textbf{PhD. student:} Daniel Aguiar da Silva Carvalho \\
+\textbf{Supervisor:} Chirine Ghedira-Guegan \\ 
+\textbf{Co-supervisors:} Nadia Bennani and Genoveva Vargas-Solar
+\end{flushleft}
+
+
+\begin{flushleft}
+\textbf{1 Context}\\
+\end{flushleft} 
+The data integration is a well-known and widely studied problem in the database domain. 
+It consists in merging data from different data sources and granting a unified view~\cite{Lenzerini:2002}. 
+%
+The main contributions of the area are: (i) providing a global  representation of heterogeneous data  by defining a schema (e.g., global and local as view approaches); (ii) tagging data with meta-data or by associating them to knowledge (e.g. semantic Web approaches); and (iii)   architectures used for integrating data (i.e. distributed databases, multi-databases,  federated databases, etc).
+%
+The emergence of cloud computing and service oriented computing opens new challenges to data integration. 
+The possibility of an unlimited access to resources  changes the problems associated to data processing. Cloud-based data management using data sharing  enables the collaboration of different entities to perform design tasks \cite{Gonzalez:2010,Gonzalez:2010b}. Data processing and analytics are costly tasks that can profit from the cloud elastic resources provision, coupled with  programming paradigms like Map-Reduce. \cite{078} proposes SODIM that works on a pool of collaborative services and can process a large number of databases represented as web services. 
+
+%In this context, some data integration approaches have been proposed.
+%proposed a cloud-based data management and integration system.
+%It enables data sharing, integration and collaboration between multiple users according to some design foundations %It enables data sharing, integration and collaboration between multiple users. 
+%According to some design foundations (such as integration in the Web, incentives for sharing and facilitate collaboration), the authors described the system  and some examples of applications that can take advantages from it. 
+%\cite{Gonzalez:2010} described in detail the system architecture, integration process, query processing proposed by~\cite{Gonzalez:2010b}. 
+%Additionally, an API and an example of an integrated application with Google Maps is presented. 
+%\cite{078} combined data integration, service oriented architecture and distributed processing. 
+%The Service Oriented Data Integration based on MapReduce System (SODIM) works on a pool of collaborative services and can process a large number of databases represented as web services. 
+
+%The data integration is a well-known and widely discussed problem in the database area. It consists in merging data from different data sources and granting a unified view of the data~\cite{Lenzerini:2002}. 
+%
+%Considering this, cloud and multi-cloud computing opens new challenges to data integration. 
+%The possibility of an unlimited access to resources that arises with the cloud model changes the way to process data.
+%In this context, some data integration approaches have been proposed.
+%\cite{Gonzalez:2010b} proposed a cloud-based data management and integration system.
+%It enables data sharing, integration and collaboration between multiple users. 
+
+%According to some design foundations, such as integration with the web, easy of use, incentives for sharing and facilitate collaboration, the authors described the system  and some examples of applications that can take advantages from it. 
+
+%\cite{Gonzalez:2010} described in detail the system architecture, integration process, query processing proposed by~\cite{Gonzalez:2010b}. 
+%Additionally, an API and an example of an integrated application with Google Maps is presented. 
+%\cite{078} combined data integration, service oriented architecture and distributed processing. 
+%The Service Oriented Data Integration based on MapReduce System (SODIM) works on a pool of collaborative services and can process a large number of databases represented as web services. 
+%
+%In the cloud scenario, it is a hard task to one single cloud deliver the resources necessaries to fit customer requirements. 
+%To avoid this, cloud providers began to share their computing resources.
+%This new (multi)-cloud configuration add more challenges to data integration, considering the large amount and diversity of data, and quality and security aspects of the integration.
+%The data privacy is the most tackled aspect in this context.
+
+In the cloud scenario, one cloud cannot be expected to provide the necessary resources to fulfill application requirements. 
+%In the cloud scenario, it is a hard task to one single cloud deliver the resources necessaries to fit customer requirements. 
+%To avoid this, cloud providers began to share their computing resources.
+Therefore, applications use different cloud providers for externalizing different data processing and management resources
+%This new (multi)-cloud configuration 
+adding more challenges to data integration, considering the large amount and diversity of data, and quality and security aspects of the integration~\cite{Dustdar:2012}.
+%Data privacy is the most popular aspect in this context.
+%\cite{YauY08} proposed a privacy-preserving repository in order to integrate data. 
+%Based on users' integration requirements, the repository supports the retrieval and integration of data across different services. 
+%\cite{096} introduced an inter-cloud data integration system that considers a trade-off between users' privacy requirements and the cost for protecting and processing data.
+%According to the users' privacy requirements, the query plan in the cloud repository 
+%creates the users' query. 
+%This query is subdivided into sub-queries that can be executed in  service providers or on a cloud repository.
+%Each option has its own  privacy and processing costs.
+%Thus, the query plan executor decides the best location to execute the sub-query
+%to meet privacy and cost constraints. 
+%To  synthesize,  quality aspects of data integration services have been highlighted in.
+
+%\bigskip
+In cloud computing, a common way of defining requirements and obligations between the \textit{ provider} and \textit{ customer} is through service level agreement (SLA). 
+SLAs have been  adopted in the cloud, focussing   (i) on the lifecycle of a security SLA on hybrid clouds~\cite{011}; (ii) on SLA models for addressing  management capabilities  as a service, Pcloud services, performed through agreed and negotiated in contracts (elasticity, high availability, scalability and on demand provisioning)~\cite{009}; and (iii) on functional and non-functional requirements of the different cloud delivery models~\cite{005}.
+%presented a approach for security service level agreements on hybrid clouds focussing on the lifecycle of a security SLA, considering some security mechanisms 
+%(i.e. secure resource pooling, secure elasticity, access control, audit, verification and compliance, and incident management and response).
+%\cite{009} introduced a generic SLA model that includes management capabilities as a service which are agreed and negotiated in contracts. 
+%These management capabilities (elasticity, high availability, scalability and on demand provisioning) are performed by managing services called Pcloud services. 
+%The idea is to help the cloud customer to choose the appropriated providers that fits his requirements. 
+%\cite{005} designs SLA based on functional and non-functional requirements of the different cloud delivery models.
+%
+%
+Summarizing, SLA contributions focus on: (i)   the SLA negotiation phase; and (ii)  resources monitoring and allocation  to detect and avoid SLA violations. We identified one single approach regarding data integration in a grid environment guided by SLA~\cite{Nie07}.
+%We believe that data integration can take advantages by integrating SLA on its solutions. 
+%To the best of our knowledge, we have not identified any other proposal adopting the use of SLAs combined with a data integration approach on a (multi)-cloud context.
+%
+%In cloud computing, a common way of defining requirements and obligations between the \textit{cloud provider} and \textit{cloud customer} is through service level agreement (SLA) contracts. 
+%SLAs have been widely adopted in the cloud context. 
+%
+%\cite{011} presented a approach for security service level agreements on hybrid clouds. The author focus on the lifecycle of a security SLA, considering some security mechanisms (i.e. secure resource pooling, secure elasticity, access control, audit, verification and compliance, and incident management and response).
+%
+%\cite{009} introduced a generic SLA model that includes management capabilities as a service which are agreed and negotiated in contracts. These management capabilities (elasticity, high availability, scalability and on demand provisioning) are performed by management services called Pcloud services that are defined in order to achieve application requirements. The idea is to help cloud customer to choose the appropriated providers that fits his requirements. 
+%
+%\cite{005} focused on the designing step of the SLA. 
+%Based on functional and non-functional requirements of the different cloud delivery models, a conceptual framework for cloud computing is proposed. 
+%The objective is to enhance trust and reliability between the parts in the negotiation phase.
+%
+%Summarizing, the contributions are divided in two groups: (i) approaches focus on the SLA negotiation phase; and (ii) approaches for monitoring and allocation of resources in order to detect and avoid SLA violations. Among them, we identified one single approach regarding data integration in a grid environment guided by SLA~\cite{Nie07}.
+
+We believe that data integration on multi-cloud environments can take advantage by integrating SLA on its solutions. To the best of our knowledge, we have not identified any other proposal adopting the use of SLAs combined with a data integration approach on a (multi)-cloud context.
+
+\begin{flushleft}
+\textbf{2 Problem Statement}\\
+\end{flushleft}
+The problem addressed in our work is how can a user efficiently obtain results for her queries, meeting her QoS requirements, respecting her subscribed contracts with the involved cloud provider(s), and without neglecting services contracts? 
+Particularly, for queries that call several services deployed on different clouds.
+
+\noindent
+{\em Hypothesis:}  We assume that data are provided as services that export APIs with methods to retrieve  and process data. Data integration is done (i) on a (multi)-cloud service oriented environment;  (ii) under new conditions with respect to the type of data sources, the environment where it is performed and the preferences  of data consumers and the SLA. We assume also that (iii) SLA measures can be monitored and negotiated in all cloud providers; and that (iv) cloud services and data services are listed in a registry.
+
+%Let us show an example from the domain of energy management to illustrate our problem. 
+%For instance, we assume we are interested in queries expressed in an SQL-like language associated to a set of QoS preferences expressing the requirements of the user like: \textit{Give a list of energy providers that can provision 1000 KW-h, in the next 10 seconds, that are close to my city, with a cost of 0,50 Euro/KW-h and that are labeled as green?} 
+
+
+%In our vision a query expressed in an SQL-like language is associated to a set of QoS preferences expressing the requirements of the user. For example, the economic cost she is ready to pay for executing the query, the provenance of the data, the reputation of data services and the expected time response. The answer of such a query is the result of integrating data from different services according to a series of phases described in the following section.
+
+\begin{flushleft}
+\textbf{3 Objectives}\\
+\end{flushleft}
+The  objective is to propose a data integration solution in a multi-cloud environment guided by user preferences and SLA exported by different clouds. This new approach brings different challenges and open issues: (1)  Identify and classify quality measures associated to data and to cloud resources; (2) Propose and implement a mechanism that ensures SLA within the data integration process  performed on a multi-cloud and cope this with application requirements; and (3) Design a new matching-retrieving algorithm to perform the integration process, selecting the best service composition according to the user requirements and the SLAs.
+
+%\item We will develop an algorithm(s) and a framework to reach our target.
+
+ 
+\begin{flushleft}
+\textbf{4 Synthesis and Perspectives of the Research Activities}\\
+\end{flushleft}
+During the fist year we have organized our research activities  in three groups (see below). These activities were organized and discussed in meetings with advisors and with individual work.
+%
+%\bigskip
+%\\
+
+\noindent
+\textbf{Problem statement and state of the art.} The objective has been to acquire background knowledge on data integration, cloud and SLA building a corpus with publications  and reading selected papers. Therefore, we applied the systematic mapping methodology consisting in retrieving papers from scientific databases,   filtering them according to inclusion and exclusion criteria and research interests expressed in research questions. A classification schema was  proposed, consisting in   facets and dimensions. The abstracts of the final papers collection were read  to classify each paper within the scheme.  We identified the trends and open issues in our research topic and proposed the general lines of  an original data integration solution according to current trends in the area.
+
+\noindent
+{\em Results:} We built a collection of 114 papers and analytics results. We proposed a data integration classification scheme that serves as initial entry for building a state of the art. 
+
+
+%\bigskip
+%\\
+\noindent
+\textbf{Experimentation.} We are currently  configuring an experimentation platform on the cloud~\footnote{You can check the detailed list of activities in https://www.dropbox.com/s/2cf6gncumzrjacd/sla-matching-experiment.docx?dl=0}.
+%
+
+%\bigskip
+%\\
+\noindent
+\textbf{Publications and thematic schools.}
+
+\noindent
+D. A. S. Carvalho, P. A. Souza Neto, G. Vargas-Solar, N. Bennani, C. Ghedira, Can Data Integration Quality be Enhanced on Multi-cloud using SLA?, Short paper, {\em In Proceedings of the 26th International Conference on Database and Expert Systems Applications}, LNCS, Valencia, Spain, 2015 (to appear)
+
+\noindent
+Additionally, in April, I attended to the \emph{1st French Brazilian School on Smart cities and Big Data} at the University of Grenoble Alpes (http://fr-br-school.imag.fr).
+
+%\bigskip
+%Based on the publications extracted from the mapping process methodology, we will proceed the analysis of the current state of the art in order to formalize our proposal. The analysis will be the basis to our model proposal. As a natural result, we will write a paper describing our approach and a survey. In parallel, we will carry on the first steps of implementation of the proposed approach.
+\noindent
+The figure below presents the perspectives described as activities in the following calendar. 
+
+\begin{figure}[!b]
+\center
+\includegraphics[scale=0.50]{calendario.png} \label{fig:calendar} \caption{Calendar}
+\end{figure}
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+
+\end{document}
