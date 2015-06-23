@@ -8,6 +8,8 @@
     <genClasses ecoreClass="SLAModel.ecore#//SLA">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/obligations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/parties"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/servicedefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//SLA/integrationsla"/>
     </genClasses>
     <genClasses ecoreClass="SLAModel.ecore#//Obligations">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Obligations/sla"/>
@@ -35,10 +37,39 @@
     <genClasses ecoreClass="SLAModel.ecore#//Metric">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference SLAModel.ecore#//Metric/garantee"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/metricName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/unit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/predicate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SLAModel.ecore#//Metric/metricID"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Metric/unit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Metric/matchingmetrics"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//IntegrationSLA">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//IntegrationSLA/sla"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//IntegrationSLA/query"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//IntegrationSLA/servicecomposition"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//ServiceDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceDefinition/sla"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceDefinition/servicecomposition"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Query">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Query/servicecomposition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Query/integrationsla"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//Unit">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Unit/metric"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//Unit/matchingunits"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//ServiceComposition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceComposition/servicedefinition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceComposition/query"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//ServiceComposition/integrationsla"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//MatchingUnits">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//MatchingUnits/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="SLAModel.ecore#//MatchingMetrics">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SLAModel.ecore#//MatchingMetrics/metric"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
