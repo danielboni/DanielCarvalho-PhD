@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated SLAModel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="SLAModel.presentation.SLAModelModelWizardID"
+            name="%_UI_SLAModelModelWizard_label"
+            class="SLAModel.presentation.SLAModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SLAModelModelFile.gif">
+         <description>%_UI_SLAModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated SLAModel -->
+      <editor
+            id="SLAModel.presentation.SLAModelEditorID"
+            name="%_UI_SLAModelEditor_label"
+            icon="icons/full/obj16/SLAModelModelFile.gif"
+            extensions="slamodel"
+            class="SLAModel.presentation.SLAModelEditor"
+            contributorClass="SLAModel.presentation.SLAModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
