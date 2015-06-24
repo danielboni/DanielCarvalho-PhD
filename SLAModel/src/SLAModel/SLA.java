@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link SLAModel.SLA#getObligations <em>Obligations</em>}</li>
  *   <li>{@link SLAModel.SLA#getParties <em>Parties</em>}</li>
+ *   <li>{@link SLAModel.SLA#getServicedefinition <em>Servicedefinition</em>}</li>
+ *   <li>{@link SLAModel.SLA#getIntegrationSLA <em>Integration SLA</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,5 +71,51 @@ public interface SLA extends EObject {
 	 * @generated
 	 */
 	void setParties(Parties value);
+
+	/**
+	 * Returns the value of the '<em><b>Servicedefinition</b></em>' containment reference list.
+	 * The list contents are of type {@link SLAModel.ServiceDefinition}.
+	 * It is bidirectional and its opposite is '{@link SLAModel.ServiceDefinition#getSla <em>Sla</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Servicedefinition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Servicedefinition</em>' containment reference list.
+	 * @see SLAModel.SLAModelPackage#getSLA_Servicedefinition()
+	 * @see SLAModel.ServiceDefinition#getSla
+	 * @model opposite="sla" containment="true"
+	 * @generated
+	 */
+	EList<ServiceDefinition> getServicedefinition();
+
+	/**
+	 * Returns the value of the '<em><b>Integration SLA</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link SLAModel.IntegrationSLA#getSlas <em>Slas</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Integration SLA</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Integration SLA</em>' container reference.
+	 * @see #setIntegrationSLA(IntegrationSLA)
+	 * @see SLAModel.SLAModelPackage#getSLA_IntegrationSLA()
+	 * @see SLAModel.IntegrationSLA#getSlas
+	 * @model opposite="slas" transient="false"
+	 * @generated
+	 */
+	IntegrationSLA getIntegrationSLA();
+
+	/**
+	 * Sets the value of the '{@link SLAModel.SLA#getIntegrationSLA <em>Integration SLA</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Integration SLA</em>' container reference.
+	 * @see #getIntegrationSLA()
+	 * @generated
+	 */
+	void setIntegrationSLA(IntegrationSLA value);
 
 } // SLA

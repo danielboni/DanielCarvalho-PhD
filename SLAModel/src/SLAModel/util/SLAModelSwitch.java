@@ -108,6 +108,48 @@ public class SLAModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SLAModelPackage.INTEGRATION_SLA: {
+				IntegrationSLA integrationSLA = (IntegrationSLA)theEObject;
+				T result = caseIntegrationSLA(integrationSLA);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.SERVICE_DEFINITION: {
+				ServiceDefinition serviceDefinition = (ServiceDefinition)theEObject;
+				T result = caseServiceDefinition(serviceDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.QUERY: {
+				Query query = (Query)theEObject;
+				T result = caseQuery(query);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.UNIT: {
+				Unit unit = (Unit)theEObject;
+				T result = caseUnit(unit);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.SERVICE_COMPOSITION: {
+				ServiceComposition serviceComposition = (ServiceComposition)theEObject;
+				T result = caseServiceComposition(serviceComposition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.MATCHING_UNITS: {
+				MatchingUnits matchingUnits = (MatchingUnits)theEObject;
+				T result = caseMatchingUnits(matchingUnits);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SLAModelPackage.MATCHING_METRICS: {
+				MatchingMetrics matchingMetrics = (MatchingMetrics)theEObject;
+				T result = caseMatchingMetrics(matchingMetrics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -214,6 +256,111 @@ public class SLAModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMetric(Metric object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integration SLA</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integration SLA</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegrationSLA(IntegrationSLA object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceDefinition(ServiceDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Query</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQuery(Query object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnit(Unit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Composition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Composition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceComposition(ServiceComposition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Matching Units</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Matching Units</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMatchingUnits(MatchingUnits object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Matching Metrics</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Matching Metrics</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMatchingMetrics(MatchingMetrics object) {
 		return null;
 	}
 

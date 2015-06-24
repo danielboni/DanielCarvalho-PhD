@@ -96,6 +96,34 @@ public class SLAModelAdapterFactory extends AdapterFactoryImpl {
 				return createMetricAdapter();
 			}
 			@Override
+			public Adapter caseIntegrationSLA(IntegrationSLA object) {
+				return createIntegrationSLAAdapter();
+			}
+			@Override
+			public Adapter caseServiceDefinition(ServiceDefinition object) {
+				return createServiceDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseQuery(Query object) {
+				return createQueryAdapter();
+			}
+			@Override
+			public Adapter caseUnit(Unit object) {
+				return createUnitAdapter();
+			}
+			@Override
+			public Adapter caseServiceComposition(ServiceComposition object) {
+				return createServiceCompositionAdapter();
+			}
+			@Override
+			public Adapter caseMatchingUnits(MatchingUnits object) {
+				return createMatchingUnitsAdapter();
+			}
+			@Override
+			public Adapter caseMatchingMetrics(MatchingMetrics object) {
+				return createMatchingMetricsAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -210,6 +238,104 @@ public class SLAModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMetricAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.IntegrationSLA <em>Integration SLA</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.IntegrationSLA
+	 * @generated
+	 */
+	public Adapter createIntegrationSLAAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.ServiceDefinition <em>Service Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.ServiceDefinition
+	 * @generated
+	 */
+	public Adapter createServiceDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.Query <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.Query
+	 * @generated
+	 */
+	public Adapter createQueryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.Unit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.Unit
+	 * @generated
+	 */
+	public Adapter createUnitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.ServiceComposition <em>Service Composition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.ServiceComposition
+	 * @generated
+	 */
+	public Adapter createServiceCompositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.MatchingUnits <em>Matching Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.MatchingUnits
+	 * @generated
+	 */
+	public Adapter createMatchingUnitsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link SLAModel.MatchingMetrics <em>Matching Metrics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see SLAModel.MatchingMetrics
+	 * @generated
+	 */
+	public Adapter createMatchingMetricsAdapter() {
 		return null;
 	}
 

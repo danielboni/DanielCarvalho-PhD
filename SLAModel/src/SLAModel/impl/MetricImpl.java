@@ -3,9 +3,11 @@
 package SLAModel.impl;
 
 import SLAModel.Garantee;
+import SLAModel.MatchingMetrics;
 import SLAModel.Metric;
 import SLAModel.SLAModelPackage;
 
+import SLAModel.Unit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -26,10 +28,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link SLAModel.impl.MetricImpl#getGarantee <em>Garantee</em>}</li>
  *   <li>{@link SLAModel.impl.MetricImpl#getMetricName <em>Metric Name</em>}</li>
- *   <li>{@link SLAModel.impl.MetricImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link SLAModel.impl.MetricImpl#getValue <em>Value</em>}</li>
  *   <li>{@link SLAModel.impl.MetricImpl#getPredicate <em>Predicate</em>}</li>
  *   <li>{@link SLAModel.impl.MetricImpl#getMetricID <em>Metric ID</em>}</li>
+ *   <li>{@link SLAModel.impl.MetricImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link SLAModel.impl.MetricImpl#getMatchingmetrics <em>Matchingmetrics</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,26 +58,6 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 	 * @ordered
 	 */
 	protected String metricName = METRIC_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String UNIT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected String unit = UNIT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -135,6 +118,26 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 	 * @ordered
 	 */
 	protected String metricID = METRIC_ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnit()
+	 * @generated
+	 * @ordered
+	 */
+	protected Unit unit;
+
+	/**
+	 * The cached value of the '{@link #getMatchingmetrics() <em>Matchingmetrics</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMatchingmetrics()
+	 * @generated
+	 * @ordered
+	 */
+	protected MatchingMetrics matchingmetrics;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,7 +225,7 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUnit() {
+	public Unit getUnit() {
 		return unit;
 	}
 
@@ -231,11 +234,93 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(String newUnit) {
-		String oldUnit = unit;
+	public NotificationChain basicSetUnit(Unit newUnit, NotificationChain msgs) {
+		Unit oldUnit = unit;
 		unit = newUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SLAModelPackage.METRIC__UNIT, oldUnit, unit));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SLAModelPackage.METRIC__UNIT, oldUnit, newUnit);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnit(Unit newUnit) {
+		if (newUnit != unit) {
+			NotificationChain msgs = null;
+			if (unit != null)
+				msgs = ((InternalEObject)unit).eInverseRemove(this, SLAModelPackage.UNIT__METRIC, Unit.class, msgs);
+			if (newUnit != null)
+				msgs = ((InternalEObject)newUnit).eInverseAdd(this, SLAModelPackage.UNIT__METRIC, Unit.class, msgs);
+			msgs = basicSetUnit(newUnit, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SLAModelPackage.METRIC__UNIT, newUnit, newUnit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MatchingMetrics getMatchingmetrics() {
+		if (matchingmetrics != null && matchingmetrics.eIsProxy()) {
+			InternalEObject oldMatchingmetrics = (InternalEObject)matchingmetrics;
+			matchingmetrics = (MatchingMetrics)eResolveProxy(oldMatchingmetrics);
+			if (matchingmetrics != oldMatchingmetrics) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SLAModelPackage.METRIC__MATCHINGMETRICS, oldMatchingmetrics, matchingmetrics));
+			}
+		}
+		return matchingmetrics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MatchingMetrics basicGetMatchingmetrics() {
+		return matchingmetrics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMatchingmetrics(MatchingMetrics newMatchingmetrics, NotificationChain msgs) {
+		MatchingMetrics oldMatchingmetrics = matchingmetrics;
+		matchingmetrics = newMatchingmetrics;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SLAModelPackage.METRIC__MATCHINGMETRICS, oldMatchingmetrics, newMatchingmetrics);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMatchingmetrics(MatchingMetrics newMatchingmetrics) {
+		if (newMatchingmetrics != matchingmetrics) {
+			NotificationChain msgs = null;
+			if (matchingmetrics != null)
+				msgs = ((InternalEObject)matchingmetrics).eInverseRemove(this, SLAModelPackage.MATCHING_METRICS__METRIC, MatchingMetrics.class, msgs);
+			if (newMatchingmetrics != null)
+				msgs = ((InternalEObject)newMatchingmetrics).eInverseAdd(this, SLAModelPackage.MATCHING_METRICS__METRIC, MatchingMetrics.class, msgs);
+			msgs = basicSetMatchingmetrics(newMatchingmetrics, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SLAModelPackage.METRIC__MATCHINGMETRICS, newMatchingmetrics, newMatchingmetrics));
 	}
 
 	/**
@@ -313,6 +398,14 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetGarantee((Garantee)otherEnd, msgs);
+			case SLAModelPackage.METRIC__UNIT:
+				if (unit != null)
+					msgs = ((InternalEObject)unit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SLAModelPackage.METRIC__UNIT, null, msgs);
+				return basicSetUnit((Unit)otherEnd, msgs);
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				if (matchingmetrics != null)
+					msgs = ((InternalEObject)matchingmetrics).eInverseRemove(this, SLAModelPackage.MATCHING_METRICS__METRIC, MatchingMetrics.class, msgs);
+				return basicSetMatchingmetrics((MatchingMetrics)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -327,6 +420,10 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 		switch (featureID) {
 			case SLAModelPackage.METRIC__GARANTEE:
 				return basicSetGarantee(null, msgs);
+			case SLAModelPackage.METRIC__UNIT:
+				return basicSetUnit(null, msgs);
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				return basicSetMatchingmetrics(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -357,14 +454,17 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 				return getGarantee();
 			case SLAModelPackage.METRIC__METRIC_NAME:
 				return getMetricName();
-			case SLAModelPackage.METRIC__UNIT:
-				return getUnit();
 			case SLAModelPackage.METRIC__VALUE:
 				return getValue();
 			case SLAModelPackage.METRIC__PREDICATE:
 				return getPredicate();
 			case SLAModelPackage.METRIC__METRIC_ID:
 				return getMetricID();
+			case SLAModelPackage.METRIC__UNIT:
+				return getUnit();
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				if (resolve) return getMatchingmetrics();
+				return basicGetMatchingmetrics();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -383,9 +483,6 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 			case SLAModelPackage.METRIC__METRIC_NAME:
 				setMetricName((String)newValue);
 				return;
-			case SLAModelPackage.METRIC__UNIT:
-				setUnit((String)newValue);
-				return;
 			case SLAModelPackage.METRIC__VALUE:
 				setValue((String)newValue);
 				return;
@@ -394,6 +491,12 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 				return;
 			case SLAModelPackage.METRIC__METRIC_ID:
 				setMetricID((String)newValue);
+				return;
+			case SLAModelPackage.METRIC__UNIT:
+				setUnit((Unit)newValue);
+				return;
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				setMatchingmetrics((MatchingMetrics)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -413,9 +516,6 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 			case SLAModelPackage.METRIC__METRIC_NAME:
 				setMetricName(METRIC_NAME_EDEFAULT);
 				return;
-			case SLAModelPackage.METRIC__UNIT:
-				setUnit(UNIT_EDEFAULT);
-				return;
 			case SLAModelPackage.METRIC__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -424,6 +524,12 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 				return;
 			case SLAModelPackage.METRIC__METRIC_ID:
 				setMetricID(METRIC_ID_EDEFAULT);
+				return;
+			case SLAModelPackage.METRIC__UNIT:
+				setUnit((Unit)null);
+				return;
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				setMatchingmetrics((MatchingMetrics)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -441,14 +547,16 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 				return getGarantee() != null;
 			case SLAModelPackage.METRIC__METRIC_NAME:
 				return METRIC_NAME_EDEFAULT == null ? metricName != null : !METRIC_NAME_EDEFAULT.equals(metricName);
-			case SLAModelPackage.METRIC__UNIT:
-				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
 			case SLAModelPackage.METRIC__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case SLAModelPackage.METRIC__PREDICATE:
 				return PREDICATE_EDEFAULT == null ? predicate != null : !PREDICATE_EDEFAULT.equals(predicate);
 			case SLAModelPackage.METRIC__METRIC_ID:
 				return METRIC_ID_EDEFAULT == null ? metricID != null : !METRIC_ID_EDEFAULT.equals(metricID);
+			case SLAModelPackage.METRIC__UNIT:
+				return unit != null;
+			case SLAModelPackage.METRIC__MATCHINGMETRICS:
+				return matchingmetrics != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -465,8 +573,6 @@ public class MetricImpl extends MinimalEObjectImpl.Container implements Metric {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (metricName: ");
 		result.append(metricName);
-		result.append(", unit: ");
-		result.append(unit);
 		result.append(", value: ");
 		result.append(value);
 		result.append(", predicate: ");

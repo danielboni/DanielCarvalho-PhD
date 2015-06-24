@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link SLAModel.Garantee#getMetric <em>Metric</em>}</li>
  *   <li>{@link SLAModel.Garantee#getGaranteeName <em>Garantee Name</em>}</li>
  *   <li>{@link SLAModel.Garantee#getServiceName <em>Service Name</em>}</li>
+ *   <li>{@link SLAModel.Garantee#getServicedefinition <em>Servicedefinition</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +68,7 @@ public interface Garantee extends EObject {
 	 * @return the value of the '<em>Metric</em>' containment reference list.
 	 * @see SLAModel.SLAModelPackage#getGarantee_Metric()
 	 * @see SLAModel.Metric#getGarantee
-	 * @model opposite="garantee" containment="true" required="true"
+	 * @model opposite="garantee" containment="true"
 	 * @generated
 	 */
 	EList<Metric> getMetric();
@@ -123,5 +124,23 @@ public interface Garantee extends EObject {
 	 * @generated
 	 */
 	void setServiceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Servicedefinition</b></em>' reference list.
+	 * The list contents are of type {@link SLAModel.ServiceDefinition}.
+	 * It is bidirectional and its opposite is '{@link SLAModel.ServiceDefinition#getGarantee <em>Garantee</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Servicedefinition</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Servicedefinition</em>' reference list.
+	 * @see SLAModel.SLAModelPackage#getGarantee_Servicedefinition()
+	 * @see SLAModel.ServiceDefinition#getGarantee
+	 * @model opposite="garantee" required="true"
+	 * @generated
+	 */
+	EList<ServiceDefinition> getServicedefinition();
 
 } // Garantee

@@ -85,6 +85,69 @@ public interface SLAModelFactory extends EFactory {
 	Metric createMetric();
 
 	/**
+	 * Returns a new object of class '<em>Integration SLA</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integration SLA</em>'.
+	 * @generated
+	 */
+	IntegrationSLA createIntegrationSLA();
+
+	/**
+	 * Returns a new object of class '<em>Service Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Definition</em>'.
+	 * @generated
+	 */
+	ServiceDefinition createServiceDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Query</em>'.
+	 * @generated
+	 */
+	Query createQuery();
+
+	/**
+	 * Returns a new object of class '<em>Unit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit</em>'.
+	 * @generated
+	 */
+	Unit createUnit();
+
+	/**
+	 * Returns a new object of class '<em>Service Composition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service Composition</em>'.
+	 * @generated
+	 */
+	ServiceComposition createServiceComposition();
+
+	/**
+	 * Returns a new object of class '<em>Matching Units</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Matching Units</em>'.
+	 * @generated
+	 */
+	MatchingUnits createMatchingUnits();
+
+	/**
+	 * Returns a new object of class '<em>Matching Metrics</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Matching Metrics</em>'.
+	 * @generated
+	 */
+	MatchingMetrics createMatchingMetrics();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

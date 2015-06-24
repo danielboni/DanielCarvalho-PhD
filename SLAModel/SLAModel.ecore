@@ -2,14 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="SLAModel" nsURI="urimodel" nsPrefix="prefixmodel">
   <eClassifiers xsi:type="ecore:EClass" name="SLA">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="obligations" lowerBound="1"
-        upperBound="-1" eType="#//Obligations" containment="true" eOpposite="#//Obligations/sla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligations" eType="#//Obligations"
+        containment="true" eOpposite="#//Obligations/sla"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
         containment="true" eOpposite="#//Parties/sla"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="servicedefinition" eType="#//ServiceDefinition"
-        containment="true" eOpposite="#//ServiceDefinition/sla"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="integrationsla" eType="#//IntegrationSLA"
-        eOpposite="#//IntegrationSLA/sla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servicedefinition" upperBound="-1"
+        eType="#//ServiceDefinition" containment="true" eOpposite="#//ServiceDefinition/sla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integrationSLA" eType="#//IntegrationSLA"
+        eOpposite="#//IntegrationSLA/slas"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Obligations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/obligations"/>
@@ -36,10 +36,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Garantee">
     <eStructuralFeatures xsi:type="ecore:EReference" name="obligations" eType="#//Obligations"
         eOpposite="#//Obligations/garantee"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metric" lowerBound="1"
-        upperBound="-1" eType="#//Metric" containment="true" eOpposite="#//Metric/garantee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metric" upperBound="-1"
+        eType="#//Metric" containment="true" eOpposite="#//Metric/garantee"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="garanteeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servicedefinition" lowerBound="1"
+        upperBound="-1" eType="#//ServiceDefinition" eOpposite="#//ServiceDefinition/garantee"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metric">
     <eStructuralFeatures xsi:type="ecore:EReference" name="garantee" eType="#//Garantee"
@@ -54,20 +56,23 @@
         eOpposite="#//MatchingMetrics/metric"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegrationSLA">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/integrationsla"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="#//Query"
-        eOpposite="#//Query/integrationsla"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="servicecomposition" eType="#//ServiceComposition"
-        eOpposite="#//ServiceComposition/integrationsla"/>
+        containment="true" eOpposite="#//Query/integrationsla"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceComposition" eType="#//ServiceComposition"
+        containment="true" eOpposite="#//ServiceComposition/integrationSLA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slas" lowerBound="1" upperBound="-1"
+        eType="#//SLA" containment="true" eOpposite="#//SLA/integrationSLA"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sla" eType="#//SLA" eOpposite="#//SLA/servicedefinition"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="servicecomposition" eType="#//ServiceComposition"
-        eOpposite="#//ServiceComposition/servicedefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="garantee" eType="#//Garantee"
+        eOpposite="#//Garantee/servicedefinition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceComposition" eType="#//ServiceComposition"
+        eOpposite="#//ServiceComposition/services"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Query">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="servicecomposition" eType="#//ServiceComposition"
-        eOpposite="#//ServiceComposition/query"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servicecomposition" upperBound="-1"
+        eType="#//ServiceComposition" containment="true" eOpposite="#//ServiceComposition/query"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="integrationsla" eType="#//IntegrationSLA"
         eOpposite="#//IntegrationSLA/query"/>
   </eClassifiers>
@@ -78,12 +83,12 @@
         eType="#//MatchingUnits" eOpposite="#//MatchingUnits/unit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceComposition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="servicedefinition" eType="#//ServiceDefinition"
-        eOpposite="#//ServiceDefinition/servicecomposition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="#//Query"
         eOpposite="#//Query/servicecomposition"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="integrationsla" eType="#//IntegrationSLA"
-        eOpposite="#//IntegrationSLA/servicecomposition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="integrationSLA" eType="#//IntegrationSLA"
+        eOpposite="#//IntegrationSLA/serviceComposition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//ServiceDefinition" containment="true" eOpposite="#//ServiceDefinition/serviceComposition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MatchingUnits">
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="2" upperBound="2"

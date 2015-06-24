@@ -2,11 +2,13 @@
  */
 package SLAModel.impl;
 
+import SLAModel.IntegrationSLA;
 import SLAModel.Obligations;
 import SLAModel.Parties;
 import SLAModel.SLA;
 import SLAModel.SLAModelPackage;
 
+import SLAModel.ServiceDefinition;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,6 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link SLAModel.impl.SLAImpl#getObligations <em>Obligations</em>}</li>
  *   <li>{@link SLAModel.impl.SLAImpl#getParties <em>Parties</em>}</li>
+ *   <li>{@link SLAModel.impl.SLAImpl#getServicedefinition <em>Servicedefinition</em>}</li>
+ *   <li>{@link SLAModel.impl.SLAImpl#getIntegrationSLA <em>Integration SLA</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +62,16 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 	 * @ordered
 	 */
 	protected Parties parties;
+
+	/**
+	 * The cached value of the '{@link #getServicedefinition() <em>Servicedefinition</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getServicedefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ServiceDefinition> servicedefinition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +152,59 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ServiceDefinition> getServicedefinition() {
+		if (servicedefinition == null) {
+			servicedefinition = new EObjectContainmentWithInverseEList<ServiceDefinition>(ServiceDefinition.class, this, SLAModelPackage.SLA__SERVICEDEFINITION, SLAModelPackage.SERVICE_DEFINITION__SLA);
+		}
+		return servicedefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegrationSLA getIntegrationSLA() {
+		if (eContainerFeatureID() != SLAModelPackage.SLA__INTEGRATION_SLA) return null;
+		return (IntegrationSLA)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIntegrationSLA(IntegrationSLA newIntegrationSLA, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newIntegrationSLA, SLAModelPackage.SLA__INTEGRATION_SLA, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIntegrationSLA(IntegrationSLA newIntegrationSLA) {
+		if (newIntegrationSLA != eInternalContainer() || (eContainerFeatureID() != SLAModelPackage.SLA__INTEGRATION_SLA && newIntegrationSLA != null)) {
+			if (EcoreUtil.isAncestor(this, newIntegrationSLA))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newIntegrationSLA != null)
+				msgs = ((InternalEObject)newIntegrationSLA).eInverseAdd(this, SLAModelPackage.INTEGRATION_SLA__SLAS, IntegrationSLA.class, msgs);
+			msgs = basicSetIntegrationSLA(newIntegrationSLA, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SLAModelPackage.SLA__INTEGRATION_SLA, newIntegrationSLA, newIntegrationSLA));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -147,6 +215,12 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				if (parties != null)
 					msgs = ((InternalEObject)parties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SLAModelPackage.SLA__PARTIES, null, msgs);
 				return basicSetParties((Parties)otherEnd, msgs);
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getServicedefinition()).basicAdd(otherEnd, msgs);
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetIntegrationSLA((IntegrationSLA)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -163,8 +237,26 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				return ((InternalEList<?>)getObligations()).basicRemove(otherEnd, msgs);
 			case SLAModelPackage.SLA__PARTIES:
 				return basicSetParties(null, msgs);
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				return ((InternalEList<?>)getServicedefinition()).basicRemove(otherEnd, msgs);
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				return basicSetIntegrationSLA(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				return eInternalContainer().eInverseRemove(this, SLAModelPackage.INTEGRATION_SLA__SLAS, IntegrationSLA.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -179,6 +271,10 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				return getObligations();
 			case SLAModelPackage.SLA__PARTIES:
 				return getParties();
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				return getServicedefinition();
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				return getIntegrationSLA();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -199,6 +295,13 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 			case SLAModelPackage.SLA__PARTIES:
 				setParties((Parties)newValue);
 				return;
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				getServicedefinition().clear();
+				getServicedefinition().addAll((Collection<? extends ServiceDefinition>)newValue);
+				return;
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				setIntegrationSLA((IntegrationSLA)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -217,6 +320,12 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 			case SLAModelPackage.SLA__PARTIES:
 				setParties((Parties)null);
 				return;
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				getServicedefinition().clear();
+				return;
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				setIntegrationSLA((IntegrationSLA)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -233,6 +342,10 @@ public class SLAImpl extends MinimalEObjectImpl.Container implements SLA {
 				return obligations != null && !obligations.isEmpty();
 			case SLAModelPackage.SLA__PARTIES:
 				return parties != null;
+			case SLAModelPackage.SLA__SERVICEDEFINITION:
+				return servicedefinition != null && !servicedefinition.isEmpty();
+			case SLAModelPackage.SLA__INTEGRATION_SLA:
+				return getIntegrationSLA() != null;
 		}
 		return super.eIsSet(featureID);
 	}

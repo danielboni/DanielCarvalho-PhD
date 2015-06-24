@@ -14,10 +14,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link SLAModel.Metric#getGarantee <em>Garantee</em>}</li>
  *   <li>{@link SLAModel.Metric#getMetricName <em>Metric Name</em>}</li>
- *   <li>{@link SLAModel.Metric#getUnit <em>Unit</em>}</li>
  *   <li>{@link SLAModel.Metric#getValue <em>Value</em>}</li>
  *   <li>{@link SLAModel.Metric#getPredicate <em>Predicate</em>}</li>
  *   <li>{@link SLAModel.Metric#getMetricID <em>Metric ID</em>}</li>
+ *   <li>{@link SLAModel.Metric#getUnit <em>Unit</em>}</li>
+ *   <li>{@link SLAModel.Metric#getMatchingmetrics <em>Matchingmetrics</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,30 +82,60 @@ public interface Metric extends EObject {
 	void setMetricName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
+	 * Returns the value of the '<em><b>Unit</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link SLAModel.Unit#getMetric <em>Metric</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Unit</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unit</em>' attribute.
-	 * @see #setUnit(String)
+	 * @return the value of the '<em>Unit</em>' containment reference.
+	 * @see #setUnit(Unit)
 	 * @see SLAModel.SLAModelPackage#getMetric_Unit()
-	 * @model
+	 * @see SLAModel.Unit#getMetric
+	 * @model opposite="metric" containment="true"
 	 * @generated
 	 */
-	String getUnit();
+	Unit getUnit();
 
 	/**
-	 * Sets the value of the '{@link SLAModel.Metric#getUnit <em>Unit</em>}' attribute.
+	 * Sets the value of the '{@link SLAModel.Metric#getUnit <em>Unit</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unit</em>' attribute.
+	 * @param value the new value of the '<em>Unit</em>' containment reference.
 	 * @see #getUnit()
 	 * @generated
 	 */
-	void setUnit(String value);
+	void setUnit(Unit value);
+
+	/**
+	 * Returns the value of the '<em><b>Matchingmetrics</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link SLAModel.MatchingMetrics#getMetric <em>Metric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Matchingmetrics</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Matchingmetrics</em>' reference.
+	 * @see #setMatchingmetrics(MatchingMetrics)
+	 * @see SLAModel.SLAModelPackage#getMetric_Matchingmetrics()
+	 * @see SLAModel.MatchingMetrics#getMetric
+	 * @model opposite="metric"
+	 * @generated
+	 */
+	MatchingMetrics getMatchingmetrics();
+
+	/**
+	 * Sets the value of the '{@link SLAModel.Metric#getMatchingmetrics <em>Matchingmetrics</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Matchingmetrics</em>' reference.
+	 * @see #getMatchingmetrics()
+	 * @generated
+	 */
+	void setMatchingmetrics(MatchingMetrics value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

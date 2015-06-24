@@ -63,6 +63,13 @@ public class SLAModelFactoryImpl extends EFactoryImpl implements SLAModelFactory
 			case SLAModelPackage.SERVICE_PROVIDER: return createServiceProvider();
 			case SLAModelPackage.GARANTEE: return createGarantee();
 			case SLAModelPackage.METRIC: return createMetric();
+			case SLAModelPackage.INTEGRATION_SLA: return createIntegrationSLA();
+			case SLAModelPackage.SERVICE_DEFINITION: return createServiceDefinition();
+			case SLAModelPackage.QUERY: return createQuery();
+			case SLAModelPackage.UNIT: return createUnit();
+			case SLAModelPackage.SERVICE_COMPOSITION: return createServiceComposition();
+			case SLAModelPackage.MATCHING_UNITS: return createMatchingUnits();
+			case SLAModelPackage.MATCHING_METRICS: return createMatchingMetrics();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +143,76 @@ public class SLAModelFactoryImpl extends EFactoryImpl implements SLAModelFactory
 	public Metric createMetric() {
 		MetricImpl metric = new MetricImpl();
 		return metric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegrationSLA createIntegrationSLA() {
+		IntegrationSLAImpl integrationSLA = new IntegrationSLAImpl();
+		return integrationSLA;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceDefinition createServiceDefinition() {
+		ServiceDefinitionImpl serviceDefinition = new ServiceDefinitionImpl();
+		return serviceDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Query createQuery() {
+		QueryImpl query = new QueryImpl();
+		return query;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Unit createUnit() {
+		UnitImpl unit = new UnitImpl();
+		return unit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceComposition createServiceComposition() {
+		ServiceCompositionImpl serviceComposition = new ServiceCompositionImpl();
+		return serviceComposition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MatchingUnits createMatchingUnits() {
+		MatchingUnitsImpl matchingUnits = new MatchingUnitsImpl();
+		return matchingUnits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MatchingMetrics createMatchingMetrics() {
+		MatchingMetricsImpl matchingMetrics = new MatchingMetricsImpl();
+		return matchingMetrics;
 	}
 
 	/**
