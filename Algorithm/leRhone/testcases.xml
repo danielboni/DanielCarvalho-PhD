@@ -1,4 +1,12 @@
 <testcases>
+<testcase>
+  <id>0</id>
+  <query>Q(X) :- e1(x,y), e2(y,x), e3(x,z)</query>
+  <view>V1(a,b) :- e1(a,b)</view>
+  <view>V2(a,b) :- e2(a,b), e3(a,b)</view>
+  <view>V3(a,b) :- e3(a,b)</view>
+  <information/>
+ </testcase>
  <testcase>
   <id>1</id>
   <query>Q(X, Y) :- A1(X, X1), A2(X1, X2), A3(X2, X3), A4(X3, X4), A5(X4, X5), A6(X5, Y)</query>
@@ -24,7 +32,7 @@
   <id>3</id>
   <query>Q(X) :- e1(x,y), e2(y,x), e3(x,z)</query>
   <view>V1(a,b) :- e1(a,b)</view>
-  <view>V2(a,b) :- e2(a,b)</view>
+  <view>V2(a,b) :- e2(a,c), e3(c,b)</view>
   <view>V3(a,b) :- e3(a,b)</view>
   <information/>
  </testcase>

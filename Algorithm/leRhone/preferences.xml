@@ -16,8 +16,10 @@
 	</preference>
 	<preference id = "3">
 		<view name = "V1" rank = "0.2"/>
-		<view name = "V2" rank = "0.3"/>
-		<view name = "V3" rank = "0.3"/>
+		<view name = "V2" rank = "0.2"/>
+		<view name = "V3" rank = "0.2"/>
+		<view name = "V4" rank = "0.2"/>
+		<view name = "V5" rank = "0.2"/>
 	</preference>
 	<preference id = "4">
 		<view name = "V" rank = "0.2"/>
