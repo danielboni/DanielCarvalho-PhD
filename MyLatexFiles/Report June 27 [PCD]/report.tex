@@ -36,15 +36,15 @@ The PCD definition proposed in~\cite{Umberto} consists in a tuple $\langle S, h,
 \textbf{2. PCD extension}
 \end{flushleft}
 
-Based on this former PCD definition, the extension to incorporate SLA measures is a tuple $\langle S, SLA_s, h, dep, \varphi, G, Qpref, Def, has\_opt\rangle$, where: 
+Based on this former PCD definition, the extension to incorporate SLA measures is a tuple $\langle S, SLA_s, Qpref, h, dep, \varphi, G, Def, has\_opt\rangle$, where: 
 \begin{description}
 \item[\textit{S}] is a concrete service;
 \item[\textit{SLA$_s$}] is a set of SLA clauses (key-value) associated to the service \textit{S};
+\item[\textit{Qpref}] is a set of user quality preferences (key-value)from the query definition;
 \item[\textit{h}] are mapping between inner terms in the concrete service definition;
 \item[\textit{dep}] is a set of abstract services in the definition of \textit{S} that are inter-dependents;
 \item[\textit{$\varphi$}] are mapping between terms from the abstract composition to terms in the concrete service definition;
 \item[\textit{G}] is a set of abstract services names and quality constraints covered by \textit{S};
-\item[\textit{Qpref}] is a set of user quality preferences (key-value)from the query definition;
 \item[\textit{Def}] is a set of quality constraints that are not covered by \textit{S} alone; and
 \item[\textit{has\_opt}] is a boolean flag to indicate that some abstract service in the definition of \textit{S} has been used in \textit{G} and has an optional parameter.
 \end{description}
@@ -53,10 +53,58 @@ Based on this former PCD definition, the extension to incorporate SLA measures i
 \textbf{3. Remarks and Questions}
 \end{flushleft}
 
-In the proposed extension three new parameters are added to the tuple: \textbf{$SLA_s$}, \textbf{$Qpref$} and \textbf{$dep$}. The idea behind the \textbf{$SLA_s$} and \textbf{$Qpref$} parameters is to express the SLA clauses and the user quality preferences. Considering the $dep$ parameter, the purpose is to express dependencies between abstract services in the concrete service definition. For example, consider the query $Q(x) :-  \ a1(x,y),a2(y,z),a3(z,w)$ and the concrete services: $S1(a,b) :- \ a1(a,b)$; $S2(a,b) :- \ a2(a,c),a4(c, d),a3(d,y)$. The concrete service $S2$ can solve $a2$ and $a3$, but on its definition there is another service $a4$ that should be execute after $a2$. In the current implementation this kind of dependency is not covered, and while trying to execute this example an error occurs. 
+In the proposed extension three new parameters are added to the tuple: \textbf{$SLA_s$}, \textbf{$Qpref$} and \textbf{$dep$}. The idea behind the \textbf{$SLA_s$} and \textbf{$Qpref$} parameters is to express the SLA clauses and the user quality preferences. 
+
+Considering the \textbf{$dep$} parameter, the purpose is to express dependencies between abstract services in the concrete service definition. For example, consider the query:
+
+\begin{description}
+\item $Q(x) :-  \ a1(x,y),a2(y,z),a3(z,w)$
+\end{description}
+
+ And the concrete services: 
+\begin{description}
+\item $S1(a,b) :- \ a1(a,b)$
+\item $S2(a,b) :- \ a2(a,c),a4(c, d),a3(d,y)$
+\end{description} 
+
+The concrete service $S2$ can solve $a2$ and $a3$, but on its definition there is another service $a4$ that should be execute after $a2$. In the current implementation this kind of dependency is not covered, and while trying to execute this example an error occurs. 
 
 \bigskip
-While testing theses dependencies, I found some interesting that I did not understand why. Consider that we have a query $Q(x) :-  \ e1(x,y),ea2(y,x),e3(x,z)$ and concrete services $V1(a,b) :- \ e1(a,b)$; $V2(a,b) :- \ e2(a,b)$; and $V3(a,b) :- \ e3(a,b)$. As expected the rewriting result is $V1(x,y),V2(y,x),V3(x,z)$. However, if we proceed an small change in the definition of $V2$ to $V2(a,b) :- \ e2(a,b),e3(a,b)$ now this service can solve two abstract services in the query. I was expecting as result the rewriting $V1(x,y),V2(y,x)$, but the result was $V1(x,y),V2(y,x),V2(x,z)$ and $V1(x,y),V2(y,x),V3(x,z)$. I would like to understand why because in my opinion these two answer are not good: the first one uses two times $V2$, and the second uses together $V2$ and $V3$, but both of them solve the same abstract service $e3$. 
+While testing theses dependencies, I found some interesting that I did not understand why. Consider that we have a query:
+
+\begin{description}
+\item $Q(x) :-  \ e1(x,y),e2(y,x),e3(x,z)$
+\end{description}
+
+  And concrete services:
+  
+\begin{description}
+\item $V1(a,b) :- \ e1(a,b)$
+\item $V2(a,b) :- \ e2(a,b)$
+\item $V3(a,b) :- \ e3(a,b)$
+\end{description}
+  
+  As expected the rewriting result is $V1(x,y),V2(y,x),V3(x,z)$. However, if we proceed an small change in the definition of $V2$ to:
+
+\begin{description}
+\item $V2(a,b) :- \ e2(a,b),e3(a,b)$
+\end{description}  
+  
+   Now this service can solve two abstract services in the query. I was expecting as result the rewriting:
+
+\begin{description}
+\item $V1(x,y),V2(y,x)$
+\end{description}    
+
+
+    But the results were: 
+
+\begin{description}
+\item $V1(x,y),V2(y,x),V2(x,z)$
+\item $V1(x,y),V2(y,x),V3(x,z)$
+\end{description}  
+  
+I would like to understand why because in my opinion these two answer are not good: the first one uses two times $V2$, and the second uses together $V2$ and $V3$, but both of them solve the same abstract service $e3$. 
 Additionally, I also tried to add a dependency between $e2$ and $e3$ in the definition of $V2$ ($V2(a,b) :- \ e2(a,c),e3(c,b)$), and I also got an error.
 
 \bigskip
