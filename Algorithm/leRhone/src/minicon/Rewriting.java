@@ -1,5 +1,7 @@
 package minicon;
 
+import iae.algorithm.rhone.PCD;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +24,7 @@ import datalog.Variable;
 public class Rewriting {
 
 	/** list of MCDs that form the rewriting */
-	private List<MCD> mcds; 
+	private List<PCD> mcds; 
 
 	/** starting query that will be expressed by the rewriting */
 	private DatalogQuery query;
@@ -51,8 +53,8 @@ public class Rewriting {
 	 * @param query
 	 *            represented by the rewriting
 	 */
-	public Rewriting(List<MCD> mcds, DatalogQuery query) {
-		this.mcds = new ArrayList<MCD>();
+	public Rewriting(List<PCD> mcds, DatalogQuery query) {
+		this.mcds = new ArrayList<PCD>();
 		this.interpretedPreds = new ArrayList<InterpretedPredicate>();
 		this.mcds.addAll(mcds);
 		this.query = query;
@@ -92,7 +94,7 @@ public class Rewriting {
 		// temporary mapping to have a representatives for each query variable
 		Mapping represents = new Mapping();
 
-		for (MCD mcd : mcds) {
+		for (PCD mcd : mcds) {
 
 			// get reference for rewritingMapping from mappings object of class
 			// MCD
@@ -161,7 +163,7 @@ public class Rewriting {
 			boolean containsExistentVar = false;
 			// if one of the mcd contains a mapping from Variable var
 			// to an existential variable set boolean value to true
-			for (MCD mcd : mcds) {
+			for (PCD mcd : mcds) {
 				List<?> existentVars = mcd.findExistentialMappings();
 				if (existentVars.contains(var)) {
 					containsExistentVar = true;
@@ -198,7 +200,7 @@ public class Rewriting {
 			rewriting.addHeadVariable(headVar);
 		}
 
-		for (MCD mcd : mcds) {
+		for (PCD mcd : mcds) {
 
 			Predicate view = new Predicate(mcd.view.getName());
 			rewriting.addPredicate(view);

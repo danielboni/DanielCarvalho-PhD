@@ -10,6 +10,7 @@ import java.util.List;
 
 import minicon.MCD;
 import minicon.MCDMappings;
+import minicon.MiniConPref;
 import minicon.Rewriting;
 import preference.BestFirst;
 import preference.Index;
@@ -19,18 +20,20 @@ import datalog.Predicate;
 
 /**
  *
- * MiniCon is the main class of the implementation of the MiniCon algorithm. It
- * contains the main method to start the program. It uses class InputHandler to
- * obtain parsed user input in form of a MiniCon object. It contains the query
- * and a list of views. Basically, the algorithm consists of three steps: 1.
- * forming the MCDs, 2. combining the MCD, and 3. removing redundant subgoals
- * The last part is optional.
+ * Extension of MiniConPref implementation to include user requirements, and SLA.
  *
- * @author Kevin Irmscher
+ * @author Daniel Aguiar
  */
 public class Rhone {
 
-    private static int testID;
+	public Rhone (DatalogQuery query, List<DatalogQuery> views) {
+        this.query = query;
+        this.views = views;
+        this.pcds = new ArrayList<PCD>();
+        this.rewritings = new ArrayList<Rewriting>();
+    }
+
+	private static int testID;
 
     /**
      * query Object used by algorithm
@@ -43,9 +46,9 @@ public class Rhone {
     private List<DatalogQuery> views;
 
     /**
-     * list of MCDs created by algorithm
+     * list of PCDs created by algorithm.
      */
-    private List<MCD> mcds;
+    private List<PCD> pcds;
 
     /**
      * list of rewritings created by the algorithm
@@ -58,12 +61,12 @@ public class Rhone {
      * @param query query obtained from the parser
      * @param views list of views obtained from the parser
      */
-    public Rhone (DatalogQuery query, List<DatalogQuery> views) {
-        this.query = query;
-        this.views = views;
-        this.mcds = new ArrayList<MCD>();
-        this.rewritings = new ArrayList<Rewriting>();
-    }
+//    public Rhone (DatalogQuery query, List<DatalogQuery> views) {
+//        this.query = query;
+//        this.views = views;
+//        this.mcds = new ArrayList<MCD>();
+//        this.rewritings = new ArrayList<Rewriting>();
+//    }
 
     /**
      * Main method will be called to start the algorithm. It uses class
@@ -80,7 +83,8 @@ public class Rhone {
      * -r : remove redundancies
      */
     public static void main(String[] args) throws Exception {
-        System.out.println("MiniConPref Algorithm - Poti");
+        
+    	System.out.println("Rhone Algorithm");
 
         
         String[] argumentos = new String[3];
@@ -89,21 +93,20 @@ public class Rhone {
         argumentos[2] = "15";
         testID = Integer.parseInt(argumentos[2]);
 
-        Rhone mc = InputHandlerRhone.handleArguments(argumentos);
+        Rhone rhone = InputHandlerRhone.handleArguments(argumentos);
 
-        if (mc != null) {
+        if (rhone != null) {
         	
-            mc.printQuery();  // commented for time evaluation
-            mc.printViews();  // commented for time evaluation
+            rhone.printQuery();  // commented for time evaluation
+            rhone.printViews();  // commented for time evaluation
 
             long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
-            mc.startMiniCon();
             
-            mc.printMCDs();
+            rhone.startRhone();
             
             long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
 
-            mc.printRewritings(); // commented for time evaluation
+            //mc.printRewritings(); // commented for time evaluation
             System.out.println("Done in: " + time + "ns");
         }
 
@@ -116,21 +119,22 @@ public class Rhone {
      * whether argument -r is provided
      */
     
-    public void startMiniCon() {
+    public void startRhone() {
         
     	
     	/**
          * Old method to create MCDS: formMCDs(). Updated to createPCDs().
          */
-    	formMCDs();
-    	createPCDs();
-        /*C.BA*/
+//    	formMCDs();
+    	this.createPCDs();
+        
+    	/*C.BA*/
         // set the MCD preferences ...
         try {
 
-            PreferencesFileParser.setMCDPreferences(mcds, "preferences.xml", testID);
+            PreferencesFileParser.setMCDPreferences(pcds, "preferences.xml", testID);
 
-            Index.initialize(mcds, query);
+            Index.initialize(pcds, query);
             BestFirst bf = new BestFirst(query);
 
             rewritings = bf.getRewritings(query);
@@ -138,51 +142,10 @@ public class Rhone {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("OUPSS !!! " + e);
-            System.out.println("mcds.size() = " + mcds.size());
+            System.out.println("mcds.size() = " + pcds.size());
             System.out.println("rewritings.size() = " + rewritings.size());
         }
 
-    }
-
-    /**
-     * The method will create the MCDs that are possible for the given query and
-     * views. Every subgoal of the query will be considered separately. For each
-     * subgoal the algorithm will create all possible mappings to each given
-     * view. For every obtained valid mapping an MCD will be created. Using the
-     * class MCD, it will be checked whether all properties are fulfilled and if
-     * necessary, the MCD will be extended. If the MCD is valid, it will be
-     * added to the list of MCDs. Finally duplicate MCDs will be removed from
-     * the list.
-     */
-    private void formMCDs() {
-
-        // subgoal of the query
-        List<Predicate> subgoals = query.getPredicates();
-
-        for (Predicate subgoal : subgoals) {
-			System.out.println("\n current subgoal " + subgoal);
-
-            // for every view try to create mappings
-            for (DatalogQuery view : views) {
-
-                List<MCDMappings> mappings = createMapping(subgoal, view);
-
-                // for every mapping created check whether properties are
-                // fulfilled
-                for (MCDMappings map : mappings) {
-
-                	System.out.println("Criando MCDs: subgoal: " + subgoal + 
-                			" query: " + query + " view: " + view + " map: " + map);
-                    // create MCD
-                    MCD mcd = new MCD(subgoal, query, view, map);
-
-                    // MCD can be extend to fulfill properties
-                    if (mcd.fulfillProperty())
-                        mcds.add(mcd);
-                }
-            }
-        }
-        removeDuplicates();
     }
     
     /**
@@ -192,60 +155,100 @@ public class Rhone {
      */
     private void createPCDs() {
 
-    	/**
-         * Each view for our implementation corresponds to a concrete service.
-         */
-        for (DatalogQuery view : views) {
-
-            List<MCDMappings> mappings = createMapping(subgoal, view);
-
-            // for every mapping created check whether properties are
-            // fulfilled
-            for (MCDMappings map : mappings) {
-
-            	System.out.println("Criando MCDs: subgoal: " + subgoal + 
-            			" query: " + query + " view: " + view + " map: " + map);
-                // create MCD
-                MCD mcd = new MCD(subgoal, query, view, map);
-
-                // MCD can be extend to fulfill properties
-                if (mcd.fulfillProperty())
-                    mcds.add(mcd);
-            }
-        }
+    	System.out.println("****** createPCDs() method ******");
     	
+        List<Predicate> queryAbstractServices = query.getPredicates();
     	
-        // subgoal of the query
-        List<Predicate> subgoals = query.getPredicates();
-
-        for (Predicate subgoal : subgoals) {
-			System.out.println("\n current subgoal " + subgoal);
-
-            // for every view try to create mappings
-            for (DatalogQuery view : views) {
-
-                List<MCDMappings> mappings = createMapping(subgoal, view);
-
-                // for every mapping created check whether properties are
+        for (Predicate query_AbstractService : queryAbstractServices) {
+    		
+        	for (DatalogQuery concreteServices : views) {
+        		
+        		List<MCDMappings> mappings = createMapping(query_AbstractService, concreteServices);
+        		
+        		// for every mapping created check whether properties are
                 // fulfilled
                 for (MCDMappings map : mappings) {
 
-                	System.out.println("Criando MCDs: subgoal: " + subgoal + 
-                			" query: " + query + " view: " + view + " map: " + map);
                     // create MCD
-                    MCD mcd = new MCD(subgoal, query, view, map);
+                    PCD pcd = new PCD(query_AbstractService, query, concreteServices, map);
 
                     // MCD can be extend to fulfill properties
-                    if (mcd.fulfillProperty())
-                        mcds.add(mcd);
+                    if (pcd.fulfillProperty())
+                    	this.pcds.add(pcd);
                 }
-            }
-        }
+        	} 		
+    	}      
+        
         removeDuplicates();
+        
+        this.printPCDs();
+        
+        concatenatingPCDs();
+        
+        this.printPCDs();
+        
+        System.out.println("****** end of createPCDs() method ******");
+        
     }
     
 
-    /**
+	/**
+     * The old implementation creates more than one PCD for the same concrete service (view).
+     * This method concatenates PCDs for the same concrete service in one single PCD.
+     * @author Daniel Aguiar
+     */
+    private void concatenatingPCDs() {
+		List<PCD> pcdsWithoutDuplicates = new ArrayList<PCD>();
+		List<DatalogQuery> concreteServicesName = this.getConcreteServicesName();
+		// Iterating on each different concrete service
+		for (DatalogQuery concreteService : concreteServicesName) {
+			List<Predicate> coveredAbstractServices = this.getCoveredAbstractServices(concreteService);
+			List<MCDMappings> mappings = this.getMappings(concreteService);
+			
+			PCD newPCD = new PCD (coveredAbstractServices, mappings, concreteService);
+			pcdsWithoutDuplicates.add(newPCD);
+
+			//			System.out.println("::: Concrete Service: " + concreteService);
+//			System.out.println("::: Number of PCDS for the same Concrete Service: " + duplicatedPCDs.size());
+//			System.out.println("::: Number of covered abstract services for " + concreteService + ": " + duplicatedPCDs.size());
+			
+			//PCD newPCD = new PCD(subgoal, concreteService, view, mappings);
+		}
+			
+		this.pcds = pcdsWithoutDuplicates;
+	}
+    
+    
+
+	private List<Predicate> getCoveredAbstractServices(
+			DatalogQuery concreteService) {
+		List<Predicate> coveredAbstractServices = new ArrayList<Predicate>();
+		for (PCD pcd: pcds){
+			if (pcd.view.equals(concreteService))
+				coveredAbstractServices.addAll(pcd.coveredSubgoals);
+		}
+		return coveredAbstractServices;
+	}
+
+	private List<DatalogQuery> getConcreteServicesName() {
+		List<DatalogQuery> concreteServicesName = new ArrayList<DatalogQuery>();
+		for (PCD pcd: pcds){
+			if (!concreteServicesName.contains(pcd.view))
+				concreteServicesName.add(pcd.view);
+		}
+		return concreteServicesName;
+	}
+
+	private List<MCDMappings> getMappings(DatalogQuery concreteService) {
+		List<MCDMappings> mappings = new ArrayList<MCDMappings>();
+		for (PCD pcd: pcds){
+			if (pcd.view.equals(concreteService))
+				mappings.add(pcd.mappings);
+		}
+		return mappings;
+	}
+
+	/**
      * Called by formMCDs. The given query subgoal is tested if it can be mapped
      * to every predicate of the view. If a mapping is possible, a new mapping
      * object is added to the list of mappings.
@@ -254,13 +257,12 @@ public class Rhone {
      * @param view current view
      * @return list of possible mappings
      */
-    private List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
+    protected List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
         List<Predicate> viewPredicates = view.getPredicates();
         List<MCDMappings> mappings = new ArrayList<MCDMappings>();
         
         for (Predicate viewPred : viewPredicates) {
             if (subgoal.canBeMapped(viewPred)){
-            	System.out.println("Created mapping: subgoal: " + subgoal + " view (da entrada, n da query): " + viewPred);
                 mappings.add(new MCDMappings(subgoal, viewPred));
             }    
         }
@@ -275,27 +277,27 @@ public class Rhone {
      * the member list mcds will finally be linked to the list noDuplicates. The
      * equality of the MCDs is determined by method 'equals' in class MCD.
      */
-    private void removeDuplicates() {
+    protected void removeDuplicates() {
 
-        List<MCD> noDuplicates = new ArrayList<MCD>();
+        List<PCD> noDuplicates = new ArrayList<PCD>();
 
-        for (MCD mcd : mcds) {
+        for (PCD mcd : pcds) {
             boolean contains = false;
 
-            for (MCD noDup : noDuplicates) {
+            for (PCD noDup : noDuplicates) {
                 if (mcd.equals(noDup))
                     contains = true;
             }
             if (!contains)
                 noDuplicates.add(mcd);
         }
-        mcds = noDuplicates;
+        pcds = noDuplicates;
     }
 
     /**
      * Print rewritings
      */
-    private void printRewritings() {
+    protected void printRewritings() {
         if (!rewritings.isEmpty()) {
             System.out.println("\nRewriting(s):");
             for (Rewriting rw : rewritings) {
@@ -307,30 +309,32 @@ public class Rhone {
     /**
      * Print MCDs
      */
-    private void printMCDs() {
-        if (mcds.isEmpty())
+    protected void printPCDs() {
+        if (pcds.isEmpty())
             System.out.println("\nNo MCDs created");
         else {
+        	System.out.println("********* printPCDs() Method *********");
         	System.out.println("Created PCD's:");
-            for (MCD mcd : mcds) {
-                System.out.println("Concrete service: " + mcd.getView());
-                System.out.println("Mappings of variables: " + mcd.mappings.toString());
+            for (PCD pcd : pcds) {
+                System.out.println("Concrete service: " + pcd.getView());
+                //System.out.println("Mappings of variables: " + pcd.mappings.toString());
                 
             }
+            System.out.println("********* end of printPCDs() Method *********");
         }
     }
 
     /**
      * Print query provided by user
      */
-    private void printQuery() {
+    protected void printQuery() {
         System.out.println("\nQuery: " + query);
     }
 
     /**
      * Print views provided by user
      */
-    private void printViews() {
+    protected void printViews() {
         for (DatalogQuery view : views) {
             System.out.println("View: " + view);
 
@@ -342,7 +346,7 @@ public class Rhone {
      *
      * @return list of Rewriting objects
      */
-    public List<Rewriting> getRewritings() {
+    protected List<Rewriting> getRewritings() {
         return rewritings;
     }
 

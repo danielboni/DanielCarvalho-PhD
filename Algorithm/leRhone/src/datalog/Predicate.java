@@ -196,18 +196,15 @@ public class Predicate {
 
 		if ((this.name.equals(pred.name))
 				&& (this.numberOfElements() == pred.numberOfElements())) {
-			System.out.println("entrou if ---- ");
 			List<PredicateElement> elemList = pred.getElements();
 			for (int i = 0; i < elemList.size(); i++) {
 				PredicateElement elem = elemList.get(i);
 				PredicateElement thisElem = elements.get(i);
-				System.out.println("elements === " + elem + " " + thisElem + " " + elem.equals(thisElem) + " " + (elem instanceof Constant));
 				// mapping Constant -> Constants then constants must be the same
 				if ((elem instanceof Constant)
 						&& (thisElem instanceof Constant)
 						&& !elem.equals(thisElem)) {
 					canBeMapped = false;
-					System.out.println("elements 2 === " + elem + " " + thisElem + " " + elem.equals(thisElem));
 				}
 			}
 		} else {

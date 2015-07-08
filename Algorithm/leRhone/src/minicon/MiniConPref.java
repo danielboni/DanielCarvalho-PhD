@@ -32,22 +32,22 @@ public class MiniConPref {
     /**
      * query Object used by algorithm
      */
-    private DatalogQuery query;
+    protected DatalogQuery query;
 
     /**
      * list of views used by algorithm
      */
-    private List<DatalogQuery> views;
+    protected List<DatalogQuery> views;
 
     /**
      * list of MCDs created by algorithm
      */
-    private List<MCD> mcds;
+    protected List<MCD> mcds;
 
     /**
      * list of rewritings created by the algorithm
      */
-    private List<Rewriting> rewritings;
+    protected List<Rewriting> rewritings;
 
     /**
      * MiniCon constructor
@@ -119,9 +119,9 @@ public class MiniConPref {
         // set the MCD preferences ...
         try {
 
-            PreferencesFileParser.setMCDPreferences(mcds, "preferences.xml", testID);
+            //PreferencesFileParser.setMCDPreferences(mcds, "preferences.xml", testID);
 
-            Index.initialize(mcds, query);
+            //Index.initialize(mcds, query);
             BestFirst bf = new BestFirst(query);
 
             rewritings = bf.getRewritings(query);
@@ -185,7 +185,7 @@ public class MiniConPref {
      * @param view current view
      * @return list of possible mappings
      */
-    private List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
+    protected List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
         List<Predicate> viewPredicates = view.getPredicates();
         List<MCDMappings> mappings = new ArrayList<MCDMappings>();
         
@@ -206,7 +206,7 @@ public class MiniConPref {
      * the member list mcds will finally be linked to the list noDuplicates. The
      * equality of the MCDs is determined by method 'equals' in class MCD.
      */
-    private void removeDuplicates() {
+    protected void removeDuplicates() {
 
         List<MCD> noDuplicates = new ArrayList<MCD>();
 
@@ -226,7 +226,7 @@ public class MiniConPref {
     /**
      * Print rewritings
      */
-    private void printRewritings() {
+    protected void printRewritings() {
         if (!rewritings.isEmpty()) {
             System.out.println("\nRewriting(s):");
             for (Rewriting rw : rewritings) {
@@ -238,7 +238,7 @@ public class MiniConPref {
     /**
      * Print MCDs
      */
-    private void printMCDs() {
+    protected void printMCDs() {
         // System.out.println("\n");
         if (mcds.isEmpty())
             System.out.println("\nNo MCDs created");
@@ -251,14 +251,14 @@ public class MiniConPref {
     /**
      * Print query provided by user
      */
-    private void printQuery() {
+    protected void printQuery() {
         System.out.println("\nQuery: " + query);
     }
 
     /**
      * Print views provided by user
      */
-    private void printViews() {
+    protected void printViews() {
         for (DatalogQuery view : views) {
             System.out.println("View: " + view);
 
@@ -270,7 +270,7 @@ public class MiniConPref {
      *
      * @return list of Rewriting objects
      */
-    public List<Rewriting> getRewritings() {
+    protected List<Rewriting> getRewritings() {
         return rewritings;
     }
 
