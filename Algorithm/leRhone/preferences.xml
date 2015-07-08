@@ -18,8 +18,6 @@
 		<view name = "V1" rank = "0.2"/>
 		<view name = "V2" rank = "0.2"/>
 		<view name = "V3" rank = "0.2"/>
-		<view name = "V4" rank = "0.2"/>
-		<view name = "V5" rank = "0.2"/>
 	</preference>
 	<preference id = "4">
 		<view name = "V" rank = "0.2"/>
@@ -135,5 +133,22 @@
 	<preference id = "13">
 		<view name = "V1" rank = "0.2"/>
 		<view name = "V2" rank = "0.2"/>
+	</preference>
+	<preference id = "14">
+		<view name = "S1" rank = "0.2"/>
+		<view name = "S2" rank = "0.2"/>
+		<view name = "S3" rank = "0.2"/>
+		<view name = "S4" rank = "0.2"/>
+		<view name = "S5" rank = "0.2"/>
+		<view name = "S6" rank = "0.2"/>
+		<view name = "S7" rank = "0.2"/>
+	</preference>
+	<preference id = "15">
+		<view name = "S2" rank = "0.2"/>
+		<view name = "S3" rank = "0.2"/>
+		<view name = "S4" rank = "0.2"/>
+		<view name = "S5" rank = "0.2"/>
+		<view name = "S6" rank = "0.2"/>
+		<view name = "S7" rank = "0.2"/>
 	</preference>
 </preferences>

@@ -30,9 +30,9 @@
  </testcase>
  <testcase>
   <id>3</id>
-  <query>Q(X) :- e1(x,y), e2(y,x), e3(x,z)</query>
+  <query>Q(x,z) :- e1(x,y), e2(y,x), e3(x,z)</query>
   <view>V1(a,b) :- e1(a,b)</view>
-  <view>V2(a,b) :- e2(a,c), e3(c,b)</view>
+  <view>V2(a,b) :- e2(a,a)</view>
   <view>V3(a,b) :- e3(a,b)</view>
   <information/>
  </testcase>
@@ -179,6 +179,29 @@
   <query>Q(X, Y) :- A1(X, Y), A2(X,Y)</query>
   <view>V1(X, Y) :- A1(X, Y), A2(X,Y)</view>
   <view>V2(X, Y) :- A1(X, Y), A2(X,Y)</view>
+  <information/>
+ </testcase>
+ <testcase>
+  <id>14</id>
+  <query>Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)</query>
+  <view>S1(disease, patientsssn) :- A1(disease, patientsssn)</view>
+  <view>S2(disease, patientsssn) :- A1(disease, patientsssn)</view>
+  <view>S3(patientsssn, dna) :- A2(patientsssn, dna)</view>
+  <view>S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)</view>
+  <view>S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)</view>
+  <view>S6(patientsssn, diseases) :- A5(patientsssn, diseases)</view>
+  <view>S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)</view>
+  <information/>
+ </testcase>
+  <testcase>
+  <id>15</id>
+  <query>Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)</query>
+  <view>S2(disease, patientsssn,dna) :- A1(disease, patientsssn),A2(patientsssn, dna)</view>
+  <view>S3(patientsssn, dna) :- A2(patientsssn, dna)</view>
+  <view>S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)</view>
+  <view>S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)</view>
+  <view>S6(patientsssn, diseases) :- A5(patientsssn, diseases)</view>
+  <view>S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)</view>
   <information/>
  </testcase>
 </testcases>

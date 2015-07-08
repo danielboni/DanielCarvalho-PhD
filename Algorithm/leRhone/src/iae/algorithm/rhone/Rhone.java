@@ -2,12 +2,15 @@
  * Created on 20.01.2005
  * Programming project - Implementation of MiniCon algorithm
  */
-package minicon;
+package iae.algorithm.rhone;
 
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import minicon.MCD;
+import minicon.MCDMappings;
+import minicon.Rewriting;
 import preference.BestFirst;
 import preference.Index;
 import preference.PreferencesFileParser;
@@ -25,7 +28,7 @@ import datalog.Predicate;
  *
  * @author Kevin Irmscher
  */
-public class MiniConPref {
+public class Rhone {
 
     private static int testID;
 
@@ -55,7 +58,7 @@ public class MiniConPref {
      * @param query query obtained from the parser
      * @param views list of views obtained from the parser
      */
-    public MiniConPref(DatalogQuery query, List<DatalogQuery> views) {
+    public Rhone (DatalogQuery query, List<DatalogQuery> views) {
         this.query = query;
         this.views = views;
         this.mcds = new ArrayList<MCD>();
@@ -83,10 +86,10 @@ public class MiniConPref {
         String[] argumentos = new String[3];
         argumentos[0] = "-f";
         argumentos[1] = "testcases.xml";
-        argumentos[2] = "14";
+        argumentos[2] = "15";
         testID = Integer.parseInt(argumentos[2]);
 
-        MiniConPref mc = InputHandlerPref.handleArguments(argumentos);
+        Rhone mc = InputHandlerRhone.handleArguments(argumentos);
 
         if (mc != null) {
         	
@@ -112,9 +115,15 @@ public class MiniConPref {
      * 2. combining MCDs, 3. remove redundancies; the last call depends on
      * whether argument -r is provided
      */
+    
     public void startMiniCon() {
-        formMCDs();
-
+        
+    	
+    	/**
+         * Old method to create MCDS: formMCDs(). Updated to createPCDs().
+         */
+    	formMCDs();
+    	createPCDs();
         /*C.BA*/
         // set the MCD preferences ...
         try {
@@ -175,6 +184,66 @@ public class MiniConPref {
         }
         removeDuplicates();
     }
+    
+    /**
+     * 
+     * 
+     * @ created by Daniel Aguiar
+     */
+    private void createPCDs() {
+
+    	/**
+         * Each view for our implementation corresponds to a concrete service.
+         */
+        for (DatalogQuery view : views) {
+
+            List<MCDMappings> mappings = createMapping(subgoal, view);
+
+            // for every mapping created check whether properties are
+            // fulfilled
+            for (MCDMappings map : mappings) {
+
+            	System.out.println("Criando MCDs: subgoal: " + subgoal + 
+            			" query: " + query + " view: " + view + " map: " + map);
+                // create MCD
+                MCD mcd = new MCD(subgoal, query, view, map);
+
+                // MCD can be extend to fulfill properties
+                if (mcd.fulfillProperty())
+                    mcds.add(mcd);
+            }
+        }
+    	
+    	
+        // subgoal of the query
+        List<Predicate> subgoals = query.getPredicates();
+
+        for (Predicate subgoal : subgoals) {
+			System.out.println("\n current subgoal " + subgoal);
+
+            // for every view try to create mappings
+            for (DatalogQuery view : views) {
+
+                List<MCDMappings> mappings = createMapping(subgoal, view);
+
+                // for every mapping created check whether properties are
+                // fulfilled
+                for (MCDMappings map : mappings) {
+
+                	System.out.println("Criando MCDs: subgoal: " + subgoal + 
+                			" query: " + query + " view: " + view + " map: " + map);
+                    // create MCD
+                    MCD mcd = new MCD(subgoal, query, view, map);
+
+                    // MCD can be extend to fulfill properties
+                    if (mcd.fulfillProperty())
+                        mcds.add(mcd);
+                }
+            }
+        }
+        removeDuplicates();
+    }
+    
 
     /**
      * Called by formMCDs. The given query subgoal is tested if it can be mapped
@@ -239,13 +308,16 @@ public class MiniConPref {
      * Print MCDs
      */
     private void printMCDs() {
-        // System.out.println("\n");
         if (mcds.isEmpty())
             System.out.println("\nNo MCDs created");
-        else
+        else {
+        	System.out.println("Created PCD's:");
             for (MCD mcd : mcds) {
-                System.out.println(mcd.toString() + " / Rank: " + mcd.getRank());
+                System.out.println("Concrete service: " + mcd.getView());
+                System.out.println("Mappings of variables: " + mcd.mappings.toString());
+                
             }
+        }
     }
 
     /**
