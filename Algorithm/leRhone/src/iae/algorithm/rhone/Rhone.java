@@ -106,7 +106,7 @@ public class Rhone {
             
             long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
 
-            //mc.printRewritings(); // commented for time evaluation
+            rhone.printRewritings(); // commented for time evaluation
             System.out.println("Done in: " + time + "ns");
         }
 
@@ -135,6 +135,7 @@ public class Rhone {
             PreferencesFileParser.setMCDPreferences(pcds, "preferences.xml", testID);
 
             Index.initialize(pcds, query);
+            
             BestFirst bf = new BestFirst(query);
 
             rewritings = bf.getRewritings(query);

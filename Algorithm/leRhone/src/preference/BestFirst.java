@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 import minicon.MCD;
+import minicon.MCDMappings;
 import minicon.Mapping;
 import minicon.Rewriting;
 
@@ -204,24 +205,47 @@ public class BestFirst {
                 }
             }
         }
-
-        // x exists in C1 and C2 ==> it must be mapped to the same constant
+// EU NAO ENTENDO O MOTIVO DISSO.
+//        // x exists in C1 and C2 ==> it must be mapped to the same constant
+//        for (int i = 0; i < mcds.size(); i++) {
+//            PCD mcd1 = mcds.get(i);
+//            Mapping constMap1 = mcd1.mappings.constMap;
+//            for (int j = 0; j < mcds.size(); j++) {
+//                if (i != j) {
+//                    PCD mcd2 = mcds.get(j);
+//                    Mapping constMap2 = mcd2.mappings.constMap;
+//                    for (PredicateElement elem : constMap1.arguments) {
+//                        if ((constMap2.containsArgument(elem) && !(constMap1
+//                                .getFirstMatchingValue(elem).equals(constMap2
+//                                        .getFirstMatchingValue(elem)))))
+//                            return false;
+//                    }
+//                }
+//            }
+//        }
+        
         for (int i = 0; i < mcds.size(); i++) {
-            PCD mcd1 = mcds.get(i);
-            Mapping constMap1 = mcd1.mappings.constMap;
-            for (int j = 0; j < mcds.size(); j++) {
-                if (i != j) {
-                    PCD mcd2 = mcds.get(j);
-                    Mapping constMap2 = mcd2.mappings.constMap;
-                    for (PredicateElement elem : constMap1.arguments) {
-                        if ((constMap2.containsArgument(elem) && !(constMap1
-                                .getFirstMatchingValue(elem).equals(constMap2
-                                        .getFirstMatchingValue(elem)))))
-                            return false;
+            
+        	PCD mcd1 = mcds.get(i);
+            
+            for (MCDMappings map: mcd1.getPhi()){
+            	Mapping constMap1 = map.constMap;
+            	for (int j = 0; j < mcds.size(); j++) {
+                    if (i != j) {
+                        PCD mcd2 = mcds.get(j);
+                        for (MCDMappings map2: mcd2.getPhi()){
+                        	Mapping constMap2 = map2.constMap;
+                            for (PredicateElement elem : constMap1.arguments) {
+                                if ((constMap2.containsArgument(elem) && !(constMap1
+                                        .getFirstMatchingValue(elem).equals(constMap2
+                                                .getFirstMatchingValue(elem)))))
+                                    return false;
+                            }
+                        } 
                     }
                 }
-            }
-        }
+            }      
+        } 
         return true;
     }
 }

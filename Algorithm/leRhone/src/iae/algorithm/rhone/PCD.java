@@ -85,6 +85,7 @@ public class PCD {
 		this.coveredSubgoals = new ArrayList<Predicate>();
 		this.coveredInterpretedPredicates = new ArrayList<InterpretedPredicate>();
 		this.coveredSubgoals.add(subgoal);
+		this.phi = new ArrayList<MCDMappings>();
 	}
 	
 	public PCD(Predicate subgoal, DatalogQuery query, DatalogQuery view,
@@ -830,9 +831,25 @@ public class PCD {
 		}
 
 		// compare mappings
-		if (!this.mappings.equals(mcd.mappings)) {
-			return false;
+//		if (!this.mappings.equals(mcd.mappings)) {
+//			return false;
+//		}
+		// NAO TENHO CERTEZA SE ISSO ESTA CERTO; COMO COMPARAR TODOS OS MAPPINGS?
+		List<Boolean> checkers = new ArrayList<Boolean>();
+		for (MCDMappings map1: this.getPhi()){
+			boolean check = false;
+			for (MCDMappings map2: mcd.getPhi()){
+				if (map1.equals(map2))
+					check = true;
+			}
+			checkers.add(check);
 		}
+		for (Boolean b: checkers){
+			if (b.equals(false))
+				return false;
+		}
+		
+		
 
 		// same view, same number of subgoals, same mappings but different
 		// covered subgoals
