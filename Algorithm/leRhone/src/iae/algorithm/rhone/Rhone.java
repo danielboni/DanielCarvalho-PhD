@@ -318,8 +318,6 @@ public class Rhone {
         	System.out.println("Created PCD's:");
             for (PCD pcd : pcds) {
                 System.out.println("Concrete service: " + pcd.getView());
-                //System.out.println("Mappings of variables: " + pcd.mappings.toString());
-                
             }
             System.out.println("********* end of printPCDs() Method *********");
         }

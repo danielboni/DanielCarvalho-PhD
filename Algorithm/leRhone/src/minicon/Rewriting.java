@@ -151,7 +151,6 @@ public class Rewriting {
 				
 			}
 			
-			
 //			// get reference for rewritingMapping from mappings object of class
 //			// MCD
 //			Mapping rewritingMap = mcd.mappings.rewritingMap;
@@ -249,32 +248,60 @@ public class Rewriting {
 	 * 
 	 */
 	private void setRewritingQuery() {
-
+		
 		rewriting = new DatalogQuery(query.getName());
-
+		
 		for (Variable headVar : query.getHeadVariables()) {
 			rewriting.addHeadVariable(headVar);
+			System.out.println("Query headvar: " + headVar);
 		}
 
 		for (PCD mcd : mcds) {
-
+			
 			Predicate view = new Predicate(mcd.view.getName());
 			rewriting.addPredicate(view);
 			
-			for (MCDMappings map: mcd.getPhi()){
-				Mapping rewritingMap = map.rewritingMap;
-				for (Variable var : mcd.view.getHeadVariables()) {
-
-					PredicateElement rwVar = rewritingMap
-							.getFirstMatchingValue(var);
-
+//			for (MCDMappings map: mcd.getPhi()){
+//				Mapping rewritingMap = map.rewritingMap;
+//				
+//				for (Variable var : mcd.view.getHeadVariables()) {
+//					
+//					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
+//
+//					if (rwVar != null) {
+//						view.addElement(rwVar);
+//					} else {
+//						view.addVariable(new Variable("_"));
+//					}
+//				}
+//			}
+			
+			for (Variable var : mcd.view.getHeadVariables()) {
+				boolean check = false;
+				for (int i = 0; i < mcd.getPhi().size(); i++){
+					MCDMappings map = mcd.getPhi().get(i);
+					Mapping rewritingMap = map.rewritingMap;
+					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
 					if (rwVar != null) {
 						view.addElement(rwVar);
-					} else {
-						view.addVariable(new Variable("_"));
+						check = true;
+						break;
 					}
+				}	
+				if (check == false) {
+					view.addVariable(new Variable("_"));
 				}
-			}
+//				for (int i = 0; i < mcd.getPhi().size(); i++){
+//					MCDMappings map = mcd.getPhi().get(i);
+//					Mapping rewritingMap = map.rewritingMap;
+//					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
+//					if (rwVar != null) {
+//						view.addElement(rwVar);
+//					} else {
+//						view.addVariable(new Variable("_"));
+//					}
+//				}			
+			}	
 		}
 
 		for (InterpretedPredicate pred : interpretedPreds) {
