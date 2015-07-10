@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+
+\begin{center}
+\textbf{\large{Report July 10th}} \\
+\textbf{\large{PCD definition and Implementation}}
+\end{center}
+
+Report about the problems found in the current implementation, solutions proposed, and new version of the PCD including SLA.
+\bigskip
+
+\begin{flushleft}
+\textbf{ 1. Modifications in the implementation}
+\end{flushleft}
+
+\textbf{Problem 1:}  More than one PCD were created to the same concrete service. 
+\textbf{Solution:} after creating the PCDs, a new method is called to select PCDs for the same concrete service and create one single PCD. This new PCD has a set of abstract services on its coverage domain. \textbf{Result:} as expected just one PCD is created to a concrete service. 
+
+\bigskip
+\textbf{Problem 2:} Null pointer exception while trying to rewrite the query. That happened because the old implementation considers that each PCD has only a single mapping between one abstract service in the concrete service definition and one abstract service in the query. \textbf{Solution:} a list of mappings called 'phi' was added in the PCD attributes. The entire code was traced to find places where the old mapping is used, and then changed to check all the list of mappings instead of only one single mapping. \textbf{Result:} The rewriting answers are OK, but the parameters are wrong.
+
+\bigskip
+\textbf{Problem 3:} more parameters than expected are in the rewriting. That happened because of the loops to read the list of mappings between variables added in the problem before. \textbf{Solution:} bug correction in the set query method, checking if one mapping a variable is found we do not have to search for more mappings. \textbf{Result:} now, the rewriting is OK.
+
+\begin{flushleft}
+\textbf{2. Updating PCD definition}
+\end{flushleft}
+
+Based on this former PCD definition, the extension to incorporate SLA measures is a tuple $\langle S, SLA_s, Qpref, h, dep, \varphi, G, Def, has\_opt\rangle$, where: 
+\begin{description}
+\item[\textit{S}] is a concrete service;
+\item[\textit{SLA$_s$}] is a set of tuples $\langle measure, value, predicate\rangle$ associated to the concrete service \textit{S};
+\item[\textit{h}] are mapping between terms in the head of the service definition and terms in the right side of the  service definition;
+\item[\textit{dep}] is a set of abstract services in the definition of \textit{S} that are inter-dependents;
+\item[\textit{$\varphi$}] are mapping between terms from the abstract composition to terms in the concrete service definition;
+\item[\textit{G}] is a set of abstract services names and quality constraints covered by \textit{S};
+\item[\textit{Def}] is a set conditions that are not covered by \textit{S} alone; and
+\item[\textit{has\_opt}] is a boolean flag to indicate that some abstract service in the definition of \textit{S} has been used in \textit{G} and has an optional parameter.
+\end{description}
+
+
+
+\end{document}
