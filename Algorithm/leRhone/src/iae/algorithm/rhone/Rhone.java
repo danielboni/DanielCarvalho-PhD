@@ -182,11 +182,11 @@ public class Rhone {
         
         removeDuplicates();
         
-        this.printPCDs();
+        //this.printPCDs();
         
         concatenatingPCDs();
         
-        this.printPCDs();
+        //this.printPCDs();
         
         System.out.println("****** end of createPCDs() method ******");
         

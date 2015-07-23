@@ -1,7 +1,5 @@
 package preference;
 
-import datalog.DatalogQuery;
-import datalog.PredicateElement;
 import iae.algorithm.rhone.PCD;
 
 import java.util.ArrayList;
@@ -12,10 +10,11 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-import minicon.MCD;
 import minicon.MCDMappings;
 import minicon.Mapping;
 import minicon.Rewriting;
+import datalog.DatalogQuery;
+import datalog.PredicateElement;
 
 /**
  * Creates MCD combinations.
@@ -31,7 +30,10 @@ public class BestFirst {
     Set<ArrayList<Integer>> upTilNow;
 
     public BestFirst(DatalogQuery query) {
-        max = new int[query.getPredicates().size()];
+        
+    	System.out.println("**** Inside Best First **** ");
+    	
+    	max = new int[query.getPredicates().size()];
         front = new PriorityQueue<ArrayList<Integer>>(1, new TotalRankComparator());
         upTilNow = new HashSet<ArrayList<Integer>>();
 

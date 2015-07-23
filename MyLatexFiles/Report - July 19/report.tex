@@ -1,0 +1,177 @@
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+
+\begin{center}
+\textbf{\large{Report July 19th}} \\
+%\textbf{\large{PCD definition and Implementation}}
+\end{center}
+
+\begin{flushleft}
+\textbf{ 1. Umberto's comments}
+\end{flushleft}
+
+During this week Umberto answered some questions concerning the algorithm. We started by ``\textbf{Should the algorithm create one PCD for each concrete service or one PCD for each abstract service?}''
+\\
+\\
+He explained that we should have one PCD for each abstract service to maximize the number of possible combinations. 
+However, if we have a dependency between abstract services a PCD for more than one abstract service is created, and also the coverage domain of the PCD includes both abstract services. Considering this I showed him the example I tested before: 
+
+\begin{flushleft}
+\textbf{Query:} \\
+Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic) \\
+\end{flushleft}
+
+\begin{flushleft}
+\textbf{Concrete services:} \\
+S2(disease, patientsssn, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)\\
+S3(patientsssn, dna) :- A2(patientsssn, dna)\\
+S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
+S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
+S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
+S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
+\end{flushleft}
+
+\begin{flushleft}
+The \textbf{rewriting results} were: \\
+\textbf{1) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients,\_),S2(\_,patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
+\textbf{2) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients,\_),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic)
+\end{flushleft}
+
+In the result (1) the service S2 is called two times, and in (2) S1 and S3 are called together. ``\textbf{Why do we have these answers if we have the dependency between A1 and A2 in S2?}''
+\\
+\\
+The rewriting answers are correct. Note that we have all variables in the head of the service definition, because of that we do not have dependency between A1 and A2, and two different PCDs are created for this service.
+
+\begin{flushleft}
+\textbf{2. New Example}
+\end{flushleft}
+
+Considering Umberto's comments I tried to produce a new example expressing the dependencies between abstract services.
+
+\begin{flushleft}
+\textbf{Query:} \\
+Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic) \\
+\end{flushleft}
+
+\begin{flushleft}
+\textbf{Concrete services:} \\
+S1(disease, patientsssn) :- A1(disease, patientsssn)\\
+S2(disease, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)\\
+S3(patientsssn, dna) :- A2(patientsssn, dna)\\
+S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
+S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
+S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
+S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
+\end{flushleft}
+
+Note that I removed \textit{patientsssn} from the head of the service S2 and I supposed that now this variable creates a dependency between the abstract services A1 and A2. However the rewriting answer was:
+
+\begin{flushleft}
+Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S1(disease,patients),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic)
+\end{flushleft}
+
+And the PCDs created were:
+\begin{flushleft}
+S1 [A1(disease,patients)] \\
+S3 [A2(patients,dnas)] \\
+S4 [A3(patients,birth,gen,addr)] \\
+S5 [A4(addr,wheatherstatistic)]
+\end{flushleft}
+
+No answer using S2 was created and also no PCD for it. I also tried to remove S1, but I got an error running the algorithm.
+
+\begin{flushleft}
+\textbf{3. Example with SLA}
+\end{flushleft}
+
+\begin{flushleft}
+\textbf{Query:} \\
+Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)$\lbrace$ cost $\leq$ 1\$, location = close, response time $<$ 2s, data provenance = any$\rbrace$ \\
+\end{flushleft}
+
+I added in the end of the query, between braces, the user's requirements that should be after matched in the SLAs. I put them between braces to differentiate from the constraints that could also be part of the query. I am supposing that I have access to the services SLAs. Considering the concrete services below, the PCDs created are:
+
+\begin{flushleft}
+\textbf{Concrete services:} \\
+S1(disease, patientsssn) :- A1(disease, patientsssn)\\
+S2(disease, patientsssn) :- A1(disease, patientsssn)\\
+S3(patientsssn, dna) :- A2(patientsssn, dna)\\
+S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
+S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
+S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
+S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
+\end{flushleft}
+
+\begin{flushleft}
+\textbf{PCD 1:}
+\end{flushleft}
+\begin{description}
+\item[S] S1
+\item[SLA] $\lbrace$ cost = 0.2, location = close, response time $<$ 2s, data provenance = fresh $\rbrace$
+\item[h]  $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patientsssn $\rbrace$
+\item[$\varphi$] $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patients $\rbrace$
+\item[G] A1(disease, patientsssn)
+\item[Def] $\emptyset$
+\item[has\_opt] false
+\end{description}
+
+\begin{flushleft}
+\textbf{PCD 2:}
+\end{flushleft}
+\begin{description}
+\item[S] S2
+\item[SLA] $\lbrace$ cost = 0.4, location = close, response time $<$ 3s, data provenance = fresh $\rbrace$
+\item[h]  $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patientsssn $\rbrace$
+\item[$\varphi$] $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patients $\rbrace$
+\item[G] A1(disease, patientsssn)
+\item[Def] $\emptyset$
+\item[has\_opt] false
+\end{description}
+
+\begin{flushleft}
+\textbf{PCD 3:}
+\end{flushleft}
+\begin{description}
+\item[S] S3
+\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
+\item[h]  $\lbrace$ patientsssn $\longrightarrow$ patientsssn, dna$\longrightarrow$ dna $\rbrace$
+\item[$\varphi$] $\lbrace$ patientsssn $\longrightarrow$ patients, dna $\longrightarrow$ dnas $\rbrace$
+\item[G] A2(patientsssn, dna)
+\item[Def] $\emptyset$
+\item[has\_opt] false
+\end{description}
+
+\begin{flushleft}
+\textbf{PCD 4:}
+\end{flushleft}
+\begin{description}
+\item[S] S4
+\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
+\item[h]  $\lbrace$ patientsssn $\longrightarrow$ patientsssn, dateofbirth $\longrightarrow$ dateofbirth, gender $\longrightarrow$ gender, address $\longrightarrow$ address $\rbrace$
+\item[$\varphi$] $\lbrace$ patientsssn $\longrightarrow$ patients, dateofbirth $\longrightarrow$ birth, gender $\longrightarrow$ gen,  address $\longrightarrow$ addr $\rbrace$
+\item[G] A3(patientsssn, dateofbirth, gender, address)
+\item[Def] $\emptyset$
+\item[has\_opt] false
+\end{description}
+
+\begin{flushleft}
+\textbf{PCD 5:}
+\end{flushleft}
+\begin{description}
+\item[S] S5
+\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
+\item[h]  $\lbrace$ address $\longrightarrow$ address, wheatherstaticalinformation $\longrightarrow$ wheatherstaticalinformation $\rbrace$
+\item[$\varphi$] $\lbrace$ address $\longrightarrow$ addr,  wheatherstaticalinformation $\longrightarrow$ wheatherstatistic $\rbrace$
+\item[G] A4(address, wheatherstaticalinformation)
+\item[Def] $\emptyset$
+\item[has\_opt] false
+\end{description}
+
+\end{document}
