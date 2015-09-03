@@ -7,46 +7,43 @@
  */
 package preference;
 
+import iae.algorithm.rhone.PCD;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import datalog.DatalogQuery;
 import datalog.Predicate;
-import datalog.PredicateElement;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-import minicon.MCD;
-import minicon.Mapping;
 
 public class Index {
 
     private static DatalogQuery query;
 
-    private static List<List<MCD>> index;
+    private static List<List<PCD>> index;
 
     private static Map<SubAndDesc, Boolean> blackList;
 
-    private static Map<MCD, boolean[]> coverList;
+    private static Map<PCD, boolean[]> coverList;
 
-    public static void initialize(List<MCD> mcds, DatalogQuery _query) {
+    public static void initialize(List<PCD> mcds, DatalogQuery _query) {
         RankComparator comp = new RankComparator();
 
         query = _query;
-        index = new ArrayList<List<MCD>>(query.getPredicates().size());
+        index = new ArrayList<List<PCD>>(query.getPredicates().size());
         blackList = new HashMap<SubAndDesc, Boolean>();
-        coverList = new HashMap<MCD, boolean[]>();
+        coverList = new HashMap<PCD, boolean[]>();
 
-        List<MCD> coverageDomain;
+        List<PCD> coverageDomain;
 
         for (int i = 0; i < query.getPredicates().size(); i++) {
             Predicate subGoal = query.getPredicates().get(i);
             coverageDomain = getCoverageDomain(subGoal, mcds);
-            ArrayList<MCD> abstractService = new ArrayList<MCD>(coverageDomain);
+            ArrayList<PCD> abstractService = new ArrayList<PCD>(coverageDomain);
             Collections.sort(abstractService, comp);
 
             setBlackLists(abstractService);
@@ -54,7 +51,7 @@ public class Index {
             index.add(abstractService);
         }
 
-        for (MCD mcd : mcds) {
+        for (PCD mcd : mcds) {
             int n = query.getPredicates().size();
             boolean[] covering = new boolean[n];
             for (int i = 0; i < n; i++) {
@@ -69,21 +66,21 @@ public class Index {
         }
     }
 
-    public static MCD getMCDfromPos(int subGoal, int pos) {
+    public static PCD getMCDfromPos(int subGoal, int pos) {
         return index.get(subGoal).get(pos);
     }
 
-    public static boolean[] getCoverList(MCD mcd) {
-        return coverList.get(mcd);
+    public static boolean[] getCoverList(PCD pcd) {
+        return coverList.get(pcd);
     }
     
     public static boolean[] getCoverList(int i, int j) {
         return getCoverList(index.get(i).get(j));
     }
 
-    private static void setBlackLists(List<MCD> mcds) {
+    private static void setBlackLists(List<PCD> mcds) {
         for (int i = 0; i < mcds.size(); i++) {
-            MCD mcd = mcds.get(i);
+            PCD mcd = mcds.get(i);
             for (int j = 0; j < mcd.getSubgoals().size(); j++) {
                 Predicate pred = mcd.getSubgoals().get(j);
                 int dom = query.getPredicates().indexOf(pred);
@@ -97,11 +94,11 @@ public class Index {
         return blackList.get(new SubAndDesc(i, j));
     }
 
-    private static List<MCD> getCoverageDomain(Predicate abstractService, List<MCD> mcds) {
-        List<MCD> coverageDomain = new LinkedList<MCD>();
+    private static List<PCD> getCoverageDomain(Predicate abstractService, List<PCD> mcds) {
+        List<PCD> coverageDomain = new LinkedList<PCD>();
 
         for (int i = 0; i < mcds.size(); i++) {
-            MCD mcd = mcds.get(i);
+            PCD mcd = mcds.get(i);
             List<Predicate> coveredSubGoals = mcd.getSubgoals();
             for (int j = 0; j < coveredSubGoals.size(); j++) {
 
@@ -114,59 +111,16 @@ public class Index {
         return coverageDomain;
     }
     
-    public static List<MCD> getSubdomain(int i) {
+    public static List<PCD> getSubdomain(int i) {
         return index.get(i);
-    }
-
-    private static boolean isRewriting(List<MCD> mcds, DatalogQuery query) {
-        int countPredicates = 0;
-
-        for (MCD mcd : mcds) {
-            countPredicates += mcd.numberOfSubgoals();
-        }
-
-        // compare total number of predicates with number of query subgoals
-        if (countPredicates != query.numberOfPredicates())
-            return false;
-
-        // test pairwise disjoint
-        for (int i = 0; i < mcds.size(); i++) {
-            for (int j = 0; j < mcds.size(); j++) {
-                if (i != j) {
-                    MCD mcd1 = mcds.get(i);
-                    MCD mcd2 = mcds.get(j);
-                    if (!mcd1.isDisjoint(mcd2))
-                        return false;
-                }
-            }
-        }
-
-        // x exists in C1 and C2 ==> it must be mapped to the same constant
-        for (int i = 0; i < mcds.size(); i++) {
-            MCD mcd1 = mcds.get(i);
-            Mapping constMap1 = mcd1.mappings.constMap;
-            for (int j = 0; j < mcds.size(); j++) {
-                if (i != j) {
-                    MCD mcd2 = mcds.get(j);
-                    Mapping constMap2 = mcd2.mappings.constMap;
-                    for (PredicateElement elem : constMap1.arguments) {
-                        if ((constMap2.containsArgument(elem) && !(constMap1
-                                .getFirstMatchingValue(elem).equals(constMap2
-                                        .getFirstMatchingValue(elem)))))
-                            return false;
-                    }
-                }
-            }
-        }
-        return true;
     }
 
 }
 
-class RankComparator implements Comparator<MCD> {
+class RankComparator implements Comparator<PCD> {
 
     @Override
-    public int compare(MCD r1, MCD r2) {
+    public int compare(PCD r1, PCD r2) {
         if (r1.getRank() == r2.getRank())
             return r1.getView().getName().compareTo(r2.getView().getName());
         else if (r1.getRank() > r2.getRank())

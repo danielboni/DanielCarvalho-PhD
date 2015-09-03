@@ -30,7 +30,7 @@ import datalog.Variable;
 public class MCDMappings {
 
 	/** variable mapping - query variable or constant to view variable */
-	public Mapping varMap;
+	Mapping varMap;
 
 	/** constant mapping - query variable or constant to view constant */
 	//Mapping constMap;

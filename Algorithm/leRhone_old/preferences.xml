@@ -144,7 +144,6 @@
 		<view name = "S7" rank = "0.2"/>
 	</preference>
 	<preference id = "15">
-		<view name = "S1" rank = "0.2"/>
 		<view name = "S2" rank = "0.2"/>
 		<view name = "S3" rank = "0.2"/>
 		<view name = "S4" rank = "0.2"/>

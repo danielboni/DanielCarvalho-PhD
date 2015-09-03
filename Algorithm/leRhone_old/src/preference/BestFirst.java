@@ -1,7 +1,7 @@
 package preference;
 
-import datalog.DatalogQuery;
-import datalog.PredicateElement;
+import iae.algorithm.rhone.PCD;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -9,9 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
-import minicon.MCD;
+
+import minicon.MCDMappings;
 import minicon.Mapping;
 import minicon.Rewriting;
+import datalog.DatalogQuery;
+import datalog.PredicateElement;
 
 /**
  * Creates MCD combinations.
@@ -27,7 +30,10 @@ public class BestFirst {
     Set<ArrayList<Integer>> upTilNow;
 
     public BestFirst(DatalogQuery query) {
-        max = new int[query.getPredicates().size()];
+        
+    	System.out.println("**** Inside Best First **** ");
+    	
+    	max = new int[query.getPredicates().size()];
         front = new PriorityQueue<ArrayList<Integer>>(1, new TotalRankComparator());
         upTilNow = new HashSet<ArrayList<Integer>>();
 
@@ -60,10 +66,10 @@ public class BestFirst {
         front.add(succ);
     }
 
-    private void getSucessors(ArrayList<Integer> combination, List<MCD> pcds) {
+    private void getSucessors(ArrayList<Integer> combination, List<PCD> pcds) {
         upTilNow.add(combination);
 
-        for (MCD mcd : pcds) {
+        for (PCD mcd : pcds) {
             boolean[] covering = Index.getCoverList(mcd);
             ArrayList<Integer> succ = new ArrayList<Integer>(combination);
 
@@ -89,8 +95,8 @@ public class BestFirst {
 
     }
 
-    private List<MCD> getPCDFromCombination(ArrayList<Integer> combo) {
-        List<MCD> PCDs = new LinkedList<MCD>();
+    private List<PCD> getPCDFromCombination(ArrayList<Integer> combo) {
+        List<PCD> PCDs = new LinkedList<PCD>();
         boolean[] covering = new boolean[combo.size()];
 
         for (int i = 0; i < combo.size(); i++) {
@@ -99,7 +105,7 @@ public class BestFirst {
 
             if (el != -1 && !covering[i]) {
 
-                MCD pcd = Index.getMCDfromPos(i, el);
+                PCD pcd = Index.getMCDfromPos(i, el);
 
                 if (!PCDs.contains(pcd))
                     PCDs.add(pcd);
@@ -124,9 +130,9 @@ public class BestFirst {
         return !front.isEmpty();
     }
 
-    private List<MCD> next() {
+    private List<PCD> next() {
         ArrayList<Integer> prox = front.poll();
-        List<MCD> result = getPCDFromCombination(prox);
+        List<PCD> result = getPCDFromCombination(prox);
 
         getSucessors(prox, result);
 
@@ -153,14 +159,14 @@ public class BestFirst {
     public List<Rewriting> getRewritings(DatalogQuery query, Integer n) {
 
         List<Rewriting> rewritings = new LinkedList<Rewriting>();
-        HashSet<List<MCD>> alreadyComputed = new HashSet<List<MCD>>();
+        HashSet<List<PCD>> alreadyComputed = new HashSet<List<PCD>>();
 
         int required = Integer.MAX_VALUE;
         if (n != null)
             required = n;
 
         while (hasNext() && rewritings.size() <= required) {
-            List<MCD> MCDsCandidates = next();
+            List<PCD> MCDsCandidates = next();
 
             if (isRewriting(MCDsCandidates, query))
 
@@ -179,10 +185,10 @@ public class BestFirst {
      *
      * @author Cheik Ba
      */
-    private static boolean isRewriting(List<MCD> mcds, DatalogQuery query) {
+    private static boolean isRewriting(List<PCD> mcds, DatalogQuery query) {
         int countPredicates = 0;
 
-        for (MCD mcd : mcds) {
+        for (PCD mcd : mcds) {
             countPredicates += mcd.numberOfSubgoals();
         }
 
@@ -194,31 +200,54 @@ public class BestFirst {
         for (int i = 0; i < mcds.size(); i++) {
             for (int j = 0; j < mcds.size(); j++) {
                 if (i != j) {
-                    MCD mcd1 = mcds.get(i);
-                    MCD mcd2 = mcds.get(j);
+                    PCD mcd1 = mcds.get(i);
+                    PCD mcd2 = mcds.get(j);
                     if (!mcd1.isDisjoint(mcd2))
                         return false;
                 }
             }
         }
-
-        // x exists in C1 and C2 ==> it must be mapped to the same constant
+// EU NAO ENTENDO O MOTIVO DISSO.
+//        // x exists in C1 and C2 ==> it must be mapped to the same constant
+//        for (int i = 0; i < mcds.size(); i++) {
+//            PCD mcd1 = mcds.get(i);
+//            Mapping constMap1 = mcd1.mappings.constMap;
+//            for (int j = 0; j < mcds.size(); j++) {
+//                if (i != j) {
+//                    PCD mcd2 = mcds.get(j);
+//                    Mapping constMap2 = mcd2.mappings.constMap;
+//                    for (PredicateElement elem : constMap1.arguments) {
+//                        if ((constMap2.containsArgument(elem) && !(constMap1
+//                                .getFirstMatchingValue(elem).equals(constMap2
+//                                        .getFirstMatchingValue(elem)))))
+//                            return false;
+//                    }
+//                }
+//            }
+//        }
+        
         for (int i = 0; i < mcds.size(); i++) {
-            MCD mcd1 = mcds.get(i);
-            Mapping constMap1 = mcd1.mappings.constMap;
-            for (int j = 0; j < mcds.size(); j++) {
-                if (i != j) {
-                    MCD mcd2 = mcds.get(j);
-                    Mapping constMap2 = mcd2.mappings.constMap;
-                    for (PredicateElement elem : constMap1.arguments) {
-                        if ((constMap2.containsArgument(elem) && !(constMap1
-                                .getFirstMatchingValue(elem).equals(constMap2
-                                        .getFirstMatchingValue(elem)))))
-                            return false;
+            
+        	PCD mcd1 = mcds.get(i);
+            
+            for (MCDMappings map: mcd1.getPhi()){
+            	Mapping constMap1 = map.constMap;
+            	for (int j = 0; j < mcds.size(); j++) {
+                    if (i != j) {
+                        PCD mcd2 = mcds.get(j);
+                        for (MCDMappings map2: mcd2.getPhi()){
+                        	Mapping constMap2 = map2.constMap;
+                            for (PredicateElement elem : constMap1.arguments) {
+                                if ((constMap2.containsArgument(elem) && !(constMap1
+                                        .getFirstMatchingValue(elem).equals(constMap2
+                                                .getFirstMatchingValue(elem)))))
+                                    return false;
+                            }
+                        } 
                     }
                 }
-            }
-        }
+            }      
+        } 
         return true;
     }
 }
@@ -240,7 +269,7 @@ class TotalRankComparator implements Comparator<ArrayList<Integer>> {
         double old = 0.0;
 
         for (int i = 0; i < a.size(); i++) {
-            List<MCD> ls = Index.getSubdomain(i);
+            List<PCD> ls = Index.getSubdomain(i);
 
             if (a.get(i) >= 0 && !ls.isEmpty())
                 old = ls.get(a.get(i)).getRank();

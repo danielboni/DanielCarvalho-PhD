@@ -1,7 +1,5 @@
 package minicon;
 
-import iae.algorithm.rhone.PCD;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ import datalog.Variable;
 public class Rewriting {
 
 	/** list of MCDs that form the rewriting */
-	private List<PCD> mcds; 
+	private List<MCD> mcds; 
 
 	/** starting query that will be expressed by the rewriting */
 	private DatalogQuery query;
@@ -53,8 +51,8 @@ public class Rewriting {
 	 * @param query
 	 *            represented by the rewriting
 	 */
-	public Rewriting(List<PCD> mcds, DatalogQuery query) {
-		this.mcds = new ArrayList<PCD>();
+	public Rewriting(List<MCD> mcds, DatalogQuery query) {
+		this.mcds = new ArrayList<MCD>();
 		this.interpretedPreds = new ArrayList<InterpretedPredicate>();
 		this.mcds.addAll(mcds);
 		this.query = query;
@@ -94,113 +92,58 @@ public class Rewriting {
 		// temporary mapping to have a representatives for each query variable
 		Mapping represents = new Mapping();
 
-		for (PCD mcd : mcds) {
+		for (MCD mcd : mcds) {
 
-			for (MCDMappings map: mcd.getPhi()){
-				
-				// get reference for rewritingMapping from mappings object of class
-				// MCD
-				Mapping rewritingMap = map.rewritingMap;
+			// get reference for rewritingMapping from mappings object of class
+			// MCD
+			Mapping rewritingMap = mcd.mappings.rewritingMap;
 
-				// list of variables that are already mapped
-				List<Variable> alreadyMapped = new ArrayList<Variable>();
+			// list of variables that are already mapped
+			List<Variable> alreadyMapped = new ArrayList<Variable>();
 
-				for (int i = 0; i < map.varMapSize(); i++) {
+			for (int i = 0; i < mcd.mappings.varMapSize(); i++) {
 
-					PredicateElement queryElem = map.getVarMapArgument(i);
-					Variable viewVar = map.getVarMapValue(i);
+				PredicateElement queryElem = mcd.mappings.getVarMapArgument(i);
+				Variable viewVar = mcd.mappings.getVarMapValue(i);
 
-					// view variable has not been mapped before
-					if (!alreadyMapped.contains(viewVar)) {
-						alreadyMapped.add(viewVar);
+				// view variable has not been mapped before
+				if (!alreadyMapped.contains(viewVar)) {
+					alreadyMapped.add(viewVar);
 
-						// there is no yet a representative for the query variable
-						if (!represents.containsArgument(queryElem)) {
+					// there is no yet a representative for the query variable
+					if (!represents.containsArgument(queryElem)) {
 
-							represents.map(queryElem, queryElem);
+						represents.map(queryElem, queryElem);
 
-							// add mapping from view variable to query element
-							rewritingMap.map(viewVar, queryElem);
+						// add mapping from view variable to query element
+						rewritingMap.map(viewVar, queryElem);
 
-							// there is already a representative for the query
-							// variable
-						} else {
-							PredicateElement represent = represents
-									.getFirstMatchingValue(queryElem);
-
-							// add mapping from view variable to reprentative of
-							// query variable
-							rewritingMap.map(viewVar, represent);
-						}
-
-						// same view variable has been mapped before
+						// there is already a representative for the query
+						// variable
 					} else {
-						PredicateElement represent = rewritingMap
-								.getFirstMatchingValue(viewVar);
-						// this query element gets same represantative as
-						// the one that was relevant when the view variable
-						// was mapped before
-						represents.map(queryElem, represent);
+						PredicateElement represent = represents
+								.getFirstMatchingValue(queryElem);
 
 						// add mapping from view variable to reprentative of
 						// query variable
 						rewritingMap.map(viewVar, represent);
 					}
 
+					// same view variable has been mapped before
+				} else {
+					PredicateElement represent = rewritingMap
+							.getFirstMatchingValue(viewVar);
+					// this query element gets same represantative as
+					// the one that was relevant when the view variable
+					// was mapped before
+					represents.map(queryElem, represent);
+
+					// add mapping from view variable to reprentative of
+					// query variable
+					rewritingMap.map(viewVar, represent);
 				}
-				
+
 			}
-			
-//			// get reference for rewritingMapping from mappings object of class
-//			// MCD
-//			Mapping rewritingMap = mcd.mappings.rewritingMap;
-//
-//			// list of variables that are already mapped
-//			List<Variable> alreadyMapped = new ArrayList<Variable>();
-//
-//			for (int i = 0; i < mcd.mappings.varMapSize(); i++) {
-//
-//				PredicateElement queryElem = mcd.mappings.getVarMapArgument(i);
-//				Variable viewVar = mcd.mappings.getVarMapValue(i);
-//
-//				// view variable has not been mapped before
-//				if (!alreadyMapped.contains(viewVar)) {
-//					alreadyMapped.add(viewVar);
-//
-//					// there is no yet a representative for the query variable
-//					if (!represents.containsArgument(queryElem)) {
-//
-//						represents.map(queryElem, queryElem);
-//
-//						// add mapping from view variable to query element
-//						rewritingMap.map(viewVar, queryElem);
-//
-//						// there is already a representative for the query
-//						// variable
-//					} else {
-//						PredicateElement represent = represents
-//								.getFirstMatchingValue(queryElem);
-//
-//						// add mapping from view variable to reprentative of
-//						// query variable
-//						rewritingMap.map(viewVar, represent);
-//					}
-//
-//					// same view variable has been mapped before
-//				} else {
-//					PredicateElement represent = rewritingMap
-//							.getFirstMatchingValue(viewVar);
-//					// this query element gets same represantative as
-//					// the one that was relevant when the view variable
-//					// was mapped before
-//					represents.map(queryElem, represent);
-//
-//					// add mapping from view variable to reprentative of
-//					// query variable
-//					rewritingMap.map(viewVar, represent);
-//				}
-//
-//			}
 		}
 	}
 
@@ -218,8 +161,8 @@ public class Rewriting {
 			boolean containsExistentVar = false;
 			// if one of the mcd contains a mapping from Variable var
 			// to an existential variable set boolean value to true
-			for (PCD mcd : mcds) {
-				List<?> existentVars = mcd.findExistentialMappings();
+			for (MCD mcd : mcds) {
+				List existentVars = mcd.findExistentialMappings();
 				if (existentVars.contains(var)) {
 					containsExistentVar = true;
 				}
@@ -248,60 +191,30 @@ public class Rewriting {
 	 * 
 	 */
 	private void setRewritingQuery() {
-		
+
 		rewriting = new DatalogQuery(query.getName());
-		
+
 		for (Variable headVar : query.getHeadVariables()) {
 			rewriting.addHeadVariable(headVar);
-			System.out.println("Query headvar: " + headVar);
 		}
 
-		for (PCD mcd : mcds) {
-			
+		for (MCD mcd : mcds) {
+
 			Predicate view = new Predicate(mcd.view.getName());
 			rewriting.addPredicate(view);
-			
-//			for (MCDMappings map: mcd.getPhi()){
-//				Mapping rewritingMap = map.rewritingMap;
-//				
-//				for (Variable var : mcd.view.getHeadVariables()) {
-//					
-//					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
-//
-//					if (rwVar != null) {
-//						view.addElement(rwVar);
-//					} else {
-//						view.addVariable(new Variable("_"));
-//					}
-//				}
-//			}
-			
+			Mapping rewritingMap = mcd.mappings.rewritingMap;
 			for (Variable var : mcd.view.getHeadVariables()) {
-				boolean check = false;
-				for (int i = 0; i < mcd.getPhi().size(); i++){
-					MCDMappings map = mcd.getPhi().get(i);
-					Mapping rewritingMap = map.rewritingMap;
-					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
-					if (rwVar != null) {
-						view.addElement(rwVar);
-						check = true;
-						break;
-					}
-				}	
-				if (check == false) {
+
+				PredicateElement rwVar = rewritingMap
+						.getFirstMatchingValue(var);
+
+				if (rwVar != null) {
+					view.addElement(rwVar);
+				} else {
 					view.addVariable(new Variable("_"));
 				}
-//				for (int i = 0; i < mcd.getPhi().size(); i++){
-//					MCDMappings map = mcd.getPhi().get(i);
-//					Mapping rewritingMap = map.rewritingMap;
-//					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
-//					if (rwVar != null) {
-//						view.addElement(rwVar);
-//					} else {
-//						view.addVariable(new Variable("_"));
-//					}
-//				}			
-			}	
+			}
+
 		}
 
 		for (InterpretedPredicate pred : interpretedPreds) {
@@ -445,6 +358,7 @@ public class Rewriting {
 
 		for (int i = 0; i < oldPred.numberOfElements(); i++) {
 
+			String name1 = pred.getElement(i).name;
 			String name2 = oldPred.getElement(i).name;
 
 			if (name2.equals("_")) {

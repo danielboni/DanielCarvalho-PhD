@@ -231,7 +231,7 @@ public class DatalogQuery {
 	 *            list of head variables of predicates
 	 * @return String of the form "(list1Elem1,...)"
 	 */
-	private String printCollection(Collection<?> collect) {
+	private String printCollection(Collection collect) {
 		String val = "";
 		for (Object obj : collect) {
 			val = val + "," + obj.toString();

@@ -196,10 +196,12 @@ public class Predicate {
 
 		if ((this.name.equals(pred.name))
 				&& (this.numberOfElements() == pred.numberOfElements())) {
+
 			List<PredicateElement> elemList = pred.getElements();
 			for (int i = 0; i < elemList.size(); i++) {
 				PredicateElement elem = elemList.get(i);
 				PredicateElement thisElem = elements.get(i);
+
 				// mapping Constant -> Constants then constants must be the same
 				if ((elem instanceof Constant)
 						&& (thisElem instanceof Constant)

@@ -35,10 +35,10 @@ public class MCD {
 	protected DatalogQuery query;
 
 	/** view object */
-	public DatalogQuery view;
+	protected DatalogQuery view;
 
 	/** list of subgoals covered by the MCD */
-	public List<Predicate> coveredSubgoals;
+	protected List<Predicate> coveredSubgoals;
 
 	/** list of interpreted predicates (subgoals) covered by the MCD */
 	protected List<InterpretedPredicate> coveredInterpretedPredicates;
@@ -53,7 +53,7 @@ public class MCD {
 	 * Setting and getting the rank of the view related to this MCD 
 	 * Cheikh BA, 05/2014
 	 * */
-	protected void setRank(double rank){
+	public void setRank(double rank){
 		this.rank = rank;
 	}
 	
@@ -61,7 +61,7 @@ public class MCD {
 		return rank;
 	}
 	
-	protected DatalogQuery getView(){
+	public DatalogQuery getView(){
 		return view;
 	}
 
@@ -807,6 +807,8 @@ public class MCD {
 		if (!(mcd.view.getName().equals(this.view.getName()))) {
 			return false;
 		}
+		boolean sameCoveredSubgoals = true;
+
 		// number of subgoals is the same
 		if (mcd.coveredSubgoals.size() != this.coveredSubgoals.size()) {
 			return false;

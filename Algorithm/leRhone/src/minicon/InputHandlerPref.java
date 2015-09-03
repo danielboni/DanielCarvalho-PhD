@@ -81,6 +81,7 @@ public class InputHandlerPref {
 	 */
 	public static MiniConPref handleArguments(String[] args) {
 
+		MiniConPref mc;
 		boolean fileInput = false;
 		String fileName = "";
 		String id = "";

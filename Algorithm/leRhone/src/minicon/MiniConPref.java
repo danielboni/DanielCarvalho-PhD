@@ -4,15 +4,18 @@
  */
 package minicon;
 
-import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import preference.BestFirst;
-import preference.Index;
 import preference.PreferencesFileParser;
 import datalog.DatalogQuery;
 import datalog.Predicate;
+import datalog.PredicateElement;
+
+import java.lang.management.ManagementFactory;
+
+import preference.BestFirst;
+import preference.Index;
 
 /**
  *
@@ -32,22 +35,22 @@ public class MiniConPref {
     /**
      * query Object used by algorithm
      */
-    protected DatalogQuery query;
+    private DatalogQuery query;
 
     /**
      * list of views used by algorithm
      */
-    protected List<DatalogQuery> views;
+    private List<DatalogQuery> views;
 
     /**
      * list of MCDs created by algorithm
      */
-    protected List<MCD> mcds;
+    private List<MCD> mcds;
 
     /**
      * list of rewritings created by the algorithm
      */
-    protected List<Rewriting> rewritings;
+    private List<Rewriting> rewritings;
 
     /**
      * MiniCon constructor
@@ -79,27 +82,24 @@ public class MiniConPref {
     public static void main(String[] args) throws Exception {
         System.out.println("MiniConPref Algorithm - Poti");
 
-        
         String[] argumentos = new String[3];
         argumentos[0] = "-f";
         argumentos[1] = "testcases.xml";
-        argumentos[2] = "14";
+        argumentos[2] = "15";
         testID = Integer.parseInt(argumentos[2]);
 
         MiniConPref mc = InputHandlerPref.handleArguments(argumentos);
 
         if (mc != null) {
-        	
             mc.printQuery();  // commented for time evaluation
             mc.printViews();  // commented for time evaluation
-
+            
             long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
             mc.startMiniCon();
-            
-            mc.printMCDs();
-            
             long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
 
+            mc.printMCDs();
+            
             mc.printRewritings(); // commented for time evaluation
             System.out.println("Done in: " + time + "ns");
         }
@@ -119,9 +119,9 @@ public class MiniConPref {
         // set the MCD preferences ...
         try {
 
-            //PreferencesFileParser.setMCDPreferences(mcds, "preferences.xml", testID);
+            PreferencesFileParser.setMCDPreferences(mcds, "preferences.xml", testID);
 
-            //Index.initialize(mcds, query);
+            Index.initialize(mcds, query);
             BestFirst bf = new BestFirst(query);
 
             rewritings = bf.getRewritings(query);
@@ -151,7 +151,7 @@ public class MiniConPref {
         List<Predicate> subgoals = query.getPredicates();
 
         for (Predicate subgoal : subgoals) {
-			System.out.println("\n current subgoal " + subgoal);
+			// System.out.println("\n current subgoal " + subgoal);
 
             // for every view try to create mappings
             for (DatalogQuery view : views) {
@@ -162,8 +162,6 @@ public class MiniConPref {
                 // fulfilled
                 for (MCDMappings map : mappings) {
 
-                	System.out.println("Criando MCDs: subgoal: " + subgoal + 
-                			" query: " + query + " view: " + view + " map: " + map);
                     // create MCD
                     MCD mcd = new MCD(subgoal, query, view, map);
 
@@ -177,6 +175,211 @@ public class MiniConPref {
     }
 
     /**
+     * The second part of the algorithm will combine the MCDs in order to obtain
+     * rewritings of the query. First, subsets of the list of MCDs will be
+     * computed starting with subset size one. For each subset size, it will be
+     * tested whether it is possible to combine the MCDs to a valid rewriting.
+     * If this test suceeds, the rewriting will be added to the list of
+     * rewritings.
+     *
+     */
+    /* C.BA ==> replaced by another one !!
+	 
+     private void combineMCDs() {		
+				
+     for (int i = 1; i <= mcds.size(); i++) {
+
+     // find subset of size i
+     List<List<MCD>> subsetList = findMCDSubset(mcds, i);
+						
+     for (List<MCD> mcdList : subsetList) {
+     if (isRewriting(mcdList)) {
+     rewritings.add(new Rewriting(mcdList, query));
+     }
+     }
+     }
+     }
+     */
+    /* C.BA */
+    private void combineMCDs() {
+
+        List<List<MCD>> subsetList = findMCDSubsetPref(mcds);
+        for (List<MCD> mcdList : subsetList) {
+            if (isRewriting(mcdList))
+                rewritings.add(new Rewriting(mcdList, query));
+        }
+    }
+
+    /**
+     * Redundant view from the rewriting will be removed using the method of
+     * class Rewriting
+     */
+    private void removeRedundancies() {
+
+        for (Rewriting rw : rewritings) {
+            rw.removeRedundancies();
+        }
+    }
+
+    /**
+     * This method finds subsets of MCD list with a given size. If the size is
+     * 1, it is a list that contains a list with single MCDs. If the size is
+     * greater than 1, the method will be called recursivly with the size
+     * reduced by 1. The first MCD of the given list will be taken out. Then it
+     * will be added as first element to each MCD list which is returned by the
+     * recursive call. The resulting list, containing a list of MCDs with the
+     * same MCD as first element, will be returned by the method.
+     *
+     * @param list of MCDs from which the subsets will be computed
+     * @param size of the subsets
+     * @return list of subsets that are lists of MCDs
+     */
+	// C.BA:  findMCDSubset from minicon ==> does not always return all the subsets !
+	/*
+     private List<List<MCD>> findMCDSubset(List<MCD> list, int size) {
+
+     List<MCD> mcdList = new ArrayList<MCD>(list);
+     List<List<MCD>> returnList = new ArrayList<List<MCD>>();
+
+     if (size == 1) {
+     for (MCD mcd : mcdList) {
+     List<MCD> tempList = new ArrayList<MCD>();
+     tempList.add(mcd);
+     returnList.add(tempList);
+     }
+     } else {
+     for (int i = 0; i <= (mcdList.size() - size + 1); i++) {
+											
+     MCD mcd = mcdList.get(0);
+     mcdList.remove(0);
+     List<List<MCD>> tempList = findMCDSubset(mcdList, size - 1);
+																
+     addAsFirstElem(mcd, tempList);
+     returnList.addAll(tempList);
+     }
+     }
+
+     return returnList;
+     }
+     */
+    // C.BA:  findMCDSubsetPref from C.BA ==> always return all the subsets !
+    private List<List<MCD>> findMCDSubsetPref(List<MCD> list) {
+        List<List<MCD>> result;
+
+        if (list.size() == 0) {
+            result = new ArrayList<List<MCD>>();
+            result.add(new ArrayList<MCD>());
+            return result;
+        }
+
+        List<MCD> newList = new ArrayList(list);
+        MCD lastMCD = newList.remove(newList.size() - 1);
+
+        return addMCDToSubsetList(lastMCD, findMCDSubsetPref(newList));
+    }
+
+    /* C.BA */
+    private List<List<MCD>> addMCDToSubsetList(MCD mcd, List<List<MCD>> subsetList) {
+        List<List<MCD>> resultat = clone(subsetList);
+        List<List<MCD>> initialSubsetList = clone(subsetList);
+
+        for (List<MCD> MCDList : initialSubsetList) {
+            MCDList.add(mcd);
+            resultat.add(MCDList);
+        }
+        return resultat;
+    }
+
+    /* C.BA */
+    private static List<List<MCD>> clone(List<List<MCD>> listOfLists) {
+        List<List<MCD>> result = new ArrayList<List<MCD>>();
+
+        for (List<MCD> list : listOfLists) {
+            List<MCD> newList = new ArrayList<MCD>();
+            newList.addAll(list);
+            result.add(newList);
+        }
+        return result;
+    }
+
+    /**
+     * Called by findMCDSubset, it will add the given MCD to the front of each
+     * element of the given list, i.e each list of MCDs will have the given MCD
+     * as first element.
+     *
+     * @param elem MCD that is added as first element
+     * @param list contains lists of MCDs
+     */
+    private void addAsFirstElem(MCD elem, List<List<MCD>> list) {
+        for (List<MCD> currList : list) {
+            currList.add(0, elem);
+
+        }
+    }
+
+    /**
+     * Called by combineMCDs, it will test whether the given MCDs can be
+     * combined to a valid rewriting.
+     *
+     * A rewriting is valid if the combination of the view predicates result in
+     * the set of query subgoals and when the predicates are pairwise disjoint.
+     * First, the total number of predicates of the given MCDs will be computed.
+     * If the number doesn't equal to the number of subgoals in the query, false
+     * will be returned (interpreted predicates are not considered here).
+     * Second, every MCD is compared with every other MCD to test whether they
+     * are disjoint. Finally, mappings to constants will be checked for
+     * validity. If there is a variable that the exists in at least two MCDs and
+     * that is mapped to two different constants, the combination of these MCDs
+     * is not possible.
+     *
+     * @param mcds that will be test whether they can be combined
+     * @return true if mcds can be combined to a valid rewriting, false
+     * otherwise
+     */
+    private boolean isRewriting(List<MCD> mcds) {
+        int countPredicates = 0;
+
+        for (MCD mcd : mcds) {
+            countPredicates += mcd.numberOfSubgoals();
+        }
+
+        // compare total number of predicates with number of query subgoals
+        if (countPredicates != query.numberOfPredicates())
+            return false;
+
+        // test pairwise disjoint
+        for (int i = 0; i < mcds.size(); i++) {
+            for (int j = 0; j < mcds.size(); j++) {
+                if (i != j) {
+                    MCD mcd1 = mcds.get(i);
+                    MCD mcd2 = mcds.get(j);
+                    if (!mcd1.isDisjoint(mcd2))
+                        return false;
+                }
+            }
+        }
+
+        // x exists in C1 and C2 ==> it must be mapped to the same constant
+        for (int i = 0; i < mcds.size(); i++) {
+            MCD mcd1 = mcds.get(i);
+            Mapping constMap1 = mcd1.mappings.constMap;
+            for (int j = 0; j < mcds.size(); j++) {
+                if (i != j) {
+                    MCD mcd2 = mcds.get(j);
+                    Mapping constMap2 = mcd2.mappings.constMap;
+                    for (PredicateElement elem : constMap1.arguments) {
+                        if ((constMap2.containsArgument(elem) && !(constMap1
+                                .getFirstMatchingValue(elem).equals(constMap2
+                                        .getFirstMatchingValue(elem)))))
+                            return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * Called by formMCDs. The given query subgoal is tested if it can be mapped
      * to every predicate of the view. If a mapping is possible, a new mapping
      * object is added to the list of mappings.
@@ -185,15 +388,14 @@ public class MiniConPref {
      * @param view current view
      * @return list of possible mappings
      */
-    protected List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
+    private List<MCDMappings> createMapping(Predicate subgoal, DatalogQuery view) {
         List<Predicate> viewPredicates = view.getPredicates();
         List<MCDMappings> mappings = new ArrayList<MCDMappings>();
-        
+
         for (Predicate viewPred : viewPredicates) {
-            if (subgoal.canBeMapped(viewPred)){
-            	System.out.println("Created mapping: subgoal: " + subgoal + " view (da entrada, n da query): " + viewPred);
+
+            if (subgoal.canBeMapped(viewPred))
                 mappings.add(new MCDMappings(subgoal, viewPred));
-            }    
         }
         return mappings;
     }
@@ -206,7 +408,7 @@ public class MiniConPref {
      * the member list mcds will finally be linked to the list noDuplicates. The
      * equality of the MCDs is determined by method 'equals' in class MCD.
      */
-    protected void removeDuplicates() {
+    private void removeDuplicates() {
 
         List<MCD> noDuplicates = new ArrayList<MCD>();
 
@@ -226,7 +428,7 @@ public class MiniConPref {
     /**
      * Print rewritings
      */
-    protected void printRewritings() {
+    private void printRewritings() {
         if (!rewritings.isEmpty()) {
             System.out.println("\nRewriting(s):");
             for (Rewriting rw : rewritings) {
@@ -236,29 +438,41 @@ public class MiniConPref {
     }
 
     /**
+     * C. BA Print rewritings
+     */
+    private void printPrefRewritings(List<Rewriting> listRewritings) {
+        if (!listRewritings.isEmpty()) {
+            System.out.println("\n### My Rewriting(s): ### ");
+            for (Rewriting rw : listRewritings) {
+                System.out.println(rw);
+            }
+        }
+    }
+
+    /**
      * Print MCDs
      */
-    protected void printMCDs() {
+    private void printMCDs() {
         // System.out.println("\n");
         if (mcds.isEmpty())
             System.out.println("\nNo MCDs created");
         else
             for (MCD mcd : mcds) {
-                System.out.println(mcd.toString() + " / Rank: " + mcd.getRank());
+                System.out.println(mcd.toString() + " " + mcd.coveredSubgoals);
             }
     }
 
     /**
      * Print query provided by user
      */
-    protected void printQuery() {
+    private void printQuery() {
         System.out.println("\nQuery: " + query);
     }
 
     /**
      * Print views provided by user
      */
-    protected void printViews() {
+    private void printViews() {
         for (DatalogQuery view : views) {
             System.out.println("View: " + view);
 
@@ -270,7 +484,7 @@ public class MiniConPref {
      *
      * @return list of Rewriting objects
      */
-    protected List<Rewriting> getRewritings() {
+    public List<Rewriting> getRewritings() {
         return rewritings;
     }
 

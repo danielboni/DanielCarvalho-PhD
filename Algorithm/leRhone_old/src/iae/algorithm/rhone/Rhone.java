@@ -90,7 +90,7 @@ public class Rhone {
         String[] argumentos = new String[3];
         argumentos[0] = "-f";
         argumentos[1] = "testcases.xml";
-        argumentos[2] = "15";
+        argumentos[2] = "14";
         testID = Integer.parseInt(argumentos[2]);
 
         Rhone rhone = InputHandlerRhone.handleArguments(argumentos);

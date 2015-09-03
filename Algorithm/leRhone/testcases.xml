@@ -185,7 +185,7 @@
   <id>14</id>
   <query>Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)</query>
   <view>S1(disease, patientsssn) :- A1(disease, patientsssn)</view>
-  <view>S2(disease, patientsssn, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)</view>
+  <view>S2(disease, patientsssn) :- A1(disease, patientsssn)</view>
   <view>S3(patientsssn, dna) :- A2(patientsssn, dna)</view>
   <view>S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)</view>
   <view>S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)</view>
@@ -196,7 +196,7 @@
   <testcase>
   <id>15</id>
   <query>Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)</query>
-  <view>S2(disease,dna) :- A1(disease, patientsssn),A2(patientsssn, dna)</view>
+  <view>S2(disease, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)</view>
   <view>S3(patientsssn, dna) :- A2(patientsssn, dna)</view>
   <view>S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)</view>
   <view>S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)</view>
