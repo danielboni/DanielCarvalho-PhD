@@ -1,5 +1,6 @@
 package minicon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserPreference {
@@ -9,6 +10,12 @@ public class UserPreference {
 	private List<String> values;
 	
 	private List<String> predicates;
+	
+	public UserPreference(){
+		this.measures = new ArrayList<String>();
+		this.values = new ArrayList<String>();
+		this.predicates = new ArrayList<String>();
+	}
 	
 	public List<String> getMeasures() {
 		return measures;
@@ -32,6 +39,12 @@ public class UserPreference {
 
 	public void setPredicates(List<String> predicates) {
 		this.predicates = predicates;
+	}
+
+	public void add(String measure, String predicate, String value) {
+		this.measures.add(measure);
+		this.predicates.add(predicate);
+		this.values.add(value);
 	}
 
 }

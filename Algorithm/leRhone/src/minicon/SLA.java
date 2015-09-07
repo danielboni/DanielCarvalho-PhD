@@ -1,5 +1,6 @@
 package minicon;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SLA {
@@ -11,7 +12,13 @@ public class SLA {
 	private List<String> values;
 	
 	private List<String> predicates;
-
+	
+	public SLA(){
+		this.measures = new ArrayList<String>();
+		this.values = new ArrayList<String>();
+		this.predicates = new ArrayList<String>();
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -42,5 +49,11 @@ public class SLA {
 
 	public void setPredicates(List<String> predicates) {
 		this.predicates = predicates;
+	}
+
+	public void add(String measure, String predicate, String value) {
+		this.measures.add(measure);
+		this.values.add(value);
+		this.predicates.add(predicate);
 	} 	
 }

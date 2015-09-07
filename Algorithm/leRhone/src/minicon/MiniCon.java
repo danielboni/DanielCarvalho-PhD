@@ -76,6 +76,8 @@ public class MiniCon {
 		
 		MiniCon mc = InputHandler.handleArguments(new String[]{"-f", "testcases.xml", "" + testID});
 		
+		test1();
+		
 		if (mc != null) {
 			mc.printQuery();
 			mc.printViews();
@@ -93,6 +95,65 @@ public class MiniCon {
 			
 		
 	}
+
+	private static void test1() {
+		
+		UserPreference uPref = new UserPreference();
+		uPref.add("response time", "<", "5");
+		uPref.add("availability", ">", "90");
+		uPref.add("cost", "<", "1");
+		uPref.add("location", "=", "close");
+		
+		SLA slaS1 = new SLA();
+		slaS1.setName("S1");
+		slaS1.add("response time", "<", "6");
+		slaS1.add("availability", ">", "99");
+		slaS1.add("cost", "=", "0.1");
+		slaS1.add("location", "=", "close");
+		
+		SLA slaS2 = new SLA();
+		slaS2.setName("S2");
+		slaS2.add("response time", "<", "2");
+		slaS2.add("availability", ">", "99.8");
+		slaS2.add("cost", "=", "0.2");
+		slaS2.add("location", "=", "close");
+		
+		SLA slaS3 = new SLA();
+		slaS3.setName("S3");
+		slaS3.add("response time", "<", "2");
+		slaS3.add("availability", ">", "99.9");
+		slaS3.add("cost", "=", "0.2");
+		slaS3.add("location", "=", "close");
+		
+		SLA slaS4 = new SLA();
+		slaS4.setName("S4");
+		slaS4.add("response time", "<", "2");
+		slaS4.add("availability", ">", "99.8");
+		slaS4.add("cost", "=", "0.2");
+		slaS4.add("location", "=", "close");
+		
+		SLA slaS5 = new SLA();
+		slaS5.setName("S5");
+		slaS5.add("response time", "<", "2");
+		slaS5.add("availability", ">", "99.8");
+		slaS5.add("cost", "=", "0.2");
+		slaS5.add("location", "=", "close");
+		
+		SLA slaS6 = new SLA();
+		slaS6.setName("S6");
+		slaS6.add("response time", "<", "2");
+		slaS6.add("availability", ">", "99.8");
+		slaS6.add("cost", "=", "0.2");
+		slaS6.add("location", "=", "close");
+		
+		SLA slaS7 = new SLA();
+		slaS7.setName("S7");
+		slaS7.add("response time", "<", "2");
+		slaS7.add("availability", ">", "99.8");
+		slaS7.add("cost", "=", "0.2");
+		slaS7.add("location", "=", "close");
+	}
+	
 
 	/**
 	 * The method will execute the actual algorithm. Three method calls will be
