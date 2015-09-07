@@ -6,11 +6,13 @@ package minicon;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //import preference.Organiser;
 //import preference.PreferencesFileParser;
 import datalog.DatalogQuery;
 import datalog.Predicate;
 import datalog.PredicateElement;
+import datalog.Variable;
 
 /**
  * 
@@ -70,7 +72,7 @@ public class MiniCon {
 	public static void main(String[] args) {
 		System.out.println("MiniCon Algorithm");
 		
-		int testID = 15;
+		int testID = 14;
 		
 		MiniCon mc = InputHandler.handleArguments(new String[]{"-f", "testcases.xml", "" + testID});
 		
@@ -347,6 +349,94 @@ public class MiniCon {
 				}
 			}
 		}
+			
+		// x exists in C1 and C2 ==> it must be mapped to the same constant
+		for (int i = 0; i < mcds.size(); i++) {
+			MCD mcd1 = mcds.get(i);
+			Mapping constMap1 = mcd1.mappings.constMap;
+			for (int j = 0; j < mcds.size(); j++) {
+				if (i != j) {
+					MCD mcd2 = mcds.get(j);
+					Mapping constMap2 = mcd2.mappings.constMap;
+					for (PredicateElement elem : constMap1.arguments) {
+						if ((constMap2.containsArgument(elem) && !(constMap1
+								.getFirstMatchingValue(elem).equals(constMap2
+								.getFirstMatchingValue(elem))))) {
+							return false;
+						}
+					}
+				}
+			}
+		}
+		
+		// verifico se existe mapeamento para todas as variaveis
+		System.out.println("****** Nova reescrita ****** " + mcds.size());
+		for (int i = 0; i < mcds.size(); i++) {
+			MCD mcd = mcds.get(i);
+			boolean b = false;
+			System.out.println("MCD " + i + " " + mcd);
+			for (Variable var : mcd.view.getHeadVariables()) {
+				System.out.println("Variavel de cabeca atual: " + var);
+				b = false;
+				
+				for (int j = 0; j < mcd.mappings.varMapSize(); j++){
+					System.out.println("Map arg: " + mcd.mappings.getVarMapValue(j));
+					if (var.equals(mcd.mappings.getVarMapValue(j))) {
+						b = true;
+					}
+				}
+				System.out.println("Valor de b: " + b);
+				if (!b)
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Called by combineMCDs, it will test whether the given MCDs can be
+	 * combined to a valid rewriting.
+	 * 
+	 * A rewriting is valid if the combination of the view predicates result in
+	 * the set of query subgoals and when the predicates are pairwise disjoint.
+	 * First, the total number of predicates of the given MCDs will be computed.
+	 * If the number doesn't equal to the number of subgoals in the query, false
+	 * will be returned (interpreted predicates are not considered here).
+	 * Second, every MCD is compared with every other MCD to test whether they
+	 * are disjoint. Finally, mappings to constants will be checked for
+	 * validity. If there is a variable that the exists in at least two MCDs and
+	 * that is mapped to two different constants, the combination of these MCDs
+	 * is not possible.
+	 * 
+	 * @param mcds
+	 *            that will be test whether they can be combined
+	 * @return true if mcds can be combined to a valid rewriting, false
+	 *         otherwise
+	 */
+/*	private boolean isRewriting(List<MCD> mcds) {
+		int countPredicates = 0;
+
+		for (MCD mcd : mcds) {
+			countPredicates += mcd.numberOfSubgoals();
+		}
+
+		// compare total number of predicates with number of query subgoals
+		if (countPredicates != query.numberOfPredicates()) {
+			return false;
+		}
+
+		// test pairwise disjoint
+		for (int i = 0; i < mcds.size(); i++) {
+			for (int j = 0; j < mcds.size(); j++) {
+				if (i != j) {
+					MCD mcd1 = mcds.get(i);
+					MCD mcd2 = mcds.get(j);
+					if (!mcd1.isDisjoint(mcd2)) {
+						return false;
+					}
+				}
+			}
+		}
 
 		// x exists in C1 and C2 ==> it must be mapped to the same constant
 		for (int i = 0; i < mcds.size(); i++) {
@@ -367,7 +457,7 @@ public class MiniCon {
 			}
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * Called by formMCDs. The given query subgoal is tested if it can be mapped
