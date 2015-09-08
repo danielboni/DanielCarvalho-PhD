@@ -308,6 +308,18 @@ public class MiniCon {
 		} else if ((user_predicate.equals("<=") && sla_predicate.equals("<=")) && 
 				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
 			return false;
+		} else if ((user_predicate.equals("<") && sla_predicate.equals("=")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals(">") && sla_predicate.equals("=")) && 
+				Double.parseDouble(sla_value) < Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals("<=") && sla_predicate.equals("=")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals(">=") && sla_predicate.equals("=")) && 
+				Double.parseDouble(sla_value) < Double.parseDouble(user_value)){
+			return false;
 		} 
 		
 		
