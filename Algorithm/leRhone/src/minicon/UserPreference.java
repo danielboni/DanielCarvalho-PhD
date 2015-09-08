@@ -5,6 +5,8 @@ import java.util.List;
 
 public class UserPreference {
 	
+	private int id;
+	
 	private List<String> measures; 
 	
 	private List<String> values;
@@ -45,6 +47,14 @@ public class UserPreference {
 		this.measures.add(measure);
 		this.predicates.add(predicate);
 		this.values.add(value);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

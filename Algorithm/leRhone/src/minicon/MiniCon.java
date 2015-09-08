@@ -7,6 +7,8 @@ package minicon;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 //import preference.Organiser;
 //import preference.PreferencesFileParser;
 import datalog.DatalogQuery;
@@ -76,7 +78,7 @@ public class MiniCon {
 		
 		MiniCon mc = InputHandler.handleArguments(new String[]{"-f", "testcases.xml", "" + testID});
 		
-		test1();
+		test0();
 		
 		if (mc != null) {
 			mc.printQuery();
@@ -95,21 +97,30 @@ public class MiniCon {
 			
 		
 	}
+	
+	private static List<SLA> listOfSLAs;
+	private static List<UserPreference> listOfUPref;
 
-	private static void test1() {
+	private static void test0() {
+		
+		listOfSLAs = new ArrayList<SLA>();
+		listOfUPref = new ArrayList<UserPreference>();
 		
 		UserPreference uPref = new UserPreference();
+		uPref.setId(0);
 		uPref.add("response time", "<", "5");
 		uPref.add("availability", ">", "90");
 		uPref.add("cost", "<", "1");
 		uPref.add("location", "=", "close");
+		listOfUPref.add(uPref);
 		
 		SLA slaS1 = new SLA();
 		slaS1.setName("S1");
-		slaS1.add("response time", "<", "6");
+		slaS1.add("response time", "<", "5");
 		slaS1.add("availability", ">", "99");
 		slaS1.add("cost", "=", "0.1");
 		slaS1.add("location", "=", "close");
+		listOfSLAs.add(slaS1);
 		
 		SLA slaS2 = new SLA();
 		slaS2.setName("S2");
@@ -117,6 +128,7 @@ public class MiniCon {
 		slaS2.add("availability", ">", "99.8");
 		slaS2.add("cost", "=", "0.2");
 		slaS2.add("location", "=", "close");
+		listOfSLAs.add(slaS2);
 		
 		SLA slaS3 = new SLA();
 		slaS3.setName("S3");
@@ -124,13 +136,15 @@ public class MiniCon {
 		slaS3.add("availability", ">", "99.9");
 		slaS3.add("cost", "=", "0.2");
 		slaS3.add("location", "=", "close");
+		listOfSLAs.add(slaS3);
 		
 		SLA slaS4 = new SLA();
 		slaS4.setName("S4");
 		slaS4.add("response time", "<", "2");
 		slaS4.add("availability", ">", "99.8");
-		slaS4.add("cost", "=", "0.2");
+		//slaS4.add("cost", "=", "0.2");
 		slaS4.add("location", "=", "close");
+		listOfSLAs.add(slaS4);
 		
 		SLA slaS5 = new SLA();
 		slaS5.setName("S5");
@@ -138,6 +152,7 @@ public class MiniCon {
 		slaS5.add("availability", ">", "99.8");
 		slaS5.add("cost", "=", "0.2");
 		slaS5.add("location", "=", "close");
+		listOfSLAs.add(slaS5);
 		
 		SLA slaS6 = new SLA();
 		slaS6.setName("S6");
@@ -145,6 +160,7 @@ public class MiniCon {
 		slaS6.add("availability", ">", "99.8");
 		slaS6.add("cost", "=", "0.2");
 		slaS6.add("location", "=", "close");
+		listOfSLAs.add(slaS6);
 		
 		SLA slaS7 = new SLA();
 		slaS7.setName("S7");
@@ -152,6 +168,7 @@ public class MiniCon {
 		slaS7.add("availability", ">", "99.8");
 		slaS7.add("cost", "=", "0.2");
 		slaS7.add("location", "=", "close");
+		listOfSLAs.add(slaS7);
 	}
 	
 
@@ -179,7 +196,125 @@ public class MiniCon {
 	 * added to the list of MCDs. Finally duplicate MCDs will be removed from
 	 * the list.
 	 */
+	
+	private List<String> ServicesBacklist;
+	
 	private void formMCDs() {
+
+		// subgoal of the query
+		List<Predicate> subgoals = query.getPredicates();
+		ServicesBacklist = new ArrayList<String>();
+
+		for (Predicate subgoal : subgoals) {
+			// System.out.println("\n current subgoal " + subgoal);
+
+			// for every view try to create mappings
+			for (DatalogQuery view : views) {
+
+				List<MCDMappings> mappings = createMapping(subgoal, view);
+
+				// for every mapping created check whether properties are
+				// fulfilled
+				for (MCDMappings map : mappings) {
+
+					
+					
+					// create MCD
+					MCD mcd;
+					
+					if (!checkingSLA(view.getName())){
+						System.out.println("Achou falha no sla --- ");
+						ServicesBacklist.add(view.getName());
+					} else {
+						mcd = new MCD(subgoal, query, view, map);
+						// MCD can be extend to fulfill properties
+						if (mcd.fulfillProperty()) {
+							if (!ServicesBacklist.contains(mcd.getView().getName())){
+								mcds.add(mcd);
+							}
+						}
+					}
+				}
+			}
+		}
+		removeDuplicates();
+	}
+	
+	//retorna verdadeiro se esta tudo ok
+	private boolean checkingSLA(String serviceName) {
+		// mudar isso depois para ficar parecido com o do xml
+		// quantidade de measures das preferencias do usuario
+		int size = listOfUPref.get(0).getMeasures().size();
+		
+		SLA sla = null;
+		for (SLA sla1: listOfSLAs){
+			if (sla1.getName().equals(serviceName))
+				sla = sla1;
+		}
+		
+		for (int i = 0; i < size; i++){
+			UserPreference pref = listOfUPref.get(0);
+			
+			String user_measure = pref.getMeasures().get(i);
+			String user_value = pref.getValues().get(i);
+			String user_predicate = pref.getPredicates().get(i);
+			
+			int size2 = sla.getMeasures().size();
+			
+			for (int j = 0; j < size2; j++){
+				if (sla.getMeasures().get(j).equals(user_measure)){
+					boolean b = evaluate(user_measure, user_predicate, user_value, sla.getMeasures().get(j),
+							sla.getPredicates().get(j), sla.getValues().get(j));
+					if (!b){
+						return false;
+					}
+				}
+			}
+		}
+		
+		return true;
+	}
+
+	private boolean evaluate(String user_measure, String user_predicate,
+			String user_value, String sla_measure, String sla_predicate, String sla_value) {
+		
+		if ((user_predicate.equals("<") && sla_predicate.equals(">")) ||
+				(user_predicate.equals(">") && sla_predicate.equals("<"))){
+			return false;
+		} else if ((user_predicate.equals("<") && sla_predicate.equals("<=")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals(">") && sla_predicate.equals(">=")) && 
+				Double.parseDouble(sla_value) <= Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals("<=") && sla_predicate.equals(">=")) ||
+				(user_predicate.equals(">=") && sla_predicate.equals("<="))){
+			return false;
+		} else if ((user_predicate.equals(">") && sla_predicate.equals(">")) && 
+				Double.parseDouble(sla_value) < Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals("<") && sla_predicate.equals("<")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals(">=") && sla_predicate.equals(">")) && 
+				Double.parseDouble(sla_value) < Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals("<=") && sla_predicate.equals("<")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals(">=") && sla_predicate.equals(">=")) && 
+				Double.parseDouble(sla_value) < Double.parseDouble(user_value)){
+			return false;
+		} else if ((user_predicate.equals("<=") && sla_predicate.equals("<=")) && 
+				Double.parseDouble(sla_value) > Double.parseDouble(user_value)){
+			return false;
+		} 
+		
+		
+		return true;
+	}
+
+/*	private void formMCDs() {
 
 		// subgoal of the query
 		List<Predicate> subgoals = query.getPredicates();
@@ -197,6 +332,7 @@ public class MiniCon {
 				for (MCDMappings map : mappings) {
 
 					// create MCD
+					
 					MCD mcd = new MCD(subgoal, query, view, map);
 
 					// MCD can be extend to fulfill properties
@@ -207,7 +343,8 @@ public class MiniCon {
 			}
 		}
 		removeDuplicates();
-	}
+	}*/
+
 
 	/**
 	 * The second part of the algorithm will combine the MCDs in order to obtain
