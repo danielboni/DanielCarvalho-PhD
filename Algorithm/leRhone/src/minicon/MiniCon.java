@@ -411,7 +411,7 @@ public class MiniCon {
 			}
 		}
 			
-		// x exists in C1 and C2 ==> it must be mapped to the same constant
+		// x exists in C1 and C2 ==> it must be mapped to the same constant 
 		for (int i = 0; i < mcds.size(); i++) {
 			MCD mcd1 = mcds.get(i);
 			Mapping constMap1 = mcd1.mappings.constMap;
