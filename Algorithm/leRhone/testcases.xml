@@ -205,4 +205,12 @@
   <view>S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)</view>
   <information/>
  </testcase>
+ <testcase>
+  <id>16</id>
+  <query>Q(x,y) :- A1(x, y), A2(y,z)</query>
+  <view>S1(a,y) :- A1(a, y)</view>
+  <view>S2(a,h) :- A1(a, c),A2(c, h)</view>
+  <view>S3(a,z) :- A2(a, z)</view>
+  <information/>
+ </testcase>
 </testcases>

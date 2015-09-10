@@ -74,7 +74,7 @@ public class MiniCon {
 	public static void main(String[] args) {
 		System.out.println("MiniCon Algorithm");
 		
-		int testID = 14;
+		int testID = 16;
 		
 		MiniCon mc = InputHandler.handleArguments(new String[]{"-f", "testcases.xml", "" + testID});
 		
@@ -250,6 +250,8 @@ public class MiniCon {
 		for (SLA sla1: listOfSLAs){
 			if (sla1.getName().equals(serviceName))
 				sla = sla1;
+			else
+				return true;
 		}
 		
 		for (int i = 0; i < size; i++){
@@ -535,7 +537,7 @@ public class MiniCon {
 	 * @return true if mcds can be combined to a valid rewriting, false
 	 *         otherwise
 	 */
-	private boolean isRewriting(List<MCD> mcds) {
+	/*private boolean isRewriting(List<MCD> mcds) {
 		int countPredicates = 0;
 
 		for (MCD mcd : mcds) {
@@ -601,7 +603,7 @@ public class MiniCon {
 			}
 		}
 		return true;
-	}
+	}*/
 	
 	/**
 	 * Called by combineMCDs, it will test whether the given MCDs can be
@@ -623,7 +625,7 @@ public class MiniCon {
 	 * @return true if mcds can be combined to a valid rewriting, false
 	 *         otherwise
 	 */
-/*	private boolean isRewriting(List<MCD> mcds) {
+	private boolean isRewriting(List<MCD> mcds) {
 		int countPredicates = 0;
 
 		for (MCD mcd : mcds) {
@@ -667,7 +669,7 @@ public class MiniCon {
 			}
 		}
 		return true;
-	}*/
+	}
 
 	/**
 	 * Called by formMCDs. The given query subgoal is tested if it can be mapped
