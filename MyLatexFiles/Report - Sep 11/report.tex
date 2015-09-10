@@ -10,17 +10,17 @@
 
 \begin{center}
 \textbf{\large{Meeting September 11th}} \\
-\textbf{Describing the input, processing and output date in the algorithm}
+\textbf{Describing the input, processing and output data in the algorithm}
 \end{center}
 
 The \textbf{input data} for the algorithm is a query (Q) and a list of concrete services (C1, C2, ...). The query and concrete services are defined as follows:
 
 \begin{center}
-$Q (\overline{t}) := A_{1}(\overline{t}), A_{2}(\overline{t}), ..,  A_{n}(\overline{t})$ \\
-$C (\overline{t}) := A_{1}(\overline{t}), A_{2}(\overline{t}), ..,  A_{n}(\overline{t})$
+$Q (\overline{t}) := A_{1}(\overline{t}), A_{2}(\overline{t}), ..,  A_{n}(\overline{t}),Q_{1},Q_{2}, ..., Q_{n}$ \\
+$C (\overline{t}) := A_{1}(\overline{t}), A_{2}(\overline{t}), ..,  A_{n}(\overline{t}),Q_{1},Q_{2}, ..., Q_{n}$
 \end{center}
 
-The query and concrete services are defined as a set of abstract services ($A_{1}, A_{2}, ..., A_{n}$). $\overline{t}$ is q set of input or output variables. The first \textbf{processing step} of the algorithm creates the data structures that represent the query and concrete services. The query and concrete service data structure will be formed by its $name$, a set of head variables ($V_{h}$) and a set of abstract services ($A_{s}$).
+The query and concrete services are defined as a set of abstract services ($A_{1}, A_{2}, ..., A_{n}$) and a set of quality constraints ($Q_{1},Q_{2}, ..., Q_{n}$). $\overline{t}$ is a set of input (decoration \textbf{?}) or output (decoration \textbf{!}) variables. The first \textbf{processing step} of the algorithm creates the data structures that represent the query and concrete services. The query and concrete service data structure will be formed by its $name$, a set of head variables ($V_{h}$) and a set of abstract services ($A_{s}$).
 
 \begin{center}
 $Q = \langle name, V_{h}, A_{s} \rangle$ \\
@@ -43,10 +43,82 @@ $\langle S, h, \varphi, G, Def, has\_opt\rangle$
 
 After that, all the \textbf{PCDs formed in the previous step are combined}. Once we have all the possible combinations of PCDs, \textbf{each combination is verified} to confirm if the combination is a valid rewriting of the former query or not.
 A valid rewriting is a list of PCDs that answers the complete query without redundancies, and without more than one mapping to the same variable with distinct values.
+\bigskip
+Considering that we have the data structure for the query (Q) and concrete services (C), the general idea of the algorithm is defined in the function \emph{rewriting}:
+
+\begin{verbatim}
+function rewriting (Q, C)
+   l := createPCDs(Q, C)
+   P := combinePCD (l)
+foreach p in P
+   if isRewriting(Q,p)
+      R := R U {p}
+return R
+\end{verbatim}
+
+The function \emph{createPCDs} returns a list of PCDs \textbf{l}. \textbf{P} is a list all possible combinations of PCDs returned by the function \emph{combinePCD}. And, for each PCD combination in \textbf{P}, the function \emph{isRewriting} verifies the combination is a valid rewriting or not. If true, the set of rewriting \textbf{R} is updated adding the new combination. In the end, the list of rewriting \textbf{R} is returned.
+
+\bigskip The examples next show the data structure created for input data, the intermediary data generated while processing the algorithm, and the output rewriting expected.
+ 
+\begin{flushleft}
+\textbf{Describing an example 1}
+\end{flushleft}
 
 \begin{flushleft}
-\textbf{Describing an example}
+\textbf{Query:} \\
+Q(disease?, patients!, dnas!, birth!, gen!, addr!, wheatherstatistic!) :- A1(disease?, patients!), A2(patients?,dnas!), A3(patients?, birth!, gen!, addr!), A4(addr?, wheatherstatistic!) \\
 \end{flushleft}
+
+The data created for the query above is:
+
+\begin{center}
+$\langle Q, [disease?, patients!, dnas!, birth!, gen!, addr!, wheatherstatistic!], [A1,A2,A3,A4] \rangle$
+\end{center}
+
+For each abstract service the following data is created:
+
+\begin{flushleft}
+$\langle A1, [disease?, patients!]\rangle$ \\
+$\langle A2, [patients?,dnas!]\rangle$ \\
+$\langle A3, [patients?, birth!, gen!, addr!]\rangle$ \\
+$\langle A4, [addr?, wheatherstatistic!]\rangle$ \\
+\end{flushleft}
+
+The same procedure is done for the concrete services.
+
+\begin{flushleft}
+\textbf{Concrete services:} \\
+S1(d?, p!) :- A1(d?, p!)\\
+S2(d?, p!) :- A1(d?, p!)\\
+S3(p?, d!) :- A2(p?, d!)\\
+S4(p?, dateofbirth!, gender!, address!) :- A3(p?, dateofbirth!, gender!, address!)\\
+S5(address?, wheatherstaticalinformation!) :- A4(address?, wheatherstaticalinformation!)\\
+S6(p?, d!) :- A5(p?, d!)\\
+S7(p?, vaccinateddiseases!) :- A6(p?, vaccinateddiseases!)\\
+\end{flushleft}
+
+Once we have all the data structure created, PCDs for abstract services that can solve the query will be created. Such as:
+
+\begin{flushleft}
+$\langle S1, [d? \longmapsto d?, p! \longmapsto p!], [d? \longmapsto disease?, p! \longmapsto patients!], A1, \emptyset, false\rangle$ \\
+$\langle S2, [d? \longmapsto d?, p! \longmapsto p!], [d? \longmapsto disease?, p! \longmapsto patients!], A1, \emptyset, false\rangle$ \\
+$\langle S3, [p? \longmapsto p?, d! \longmapsto d!], [p? \longmapsto patients?, d! \longmapsto dnas!], A2, \emptyset, false\rangle$ \\
+$\langle S4, [p? \longmapsto p?, dateofbirth! \longmapsto dateofbirth!, gender! \longmapsto gender!, address! \longmapsto address!], [p? \longmapsto patients?, dateofbirth! \longmapsto birth!, gender! \longmapsto gen!, address! \longmapsto addr!], A3, \emptyset, false\rangle$ \\
+$\langle S5, [address? \longmapsto address?, wheatherstaticalinformation! \longmapsto wheatherstaticalinformation!], [address? \longmapsto addr?, wheatherstaticalinformation! \longmapsto wheatherstatistic!], A4, \emptyset, false\rangle$ \\
+\end{flushleft}
+
+Based on these PCDs, all possible combination are created, and then the valid ones are returned as rewriting of the former query. The expected \textbf{rewriting results} are:
+
+\begin{flushleft}
+\textbf{1) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S1(disease,patients),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
+\textbf{2) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
+\end{flushleft}
+
+\begin{flushleft}
+\textbf{Describing an example 2}
+\end{flushleft}
+
+The difference between the example 1 and 2 is the concrete service S2. Now, I defined it being able to solve two parts in the query.
 
 \begin{flushleft}
 \textbf{Query:} \\
@@ -55,148 +127,31 @@ Q(disease?, patients!, dnas!, birth!, gen!, addr!, wheatherstatistic!) :- A1(dis
 
 \begin{flushleft}
 \textbf{Concrete services:} \\
-S2(disease, patientsssn, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)\\
-S3(patientsssn, dna) :- A2(patientsssn, dna)\\
-S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
-S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
-S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
-S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
+S1(d?, p!) :- A1(d?, p!)\\
+S2(d?, p!, dna!) :- A1(d?, p!), A2(p?, dna!)\\
+S3(p?, d!) :- A2(p?, d!)\\
+S4(p?, dateofbirth!, gender!, address!) :- A3(p?, dateofbirth!, gender!, address!)\\
+S5(address?, wheatherstaticalinformation!) :- A4(address?, wheatherstaticalinformation!)\\
+S6(p?, d!) :- A5(p?, d!)\\
+S7(p?, vaccinateddiseases!) :- A6(p?, vaccinateddiseases!)\\
 \end{flushleft}
+
+Note the difference in the PCD for S2 in the following lines. Now the set \textbf{G} has indications for A1 and A2.
 
 \begin{flushleft}
-The \textbf{rewriting results} were: \\
-\textbf{1) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients,\_),S2(\_,patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
-\textbf{2) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients,\_),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic)
+$\langle S1, [d? \longmapsto d?, p! \longmapsto p!], [d? \longmapsto disease?, p! \longmapsto patients!], A1, \emptyset, false\rangle$ \\
+$\langle S2, [d? \longmapsto d?, p! \longmapsto p!, dna! \longmapsto dna!], [d? \longmapsto disease?, p! \longmapsto patients!, dna! \longmapsto dnas!], \lbrace A1,A2 \rbrace, \emptyset, false\rangle$ \\
+$\langle S3, [p? \longmapsto p?, d! \longmapsto d!], [p? \longmapsto patients?, d! \longmapsto diseases!], A2, \emptyset, false\rangle$ \\
+$\langle S4, [p? \longmapsto p?, dateofbirth! \longmapsto dateofbirth!, gender! \longmapsto gender!, address! \longmapsto address!], [p? \longmapsto patients?, dateofbirth! \longmapsto birth!, gender! \longmapsto gen!, address! \longmapsto addr!], A3, \emptyset, false\rangle$ \\
+$\langle S5, [address? \longmapsto address?, wheatherstaticalinformation! \longmapsto wheatherstaticalinformation!], [address? \longmapsto addr?, wheatherstaticalinformation! \longmapsto wheatherstatistic!], A4, \emptyset, false\rangle$ \\
 \end{flushleft}
 
-In the result (1) the service S2 is called two times, and in (2) S1 and S3 are called together. ``\textbf{Why do we have these answers if we have the dependency between A1 and A2 in S2?}''
-\\
-\\
-The rewriting answers are correct. Note that we have all variables in the head of the service definition, because of that we do not have dependency between A1 and A2, and two different PCDs are created for this service.
+Based on these PCDs, the expected \textbf{rewriting results} are:
 
 \begin{flushleft}
-\textbf{2. New Example}
+\textbf{1) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S1(disease,patients),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
+\textbf{2) }Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S2(disease,patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic) \\
 \end{flushleft}
 
-Considering Umberto's comments I tried to produce a new example expressing the dependencies between abstract services.
-
-\begin{flushleft}
-\textbf{Query:} \\
-Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic) \\
-\end{flushleft}
-
-\begin{flushleft}
-\textbf{Concrete services:} \\
-S1(disease, patientsssn) :- A1(disease, patientsssn)\\
-S2(disease, dna) :- A1(disease, patientsssn), A2(patientsssn, dna)\\
-S3(patientsssn, dna) :- A2(patientsssn, dna)\\
-S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
-S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
-S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
-S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
-\end{flushleft}
-
-Note that I removed \textit{patientsssn} from the head of the service S2 and I supposed that now this variable creates a dependency between the abstract services A1 and A2. However the rewriting answer was:
-
-\begin{flushleft}
-Q(disease,patients,dnas,birth,gen,addr,wheatherstatistic) :- S1(disease,patients),S3(patients,dnas),S4(patients,birth,gen,addr),S5(addr,wheatherstatistic)
-\end{flushleft}
-
-And the PCDs created were:
-\begin{flushleft}
-S1 [A1(disease,patients)] \\
-S3 [A2(patients,dnas)] \\
-S4 [A3(patients,birth,gen,addr)] \\
-S5 [A4(addr,wheatherstatistic)]
-\end{flushleft}
-
-No answer using S2 was created and also no PCD for it. I also tried to remove S1, but I got an error running the algorithm.
-
-\begin{flushleft}
-\textbf{3. Example with SLA}
-\end{flushleft}
-
-\begin{flushleft}
-\textbf{Query:} \\
-Q(disease, patients, dnas, birth, gen, addr, wheatherstatistic) :- A1(disease, patients), A2(patients,dnas), A3(patients, birth, gen, addr), A4(addr, wheatherstatistic)$\lbrace$ cost $\leq$ 1\$, location = close, response time $<$ 2s, data provenance = any$\rbrace$ \\
-\end{flushleft}
-
-I added in the end of the query, between braces, the user's requirements that should be after matched in the SLAs. I put them between braces to differentiate from the constraints that could also be part of the query. I am supposing that I have access to the services SLAs. Considering the concrete services below, the PCDs created are:
-
-\begin{flushleft}
-\textbf{Concrete services:} \\
-S1(disease, patientsssn) :- A1(disease, patientsssn)\\
-S2(disease, patientsssn) :- A1(disease, patientsssn)\\
-S3(patientsssn, dna) :- A2(patientsssn, dna)\\
-S4(patientsssn, dateofbirth, gender, address) :- A3(patientsssn, dateofbirth, gender, address)\\
-S5(address, wheatherstaticalinformation) :- A4(address, wheatherstaticalinformation)\\
-S6(patientsssn, diseases) :- A5(patientsssn, diseases)\\
-S7(patientsssn, vaccinateddiseases) :- A6(patientsssn, vaccinateddiseases)\\
-\end{flushleft}
-
-\begin{flushleft}
-\textbf{PCD 1:}
-\end{flushleft}
-\begin{description}
-\item[S] S1
-\item[SLA] $\lbrace$ cost = 0.2, location = close, response time $<$ 2s, data provenance = fresh $\rbrace$
-\item[h]  $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patientsssn $\rbrace$
-\item[$\varphi$] $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patients $\rbrace$
-\item[G] A1(disease, patientsssn)
-\item[Def] $\emptyset$
-\item[has\_opt] false
-\end{description}
-
-\begin{flushleft}
-\textbf{PCD 2:}
-\end{flushleft}
-\begin{description}
-\item[S] S2
-\item[SLA] $\lbrace$ cost = 0.4, location = close, response time $<$ 3s, data provenance = fresh $\rbrace$
-\item[h]  $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patientsssn $\rbrace$
-\item[$\varphi$] $\lbrace$ disease $\longrightarrow$ disease, patientsssn $\longrightarrow$ patients $\rbrace$
-\item[G] A1(disease, patientsssn)
-\item[Def] $\emptyset$
-\item[has\_opt] false
-\end{description}
-
-\begin{flushleft}
-\textbf{PCD 3:}
-\end{flushleft}
-\begin{description}
-\item[S] S3
-\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
-\item[h]  $\lbrace$ patientsssn $\longrightarrow$ patientsssn, dna$\longrightarrow$ dna $\rbrace$
-\item[$\varphi$] $\lbrace$ patientsssn $\longrightarrow$ patients, dna $\longrightarrow$ dnas $\rbrace$
-\item[G] A2(patientsssn, dna)
-\item[Def] $\emptyset$
-\item[has\_opt] false
-\end{description}
-
-\begin{flushleft}
-\textbf{PCD 4:}
-\end{flushleft}
-\begin{description}
-\item[S] S4
-\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
-\item[h]  $\lbrace$ patientsssn $\longrightarrow$ patientsssn, dateofbirth $\longrightarrow$ dateofbirth, gender $\longrightarrow$ gender, address $\longrightarrow$ address $\rbrace$
-\item[$\varphi$] $\lbrace$ patientsssn $\longrightarrow$ patients, dateofbirth $\longrightarrow$ birth, gender $\longrightarrow$ gen,  address $\longrightarrow$ addr $\rbrace$
-\item[G] A3(patientsssn, dateofbirth, gender, address)
-\item[Def] $\emptyset$
-\item[has\_opt] false
-\end{description}
-
-\begin{flushleft}
-\textbf{PCD 5:}
-\end{flushleft}
-\begin{description}
-\item[S] S5
-\item[SLA] $\lbrace$ cost = 0.1, location = close, response time $<$ 1s, data provenance = fresh $\rbrace$
-\item[h]  $\lbrace$ address $\longrightarrow$ address, wheatherstaticalinformation $\longrightarrow$ wheatherstaticalinformation $\rbrace$
-\item[$\varphi$] $\lbrace$ address $\longrightarrow$ addr,  wheatherstaticalinformation $\longrightarrow$ wheatherstatistic $\rbrace$
-\item[G] A4(address, wheatherstaticalinformation)
-\item[Def] $\emptyset$
-\item[has\_opt] false
-\end{description}
 
 \end{document}
