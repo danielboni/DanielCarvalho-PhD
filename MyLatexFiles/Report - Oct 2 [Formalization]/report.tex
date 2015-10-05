@@ -13,7 +13,7 @@
 \begin{document}
 
 \begin{center}
-\textbf{\large{Report September 24th}} \\
+\textbf{\large{Report October 1st}} \\
 \textbf{Improving the formalization of the algorithm and Building our architecture}
 \end{center}
 
@@ -114,6 +114,7 @@ Considering the query in the Example 1 and the concrete services in the Example 
 
 An important concept in our approach is the \textit{candidate service description} (CSD). 
 A CSD describes how a \textit{candidate} concrete service can be used in the query rewriting process which included mappings between variables, covered abstract services, and quality constrains.
+Intuitively, a rewriting is a set of \textit{candidate service descriptions} that fully covers the original query, and do not violates the user preferences.
 
 \noindent \textbf{Definition 5 (candidate service description):} CSD is a complex data structure defined as %follows: 
 %\begin{center}
@@ -125,9 +126,36 @@ $\varphi$ are mapping between terms from the abstract composition to terms in th
 $G$ is a set of abstract services covered by $S$. 
 $P$ is a set quality constraints associated to the service $S$. 
 
-The CSD for a given service will be created following rules: (1) for all head variables in $S$, there is a mapping for a head variable in $Q$; and (2) if $x$ is an local variable in $S$ mapped to a local variable in $Q$, then $S$ must cover all abstract services in $Q$ which uses $x$.
+The CSD for a given service will be created following rules: (1) for all head variables in $S$, there is a mapping for a head variable in $Q$; and (2) if $x$ is an local variable in $S$ mapped to a local variable in $Q$, then $S$ must cover all abstract services in $Q$ which uses $x$ or cover only one abstract service that uses $x$.
 
-Intuitively, a rewriting is a set of \textit{partial descriptors} that fully covers the original query, and do not violates the user preferences.
+\noindent \textbf{Example 3:} To illustrate the rules above consider the following example. Supposing that we have the query $Q$ and the concrete services $S1$, $S2$, $S3$ and $S4$:
+
+\begin{center}
+$Q (d?, birth!, dna!) := A1(d?, p!), A2(p?, birth!), A3(p?, dna!)$ \\
+$S1 (a?, b!) := A1(a?, c!), A2(c?, b!)$ \\
+$S2 (a?, b!) := A3(a?, b!)$ \\
+$S3 (a?, b!) := A1(a?, b!)$ \\
+$S4 (a?, b!) := A2(a?, b!)$ \\
+\end{center} 
+
+In the query $Q$ it is possible to note that ``p!'' is a \textit{local} variable which is used as input (``p?'') for the abstract services $A2$ and $A3$. 
+Looking to the concrete service $S1$ no CSD will be created for it because the \textit{local} variable $c!$ is mapped to the local variable $p!$, but $S1$ does not cover all abstract services which expects that variable. 
+On the other hand, CSDs are constructed to the services $S2$, $S3$ and $S4$ once even existing the mapping from a local variable in the concrete service to a local variable in the query, all of them only cover one abstract service which uses that \textit{local} variable.
+To be more clear about these rules, consider the rewriting below in which the CSDs for the services  $S2$, $S3$ and $S4$ are used:
+
+\begin{center}
+$Q (d?, birth!, dna!) := S3(d?, p!), S3(p?, birth!), S4(p?, dna!)$ \\
+\end{center}  
+
+The rewriting above is the only one possible for the query. 
+However, let us suppose that a CSD for $S1$ was created violating the rule number two, consequently the wrong rewriting below would be created:
+
+\begin{center}
+$Q (d?, birth!, dna!) := S1(d?, birth!),S4(p?, dna!)$ \\
+\end{center}  
+
+The problem here is regarding the \textit{local} variable $p?$ which appears in $S4$, and it apparently should come from $S1$, but we can not guarantee that the same \textit{local} variable internally used in $S1$ is the one expected by $S4$. 
+That is the reason the rule two exists.
 
 \begin{flushleft}
 \textbf{Architecture}
