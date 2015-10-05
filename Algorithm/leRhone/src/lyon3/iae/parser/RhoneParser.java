@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lyon3.iae.datamodel.AbstractService;
+import lyon3.iae.datamodel.ConcreteService;
 import lyon3.iae.datamodel.Constraints;
 import lyon3.iae.datamodel.InputVariable;
 import lyon3.iae.datamodel.OutputVariable;
+import lyon3.iae.datamodel.QualityAspect;
 import lyon3.iae.datamodel.Query;
 import lyon3.iae.datamodel.UserPreference;
 import lyon3.iae.datamodel.Variable;
@@ -18,6 +20,8 @@ public class RhoneParser {
 		RhoneParser parser = new RhoneParser();
 		parser.queryParser("Q(x?, y!) := A1(x?,y!), A2(x?,y!)"
 				+ "{x = \"K\", x < \"2\"}"
+				+ "[availability > 98%, response time < 2s, price per call = 0.1$, totalCost < 1$]");
+		parser.concreteServiceParser("C(x?, y!) := A1(x?,y!), A2(x?,y!)"
 				+ "[availability > 98%, response time < 2s, price per call = 0.1$, totalCost < 1$]");
 		
 	}
@@ -39,7 +43,13 @@ public class RhoneParser {
 	}
 	
 	public void concreteServiceParser(String concreteService){
-		
+		ConcreteService c = new ConcreteService();
+		c.setHead(this.getHeadDefinition(concreteService));
+		c.setBody(this.getBodyDefinition(concreteService));
+		List<Variable> headVariables = this.processVariables(c.getHead());
+		c.setHeadVariables(headVariables);
+		c.setAbstractServices(this.getAbstractServices(c.getBody()));
+		c.setQualityAspects(this.getQualityAspects(c.getBody()));
 	}
 
 	public String getHeadDefinition(String query){
@@ -132,6 +142,11 @@ public class RhoneParser {
 	private List<AbstractService> getAbstractServices(String body) {
 		List<AbstractService> abstractServices = new ArrayList<AbstractService>();
 		int end = body.indexOf("{");
+		if (end == -1)
+			end = body.indexOf("[");
+		if (end == -1)
+			end = body.length();
+				
 		String aServices = body.substring(0, end);
 		//System.out.println(aServices);
 		String[] aS = aServices.split(",");
@@ -207,5 +222,60 @@ public class RhoneParser {
 			}
 		}
 		return constraints;
+	}
+	
+	private List<QualityAspect> getQualityAspects(String body) {
+		List<QualityAspect> qualityAspects = new ArrayList<QualityAspect>();
+		int begin = body.indexOf("[");
+		int end = body.indexOf("]");
+		String userPref = body.substring(begin+1, end);
+		//System.out.println(userPref);
+		String[] prefs = userPref.split(",");
+		for (String pref: prefs){
+			if (pref.contains("<=")){
+				String[] prefParts = pref.split("<=");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp("<=");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			} else if (pref.contains(">=")){
+				String[] prefParts = pref.split(">=");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp(">=");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			} else if (pref.contains("!=")){
+				String[] prefParts = pref.split("!=");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp("!=");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			} else if (pref.contains(">")){
+				String[] prefParts = pref.split(">");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp(">");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			} else if (pref.contains("<")){
+				String[] prefParts = pref.split("<");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp("<");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			} else if (pref.contains("=")){
+				String[] prefParts = pref.split("=");
+				QualityAspect u = new QualityAspect();
+				u.setMeasure(prefParts[0].trim());
+				u.setOp("=");
+				u.setValue(prefParts[1].trim());
+				qualityAspects.add(u);
+			}
+		}
+		return qualityAspects;
 	}
 }
