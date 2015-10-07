@@ -40,4 +40,19 @@ public class ConcreteService {
 	public void setQualityAspects(List<QualityAspect> qualityAspects) {
 		this.qualityAspects = qualityAspects;
 	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(getHead() + " := " + getBody() + "\n");
+		
+		for (AbstractService a: abstractServices){
+			sb.append("Abstract Service: ");
+			sb.append(a.getDescription() + " --> " + a.toString());
+		}
+
+		for (QualityAspect c: qualityAspects)
+			sb.append("\n Quality Aspects: [" + c.toString());
+		sb.append(" ]");
+		return sb.toString();
+	}
 }

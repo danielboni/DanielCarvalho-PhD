@@ -54,4 +54,22 @@ public class Query {
 	public void setConstraints(List<Constraints> constraints) {
 		this.constraints = constraints;
 	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(getHead() + " := " + getBody() + "\n");
+		
+		for (AbstractService a: abstractServices){
+			sb.append("Abstract Service: ");
+			sb.append(a.getDescription() + " --> " + a.toString());
+		}
+
+		for (Constraints c: constraints)
+			sb.append("\n Constraints: [" + c.toString());
+		sb.append(" ]");
+		for (UserPreference c: userPreferences)
+			sb.append("\n User Preferences: [" + c.toString());
+		sb.append(" ]");
+		return sb.toString();
+	}
 }

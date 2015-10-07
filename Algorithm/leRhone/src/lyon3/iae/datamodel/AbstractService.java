@@ -26,4 +26,16 @@ public class AbstractService {
 	public void setVariables(List<Variable> variables) {
 		this.variables = variables;
 	}
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("[ Name: " + getName() + "] [ Variables: ");
+		for (Variable v: variables) {
+			if(v instanceof InputVariable)
+				sb.append("input <" + v.getName() +"> ");
+			else
+				sb.append("output <" + v.getName() +"> ");
+		}
+		sb.append("]");
+		return sb.toString();
+	}
 }

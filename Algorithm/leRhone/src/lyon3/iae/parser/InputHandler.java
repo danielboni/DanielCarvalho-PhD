@@ -1,6 +1,10 @@
 package lyon3.iae.parser;
 
+import java.io.ObjectInputStream.GetField;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import lyon3.iae.datamodel.AbstractService;
@@ -12,57 +16,114 @@ import lyon3.iae.datamodel.QualityAspect;
 import lyon3.iae.datamodel.Query;
 import lyon3.iae.datamodel.UserPreference;
 import lyon3.iae.datamodel.Variable;
+import lyon3.iae.rhone.Rhone;
 
+import org.dom4j.Attribute;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
-public class RhoneParser {
+public class InputHandler {
 
-	public static void main (String args[]){
-		RhoneParser parser = new RhoneParser();
+	private static Rhone rhone = new Rhone();
+	
+/*	public static void main (String args[]) throws MalformedURLException, DocumentException{
+		InputHandler handler = new InputHandler();
+		Document document = handler.parse("testcases.xml");
+		handler.bar(document, "0");
+		Rhone parser = new Rhone();
 		parser.queryParser("Q(x?, y!) := A1(x?,y!), A2(x?,y!)"
 				+ "{x = \"K\", x < \"2\"}"
 				+ "[availability > 98%, response time < 2s, price per call = 0.1$, totalCost < 1$]");
 		parser.concreteServiceParser("C(x?, y!) := A1(x?,y!), A2(x?,y!)"
 				+ "[availability > 98%, response time < 2s, price per call = 0.1$, totalCost < 1$]");
 		
+	}*/
+	
+	public static Rhone handleArguments(String url, String testID) throws DocumentException{
+		Document document = getDocument(url);
+		boolean check = readFile(document, testID);
+		return rhone;
+	}
+	 
+	private static Document getDocument(String url) throws DocumentException{
+		SAXReader reader = new SAXReader();
+        Document document = reader.read(url);
+        return document;
 	}
 	
-	public void queryParser(String query){
+	private static boolean readFile(Document document, String id) throws DocumentException {
+
+        Element root = document.getRootElement();
+        
+        for (Iterator<?> i = root.elementIterator(); i.hasNext(); ) {
+            Element element = (Element) i.next();
+            
+            for (Iterator<?> cont = element.attributeIterator(); cont.hasNext(); ) {
+                Attribute attribute = (Attribute) cont.next();
+                
+                if (attribute.getStringValue().equals(id)){
+                	List<ConcreteService> concreteServices = new ArrayList<ConcreteService>();
+                	
+                	for (Iterator<?> j = element.elementIterator(); j.hasNext(); ) {
+                        Element child = (Element) j.next();
+                        
+                        if (child.getName().equals("query")){
+                        	rhone.setQuery(processQuery(child.getStringValue()));
+                        } else if (child.getName().equals("service")) {
+                        	concreteServices.add(processConcreteService(child.getStringValue()));
+                        } else {
+                        	System.out.println("Malformed XML");
+                        }
+                    }
+                	rhone.setConcreteServices(concreteServices);
+                	return true;
+                }
+            }
+        }
+		return false;
+     }
+	
+	private static Query processQuery(String query){
 		Query q = new Query();
 		
-		q.setHead(this.getHeadDefinition(query).trim());
-		q.setBody(this.getBodyDefinition(query).trim());
+		q.setHead(getHeadDefinition(query).trim());
+		q.setBody(getBodyDefinition(query).trim());
 
-		List<Variable> headVariables = this.processVariables(q.getHead());
+		List<Variable> headVariables = processVariables(q.getHead());
 		q.setHeadVariables(headVariables);
 		
-		q.setUserPreferences(this.getUserPreferences(q.getBody()));
+		q.setUserPreferences(getUserPreferences(q.getBody()));
 		
-		q.setAbstractServices(this.getAbstractServices(q.getBody()));
+		q.setAbstractServices(getAbstractServices(q.getBody()));
 		
-		q.setConstraints(this.getConstraints(q.getBody()));
+		q.setConstraints(getConstraints(q.getBody()));
+		return q;
 	}
 	
-	public void concreteServiceParser(String concreteService){
+	public static ConcreteService processConcreteService(String concreteService){
 		ConcreteService c = new ConcreteService();
-		c.setHead(this.getHeadDefinition(concreteService));
-		c.setBody(this.getBodyDefinition(concreteService));
-		List<Variable> headVariables = this.processVariables(c.getHead());
+		c.setHead(getHeadDefinition(concreteService));
+		c.setBody(getBodyDefinition(concreteService));
+		List<Variable> headVariables = processVariables(c.getHead());
 		c.setHeadVariables(headVariables);
-		c.setAbstractServices(this.getAbstractServices(c.getBody()));
-		c.setQualityAspects(this.getQualityAspects(c.getBody()));
+		c.setAbstractServices(getAbstractServices(c.getBody()));
+		c.setQualityAspects(getQualityAspects(c.getBody()));
+		return c;
 	}
 
-	public String getHeadDefinition(String query){
+	public static String getHeadDefinition(String query){
 		int middle = query.indexOf(":");
 		return query.substring(0, middle-1);
 	}
 	
-	public String getBodyDefinition(String query){
+	public static String getBodyDefinition(String query){
 		int middle = query.indexOf("=");
 		return query.substring(middle+1, query.length());
 	}
 	
-	public List<Variable> processVariables(String s){
+	public static List<Variable> processVariables(String s){
 		int begin = s.indexOf("(") + 1;
 		int end = s.indexOf(")");
 		String s1 = s.substring(begin, end);
@@ -84,7 +145,7 @@ public class RhoneParser {
 		return variables;
 	}
 	
-	public List<UserPreference> getUserPreferences(String body){
+	public static List<UserPreference> getUserPreferences(String body){
 		List<UserPreference> userPreferences = new ArrayList<UserPreference>();
 		int begin = body.indexOf("[");
 		int end = body.indexOf("]");
@@ -139,7 +200,7 @@ public class RhoneParser {
 		return userPreferences;
 	}
 	
-	private List<AbstractService> getAbstractServices(String body) {
+	private static List<AbstractService> getAbstractServices(String body) {
 		List<AbstractService> abstractServices = new ArrayList<AbstractService>();
 		int end = body.indexOf("{");
 		if (end == -1)
@@ -161,7 +222,7 @@ public class RhoneParser {
 				a.setDescription(concat.trim());
 				int i = concat.indexOf("(");
 				a.setName((concat.substring(0, i)).trim());
-				a.setVariables(this.processVariables(concat));
+				a.setVariables(processVariables(concat));
 				abstractServices.add(a);
 				concat = "";
 			}
@@ -169,7 +230,7 @@ public class RhoneParser {
 		return abstractServices;
 	}
 	
-	public List<Constraints> getConstraints(String body){
+	public static List<Constraints> getConstraints(String body){
 		List<Constraints> constraints = new ArrayList<Constraints>();
 		int begin = body.indexOf("{");
 		int end = body.indexOf("}");
@@ -224,7 +285,7 @@ public class RhoneParser {
 		return constraints;
 	}
 	
-	private List<QualityAspect> getQualityAspects(String body) {
+	private static List<QualityAspect> getQualityAspects(String body) {
 		List<QualityAspect> qualityAspects = new ArrayList<QualityAspect>();
 		int begin = body.indexOf("[");
 		int end = body.indexOf("]");
