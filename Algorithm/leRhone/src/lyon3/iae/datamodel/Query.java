@@ -63,12 +63,13 @@ public class Query {
 			sb.append("Abstract Service: ");
 			sb.append(a.getDescription() + " --> " + a.toString());
 		}
-
+		sb.append("\n Constraints: [");
 		for (Constraints c: constraints)
-			sb.append("\n Constraints: [" + c.toString());
+			sb.append(c.toString());
 		sb.append(" ]");
+		sb.append("\n User Preferences: [");
 		for (UserPreference c: userPreferences)
-			sb.append("\n User Preferences: [" + c.toString());
+			sb.append(c.toString());
 		sb.append(" ]");
 		return sb.toString();
 	}

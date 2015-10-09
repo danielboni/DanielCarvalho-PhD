@@ -4,6 +4,10 @@
 	  <service>S1(a?,b!) := e1(a?,b!)[availability > 99%]</service>
 	  <service>S2(a?,b!) := e1(a?,b!)[availability > 98%]</service>
 	  <service>S3(a?,b!) := e2(a?,b!)[availability > 99%]</service>
+	  <service>S4(a?,b!) := e2(a?,b!)[availability > 97%]</service>
+	  <service>S5(a?,b!) := e2(a?,b!)[availability > 95%]</service>
+	  <service>S6(a?,b!) := e1(a?,b!)[availability > 93%]</service>
+	  <service>S7(a?,b!) := e3(a?,b!)[availability > 95%]</service>
 	</testcase>
  <testcase>
   <id>1</id>
