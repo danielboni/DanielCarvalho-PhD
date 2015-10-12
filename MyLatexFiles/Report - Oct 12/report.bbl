@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{ba}
+Cheikh Ba, Umberto Costa, Mirian Halfeld~Ferrari, R{\'e}my Ferre, Martin
+  A.~Musicante, Veronika Peralta, and Sophie Robert.
+\newblock {Preference-Driven Refinement of Service Compositions}.
+\newblock In {\em {CLOSER (4th International Conference on Cloud Computing and
+  Services Science)}}, Proceedings of CLOSER 2014, page 8 pages, Barcelona,
+  Spain, April 2014.
+\newblock POSTER presentation.
+
+\bibitem{Umberto}
+UmbertoS. Costa, MirianHalfeld Ferrari, MartinA. Musicante, and Sophie Robert.
+\newblock Automatic refinement of service compositions.
+\newblock In Florian Daniel, Peter Dolog, and Qing Li, editors, {\em Web
+  Engineering}, volume 7977 of {\em Lecture Notes in Computer Science}, pages
+  400--407. Springer Berlin Heidelberg, 2013.
+
+\end{thebibliography}
