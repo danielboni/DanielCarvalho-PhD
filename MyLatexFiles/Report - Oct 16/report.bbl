@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{Barhamgi2010}
+M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
+\newblock A query rewriting approach for web service composition.
+\newblock {\em Services Computing, IEEE Transactions on}, 3(3):206--222, July
+  2010.
+
+\bibitem{Benouaret2011}
+Karim {Benouaret}, Djamal {Benslimane}, Allel {Hadjali}, and Mahmoud
+  {Barhamgi}.
+\newblock {FuDoCS: A Web Service Composition System Based on Fuzzy Dominance
+  for Preference Query Answering}, September 2011.
+\newblock VLDB - 37th International Conference on Very Large Data Bases - Demo
+  Paper.
+
+\end{thebibliography}
