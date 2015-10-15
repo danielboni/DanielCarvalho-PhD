@@ -19,7 +19,37 @@ public class Rhone {
 	private Query query;
 	
 	private List<ConcreteService> concreteServices;
+	
+	private List<ConcreteService> cadidateConcreteServices;
 
+	public void selectServices(){
+		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
+		
+		for (ConcreteService c: concreteServices){
+			if (this.isCandidateService(c))
+				this.cadidateConcreteServices.add(c);
+		}
+	}
+	
+	public boolean isCandidateService(ConcreteService service){
+		for (AbstractService a: service.getAbstractServices()){
+			boolean k = false;
+			for (AbstractService b: this.query.getAbstractServices()){
+				if (a.equals(b))
+					k = true;
+			}
+			if (!k)
+				return false;
+		}
+		return true;
+	}
+	
+	public void printCandidateServices(){
+		System.out.println("There is/are " + cadidateConcreteServices.size() + " candidate concrete services.");
+		for (ConcreteService c: this.cadidateConcreteServices)
+			System.out.println(c.getHead() + " := " + c.getBody());
+	}
+	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append(" ****************** \n");
@@ -298,5 +328,17 @@ public class Rhone {
 
 	public void setConcreteServices(List<ConcreteService> concreteServices) {
 		this.concreteServices = concreteServices;
+	}
+
+
+
+	public List<ConcreteService> getCadidateConcreteServices() {
+		return cadidateConcreteServices;
+	}
+
+
+
+	public void setCadidateConcreteServices(List<ConcreteService> cadidateConcreteServices) {
+		this.cadidateConcreteServices = cadidateConcreteServices;
 	}
 }

@@ -8,7 +8,9 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 		Rhone rhone = InputHandler.handleArguments("testcases.xml", "0");
-		System.out.println(rhone.toString());
+		//System.out.println(rhone.toString());
+		rhone.selectServices();
+		rhone.printCandidateServices();
 	}
 }
  
