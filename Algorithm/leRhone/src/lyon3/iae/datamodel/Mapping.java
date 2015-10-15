@@ -39,4 +39,8 @@ public class Mapping {
 	public void setMappings(Map<Variable, Variable> mappings) {
 		this.mappings = mappings;
 	}
+	
+	public void addMapping(Variable a, Variable b) {
+		this.mappings.put(a, b);
+	}
 }
