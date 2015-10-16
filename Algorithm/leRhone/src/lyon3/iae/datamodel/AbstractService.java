@@ -1,5 +1,6 @@
 package lyon3.iae.datamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractService {
@@ -7,6 +8,11 @@ public class AbstractService {
 	private String name;
 	private String description;
 	private List<Variable> variables;
+	private List<Dependency> dep;
+	
+	public AbstractService () {
+		this.dep = new ArrayList<Dependency>();
+	}
 	
 	public String getName() {
 		return name;
@@ -67,6 +73,13 @@ public class AbstractService {
 			return false;
 		return true;
 	}
-	
-	
+	public List<Dependency> getDep() {
+		return dep;
+	}
+	public void setDep(List<Dependency> dep) {
+		this.dep = dep;
+	}
+	public void addDep(Dependency dep) {
+		this.dep.add(dep);
+	}
 }

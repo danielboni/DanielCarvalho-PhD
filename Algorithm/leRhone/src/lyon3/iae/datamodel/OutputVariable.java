@@ -10,4 +10,9 @@ public class OutputVariable extends Variable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "OutputVariable [name=" + name + "]";
+	}
 }

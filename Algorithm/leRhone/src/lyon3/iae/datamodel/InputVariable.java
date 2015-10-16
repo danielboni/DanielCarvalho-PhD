@@ -10,4 +10,9 @@ public class InputVariable extends Variable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "InputVariable [name=" + name + "]";
+	}
 }

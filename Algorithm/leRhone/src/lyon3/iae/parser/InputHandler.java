@@ -375,6 +375,7 @@ public class InputHandler {
 							d.setOrigin(a);
 							d.setDependencies(list_of_dependent_abstract_services);
 							dependencies.add(d);
+							list_of_abstract_services.get(i).addDep(d);
 						}
 					}
 				}
@@ -414,6 +415,7 @@ public class InputHandler {
 							d.setOrigin(a);
 							d.setDependencies(list_of_dependent_abstract_services);
 							dependencies.add(d);
+							list_of_abstract_services.get(i).addDep(d);
 						}
 					}
 				}

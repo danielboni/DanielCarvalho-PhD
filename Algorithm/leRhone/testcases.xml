@@ -1,9 +1,9 @@
 <testcases>
 	<testcase id="0">
-	  <query>Q(x?,y!) := e1(x?,a!), e2(b?,y!), e3(b?,y!){x = "A"}[availability > 99%, price per call = 0.1$]</query>
-	  <service>S1(a?,b!) := e1(a?,b!)[availability > 99%]</service>
+	  <query>Q(x?,y!) := e1(x?,b!), e2(b?,y!), e3(b?,y!){x = "A"}[availability > 99%, price per call = 0.1$]</query>
+	  <service>S1(a?,b!) := e1(a?,c!),e2(c?,b!)[availability > 99%]</service>
 	  <service>S2(a?,b!) := e1(a?,b!)[availability > 98%]</service>
-	  <service>S3(a?,b!) := e2(a?,b!),e3(a?,b!)[availability > 99%]</service>
+	  <service>S3(a?,b!) := e2(a?,c!),e3(c?,b!)[availability > 99%]</service>
 	  <service>S4(a?,b!) := e2(a?,b!)[availability > 97%]</service>
 	  <service>S5(a?,b!) := e2(a?,b!)[availability > 95%]</service>
 	  <service>S6(a?,b!) := e1(a?,b!)[availability > 93%]</service>

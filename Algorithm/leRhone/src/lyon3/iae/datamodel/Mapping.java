@@ -43,4 +43,12 @@ public class Mapping {
 	public void addMapping(Variable a, Variable b) {
 		this.mappings.put(a, b);
 	}
+
+	@Override
+	public String toString() {
+		return "Mapping [query_abstractservice=" + query_abstractservice
+				+ ", concrete_service_abstractservice="
+				+ concrete_service_abstractservice + ", mappings=" + mappings
+				+ "]";
+	}
 }
