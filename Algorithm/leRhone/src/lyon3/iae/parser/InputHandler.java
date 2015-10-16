@@ -10,6 +10,7 @@ import java.util.List;
 import lyon3.iae.datamodel.AbstractService;
 import lyon3.iae.datamodel.ConcreteService;
 import lyon3.iae.datamodel.Constraints;
+import lyon3.iae.datamodel.Dependency;
 import lyon3.iae.datamodel.InputVariable;
 import lyon3.iae.datamodel.OutputVariable;
 import lyon3.iae.datamodel.QualityAspect;
@@ -99,6 +100,8 @@ public class InputHandler {
 		q.setAbstractServices(getAbstractServices(q.getBody()));
 		
 		q.setConstraints(getConstraints(q.getBody()));
+		q.setDependencies(query_findDependencies(q));
+		
 		return q;
 	}
 	
@@ -110,6 +113,7 @@ public class InputHandler {
 		c.setHeadVariables(headVariables);
 		c.setAbstractServices(getAbstractServices(c.getBody()));
 		c.setQualityAspects(getQualityAspects(c.getBody()));
+		c.setDependencies(findDependencies(c));
 		return c;
 	}
 
@@ -338,5 +342,83 @@ public class InputHandler {
 			}
 		}
 		return qualityAspects;
+	}
+	
+	public static List<Dependency> findDependencies(ConcreteService service){
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Variable> head_variables = service.getHeadVariables();
+		List<AbstractService> list_of_abstract_services = service.getAbstractServices();
+		List<AbstractService> list_of_dependent_abstract_services = new ArrayList<AbstractService>();
+		int size = service.getAbstractServices().size();
+		for (int i = 0; i < size; i++) {
+			AbstractService a = list_of_abstract_services.get(i);
+			
+			//se todas as variaveis do servico abstrato sao variaveis da cabeca
+			//nao preciso criar dependencia. Caso contratio, crio.
+			for (Variable var: a.getVariables()) {
+				if (!head_variables.contains(var)) {
+					if (var instanceof OutputVariable){
+						list_of_dependent_abstract_services.clear();
+						
+						for (int j = i + 1; j < size; j++) {
+							AbstractService b = list_of_abstract_services.get(j);
+							for (Variable var2: b.getVariables()) {
+								if ((var2 instanceof InputVariable) && (var.getName().equals(var2.getName()))){
+									list_of_dependent_abstract_services.add(b);
+								}
+							}
+						}
+						
+						if (list_of_dependent_abstract_services.size() != 0) {
+							Dependency d = new Dependency();
+							d.setVar(var);
+							d.setOrigin(a);
+							d.setDependencies(list_of_dependent_abstract_services);
+							dependencies.add(d);
+						}
+					}
+				}
+			}
+		}
+		return dependencies;
+	}
+	
+	public static List<Dependency> query_findDependencies(Query query){
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Variable> head_variables = query.getHeadVariables();
+		List<AbstractService> list_of_abstract_services = query.getAbstractServices();
+		List<AbstractService> list_of_dependent_abstract_services = new ArrayList<AbstractService>();
+		int size = query.getAbstractServices().size();
+		for (int i = 0; i < size; i++) {
+			AbstractService a = list_of_abstract_services.get(i);
+			
+			//se todas as variaveis do servico abstrato sao variaveis da cabeca
+			//nao preciso criar dependencia. Caso contratio, crio.
+			for (Variable var: a.getVariables()) {
+				if (!head_variables.contains(var)) {
+					if (var instanceof OutputVariable){
+						list_of_dependent_abstract_services.clear();
+						
+						for (int j = i + 1; j < size; j++) {
+							AbstractService b = list_of_abstract_services.get(j);
+							for (Variable var2: b.getVariables()) {
+								if ((var2 instanceof InputVariable) && (var.getName().equals(var2.getName()))){
+									list_of_dependent_abstract_services.add(b);
+								}
+							}
+						}
+						
+						if (list_of_dependent_abstract_services.size() != 0) {
+							Dependency d = new Dependency();
+							d.setVar(var);
+							d.setOrigin(a);
+							d.setDependencies(list_of_dependent_abstract_services);
+							dependencies.add(d);
+						}
+					}
+				}
+			}
+		}
+		return dependencies;
 	}
 }

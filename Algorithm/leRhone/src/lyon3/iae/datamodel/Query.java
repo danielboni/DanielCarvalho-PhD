@@ -11,6 +11,7 @@ public class Query {
 	private List<AbstractService> abstractServices;
 	private List<UserPreference> userPreferences;
 	private List<Constraints> constraints;
+	private List<Dependency> dependencies;
 	
 	public List<UserPreference> getUserPreferences() {
 		return userPreferences;
@@ -72,5 +73,11 @@ public class Query {
 			sb.append(c.toString());
 		sb.append(" ]");
 		return sb.toString();
+	}
+	public List<Dependency> getDependencies() {
+		return dependencies;
+	}
+	public void setDependencies(List<Dependency> dependencies) {
+		this.dependencies = dependencies;
 	}
 }

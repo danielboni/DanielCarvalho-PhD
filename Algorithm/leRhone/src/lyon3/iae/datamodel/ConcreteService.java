@@ -9,6 +9,7 @@ public class ConcreteService {
 	private List<Variable> headVariables;
 	private List<AbstractService> abstractServices;
 	private List<QualityAspect> qualityAspects;
+	private List<Dependency> dependencies;
 	
 	public String getHead() {
 		return head;
@@ -54,5 +55,11 @@ public class ConcreteService {
 			sb.append("\n Quality Aspects: [" + c.toString());
 		sb.append(" ]");
 		return sb.toString();
+	}
+	public List<Dependency> getDependencies() {
+		return dependencies;
+	}
+	public void setDependencies(List<Dependency> dependencies) {
+		this.dependencies = dependencies;
 	}
 }

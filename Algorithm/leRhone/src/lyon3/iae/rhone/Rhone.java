@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lyon3.iae.datamodel.AbstractService;
+import lyon3.iae.datamodel.CSD;
 import lyon3.iae.datamodel.ConcreteService;
 import lyon3.iae.datamodel.Constraints;
+import lyon3.iae.datamodel.Dependency;
 import lyon3.iae.datamodel.InputVariable;
 import lyon3.iae.datamodel.OutputVariable;
 import lyon3.iae.datamodel.QualityAspect;
@@ -21,6 +23,8 @@ public class Rhone {
 	private List<ConcreteService> concreteServices;
 	
 	private List<ConcreteService> cadidateConcreteServices;
+	
+	private List<CSD> csds;
 
 	public void selectServices(){
 		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
@@ -42,6 +46,34 @@ public class Rhone {
 				return false;
 		}
 		return true;
+	}
+	
+	public void createCSDs(){
+		for (AbstractService query_abs: query.getAbstractServices()) {
+			for (ConcreteService c: cadidateConcreteServices) {
+				for (AbstractService abs: c.getAbstractServices()) {
+					// Encontrei os servicos abstratos que sao equivalentes...
+					if (abs.equals(query_abs)) {
+						
+						
+					}
+				}
+			}
+		}
+		
+	}
+	
+	public void print_query_dependencies(){
+		for (Dependency d: this.query.getDependencies()) {
+			System.out.print(d.getOrigin().getName() + "." + d.getVar().getName() + " --> [");
+			for (int i = 0; i < d.getDependencies().size(); i++) {
+				if (i == d.getDependencies().size() - 1) {
+					System.out.print(d.getDependencies().get(i).getName()+ "]");
+				} else {
+					System.out.print(d.getDependencies().get(i).getName() + ", ");
+				}
+			}
+		}
 	}
 	
 	public void printCandidateServices(){
@@ -340,5 +372,13 @@ public class Rhone {
 
 	public void setCadidateConcreteServices(List<ConcreteService> cadidateConcreteServices) {
 		this.cadidateConcreteServices = cadidateConcreteServices;
+	}
+
+	public List<CSD> getCsds() {
+		return csds;
+	}
+
+	public void setCsds(List<CSD> csds) {
+		this.csds = csds;
 	}
 }
