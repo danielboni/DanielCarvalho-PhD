@@ -14,6 +14,8 @@ public class Main {
 		//rhone.print_query_dependencies();
 		rhone.createCSDs();
 		rhone.print_CSDS();
+		rhone.combineCSDs();
+		rhone.print_permutations();
 	}
 }
  

@@ -26,6 +26,10 @@ public class Rhone {
 	private List<ConcreteService> cadidateConcreteServices;
 	
 	private List<CSD> csds;
+	
+	private List<List<CSD>> rewritings;
+	
+	private List<List<CSD>> csdsPermutations;
 
 	public void selectServices(){
 		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
@@ -48,6 +52,102 @@ public class Rhone {
 		}
 		return true;
 	}
+	
+/*	public void combineCSDs() {
+		rewritings = new ArrayList<List<CSD>>();
+		csdsPermutations = new ArrayList<List<CSD>>();
+		for (int i = 1; i <= csds.size(); i++) {
+
+			// find subset of size i
+			List<List<CSD>> subsetList = findMCDSubset(csds, i);
+			csdsPermutations.addAll(subsetList);
+//			for (List<CSD> csdList : subsetList) {
+//				if (isRewriting(csdList)) {
+//					rewritings.add(csdList);
+//				}
+//			}
+		}
+	}*/
+	
+	public void combineCSDs() {		
+		csdsPermutations = new ArrayList<List<CSD>>();
+		List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
+		csdsPermutations.addAll(subsetList);
+//		for (List<CSD> mcdList : subsetList) {
+//			if (isRewriting(mcdList)) {
+//				rewritings.add(new Rewriting(mcdList, query));
+//			}
+//		}
+	}
+	
+	private List<List<CSD>> findMCDSubsetPref(List<CSD> list) {
+		List<List<CSD>> result;
+
+		if (list.size() == 0){
+			result = new ArrayList<List<CSD>>();
+			result.add(new ArrayList<CSD>());
+			return result;
+		}
+
+		List<CSD> newList = new ArrayList(list);
+		CSD lastMCD = newList.remove(newList.size()-1);		
+
+		return addMCDToSubsetList(lastMCD, findMCDSubsetPref(newList));
+	}
+	
+	private List<List<CSD>> addMCDToSubsetList (CSD csd, List<List<CSD>> subsetList){
+		List<List<CSD>> resultat = clone (subsetList);		
+		List<List<CSD>> initialSubsetList = clone (subsetList);
+
+		for (List<CSD> csdList: initialSubsetList){
+			csdList.add(csd);
+			resultat.add(csdList);
+		}		
+		return resultat;				
+	}
+	
+	private List<List<CSD>> clone (List<List<CSD>> listOfLists){
+		List<List<CSD>> result = new ArrayList<List<CSD>>();
+
+		for (List<CSD> list: listOfLists){
+			List<CSD> newList = new ArrayList<CSD>();
+			newList.addAll(list);
+			result.add(newList);
+		}
+		return result;
+	}
+/*	
+	private List<List<CSD>> findMCDSubset(List<CSD> list, int size) {
+		//
+		List<CSD> csdList = new ArrayList<CSD>(list);
+		List<List<CSD>> returnList = new ArrayList<List<CSD>>();
+		//
+		if (size == 1) {
+			for (CSD mcd : csdList) {
+				List<CSD> tempList = new ArrayList<CSD>();
+				tempList.add(mcd);
+				returnList.add(tempList);
+			}
+		} else {
+			for (int i = 0; i <= (csdList.size() - size + 1); i++) {
+
+				CSD csd = csdList.get(0);
+				csdList.remove(0);
+				List<List<CSD>> tempList = findMCDSubset(csdList, size - 1);
+
+				addAsFirstElem(csd, tempList);
+				returnList.addAll(tempList);
+			}
+		}
+		//
+		return returnList;
+	}*/
+	
+/*	private void addAsFirstElem(CSD elem, List<List<CSD>> list) {
+		for (List<CSD> currList : list) {
+			currList.add(0, elem);
+		}
+	}*/
 	
 	public void createCSDs(){
 		csds = new ArrayList<CSD>();
@@ -166,6 +266,16 @@ public class Rhone {
 			System.out.println("Mappings created:");
 			for (Mapping map: csd.getMappings())
 				System.out.println(map.toString());
+		}
+	}
+	
+	public void print_permutations() {
+		System.out.println("Number of combinations: " + csdsPermutations.size());
+		for (List<CSD> list: csdsPermutations) {
+			for (CSD csd: list) {
+				System.out.print(csd.getConcrete_service().getHead() + " ");
+			}
+			System.out.println();
 		}
 	}
 	
