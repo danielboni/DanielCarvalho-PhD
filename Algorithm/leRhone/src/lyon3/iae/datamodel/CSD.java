@@ -20,4 +20,11 @@ public class CSD {
 	public void setMappings(List<Mapping> mappings) {
 		this.mappings = mappings;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		CSD csd = (CSD)obj;
+		if (!this.getConcrete_service().equals(csd.getConcrete_service()))
+			return false;
+		return true;
+	}
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class ConcreteService {
 
+	private String name;
 	private String head;
 	private String body;
 	private List<Variable> headVariables;
@@ -62,4 +63,21 @@ public class ConcreteService {
 	public void setDependencies(List<Dependency> dependencies) {
 		this.dependencies = dependencies;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		ConcreteService c = (ConcreteService) obj;
+		if (!this.getHead().equals(c.getHead()))
+			return false;
+		if (!this.getBody().equals(c.getBody()))
+			return false;
+		return true;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
 }

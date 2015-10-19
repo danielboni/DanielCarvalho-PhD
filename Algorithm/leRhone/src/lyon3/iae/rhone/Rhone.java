@@ -13,6 +13,7 @@ import lyon3.iae.datamodel.Mapping;
 import lyon3.iae.datamodel.OutputVariable;
 import lyon3.iae.datamodel.QualityAspect;
 import lyon3.iae.datamodel.Query;
+import lyon3.iae.datamodel.Rewriting;
 import lyon3.iae.datamodel.UserPreference;
 import lyon3.iae.datamodel.Variable;
 
@@ -27,7 +28,7 @@ public class Rhone {
 	
 	private List<CSD> csds;
 	
-	private List<List<CSD>> rewritings;
+	private List<Rewriting> rewritings;
 	
 	private List<List<CSD>> csdsPermutations;
 
@@ -53,31 +54,17 @@ public class Rhone {
 		return true;
 	}
 	
-/*	public void combineCSDs() {
-		rewritings = new ArrayList<List<CSD>>();
-		csdsPermutations = new ArrayList<List<CSD>>();
-		for (int i = 1; i <= csds.size(); i++) {
-
-			// find subset of size i
-			List<List<CSD>> subsetList = findMCDSubset(csds, i);
-			csdsPermutations.addAll(subsetList);
-//			for (List<CSD> csdList : subsetList) {
-//				if (isRewriting(csdList)) {
-//					rewritings.add(csdList);
-//				}
-//			}
-		}
-	}*/
 	
 	public void combineCSDs() {		
 		csdsPermutations = new ArrayList<List<CSD>>();
+		rewritings = new ArrayList<Rewriting>();
 		List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		csdsPermutations.addAll(subsetList);
-//		for (List<CSD> mcdList : subsetList) {
-//			if (isRewriting(mcdList)) {
-//				rewritings.add(new Rewriting(mcdList, query));
-//			}
-//		}
+		for (List<CSD> mcdList : subsetList) {
+			if (isRewriting(mcdList)) {
+				rewritings.add(new Rewriting(mcdList, query));
+			}
+		}
 	}
 	
 	private List<List<CSD>> findMCDSubsetPref(List<CSD> list) {
@@ -116,39 +103,46 @@ public class Rhone {
 		}
 		return result;
 	}
-/*	
-	private List<List<CSD>> findMCDSubset(List<CSD> list, int size) {
-		//
-		List<CSD> csdList = new ArrayList<CSD>(list);
-		List<List<CSD>> returnList = new ArrayList<List<CSD>>();
-		//
-		if (size == 1) {
-			for (CSD mcd : csdList) {
-				List<CSD> tempList = new ArrayList<CSD>();
-				tempList.add(mcd);
-				returnList.add(tempList);
-			}
-		} else {
-			for (int i = 0; i <= (csdList.size() - size + 1); i++) {
+	
+	private boolean isRewriting(List<CSD> csds) {
+		int countAbstractServices = 0;
 
-				CSD csd = csdList.get(0);
-				csdList.remove(0);
-				List<List<CSD>> tempList = findMCDSubset(csdList, size - 1);
+		for (CSD csd : csds) {
+			countAbstractServices += csd.getConcrete_service().getAbstractServices().size();
+		}
 
-				addAsFirstElem(csd, tempList);
-				returnList.addAll(tempList);
+		// compare total number of abstract services with number of query abstract services
+		if (countAbstractServices != query.getAbstractServices().size()) {
+			return false;
+		}
+
+		// test pairwise disjoint
+		for (int i = 0; i < csds.size(); i++) {
+			for (int j = 0; j < csds.size(); j++) {
+				if (i != j) {
+					CSD mcd1 = csds.get(i);
+					CSD mcd2 = csds.get(j);
+					if (!isDisjoint(mcd1, mcd2)) {
+						return false;
+					}
+				}
 			}
 		}
-		//
-		return returnList;
-	}*/
+		return true;
+	}
 	
-/*	private void addAsFirstElem(CSD elem, List<List<CSD>> list) {
-		for (List<CSD> currList : list) {
-			currList.add(0, elem);
+	private boolean isDisjoint(CSD csd1, CSD csd2) {
+		List<AbstractService> csd1AbstractServices = csd1.getConcrete_service().getAbstractServices();
+		List<AbstractService> csd2AbstractServices = csd2.getConcrete_service().getAbstractServices();
+		for (AbstractService abs1: csd1AbstractServices) {
+			for (AbstractService abs2: csd2AbstractServices) {
+				if (abs1.equals(abs2))
+					return false;
+			}
 		}
-	}*/
-	
+		return true;
+	}
+
 	public void createCSDs(){
 		csds = new ArrayList<CSD>();
 
@@ -276,6 +270,13 @@ public class Rhone {
 				System.out.print(csd.getConcrete_service().getHead() + " ");
 			}
 			System.out.println();
+		}
+	}
+	
+	public void print_rewritings() {
+		System.out.println("Number of rewritings: " + rewritings.size());
+		for (Rewriting r: rewritings) {
+			System.out.println(r.toString());
 		}
 	}
 	
@@ -583,5 +584,9 @@ public class Rhone {
 
 	public void setCsds(List<CSD> csds) {
 		this.csds = csds;
+	}
+
+	public void printQuery() {
+		System.out.println(this.query.getHead() + " := " + this.query.getBody());
 	}
 }

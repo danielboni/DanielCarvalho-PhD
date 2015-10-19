@@ -108,6 +108,8 @@ public class InputHandler {
 	public static ConcreteService processConcreteService(String concreteService){
 		ConcreteService c = new ConcreteService();
 		c.setHead(getHeadDefinition(concreteService));
+		int i = c.getHead().indexOf("(");
+		c.setName((c.getHead().substring(0, i)).trim());
 		c.setBody(getBodyDefinition(concreteService));
 		List<Variable> headVariables = processVariables(c.getHead());
 		c.setHeadVariables(headVariables);
