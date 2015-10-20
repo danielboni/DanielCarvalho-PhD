@@ -15,9 +15,9 @@ public class Main {
 		rhone.createCSDs();
 		//rhone.print_CSDS();
 		rhone.combineCSDs();
-		//rhone.print_permutations();
-		rhone.printQuery();
-		rhone.print_rewritings();
+		rhone.print_permutations();
+		//rhone.printQuery();
+		//rhone.print_rewritings();
 	}
 }
  
