@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Mapping {
+	
+	private ConcreteService concreteService;
 
 	private AbstractService query_abstractservice;
 	
@@ -50,5 +52,13 @@ public class Mapping {
 				+ ", concrete_service_abstractservice="
 				+ concrete_service_abstractservice + ", mappings=" + mappings
 				+ "]";
+	}
+
+	public ConcreteService getConcreteService() {
+		return concreteService;
+	}
+
+	public void setConcreteService(ConcreteService concreteService) {
+		this.concreteService = concreteService;
 	}
 }

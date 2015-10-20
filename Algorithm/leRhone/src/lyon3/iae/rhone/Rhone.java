@@ -159,6 +159,7 @@ public class Rhone {
 					for (AbstractService query_abs: query.getAbstractServices()) {
 						if (abs.equals(query_abs)) {
 							Mapping mapping = new Mapping();
+							mapping.setConcreteService(c);
 							mapping.setConcrete_service_abstractservice(abs);
 							mapping.setQuery_abstractservice(query_abs);
 							for (int i = 0; i < query_abs.getVariables().size(); i++) {

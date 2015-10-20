@@ -50,112 +50,6 @@ public class Rewriting {
 		}
 		return true;
 	}
-	
-//	private void setRewritingMapping() {
-//
-//		// temporary mapping to have a representatives for each query variable
-//		Mapping represents = new Mapping();
-//
-//		for (PCD mcd : mcds) {
-//
-//			for (MCDMappings map: mcd.getPhi()){
-//				
-//				// get reference for rewritingMapping from mappings object of class
-//				// MCD
-//				Mapping rewritingMap = map.rewritingMap;
-//
-//				// list of variables that are already mapped
-//				List<Variable> alreadyMapped = new ArrayList<Variable>();
-//
-//				for (int i = 0; i < map.varMapSize(); i++) {
-//
-//					PredicateElement queryElem = map.getVarMapArgument(i);
-//					Variable viewVar = map.getVarMapValue(i);
-//
-//					// view variable has not been mapped before
-//					if (!alreadyMapped.contains(viewVar)) {
-//						alreadyMapped.add(viewVar);
-//
-//						// there is no yet a representative for the query variable
-//						if (!represents.containsArgument(queryElem)) {
-//
-//							represents.map(queryElem, queryElem);
-//
-//							// add mapping from view variable to query element
-//							rewritingMap.map(viewVar, queryElem);
-//
-//							// there is already a representative for the query
-//							// variable
-//						} else {
-//							PredicateElement represent = represents
-//									.getFirstMatchingValue(queryElem);
-//
-//							// add mapping from view variable to reprentative of
-//							// query variable
-//							rewritingMap.map(viewVar, represent);
-//						}
-//
-//						// same view variable has been mapped before
-//					} else {
-//						PredicateElement represent = rewritingMap
-//								.getFirstMatchingValue(viewVar);
-//						// this query element gets same represantative as
-//						// the one that was relevant when the view variable
-//						// was mapped before
-//						represents.map(queryElem, represent);
-//
-//						// add mapping from view variable to reprentative of
-//						// query variable
-//						rewritingMap.map(viewVar, represent);
-//					}
-//				}	
-//			}
-//		}
-//	}
-//
-//
-//	private void setRewritingQuery() {
-//		
-//		rewriting = new DatalogQuery(query.getName());
-//		
-//		for (Variable headVar : query.getHeadVariables()) {
-//			rewriting.addHeadVariable(headVar);
-//			System.out.println("Query headvar: " + headVar);
-//		}
-//
-//		for (PCD mcd : mcds) {
-//			
-//			Predicate view = new Predicate(mcd.view.getName());
-//			rewriting.addPredicate(view);
-//			
-//			for (Variable var : mcd.view.getHeadVariables()) {
-//				boolean check = false;
-//				for (int i = 0; i < mcd.getPhi().size(); i++){
-//					MCDMappings map = mcd.getPhi().get(i);
-//					Mapping rewritingMap = map.rewritingMap;
-//					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
-//					if (rwVar != null) {
-//						view.addElement(rwVar);
-//						check = true;
-//						break;
-//					}
-//				}	
-//				if (check == false) {
-//					view.addVariable(new Variable("_"));
-//				}
-////				for (int i = 0; i < mcd.getPhi().size(); i++){
-////					MCDMappings map = mcd.getPhi().get(i);
-////					Mapping rewritingMap = map.rewritingMap;
-////					PredicateElement rwVar = rewritingMap.getFirstMatchingValue(var);
-////					if (rwVar != null) {
-////						view.addElement(rwVar);
-////					} else {
-////						view.addVariable(new Variable("_"));
-////					}
-////				}			
-//			}	
-//		}
-//	}
 
 	public Query getRewriting() {
 		return rewriting;
@@ -168,24 +62,35 @@ public class Rewriting {
 			sb.append(csd.getConcrete_service().getName() + "(");
 			for (int i = 0; i < csd.getConcrete_service().getHeadVariables().size(); i++) {
 				Variable headVar = csd.getConcrete_service().getHeadVariables().get(i); 
+				boolean check = false;
 				if (i == csd.getConcrete_service().getHeadVariables().size() - 1) {
 					for (Mapping map: csd.getMappings()) {
+						if (check == true)
+							break;
 						for (Map.Entry<Variable, Variable> m: map.getMappings().entrySet()){
 							//System.out.println("---" + m.getKey());
-							if (m.getKey().equals(headVar) && headVar instanceof InputVariable)
+							if (m.getKey().equals(headVar) && headVar instanceof InputVariable) {
 								sb.append(m.getValue().name + "?");
-							else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable)
+								check = true;
+							}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
 								sb.append(m.getValue().name + "!");
+								check = true;
+							}
 						}
 					}
 				}else {
 					for (Mapping map: csd.getMappings()) {
+						if (check == true)
+							break;
 						for (Map.Entry<Variable, Variable> m: map.getMappings().entrySet()){
 							//System.out.println("---" + m.getKey());
-							if (m.getKey().equals(headVar) && headVar instanceof InputVariable)
+							if (m.getKey().equals(headVar) && headVar instanceof InputVariable ) {
 								sb.append(m.getValue().name + "?,");
-							else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable)
+								check = true;
+							}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
 								sb.append(m.getValue().name + "!,");
+								check = true;
+							}
 						}
 					}
 				}
