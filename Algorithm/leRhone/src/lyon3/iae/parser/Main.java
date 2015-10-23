@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) throws DocumentException {
 		Rhone rhone = InputHandler.handleArguments("testcases.xml", "0");
 		rhone.printQuery();
-		//System.out.println(rhone.toString());
+		rhone.printConcreteServices();
 		rhone.selectServices();
 		rhone.printCandidateServices();
 		//rhone.print_query_dependencies();
