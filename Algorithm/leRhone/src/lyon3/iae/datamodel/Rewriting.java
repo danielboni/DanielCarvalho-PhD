@@ -60,23 +60,32 @@ public class Rewriting {
 		sb.append(this.query.getHead() + " := ");
 		for (CSD csd: csds) {
 			sb.append(csd.getConcrete_service().getName() + "(");
+			
 			for (int i = 0; i < csd.getConcrete_service().getHeadVariables().size(); i++) {
 				Variable headVar = csd.getConcrete_service().getHeadVariables().get(i); 
 				boolean check = false;
+				// se n ha mapeamento poe o _
+				boolean check2 = false;
 				if (i == csd.getConcrete_service().getHeadVariables().size() - 1) {
 					for (Mapping map: csd.getMappings()) {
 						if (check == true)
 							break;
 						for (Map.Entry<Variable, Variable> m: map.getMappings().entrySet()){
-							//System.out.println("---" + m.getKey());
 							if (m.getKey().equals(headVar) && headVar instanceof InputVariable) {
 								sb.append(m.getValue().name + "?");
 								check = true;
+								check2 = true;
 							}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
 								sb.append(m.getValue().name + "!");
 								check = true;
+								check2 = true;
 							}
 						}
+					}
+					if (!check2) {
+						sb.append("_");
+						check = true;
+						check2 = false;
 					}
 				}else {
 					for (Mapping map: csd.getMappings()) {
@@ -87,11 +96,18 @@ public class Rewriting {
 							if (m.getKey().equals(headVar) && headVar instanceof InputVariable ) {
 								sb.append(m.getValue().name + "?,");
 								check = true;
+								check2 = true;
 							}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
 								sb.append(m.getValue().name + "!,");
 								check = true;
+								check2 = true;
 							}
 						}
+					}
+					if (!check2) {
+						sb.append("_,");
+						check = true;
+						check2 = false;
 					}
 				}
 				

@@ -1,9 +1,9 @@
 <testcases>
 	<testcase id="0">
-	  <query>Q(disease?,patientInfo!,dna!) := DiseaseInfectedPatients(disease?,p!), PatientPersonalInfo(p?,patientInfo!), PatientDNA(p?,dna!){x = "K"}[availability > 98, price per call &lt; 0.3, total cost &lt; 2]</query>	
+	  <query>Q(disease?,patientInfo!,dna!) := DiseaseInfectedPatients(disease?,p!), PatientPersonalInfo(p?,patientInfo!), PatientDNA(p?,dna!){x = "K"}[availability > 98, price per call &lt; 0.3, total cost &lt; 3]</query>	
 	  <service>S1(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 99, price per call = 0.1]</service>
 	  <service>S2(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 98, price per call = 0.2]</service>
-	  <service>S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!,c!)[availability > 99]</service>
+	  <service>S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!,c!)[availability > 99, price per call = 0.2]</service>
 	  <service>S4(a?,b!) := PatientDNA(a?,b!)[availability > 98, price per call = 0.1]</service>
 	  <service>S5(a?,b!) := PatientDNA(a?,b!)[availability > 96, price per call = 0.1]</service>
 	  <service>S6(a?,b!) := DiseaseInfectedPatients(a?,k!), PatientDNA(k?,b!)[availability > 93]</service>

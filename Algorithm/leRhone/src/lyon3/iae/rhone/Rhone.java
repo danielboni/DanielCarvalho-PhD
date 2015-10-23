@@ -185,7 +185,7 @@ public class Rhone {
 		for (AbstractService a: service.getAbstractServices()){
 			boolean k = false;
 			for (AbstractService b: this.query.getAbstractServices()){
-				if (a.equals(b))
+				if (a.equals(b)  && a.variablesOK(b))
 					k = true;
 			}
 			if (!k) {
