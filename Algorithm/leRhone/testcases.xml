@@ -1,15 +1,15 @@
 <testcases>
 	<testcase id="0">
-	  <query>Q(disease?,patientInfo!,dna!) := DiseaseInfectedPatients(disease?,p!), PatientPersonalInfo(p?,patientInfo!), PatientDNA(p?,dna!){x = "K"}[availability > 98%, price per call &lt; 0.2$, total cost &lt; 1]</query>	
-	  <service>S1(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 99%]</service>
-	  <service>S2(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 98%]</service>
-	  <service>S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!,c!)[availability > 99%]</service>
-	  <service>S4(a?,b!) := PatientDNA(a?,b!)[availability > 97%]</service>
-	  <service>S5(a?,b!) := PatientDNA(a?,b!)[availability > 95%]</service>
-	  <service>S6(a?,b!) := DiseaseInfectedPatients(a?,k!), PatientDNA(k?,b!)[availability > 93%]</service>
-	  <service>S7(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 95%]</service>
-	  <service>S8(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 95%]</service>
-	  <service>S9(a?,c!,b!) := PatientPersonalInfo(a?,b!),PatientDNA(a?,c!)[availability > 95%]</service>	  
+	  <query>Q(disease?,patientInfo!,dna!) := DiseaseInfectedPatients(disease?,p!), PatientPersonalInfo(p?,patientInfo!), PatientDNA(p?,dna!){x = "K"}[availability > 98, price per call &lt; 0.2, total cost &lt; 1]</query>	
+	  <service>S1(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 99, price per call &lt;= 0.3]</service>
+	  <service>S2(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 98]</service>
+	  <service>S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!,c!)[availability > 99]</service>
+	  <service>S4(a?,b!) := PatientDNA(a?,b!)[availability > 97]</service>
+	  <service>S5(a?,b!) := PatientDNA(a?,b!)[availability > 95]</service>
+	  <service>S6(a?,b!) := DiseaseInfectedPatients(a?,k!), PatientDNA(k?,b!)[availability > 93]</service>
+	  <service>S7(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 95]</service>
+	  <service>S8(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 95]</service>
+	  <service>S9(a?,c!,b!) := PatientPersonalInfo(a?,b!),PatientDNA(a?,c!)[availability > 95]</service>	  
 	</testcase>
 	<testcase id="1">
 	  <query>Q(x?, y?) := A1(x?, x1!), A2(x1?, x2!), A3(x2?, x3!), A4(x3?, x4!), A5(x4?, x5!), A6(x5?, y!){x = "A"}[availability > 98%, price per call = 0.1$, response time &lt; 3s]</query>

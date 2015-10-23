@@ -31,6 +31,13 @@ public class Rhone {
 	private List<Rewriting> rewritings;
 	
 	private List<List<CSD>> csdsPermutations;
+	
+	private List<String> aggregatedPreferences;
+	
+	public Rhone() {
+		this.aggregatedPreferences = new ArrayList<String>();
+		this.aggregatedPreferences.add("total cost");
+	}
 
 	public void selectServices(){
 		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
@@ -39,8 +46,134 @@ public class Rhone {
 			if (this.isCandidateService(c))
 				this.cadidateConcreteServices.add(c);
 		}
+		
+		List<ConcreteService> tempList = new ArrayList<ConcreteService>();
+		
+		for (ConcreteService c: this.cadidateConcreteServices) {
+			if (this.itViolatesPreferences(c)) {
+				tempList.add(c);
+			}
+		}
+		this.cadidateConcreteServices.clear();
+		this.setCadidateConcreteServices(tempList);
 	}
 	
+	/**
+	 * This method checks if the quality preferences in the concrete 
+	 * service violates or not the preferences in the query.
+	 **/
+	private boolean itViolatesPreferences(ConcreteService c) {
+		List<UserPreference> userPreferences = this.query.getUserPreferences();
+		for (UserPreference uPref: userPreferences){
+			if (this.aggregatedPreferences.contains(uPref.getMeasure())) {
+				continue;
+			}else {
+				// verifies if the concrete service has the user preference
+				boolean check = false;
+				for (QualityAspect qAspect: c.getQualityAspects()) {
+					if (uPref.getMeasure().equalsIgnoreCase(qAspect.getMeasure())){
+						check = true;
+						
+						// Start comparing preferences and service quality aspects
+						if (uPref.getOp().equals("=")) {
+							if (!qAspect.getOp().equals("=") || !uPref.getValue().equals(qAspect.getValue())) {
+								return false;
+							}
+						} else if (uPref.getOp().equals(">")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) > Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals(">=")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("!=")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=") || qAspect.getOp().equals(">") || qAspect.getOp().equals(">=")) {
+								return false;
+							} else {
+								if (Double.parseDouble(qAspect.getValue()) == Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("<")) {
+							if (qAspect.getOp().equals(">") || qAspect.getOp().equals(">=") || qAspect.getOp().equals("!=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) > Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("<=")) {
+							if (qAspect.getOp().equals(">") || qAspect.getOp().equals(">=") || qAspect.getOp().equals("!=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<")) {
+								if (!(Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						}
+					}
+				}
+				// There is a preference in the query which is not found in the concrete service
+				if (!check) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Actually, this method checks if the concrete service contains:
+	 * only abstract services that exists in the query.
+	 * 
+	 * The method equals in the abstract service class checks if the 
+	 * abstract service has the same name and the same number of 
+	 * input and output parameters.
+	 * 
+	 * We need to change it for considering abstract services that
+	 * have different number of parameters.
+	 **/
 	public boolean isCandidateService(ConcreteService service){
 		for (AbstractService a: service.getAbstractServices()){
 			boolean k = false;
@@ -48,8 +181,9 @@ public class Rhone {
 				if (a.equals(b))
 					k = true;
 			}
-			if (!k)
+			if (!k) {
 				return false;
+			}
 		}
 		return true;
 	}

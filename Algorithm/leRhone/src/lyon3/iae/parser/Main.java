@@ -8,14 +8,15 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 		Rhone rhone = InputHandler.handleArguments("testcases.xml", "0");
+		rhone.printQuery();
 		//System.out.println(rhone.toString());
 		rhone.selectServices();
-		//rhone.printCandidateServices();
+		rhone.printCandidateServices();
 		//rhone.print_query_dependencies();
 		rhone.createCSDs();
-		rhone.print_CSDS();
+		//rhone.print_CSDS();
 		rhone.combineCSDs();
-		rhone.print_permutations();
+		//rhone.print_permutations();
 		//rhone.printQuery();
 		rhone.print_rewritings();
 	}
