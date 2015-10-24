@@ -130,7 +130,7 @@ public class Rhone {
 							if (qAspect.getOp().equals(">") || qAspect.getOp().equals(">=") || qAspect.getOp().equals("!=")) {
 								return false;
 							}else if (qAspect.getOp().equals("=")) {
-								if (Double.parseDouble(qAspect.getValue()) > Double.parseDouble(uPref.getValue())) {
+								if (Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue())) {
 									return false;
 								}
 							}else if (qAspect.getOp().equals("<")) {
