@@ -12,15 +12,15 @@
 	  <service>S9(a?,c!,b!) := PatientPersonalInfo(a?,b!),PatientDNA(a?,c!)[availability > 95%]</service>	  
 	</testcase>
 	<testcase id="1">
-	  <query>Q(x?, y?) := A1(x?, x1!), A2(x1?, x2!), A3(x2?, x3!), A4(x3?, x4!), A5(x4?, x5!), A6(x5?, y!){x = "A"}[availability > 98%, price per call = 0.1$, response time &lt; 3s]</query>
-	  <service>S1(x?, y?) := A1(x?, y?)[availability > 98%, price per call = 0.1$, response time &lt; 1s]</service>
-	  <service>S2(x?, y?) := A2(x?, y1?), A3(y1?, y!)[availability > 98%, price per call = 0.1$, response time &lt; 3s]</service>
-	  <service>S3(x?, y?) := A4(x?, y?)[availability > 99%, price per call = 0.1$, response time &lt; 2s]</service>
-	  <service>S4(x?, y?) := A5(x?, y?)[availability > 98%, price per call = 0.1$, response time &lt; 2s]</service>
-	  <service>S5(x?, y?) := A6(x?, y?)[availability > 99%, price per call = 0.2$, response time &lt; 1s]</service>
-	  <service>S6(x?, y?) := A6(x?, y?)[availability > 97%, price per call = 0.1$, response time &lt; 1s]</service>
-	  <service>S7(x?, y?) := A6(x?, y?)[availability > 95%, price per call = 0.1$, response time &lt; 1s]</service>
-	  <service>S8(x?, y?) := A1(x?, y?)[availability > 95%, price per call = 0.1$]</service>
+	  <query>Q(x?, y?) := A1(x?, x1!), A2(x1?, x2!), A3(x2?, x3!), A4(x3?, x4!), A5(x4?, x5!), A6(x5?, y!){x = "A"}[availability > 98, price per call = 0.1, response time &lt; 3]</query>
+	  <service>S1(x?, y?) := A1(x?, y?)[availability > 98, price per call = 0.1, response time &lt; 1]</service>
+	  <service>S2(x?, y?) := A2(x?, y1?), A3(y1?, y!)[availability > 98%, price per call = 0.1$, response time &lt; 3]</service>
+	  <service>S3(x?, y?) := A4(x?, y?)[availability > 99, price per call = 0.1, response time &lt; 2]</service>
+	  <service>S4(x?, y?) := A5(x?, y?)[availability > 98, price per call = 0.1, response time &lt; 2]</service>
+	  <service>S5(x?, y?) := A6(x?, y?)[availability > 99, price per call = 0.2, response time &lt; 1]</service>
+	  <service>S6(x?, y?) := A6(x?, y?)[availability > 97, price per call = 0.1, response time &lt; 1]</service>
+	  <service>S7(x?, y?) := A6(x?, y?)[availability > 95, price per call = 0.1, response time &lt; 1]</service>
+	  <service>S8(x?, y?) := A1(x?, y?)[availability > 95, price per call = 0.1]</service>
 	</testcase>
 	<testcase id="2">
 	  <query>Q(x?) := cites(x?, y!), cites(y?, x!), sameTopic(x?, y!){x = "A"}[price per call &lt; 0.3]</query>

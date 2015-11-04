@@ -7,7 +7,7 @@ import lyon3.iae.rhone.Rhone;
 public class Main {
 
 	public static void main(String[] args) throws DocumentException {
-		Rhone rhone = InputHandler.handleArguments("testcases.xml", "0");
+		Rhone rhone = InputHandler.handleArguments("testcases.xml", "2");
 		//System.out.println(rhone.toString());
 		rhone.selectServices();
 		//rhone.printCandidateServices();
@@ -16,8 +16,8 @@ public class Main {
 		//rhone.print_CSDS();
 		rhone.combineCSDs();
 		rhone.print_permutations();
-		//rhone.printQuery();
-		//rhone.print_rewritings();
+		rhone.printQuery();
+		rhone.print_rewritings();
 	}
 }
  
