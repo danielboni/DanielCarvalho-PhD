@@ -1,12 +1,13 @@
 package lyon3.iae.rhone;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import lyon3.iae.datamodel.AbstractService;
 import lyon3.iae.datamodel.CSD;
 import lyon3.iae.datamodel.ConcreteService;
-import lyon3.iae.datamodel.Constraints;
 import lyon3.iae.datamodel.Dependency;
 import lyon3.iae.datamodel.InputVariable;
 import lyon3.iae.datamodel.Mapping;
@@ -31,6 +32,17 @@ public class Rhone {
 	private List<Rewriting> rewritings;
 	
 	private List<List<CSD>> csdsPermutations;
+	
+	private List<String> aggregatedPreferences;
+	
+	private List<UserPreference> queryAggregatedPreferences;
+	
+	private Map<UserPreference, Double> aggregatedMeasures;
+	
+	public Rhone() {
+		this.aggregatedPreferences = new ArrayList<String>();
+		this.aggregatedPreferences.add("total cost");
+	}
 
 	public void selectServices(){
 		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
@@ -39,17 +51,146 @@ public class Rhone {
 			if (this.isCandidateService(c))
 				this.cadidateConcreteServices.add(c);
 		}
+		
+		List<ConcreteService> tempList = new ArrayList<ConcreteService>();
+		
+		this.queryAggregatedPreferences = new ArrayList<UserPreference>();
+		for (ConcreteService c: this.cadidateConcreteServices) {
+			if (this.itViolatesPreferences(c)) {
+				tempList.add(c);
+			}
+		}
+		this.cadidateConcreteServices.clear();
+		this.setCadidateConcreteServices(tempList);
 	}
 	
+	/**
+	 * This method checks if the quality preferences in the concrete 
+	 * service violates or not the preferences in the query.
+	 **/
+	private boolean itViolatesPreferences(ConcreteService c) {
+		List<UserPreference> userPreferences = this.query.getUserPreferences();
+		for (UserPreference uPref: userPreferences){
+			if (this.aggregatedPreferences.contains(uPref.getMeasure())) {
+				this.queryAggregatedPreferences.add(uPref);
+				continue;
+			}else {
+				// verifies if the concrete service has the user preference
+				boolean check = false;
+				for (QualityAspect qAspect: c.getQualityAspects()) {
+					if (uPref.getMeasure().equalsIgnoreCase(qAspect.getMeasure())){
+						check = true;
+						
+						// Start comparing preferences and service quality aspects
+						if (uPref.getOp().equals("=")) {
+							if (!qAspect.getOp().equals("=") || !uPref.getValue().equals(qAspect.getValue())) {
+								return false;
+							}
+						} else if (uPref.getOp().equals(">")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) > Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals(">=")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals(">=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("!=")) {
+							if (qAspect.getOp().equals("<") || qAspect.getOp().equals("<=") || qAspect.getOp().equals(">") || qAspect.getOp().equals(">=")) {
+								return false;
+							} else {
+								if (Double.parseDouble(qAspect.getValue()) == Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("<")) {
+							if (qAspect.getOp().equals(">") || qAspect.getOp().equals(">=") || qAspect.getOp().equals("!=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (Double.parseDouble(qAspect.getValue()) >= Double.parseDouble(uPref.getValue())) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						} else if (uPref.getOp().equals("<=")) {
+							if (qAspect.getOp().equals(">") || qAspect.getOp().equals(">=") || qAspect.getOp().equals("!=")) {
+								return false;
+							}else if (qAspect.getOp().equals("=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<")) {
+								if (!(Double.parseDouble(qAspect.getValue()) < Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}else if (qAspect.getOp().equals("<=")) {
+								if (!(Double.parseDouble(qAspect.getValue()) <= Double.parseDouble(uPref.getValue()))) {
+									return false;
+								}
+							}
+						}
+					}
+				}
+				// There is a preference in the query which is not found in the concrete service
+				if (!check) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Actually, this method checks if the concrete service contains:
+	 * only abstract services that exists in the query.
+	 * 
+	 * The method equals in the abstract service class checks if the 
+	 * abstract service has the same name and the same number of 
+	 * input and output parameters.
+	 * 
+	 * We need to change it for considering abstract services that
+	 * have different number of parameters.
+	 **/
 	public boolean isCandidateService(ConcreteService service){
 		for (AbstractService a: service.getAbstractServices()){
 			boolean k = false;
 			for (AbstractService b: this.query.getAbstractServices()){
-				if (a.equals(b))
+				if (a.equals(b)  && a.variablesOK(b))
 					k = true;
 			}
-			if (!k)
+			if (!k) {
 				return false;
+			}
 		}
 		return true;
 	}
@@ -60,11 +201,65 @@ public class Rhone {
 		rewritings = new ArrayList<Rewriting>();
 		List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		csdsPermutations.addAll(subsetList);
+		
+		this.setAggregatedMeasures(new HashMap<UserPreference, Double>());
+		
+		for (UserPreference u: queryAggregatedPreferences) {
+			aggregatedMeasures.put(u, 0.0);
+		}
+		
 		for (List<CSD> mcdList : subsetList) {
-			if (isRewriting(mcdList)) {
-				rewritings.add(new Rewriting(mcdList, query));
+			if (isNotViolated(aggregatedMeasures)) {
+				if (isRewriting(mcdList) && aggregationFuntion(mcdList, aggregatedMeasures)) {
+					rewritings.add(new Rewriting(mcdList, query));
+				}
 			}
 		}
+	}
+	
+	private boolean aggregationFuntion(List<CSD> listCsds, Map<UserPreference, Double> aggregatedMeasures){
+		Map<UserPreference, Double> tempList = new HashMap<UserPreference, Double>();
+		for (Map.Entry<UserPreference, Double> m: aggregatedMeasures.entrySet()){
+			tempList.put(m.getKey(), m.getValue());
+		}
+		
+		for (CSD csd: listCsds) {
+			ConcreteService c = csd.getConcrete_service();
+			List<QualityAspect> q = c.getQualityAspects();
+			for (QualityAspect qAspect: q) {
+				for (Map.Entry<UserPreference, Double> m: tempList.entrySet()){
+					UserPreference uPref = m.getKey();
+					if (uPref.getMeasure().equals("total cost") && (qAspect.getMeasure().equals("price per call"))) {
+						double temp = m.getValue();
+						double new_value = temp + Double.parseDouble(qAspect.getValue());
+						m.setValue(new_value);
+					}
+				}
+			}
+		}
+		
+		if (isNotViolated(tempList)) {
+			this.setAggregatedMeasures(tempList);
+			return true;
+		}
+		return false;
+	}
+	
+	private boolean isNotViolated(Map<UserPreference, Double> aggregatedMeasures){
+		for (Map.Entry<UserPreference, Double> m: aggregatedMeasures.entrySet()){
+			UserPreference uPref = m.getKey();
+
+			if (uPref.getOp().equals("<")) {
+				if (m.getValue() >= Double.parseDouble(uPref.getValue())) {
+					return false;
+				}
+			} else if (uPref.getOp().equals("<=")) {
+				if (m.getValue() > Double.parseDouble(uPref.getValue())) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	private List<List<CSD>> findMCDSubsetPref(List<CSD> list) {
@@ -76,7 +271,7 @@ public class Rhone {
 			return result;
 		}
 
-		List<CSD> newList = new ArrayList(list);
+		List<CSD> newList = new ArrayList<CSD>(list);
 		CSD lastMCD = newList.remove(newList.size()-1);		
 
 		return addMCDToSubsetList(lastMCD, findMCDSubsetPref(newList));
@@ -298,41 +493,47 @@ public class Rhone {
 		return sb.toString();
 	}
 	
-	public void queryParser(String query){
-		Query q = new Query();
-		
-		q.setHead(this.getHeadDefinition(query).trim());
-		q.setBody(this.getBodyDefinition(query).trim());
-
-		List<Variable> headVariables = this.processVariables(q.getHead());
-		q.setHeadVariables(headVariables);
-		
-		q.setUserPreferences(this.getUserPreferences(q.getBody()));
-		
-		q.setAbstractServices(this.getAbstractServices(q.getBody()));
-		
-		q.setConstraints(this.getConstraints(q.getBody()));
+	public void printConcreteServices() {
+		System.out.println("There is/are " + concreteServices.size() + " concrete services.");
+		for (ConcreteService c: this.concreteServices)
+			System.out.println(c.getHead() + " := " + c.getBody());
 	}
 	
-	public void concreteServiceParser(String concreteService){
-		ConcreteService c = new ConcreteService();
-		c.setHead(this.getHeadDefinition(concreteService));
-		c.setBody(this.getBodyDefinition(concreteService));
-		List<Variable> headVariables = this.processVariables(c.getHead());
-		c.setHeadVariables(headVariables);
-		c.setAbstractServices(this.getAbstractServices(c.getBody()));
-		c.setQualityAspects(this.getQualityAspects(c.getBody()));
-	}
-
-	public String getHeadDefinition(String query){
-		int middle = query.indexOf(":");
-		return query.substring(0, middle-1);
-	}
-	
-	public String getBodyDefinition(String query){
-		int middle = query.indexOf("=");
-		return query.substring(middle+1, query.length());
-	}
+//	public void queryParser(String query){
+//		Query q = new Query();
+//		
+//		q.setHead(this.getHeadDefinition(query).trim());
+//		q.setBody(this.getBodyDefinition(query).trim());
+//
+//		List<Variable> headVariables = this.processVariables(q.getHead());
+//		q.setHeadVariables(headVariables);
+//		
+//		q.setUserPreferences(this.getUserPreferences(q.getBody()));
+//		
+//		q.setAbstractServices(this.getAbstractServices(q.getBody()));
+//		
+//		q.setConstraints(this.getConstraints(q.getBody()));
+//	}
+//	
+//	public void concreteServiceParser(String concreteService){
+//		ConcreteService c = new ConcreteService();
+//		c.setHead(this.getHeadDefinition(concreteService));
+//		c.setBody(this.getBodyDefinition(concreteService));
+//		List<Variable> headVariables = this.processVariables(c.getHead());
+//		c.setHeadVariables(headVariables);
+//		c.setAbstractServices(this.getAbstractServices(c.getBody()));
+//		c.setQualityAspects(this.getQualityAspects(c.getBody()));
+//	}
+//
+//	public String getHeadDefinition(String query){
+//		int middle = query.indexOf(":");
+//		return query.substring(0, middle-1);
+//	}
+//	
+//	public String getBodyDefinition(String query){
+//		int middle = query.indexOf("=");
+//		return query.substring(middle+1, query.length());
+//	}
 	
 	public List<Variable> processVariables(String s){
 		int begin = s.indexOf("(") + 1;
@@ -356,200 +557,200 @@ public class Rhone {
 		return variables;
 	}
 	
-	public List<UserPreference> getUserPreferences(String body){
-		List<UserPreference> userPreferences = new ArrayList<UserPreference>();
-		int begin = body.indexOf("[");
-		int end = body.indexOf("]");
-		String userPref = body.substring(begin+1, end);
-		//System.out.println(userPref);
-		String[] prefs = userPref.split(",");
-		for (String pref: prefs){
-			if (pref.contains("<=")){
-				String[] prefParts = pref.split("<=");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("<=");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			} else if (pref.contains(">=")){
-				String[] prefParts = pref.split(">=");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp(">=");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			} else if (pref.contains("!=")){
-				String[] prefParts = pref.split("!=");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("!=");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			} else if (pref.contains(">")){
-				String[] prefParts = pref.split(">");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp(">");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			} else if (pref.contains("<")){
-				String[] prefParts = pref.split("<");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("<");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			} else if (pref.contains("=")){
-				String[] prefParts = pref.split("=");
-				UserPreference u = new UserPreference();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("=");
-				u.setValue(prefParts[1].trim());
-				userPreferences.add(u);
-			}
-		}
-		return userPreferences;
-	}
-	
-	private List<AbstractService> getAbstractServices(String body) {
-		List<AbstractService> abstractServices = new ArrayList<AbstractService>();
-		int end = body.indexOf("{");
-		if (end == -1)
-			end = body.indexOf("[");
-		if (end == -1)
-			end = body.length();
-				
-		String aServices = body.substring(0, end);
-		//System.out.println(aServices);
-		String[] aS = aServices.split(",");
-		String concat = "";
-		for (String abs: aS){
-			if (!abs.contains(")")){
-				concat = concat + abs + ",";
-			}else {
-				concat = concat + abs;
-				//System.out.println(concat.trim());
-				AbstractService a = new AbstractService();
-				a.setDescription(concat.trim());
-				int i = concat.indexOf("(");
-				a.setName((concat.substring(0, i)).trim());
-				a.setVariables(this.processVariables(concat));
-				abstractServices.add(a);
-				concat = "";
-			}
-		}
-		return abstractServices;
-	}
-	
-	public List<Constraints> getConstraints(String body){
-		List<Constraints> constraints = new ArrayList<Constraints>();
-		int begin = body.indexOf("{");
-		int end = body.indexOf("}");
-		String constraintsPart = body.substring(begin+1, end);
-		//System.out.println(constraintsPart);
-		String[] prefs = constraintsPart.split(",");
-		for (String pref: prefs){
-			if (pref.contains("<=")){
-				String[] prefParts = pref.split("<=");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp("<=");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			} else if (pref.contains(">=")){
-				String[] prefParts = pref.split(">=");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp(">=");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			} else if (pref.contains("!=")){
-				String[] prefParts = pref.split("!=");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp("!=");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			} else if (pref.contains(">")){
-				String[] prefParts = pref.split(">");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp(">");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			} else if (pref.contains("<")){
-				String[] prefParts = pref.split("<");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp("<");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			} else if (pref.contains("=")){
-				String[] prefParts = pref.split("=");
-				Constraints u = new Constraints();
-				u.setVariableName(prefParts[0].trim());
-				u.setOp("=");
-				u.setValue(prefParts[1].trim());
-				constraints.add(u);
-			}
-		}
-		return constraints;
-	}
-	
-	private List<QualityAspect> getQualityAspects(String body) {
-		List<QualityAspect> qualityAspects = new ArrayList<QualityAspect>();
-		int begin = body.indexOf("[");
-		int end = body.indexOf("]");
-		String userPref = body.substring(begin+1, end);
-		//System.out.println(userPref);
-		String[] prefs = userPref.split(",");
-		for (String pref: prefs){
-			if (pref.contains("<=")){
-				String[] prefParts = pref.split("<=");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("<=");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			} else if (pref.contains(">=")){
-				String[] prefParts = pref.split(">=");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp(">=");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			} else if (pref.contains("!=")){
-				String[] prefParts = pref.split("!=");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("!=");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			} else if (pref.contains(">")){
-				String[] prefParts = pref.split(">");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp(">");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			} else if (pref.contains("<")){
-				String[] prefParts = pref.split("<");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("<");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			} else if (pref.contains("=")){
-				String[] prefParts = pref.split("=");
-				QualityAspect u = new QualityAspect();
-				u.setMeasure(prefParts[0].trim());
-				u.setOp("=");
-				u.setValue(prefParts[1].trim());
-				qualityAspects.add(u);
-			}
-		}
-		return qualityAspects;
-	}
+//	public List<UserPreference> getUserPreferences(String body){
+//		List<UserPreference> userPreferences = new ArrayList<UserPreference>();
+//		int begin = body.indexOf("[");
+//		int end = body.indexOf("]");
+//		String userPref = body.substring(begin+1, end);
+//		//System.out.println(userPref);
+//		String[] prefs = userPref.split(",");
+//		for (String pref: prefs){
+//			if (pref.contains("<=")){
+//				String[] prefParts = pref.split("<=");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("<=");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			} else if (pref.contains(">=")){
+//				String[] prefParts = pref.split(">=");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp(">=");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			} else if (pref.contains("!=")){
+//				String[] prefParts = pref.split("!=");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("!=");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			} else if (pref.contains(">")){
+//				String[] prefParts = pref.split(">");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp(">");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			} else if (pref.contains("<")){
+//				String[] prefParts = pref.split("<");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("<");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			} else if (pref.contains("=")){
+//				String[] prefParts = pref.split("=");
+//				UserPreference u = new UserPreference();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("=");
+//				u.setValue(prefParts[1].trim());
+//				userPreferences.add(u);
+//			}
+//		}
+//		return userPreferences;
+//	}
+//	
+//	private List<AbstractService> getAbstractServices(String body) {
+//		List<AbstractService> abstractServices = new ArrayList<AbstractService>();
+//		int end = body.indexOf("{");
+//		if (end == -1)
+//			end = body.indexOf("[");
+//		if (end == -1)
+//			end = body.length();
+//				
+//		String aServices = body.substring(0, end);
+//		//System.out.println(aServices);
+//		String[] aS = aServices.split(",");
+//		String concat = "";
+//		for (String abs: aS){
+//			if (!abs.contains(")")){
+//				concat = concat + abs + ",";
+//			}else {
+//				concat = concat + abs;
+//				//System.out.println(concat.trim());
+//				AbstractService a = new AbstractService();
+//				a.setDescription(concat.trim());
+//				int i = concat.indexOf("(");
+//				a.setName((concat.substring(0, i)).trim());
+//				a.setVariables(this.processVariables(concat));
+//				abstractServices.add(a);
+//				concat = "";
+//			}
+//		}
+//		return abstractServices;
+//	}
+//	
+//	public List<Constraints> getConstraints(String body){
+//		List<Constraints> constraints = new ArrayList<Constraints>();
+//		int begin = body.indexOf("{");
+//		int end = body.indexOf("}");
+//		String constraintsPart = body.substring(begin+1, end);
+//		//System.out.println(constraintsPart);
+//		String[] prefs = constraintsPart.split(",");
+//		for (String pref: prefs){
+//			if (pref.contains("<=")){
+//				String[] prefParts = pref.split("<=");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp("<=");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			} else if (pref.contains(">=")){
+//				String[] prefParts = pref.split(">=");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp(">=");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			} else if (pref.contains("!=")){
+//				String[] prefParts = pref.split("!=");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp("!=");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			} else if (pref.contains(">")){
+//				String[] prefParts = pref.split(">");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp(">");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			} else if (pref.contains("<")){
+//				String[] prefParts = pref.split("<");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp("<");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			} else if (pref.contains("=")){
+//				String[] prefParts = pref.split("=");
+//				Constraints u = new Constraints();
+//				u.setVariableName(prefParts[0].trim());
+//				u.setOp("=");
+//				u.setValue(prefParts[1].trim());
+//				constraints.add(u);
+//			}
+//		}
+//		return constraints;
+//	}
+//	
+//	private List<QualityAspect> getQualityAspects(String body) {
+//		List<QualityAspect> qualityAspects = new ArrayList<QualityAspect>();
+//		int begin = body.indexOf("[");
+//		int end = body.indexOf("]");
+//		String userPref = body.substring(begin+1, end);
+//		//System.out.println(userPref);
+//		String[] prefs = userPref.split(",");
+//		for (String pref: prefs){
+//			if (pref.contains("<=")){
+//				String[] prefParts = pref.split("<=");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("<=");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			} else if (pref.contains(">=")){
+//				String[] prefParts = pref.split(">=");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp(">=");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			} else if (pref.contains("!=")){
+//				String[] prefParts = pref.split("!=");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("!=");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			} else if (pref.contains(">")){
+//				String[] prefParts = pref.split(">");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp(">");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			} else if (pref.contains("<")){
+//				String[] prefParts = pref.split("<");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("<");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			} else if (pref.contains("=")){
+//				String[] prefParts = pref.split("=");
+//				QualityAspect u = new QualityAspect();
+//				u.setMeasure(prefParts[0].trim());
+//				u.setOp("=");
+//				u.setValue(prefParts[1].trim());
+//				qualityAspects.add(u);
+//			}
+//		}
+//		return qualityAspects;
+//	}
 
 	public Query getQuery() {
 		return query;
@@ -589,5 +790,13 @@ public class Rhone {
 
 	public void printQuery() {
 		System.out.println(this.query.getHead() + " := " + this.query.getBody());
+	}
+
+	public Map<UserPreference, Double> getAggregatedMeasures() {
+		return aggregatedMeasures;
+	}
+
+	public void setAggregatedMeasures(Map<UserPreference, Double> aggregatedMeasures) {
+		this.aggregatedMeasures = aggregatedMeasures;
 	}
 }
