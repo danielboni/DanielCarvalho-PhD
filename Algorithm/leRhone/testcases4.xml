@@ -1,0 +1,232 @@
+<testcases>
+	<testcase id="0">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5]</service> 
+	</testcase>
+	<testcase id="1">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	</testcase>
+	<testcase id="2">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5]</service> 
+	</testcase>
+	<testcase id="3">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5]</service> 
+	</testcase>
+	<testcase id="4">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5]</service> 
+	</testcase>
+	<testcase id="5">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5]</service> 
+	</testcase>
+	<testcase id="6">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5]</service>  
+	</testcase>
+	<testcase id="7">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5]</service> 
+	</testcase>
+	<testcase id="8">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5]</service> 
+	</testcase>
+	<testcase id="9">
+	  <query>Q(x?,y!) := A1(x?,c!),A2(c?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</query>					  			
+	  <service>S1(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S2(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S3(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S4(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S5(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S6(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S7(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S8(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S9(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S10(a?,b!) := A1(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service> 
+	  <service>S11(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S12(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S13(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S14(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S15(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service> 
+	  <service>S16(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S17(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S18(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S19(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service>
+	  <service>S20(a?,b!) := A2(a?,b!)[M1 = 5, M2 = 5, M3 = 5, M4 = 5, M5 = 5, M6 = 5, M7 = 5, M8 = 5, M9 = 5, M10 = 5, M11 = 5, M12 = 5, M13 = 5, M14 = 5, M15 = 5, M16 = 5, M17 = 5, M18 = 5, M19 = 5, M20 = 5]</service> 
+	</testcase>
+</testcases>

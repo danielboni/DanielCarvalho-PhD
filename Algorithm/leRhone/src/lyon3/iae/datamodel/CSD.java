@@ -8,6 +8,10 @@ public class CSD {
 	
 	private List<Mapping> mappings;
 	
+	private List<AbstractService> coveredAbstractServices;
+	
+	private int numberOfabstractServices;
+	
 	public ConcreteService getConcrete_service() {
 		return concrete_service;
 	}
@@ -26,5 +30,18 @@ public class CSD {
 		if (!this.getConcrete_service().equals(csd.getConcrete_service()))
 			return false;
 		return true;
+	}
+	public List<AbstractService> getCoveredAbstractServices() {
+		return coveredAbstractServices;
+	}
+	public void setCoveredAbstractServices(
+			List<AbstractService> coveredAbstractServices) {
+		this.coveredAbstractServices = coveredAbstractServices;
+	}
+	public int getNumberOfabstractServices() {
+		return numberOfabstractServices;
+	}
+	public void setNumberOfabstractServices(int numberOfabstractServices) {
+		this.numberOfabstractServices = numberOfabstractServices;
 	}
 }
