@@ -199,6 +199,7 @@ public class Rhone {
 	public void combineCSDs() {		
 		csdsPermutations = new ArrayList<List<CSD>>();
 		rewritings = new ArrayList<Rewriting>();
+		
 		List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		csdsPermutations.addAll(subsetList);
 		
@@ -284,7 +285,9 @@ public class Rhone {
 		for (List<CSD> csdList: initialSubsetList){
 			csdList.add(csd);
 			resultat.add(csdList);
-		}		
+		}	
+		
+		
 		return resultat;				
 	}
 	
@@ -365,6 +368,8 @@ public class Rhone {
 					}
 				}
 				csd.setMappings(mappings);
+				csd.setCoveredAbstractServices(c.getAbstractServices());
+				csd.setNumberOfabstractServices(c.getAbstractServices().size());
 				csds.add(csd);
 			}
 		} else {
@@ -389,6 +394,8 @@ public class Rhone {
 						}
 					}
 					csd.setMappings(mappings);
+					csd.setCoveredAbstractServices(c.getAbstractServices());
+					csd.setNumberOfabstractServices(c.getAbstractServices().size());
 					csds.add(csd);
 				}
 			}
@@ -460,13 +467,13 @@ public class Rhone {
 	}
 	
 	public void print_permutations() {
-		System.out.println("Number of combinations: " + csdsPermutations.size());
-		for (List<CSD> list: csdsPermutations) {
-			for (CSD csd: list) {
-				System.out.print(csd.getConcrete_service().getHead() + " ");
-			}
-			System.out.println();
-		}
+//		System.out.println("Number of combinations: " + csdsPermutations.size());
+//		for (List<CSD> list: csdsPermutations) {
+//			for (CSD csd: list) {
+//				System.out.print(csd.getConcrete_service().getHead() + " ");
+//			}
+//			System.out.println();
+//		}
 	}
 	
 	public void print_rewritings() {
@@ -798,5 +805,9 @@ public class Rhone {
 
 	public void setAggregatedMeasures(Map<UserPreference, Double> aggregatedMeasures) {
 		this.aggregatedMeasures = aggregatedMeasures;
+	}
+
+	public int getNumberOfRewritings() {
+		return rewritings.size();
 	}
 }
