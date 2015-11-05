@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 
-		Rhone rhone = InputHandler.handleArguments("testcases1.xml", "4");
+		Rhone rhone = InputHandler.handleArguments("testcases1.xml", "3");
 
 		long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 
@@ -19,7 +19,7 @@ public class Main {
 		rhone.combineCSDs();
 
         long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
-        System.out.println("Done in: " + (double)time/1000000000 + "segundos");
+        System.out.println("Done in: " + (double)time/1000000000 + " segundos");
 		rhone.print_rewritings();
 	}
 }
