@@ -1,0 +1,13 @@
+A query rewriting algorithm which processes queries on data provider services is proposed in~\cite{Barhamgi2010}.
+A query is defined using SPARQL and data services are modeled as RDF views.
+Both can be seen as a graph. 
+Given a query and a set of data services, the algorithm searches for relevant services and creates a mapping table for them. 
+This table shows different ways of using a data service to cover part of the query. 
+Then, based on the mapping table, the algorithm generates different combinations of data services to answer the query.
+A valid combination (a rewriting answer) is a service composition in which the set of data service graphs fully satisfy the query graph.  
+
+A service composition framework to answer preference queries is proposed in~\cite{Benouaret2011}. 
+%that return the top-\textit{k} service compositions based on the algorithm introduced by~\cite{Barhamgi2010}  
+The concept of preferences is included to SPARQL queries, and fuzzy constraints to services.
+Services and service compositions are ranked according to a fuzzy dominance relationship and fuzzy scores.
+Two algorithms based on~\cite{Barhamgi2010} to generate the rewriting compositions are presented: (1) the first produces all possible rewritings before computing their scores, and then return the best ones; (2) the second uses a quality metric that combines diversity and accuracy to, incrementally, rank services and to build the best rewritings.

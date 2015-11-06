@@ -10,8 +10,8 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 		int k = 0;
-		for (Integer i = 0; i < 6; i++) {
-			Rhone rhone = InputHandler.handleArguments("testcases10.xml", i.toString());
+		for (Integer i = 0; i < 10; i++) {
+			Rhone rhone = InputHandler.handleArguments("testcases2.xml", i.toString());
 			long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 			rhone.selectServices();
 			rhone.createCSDs();

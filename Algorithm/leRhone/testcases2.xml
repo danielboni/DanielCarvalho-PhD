@@ -138,4 +138,5 @@
 	  <service>S18(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S19(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S20(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service> 
+	  </testcase>
 </testcases>

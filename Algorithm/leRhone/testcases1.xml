@@ -97,7 +97,7 @@
 	</testcase>
 	<testcase id="8">
 	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!){x = "K"}[availability > 98, M1 = 5]</query>				  			
-<service>S1(a?,b!) := A1(a?,b!)[availability > 98, M1 = 5]</service>
+	  <service>S1(a?,b!) := A1(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S2(a?,b!) := A1(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S3(a?,b!) := A1(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S4(a?,b!) := A1(a?,b!)[availability > 98, M1 = 5]</service>
@@ -138,4 +138,5 @@
 	  <service>S18(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S19(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service>
 	  <service>S20(a?,b!) := A2(a?,b!)[availability > 98, M1 = 5]</service> 
+	</testcase>
 </testcases>

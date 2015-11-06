@@ -1,0 +1,274 @@
+\documentclass{sig-alternate}
+\begin{document}
+%
+% --- Author Metadata here ---
+\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
+Format\titlenote{(Produces the permission block, and
+copyright information). For use with
+SIG-ALTERNATE.CLS. Supported by ACM.}}
+\subtitle{[Extended Abstract]
+\titlenote{A full version of this paper is available as
+\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+\LaTeX$2_\epsilon$\ and BibTeX} at
+\texttt{www.acm.org/eaddress.htm}}}
+
+\numberofauthors{8} 
+
+\author{
+% 1st. author
+\alignauthor
+Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{Institute for Clarity in Documentation}\\
+       \affaddr{1932 Wallamaloo Lane}\\
+       \affaddr{Wallamaloo, New Zealand}\\
+       \email{trovato@corporation.com}
+% 2nd. author
+\alignauthor
+G.K.M. Tobin\titlenote{The secretary disavows
+any knowledge of this author's actions.}\\
+       \affaddr{Institute for Clarity in Documentation}\\
+       \affaddr{P.O. Box 1212}\\
+       \affaddr{Dublin, Ohio 43017-6221}\\
+       \email{webmaster@marysville-ohio.com}
+% 3rd. author
+\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
+one who did all the really hard work.}\\
+       \affaddr{The Th{\o}rv{\"a}ld Group}\\
+       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
+       \affaddr{Hekla, Iceland}\\
+       \email{larst@affiliation.org}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor Lawrence P. Leipuner\\
+       \affaddr{Brookhaven Laboratories}\\
+       \affaddr{Brookhaven National Lab}\\
+       \affaddr{P.O. Box 5000}\\
+       \email{lleipuner@researchlabs.org}
+% 5th. author
+\alignauthor Sean Fogarty\\
+       \affaddr{NASA Ames Research Center}\\
+       \affaddr{Moffett Field}\\
+       \affaddr{California 94035}\\
+       \email{fogartys@amesres.org}
+% 6th. author
+\alignauthor Charles Palmer\\
+       \affaddr{Palmer Research Laboratories}\\
+       \affaddr{8600 Datapoint Drive}\\
+       \affaddr{San Antonio, Texas 78229}\\
+       \email{cpalmer@prl.com}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+...
+\end{abstract}
+
+% A category with the (minimum) three required fields
+\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+
+\terms{Theory}
+
+\keywords{ACM proceedings, \LaTeX, text tagging}
+
+\section{Introduction}
+...
+
+\section{Slides Description}
+Problem addressed in our algorithm is: given a set of abstract services, a set of concrete services, a user query and a set of user quality preferences, derive a set of service compositions that answer the query and fulfill the quality preferences.
+
+Our related work relies on two different domains: query rewriting algorithms using views (database domain)~\cite{ref} and query algorithm in the service composition domain~\cite{ref}.
+
+We assume that: 
+\begin{itemize}
+\item The query expresses an abstract composition that describes the requirements of a user. It is expressed with respect to a catalogue of abstract services
+\item A concrete service is defined in terms of an abstract composition. It can be associated to a single abstract service or to a composition of abstract services
+\item Concrete services are tagged quality measures. Not all services are tagged with the same measures. Every measure is defined in a catalogue
+\item Each measure is written in the form: \textit{constant} (measure name) \textit{operation} ($<$, $>$, =, $\leq$, $\geq$) \textit{value} (the static value associated to the measure)
+\item There are two types of measures: single and composite measures. The single measures is the simplest type. It is a static measure which is has a name associated with an operation and a value. The composite measure is dynamically computed measure. It is defined as aggregations of single measures. All measures we are using are in a catalogue. Example:
+Single measure: availability, price per call, price per request, response time, location, provenance, etc.
+Composite measure: total price or cost which are computed by adding price per call and price per request values of all services included in the service composition. Total response time is computed by adding the response time of all services included in the service composition.
+\end{itemize}
+
+\begin{tiny}
+\begin{verbatim}
+<measures>
+	<singlemeasure name="price per request" type="double"/>
+	<singlemeasure name="price per call" type="double"/>
+	<compositemeasure name="total price" type="double" action="sum">
+		<singlemeasure name="price per request" type="double"/>
+		<singlemeasure name="price per call" type="double"/>
+	</compositemeasure>
+</measures>
+\end{verbatim}
+\end{tiny}
+
+The parameter "action" in the composite measure specifies how the single measures should be aggregated (adding, average, product, etc).
+
+The table~\ref{example1} contains the abstract services that will be used in our example.
+
+\begin{table}[h!]
+\center
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline 
+\textbf{\textit{Abstract Service}} & \textbf{\textit{Description}} \\ 
+\hline 
+\textit{DiseaseInfectedPatients(d?,p!)} & Given a disease \textit{d}, a list of patients \textit{p} infected by it is retrieved. \\ 
+\hline 
+\textit{DiseaseInfectedPatients(d?,p!,op!)} & Given a disease \textit{d}, a list of patients \textit{p} infected by it is retrieved, and \textit{op} is an optional boolean output indicating if the operation proceeded well or not. \\ 
+\hline 
+\textit{PatientDNA(p?,dna!)} & Given a patient \textit{p}, his DNA information \textit{dna} is retrieved. \\ 
+\hline 
+\textit{PatientPersonalInformation(p?,info!)} & Given a patient \textit{p}, his personal information \textit{info} is retrieved. \\ 
+\hline 
+\end{tabular} \caption{Abstract services description}
+\end{table}\label{example1}
+
+\noindent Let us suppose the following query. 
+\textit{The user wants to retrieve patient’s personal and DNA information of patients who were infected by a disease «K»	 using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less then 1 dollar.}
+
+The query which express the example in terms of abstract services is specified below.
+The decorations ? and ! are used to specify input and output parameters, respectively. 
+
+\begin{tiny}
+\begin{verbatim}
+Q(d?, patientinfo!, dna!) := DiseaseInfectedP atient(d?, p!), PatientPersonalInformation(p?, info!),
+PatientDNA(p?, dna!){p = "K"}[availability > 98, price per call < 0.2, total cost < 1]
+\end{verbatim}
+\end{tiny}
+
+
+%\begin{center}
+%$Q (d?, patientinfo!, dna!) := DiseaseInfectedPatient (d?, p!), PatientPersonalInformation (p?, info!), PatientDNA (p?, dna!)$ \\ $\lbrace p="K" \rbrace [availability > 98, \ price \ per \ call < 0.2, \ total \ cost < 1]$ \\
+%\end{center}  
+
+The query expressed in terms of abstract services including its constraints and preferences. In the current implementation braces ($\lbrace\rbrace$) and brackets ($[]$) are used to distinguish constraints from preferences.
+
+The first step of the algorithm looks for concrete services that can be matched with the query. We have three matching problems associated to this step: abstract service matching, measure matching and concrete service matching.
+\begin{itemize}
+\item \textit{abstract service matching}: a abstract service $A$ can be matched with a abstract service $B$ only if: (i) they have the same name. In this case we are assuming they perform the same function; and (ii) the number and type of variables should be compatible. This means that the number of input and output variables of $A$ must be equal or higher than the number of input and output variables of $B$. Consider the example below.
+\begin{verbatim}
+1) A1(x?,c!)
+	
+2) A1(a?,b!,c!)
+\end{verbatim}
+In this example, 2 can be matched to 1, because the number of input and output variables of 2 is higher than the number of input and output variables of 1.
+However 1 can not be matched to 2, because the number of input and output variables of 1 is less than the number of input and output variables of 2.
+\item \textit{measures matching}: all single measures in the query must exist in the concrete service, and all of them can not violate the measures in the query.
+\item concrete service matching: one concrete service can be matched with the query if all its abstract services can be matched with the abstract service in the query (satisfying the \textit{abstract service matching} problem) and all the single measures in the query can be matched with the concrete service measures (satisfying the \textit{measures matching} problem). Consider the example below.
+\begin{tiny}
+\begin{verbatim}
+Q(x?,y!) = A1(x?,c!), A2(c?,y!)[availability > 98, price per call < 0.2, total price < 1]
+	
+S1(a?,b!) = A1(a?,b!) [availability > 98] (It can not be matched. Price per call is missing.)
+
+S2(a?,b!) = A1(a?,b!) [availability > 98, price per call = 0.2] (It can not be matched. Price per call is violating
+the query preference.)
+
+S3(a?,b!) = A1(a?,c!), A3(c?,b!) [availability > 98, price per call = 0.1] (It can not be matched. A3 is not a abstract
+service in the query.)
+
+S4(a?,b!) = A1(a?,b!) [availability > 98, price per call = 0.1]
+
+S5(a?,b!) = A1(a?,c!), A2(c?,b!) [availability > 99, price per call = 0.1]
+
+S5(a?,b!) = A1(a?,c!), A2(c?,b!) [availability > 99, price per call = 0.1, location = “close”](Even have more single measures than the query, 
+it can be matched)
+\end{verbatim}
+\end{tiny}
+\end{itemize}
+
+The principle of the solution for the first step of the algorithm is: given (i) a query and a set of user quality preferences; and (ii) a set of concrete services tagged with quality measures, looks for concrete services which respects the matching rules. The concrete service that matches the rules is a candidate concrete service. The result is a list of candidate concrete services which may be used in the rewriting process.
+
+Related work on web service selection and composition considering QoS aspects~\cite{}. 
+
+To illustrate the selection of candidate services, consider the query in the example presented before and the following concrete services.
+\begin{tiny}
+\begin{verbatim}
+S1(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 99, price per call = 0.1]
+S2(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 98, price per call = 0.2]
+S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!)[availability > 98, price per call = 0.1]
+S4(a?,b!) := PatientDNA(a?,b!)[availability > 98, price per call = 0.1]
+S5(a?,b!) := PatientDNA(a?,b!)[availability > 96, price per call = 0.1]
+S6(a?,b!) := DiseaseInfectedPatients(a?,k!), PatientDNA(k?,b!)[availability > 93]
+S7(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 99, price per call = 0.1]
+S8(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 98, price per call = 0.1]
+S9(a?,c!,b!) := PatientPersonalInfo(a?,b!),PatientDNA(a?,c!)[availability > 98, price per call = 0.1] 
+\end{verbatim}
+\end{tiny}
+
+In this example, the services S2, S5 and S6 can not be selected as candidate concrete services since they violate user preferences
+
+The second step of the algorithm tries to create \textit{concrete services description} (CSD) to be used in the rewriting process. A CSD maps abstract services and variables of a concrete service to abstract services and variables of the query. A CSD is created according to the following variable mapping rules:
+\begin{itemize}
+\item \textit{Rule 1}: head variables in the concrete service can be mapped to head or local variables in the query if they are from the same type
+\item \textit{Rule 2}: local variables in the concrete service can be mapped to head variables in the query if they are from the same type
+\item \textit{Rule 3}: local variable in the concrete service can be mapped to a local variable in the query if: (i) they are from the same type; and (ii) the concrete service cover all abstract service in the query that depends on this variable. Depends here means that this local variable is used as input in another abstract service.
+\end{itemize}
+
+The principle of the solution for the second step is: given a list of candidate concrete services, looks for a candidate concrete services that satisfies the the variable mapping rules. For the ones who satisfies the rules, a CSD is created. As result a list of CSDs is produced.
+
+To illustrate the selection and creation of concrete service description, consider the concrete services selected in the previous step below.
+\begin{tiny}
+\begin{verbatim}
+S1(a?,b!) := DiseaseInfectedPatients(a?,b!)[availability > 99, price per call = 0.1]
+S3(a?,b!,c!) := DiseaseInfectedPatients(a?,b!,c!)[availability > 98, price per call = 0.1]
+S4(a?,b!) := PatientDNA(a?,b!)[availability > 98, price per call = 0.1]
+S7(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 99, price per call = 0.1]
+S8(a?,b!) := PatientPersonalInfo(a?,b!)[availability > 98, price per call = 0.1]
+S9(a?,c!,b!) := PatientPersonalInfo(a?,b!),PatientDNA(a?,c!)[availability > 98, price per call = 0.1] 
+\end{verbatim}
+\end{tiny}
+
+In this example six CSDs are created once all concrete services satisfy the rules to create CSDs. The third step of the algorithm generates all combinations of CSDs. As result we have a list of list of CSDs.
+
+The fifth and final step of the algorithm verifies/identifies which combination of CSDs is a valid rewriting of the user query. A combination of CSDs is a valid rewriting if:
+\begin{itemize}
+\item The number of abstract services in the query is equal to the result of adding the number of abstract services of each CSD
+\item There is no duplicity/redundancy of abstract services in the list of CSD
+\item All head variables in the query must be mapped to a variable in one of the concrete services in the list of CSDs
+\item If the query has a composite measure, this measure is updated for each rewriting produced, and this measure can not be violated
+\end{itemize}
+
+As result of this step we have a list of rewriting of the query. To illustrate let us consider the example used before.
+In our query we have a preference which is associated to the rewritings (composite measure) and not to a single service. Considering this preference, we have to update its value while producing the rewritings.
+The value of total cost is this example is updated by aggregating the value of price per call of each service. The rewritings produced that can satisfy the user preference while aggregating these values are below. Note that more than three rewritings can be produced that composite measure did not exists. The rewrintgs are listed in the lexicographical order considering the concrete services
+.
+\begin{verbatim}
+Q(disease?, info!, dna!) := S1(disease?,p!) S7(p?,info!) S4(p?,dna!)
+Q(disease?, info!, dna!) := S3(disease?,p!, _) S7(p?,info!) S4(p?,dna!)
+Q(disease?, info!, dna!) := S1(disease?,p!) S8(p?,info!) S4(p?,dna!)
+\end{verbatim}
+
+\section{Conclusions}
+...
+
+%ACKNOWLEDGMENTS are optional
+\section{Acknowledgments}
+optional..
+
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+
+\end{document}
