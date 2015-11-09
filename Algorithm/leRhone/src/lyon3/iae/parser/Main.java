@@ -10,8 +10,8 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 		int k = 0;
-		for (Integer i = 0; i < 10; i++) {
-			Rhone rhone = InputHandler.handleArguments("testcases2.xml", i.toString());
+		for (Integer i = 0; i < 6; i++) {
+			Rhone rhone = InputHandler.handleArguments("testcases11.xml", i.toString());
 			long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 			rhone.selectServices();
 			rhone.createCSDs();
@@ -20,7 +20,7 @@ public class Main {
 			if (k == 20)
 				k = 0;
 			k += 2;
-	        System.out.println("Testcase: " + i + " \tNumber of CSDs: " + k + "\tNumber of rewritings: " + rhone.getNumberOfRewritings() +  " \t--Done in: " + (double)time/1000000000 + " seconds");
+	        System.out.println("Testcase: " + i + " \tNumber of CSDs: " + rhone.getCsds().size() + "\tNumber of rewritings: " + rhone.getNumberOfRewritings() +  " \t--Done in: " + (double)time/1000000000 + " seconds");
 		}
 	}
 }

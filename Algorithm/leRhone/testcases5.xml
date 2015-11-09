@@ -12,7 +12,7 @@
 	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</service>
 	</testcase>
 	<testcase id="2">
-	   <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</query>					  			
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</query>					  			
 	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</service>
 	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</service>
 	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5]</service>
