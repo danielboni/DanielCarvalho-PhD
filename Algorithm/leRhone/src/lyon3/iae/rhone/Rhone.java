@@ -200,7 +200,10 @@ public class Rhone {
 		csdsPermutations = new ArrayList<List<CSD>>();
 		rewritings = new ArrayList<Rewriting>();
 		
-		List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
+		//List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
+		List<List<CSD>> subsetList = findCombinations(csds);
+		//List<List<CSD>> subsetList = findCombinations();
+		//List<List<CSD>> subsetList = findCombinations(1, null);
 		csdsPermutations.addAll(subsetList);
 		
 		this.setAggregatedMeasures(new HashMap<UserPreference, Double>());
@@ -261,9 +264,8 @@ public class Rhone {
 			}
 		}
 		return true;
-	}
-	
-	private List<List<CSD>> findMCDSubsetPref(List<CSD> list) {
+	}	
+	private List<List<CSD>> findCombinations(List<CSD> list) {
 		List<List<CSD>> result;
 
 		if (list.size() == 0){
@@ -271,14 +273,20 @@ public class Rhone {
 			result.add(new ArrayList<CSD>());
 			return result;
 		}
-
+		
 		List<CSD> newList = new ArrayList<CSD>(list);
 		CSD lastMCD = newList.remove(newList.size()-1);		
 
-		return addMCDToSubsetList(lastMCD, findMCDSubsetPref(newList));
+		return addMCDToSubsetList(lastMCD, findCombinations(newList));
 	}
-	
+
 	private List<List<CSD>> addMCDToSubsetList (CSD csd, List<List<CSD>> subsetList){
+		int lastIndex = subsetList.size() - 1;
+		
+		if (subsetList.get(lastIndex).size() > this.query.getAbstractServices().size()) {
+			return subsetList;
+		}
+		
 		List<List<CSD>> resultat = clone (subsetList);		
 		List<List<CSD>> initialSubsetList = clone (subsetList);
 
@@ -286,7 +294,6 @@ public class Rhone {
 			csdList.add(csd);
 			resultat.add(csdList);
 		}	
-		
 		
 		return resultat;				
 	}
@@ -467,13 +474,13 @@ public class Rhone {
 	}
 	
 	public void print_permutations() {
-//		System.out.println("Number of combinations: " + csdsPermutations.size());
-//		for (List<CSD> list: csdsPermutations) {
-//			for (CSD csd: list) {
-//				System.out.print(csd.getConcrete_service().getHead() + " ");
-//			}
-//			System.out.println();
-//		}
+		System.out.println("Number of combinations: " + csdsPermutations.size());
+		for (List<CSD> list: csdsPermutations) {
+			for (CSD csd: list) {
+				System.out.print(csd.getConcrete_service().getHead() + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	public void print_rewritings() {
