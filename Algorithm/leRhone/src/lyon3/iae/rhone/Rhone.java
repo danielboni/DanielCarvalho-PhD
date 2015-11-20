@@ -203,7 +203,7 @@ public class Rhone {
 		//List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		List<List<CSD>> subsetList = findCombinations(csds);
 		//List<List<CSD>> subsetList = findCombinations();
-		//List<List<CSD>> subsetList = findCombinations(1, null);
+		//List<List<CSD>> subsetList = permutations(0, this.query.getAbstractServices().size(), null);
 		csdsPermutations.addAll(subsetList);
 		
 		this.setAggregatedMeasures(new HashMap<UserPreference, Double>());
@@ -279,20 +279,69 @@ public class Rhone {
 
 		return addMCDToSubsetList(lastMCD, findCombinations(newList));
 	}
+	
+//	private List<List<CSD>> permutations(int currentSize, int lastSize, List<List<CSD>> permutations) {
+//		System.out.println(currentSize);
+//		if (currentSize == 0){
+//			System.out.println("I: 1");
+//			permutations = new ArrayList<List<CSD>>();
+//			
+//			for (CSD csd: this.csds) {
+//				List<CSD> initialList = new ArrayList<CSD>();
+//				initialList.add(csd);
+//				permutations.add(initialList);
+//			}
+//			currentSize++;
+//			System.out.println("F: 1");
+//			return permutations(currentSize, lastSize, permutations);
+//			
+//		} else if (currentSize >= lastSize) {
+//			System.out.println("I e F: 2");
+//			return permutations;
+//		} else {
+//			System.out.println("I: 3");
+//			List<List<CSD>> newList = new ArrayList<List<CSD>>(permutations);
+//			
+//			for (List<CSD> csdList: newList) {
+//				if (csdList.size() == currentSize) {
+//					permutations.addAll(producePermutations(csdList));
+//				}
+//			}
+//			currentSize++;
+//			System.out.println("F: 3");
+//			return permutations(currentSize, lastSize, permutations);
+//		}
+//	}
+//	
+//	private List<List<CSD>> producePermutations(List<CSD> list){	
+//				
+//		List<List<CSD>> result = new ArrayList<List<CSD>>();
+//
+//		for (CSD csd: this.csds) {
+//			List<CSD> tempResult = cloneList (list);
+//			tempResult.add(csd);
+//			result.add(tempResult);
+//		}	
+//		
+//		return result;				
+//	}
 
 	private List<List<CSD>> addMCDToSubsetList (CSD csd, List<List<CSD>> subsetList){
-		int lastIndex = subsetList.size() - 1;
 		
-		if (subsetList.get(lastIndex).size() > this.query.getAbstractServices().size()) {
-			return subsetList;
-		}
+//		int lastIndex = subsetList.size() - 1;
+//		
+//		if (subsetList.get(lastIndex).size() > this.query.getAbstractServices().size()) {
+//			return subsetList;
+//		}
+//		System.out.println(subsetList.get(lastIndex).size());
 		
 		List<List<CSD>> resultat = clone (subsetList);		
 		List<List<CSD>> initialSubsetList = clone (subsetList);
 
 		for (List<CSD> csdList: initialSubsetList){
 			csdList.add(csd);
-			resultat.add(csdList);
+			if (!(csdList.size() > this.query.getSize()))
+				resultat.add(csdList);
 		}	
 		
 		return resultat;				
@@ -302,12 +351,22 @@ public class Rhone {
 		List<List<CSD>> result = new ArrayList<List<CSD>>();
 
 		for (List<CSD> list: listOfLists){
-			List<CSD> newList = new ArrayList<CSD>();
-			newList.addAll(list);
-			result.add(newList);
+			if (!(list.size() > this.query.getSize())) {
+				List<CSD> newList = new ArrayList<CSD>();
+				newList.addAll(list);
+				result.add(newList);
+			}	
 		}
 		return result;
 	}
+	
+//	private List<CSD> cloneList (List<CSD> listOfCsd){
+//		List<CSD> result = new ArrayList<CSD>();
+//		for (CSD csd: listOfCsd){
+//			result.add(csd);
+//		}
+//		return result;
+//	}
 	
 	private boolean isRewriting(List<CSD> csds) {
 		int countAbstractServices = 0;

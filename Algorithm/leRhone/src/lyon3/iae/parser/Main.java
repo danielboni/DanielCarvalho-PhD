@@ -10,12 +10,12 @@ public class Main {
 
 	public static void main(String[] args) throws DocumentException {
 		
-		Rhone rhone = InputHandler.handleArguments("testcases1.xml", "1");
+		Rhone rhone = InputHandler.handleArguments("testcases10.xml", "5");
 		//long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 		rhone.selectServices();
 		rhone.createCSDs();
 		rhone.combineCSDs();
-		//rhone.print_permutations();
+		rhone.print_permutations();
 		
 //		int k = 0;
 //		for (Integer i = 0; i < 10; i++) {

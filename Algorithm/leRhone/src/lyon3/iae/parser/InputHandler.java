@@ -98,7 +98,7 @@ public class InputHandler {
 		q.setUserPreferences(getUserPreferences(q.getBody()));
 		
 		q.setAbstractServices(getAbstractServices(q.getBody()));
-		
+		q.setSize(q.getAbstractServices().size());
 		q.setConstraints(getConstraints(q.getBody()));
 		q.setDependencies(query_findDependencies(q));
 		

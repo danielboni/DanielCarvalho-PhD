@@ -12,6 +12,7 @@ public class Query {
 	private List<UserPreference> userPreferences;
 	private List<Constraints> constraints;
 	private List<Dependency> dependencies;
+	private int size;
 	
 	public List<UserPreference> getUserPreferences() {
 		return userPreferences;
@@ -79,5 +80,11 @@ public class Query {
 	}
 	public void setDependencies(List<Dependency> dependencies) {
 		this.dependencies = dependencies;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
 	}
 }
