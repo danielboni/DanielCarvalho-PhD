@@ -1,0 +1,78 @@
+\section{Scenario and Preliminaries}
+Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. Users can retrieve information about patients, diseases, dna information and others.
+To perform these function consider the \textit{abstract services} in table~\ref{table:abstractservices}. 
+\textit{Abstract services} are a set of basic service capabilities. 
+
+\begin{table}[h!]
+\center
+\begin{tabular}{|p{3.7cm}|p{4cm}|}
+\hline
+\begin{small} \textbf{\textit{Abstract Service}} \end{small} & \begin{small}\textbf{\textit{Description}} \end{small}\\ 
+\hline 
+\begin{small} \textit{DiseasePatients(d?,p!)} \end{small} & \begin{small} Given a disease \textit{d}, a list of patients \textit{p} infected by it is retrieved. \end{small}\\ 
+\hline 
+\begin{small} \textit{PatientDNA(p?,dna!)} \end{small} & \begin{small} Given a patient \textit{p}, his DNA information \textit{dna} is retrieved. \end{small}\\ 
+\hline 
+\begin{small} \textit{PatientInformation(p?,info!)} \end{small} & \begin{small} Given a patient \textit{p}, his personal information \textit{info} is retrieved. \end{small}\\ 
+\hline 
+\end{tabular} \caption{List of \textit{abstract services}}
+\end{table}\label{table:abstractservices}
+
+In our scenario, a \textit{query} expresses an abstract composition that describes the requirements of a user.
+\textit{Queries} and \textit{concrete services} are defined in terms of \textit{abstract services}.
+They can be associated to a single \textit{abstract service} or to a composition of them.
+
+Let us consider the following query: \textit{a user wants to retrieve patient's personal and DNA information of patients who were infected by a disease `K' using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less then 1 dollar.} 
+
+A query $Q$ tagged with user preferences is defined in accordance with the grammar:
+\begin{center}
+$Q (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
+\end{center}
+where the left side is the \textit{head} of the query; and the right side is the \textit{body}. 
+$\overline{I}$ and $\overline{O}$ are a set of \textit{input} and \textit{output} parameters, respectively.
+Input parameters present in both sides of the definition are called \textit{head variables}.
+In contrast, input parameters only in the body are called \textit{local variables}.
+$A_{1}, A_{2}, .., A_{n}$ are \textit{abstract services}.
+$P_{1}, P_{2}, .., P_{k}$ are user preferences (over the services). Preferences are in the form $x \otimes constant$ such that $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+The query which express the example following our grammar is below.
+The decorations ? and ! are used to specify input and output parameters, respectively. 
+\begin{small}
+\begin{center}
+$Q (d?, dna!) := DiseasePatients(d?, p!), PatientDNA(p?, dna!),$ \\
+$[availability > 99\%, \ price \ per \ call < 0.2\$, \ total \ cost < 1\$]$
+\end{center} 
+\end{small}
+
+It is important to highlight that in the query there are two types of preferences (let's refer to them as \textit{measures}): \textit{single measures} (availability and price per call) and \textit{composed measures} (total cost). 
+The \textit{single measures} are the simplest type. It is a static measure which is has a name associated with an operation and a value. The\textit{ composed measure} is dynamically computed measure. It is defined as aggregations of \textit{single measures}. 
+
+\textit{Concrete services} are defined follwing the same grammar as the \textit{query}. The only difference is that concrete services do not have \textit{composed measures}. 
+To illustrate our approach in the next section, consider the \textit{concrete services} in table~\ref{table:concreteservices}.
+
+\begin{table}[h!]
+\center
+\begin{tabular}{p{7cm}}
+\hline
+\begin{small} $S1 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\ 
+\begin{small} $[availability > 99\%, \ price \ per \ call = 0.2\$]$ \end{small}\\ 
+\hline 
+\begin{small} $S2 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\
+\begin{small} $[availability > 99\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline 
+\begin{small} $S3 (a?, b!, c!) := DiseaseInfectedPatients(a?, b!, c!)$ \end{small}\\
+\begin{small} $[availability > 98\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline 
+\begin{small} $S4 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
+\begin{small} $[availability > 99.5\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline
+\begin{small} $S5 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
+\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline
+\begin{small} $S6 (a?, b!) := PatientInformation(a?, b!)$ \end{small} \\
+\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline
+\begin{small} $S7 (a?, b!) := PatientDNA(a?, c!),PatientInformation(c?, b!)$ \end{small}\\
+\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+\hline
+\end{tabular} \caption{Available \textit{concrete services}}
+\end{table}\label{table:concreteservices}
