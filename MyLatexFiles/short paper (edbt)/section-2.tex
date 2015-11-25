@@ -42,37 +42,42 @@ $Q (d?, dna!) := DiseasePatients(d?, p!), PatientDNA(p?, dna!),$ \\
 $[availability > 99\%, \ price \ per \ call < 0.2\$, \ total \ cost < 1\$]$
 \end{center} 
 \end{small}
+%It is important to highlight that in the query there are two types of
+% preferences (let's refer to them as \textit{measures}): \textit{single measures} (availability and price per call) and \textit{composed measures} (total cost).
 
 It is important to highlight that in the query there are two types of preferences (let's refer to them as \textit{measures}): \textit{single measures} (availability and price per call) and \textit{composed measures} (total cost). 
 The \textit{single measures} are the simplest type. It is a static measure which is has a name associated with an operation and a value. The\textit{ composed measure} is dynamically computed measure. It is defined as aggregations of \textit{single measures}. 
 
-\textit{Concrete services} are defined follwing the same grammar as the \textit{query}. The only difference is that concrete services do not have \textit{composed measures}. 
-To illustrate our approach in the next section, consider the \textit{concrete services} in table~\ref{table:concreteservices}.
+\textit{Concrete services} are defined follwing the same grammar as the
+\textit{query}. The only difference is that concrete services do not have
+\textit{composed measures}. We use 7 concrete services to run our approach.
+%To illustrate our approach in the next section, consider the \textit{concrete
+% services} in table~\ref{table:concreteservices}.
 
-\begin{table}[h!]
-\center
-\begin{tabular}{p{7cm}}
-\hline
-\begin{small} $S1 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\ 
-\begin{small} $[availability > 99\%, \ price \ per \ call = 0.2\$]$ \end{small}\\ 
-\hline 
-\begin{small} $S2 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\
-\begin{small} $[availability > 99\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline 
-\begin{small} $S3 (a?, b!, c!) := DiseaseInfectedPatients(a?, b!, c!)$ \end{small}\\
-\begin{small} $[availability > 98\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline 
-\begin{small} $S4 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
-\begin{small} $[availability > 99.5\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline
-\begin{small} $S5 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
-\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline
-\begin{small} $S6 (a?, b!) := PatientInformation(a?, b!)$ \end{small} \\
-\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline
-\begin{small} $S7 (a?, b!) := PatientDNA(a?, c!),PatientInformation(c?, b!)$ \end{small}\\
-\begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
-\hline
-\end{tabular} \caption{Available \textit{concrete services}}
-\end{table}\label{table:concreteservices}
+% \begin{table}[h!]
+% \center
+% \begin{tabular}{p{7cm}}
+% \hline
+% \begin{small} $S1 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\ 
+% \begin{small} $[availability > 99\%, \ price \ per \ call = 0.2\$]$ \end{small}\\ 
+% \hline 
+% \begin{small} $S2 (a?, b!) := DiseaseInfectedPatients(a?, b!)$ \end{small}\\
+% \begin{small} $[availability > 99\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline 
+% \begin{small} $S3 (a?, b!, c!) := DiseaseInfectedPatients(a?, b!, c!)$ \end{small}\\
+% \begin{small} $[availability > 98\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline 
+% \begin{small} $S4 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
+% \begin{small} $[availability > 99.5\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline
+% \begin{small} $S5 (a?, b!) := PatientDNA(a?, b!)$ \end{small}\\
+% \begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline
+% \begin{small} $S6 (a?, b!) := PatientInformation(a?, b!)$ \end{small} \\
+% \begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline
+% \begin{small} $S7 (a?, b!) := PatientDNA(a?, c!),PatientInformation(c?, b!)$ \end{small}\\
+% \begin{small} $[availability > 99.7\%, \ price \ per \ call = 0.1\$]$ \end{small}\\ 
+% \hline
+% \end{tabular} \caption{Available \textit{concrete services}}
+% \end{table}\label{table:concreteservices}
