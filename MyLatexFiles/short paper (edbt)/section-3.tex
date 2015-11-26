@@ -7,7 +7,6 @@ of service compositions that answer the query and that fulfill the quality prefe
 
 The  input for  Rhone  is: (1) a query; (2) a list of concrete services defined in the following lines.
 
-\bigskip
 \noindent \textbf{Definition 1 (Query):} 
 %A query $Q$ has the form:
 A query $Q$ is defined as a set of \textit{abstract services}, a set of \textit{constraints}, and a set of \textit{user preferences} in accordance with the grammar: 
@@ -24,7 +23,6 @@ In contrast, input parameters only in the query body are called \textit{local va
 %The result if this step is a list of \textit{candidate concrete services} which
 % may be used in the rewriting process.
 
-\bigskip
 \noindent \textbf{Definition 2 (Concrete service)}  ($S$):
 \begin{center}
 $S (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
@@ -127,9 +125,11 @@ the query that depend on this variable. The relation ``depends''  means that thi
 \noindent \textbf{Producing rewritings.} The final step (lines 5-13) identifies which lists of CSDs are a valid
 rewritings of the user query given the list of lists of CSDs.
 A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and 
-(ii) there is mapping to all head variables in the query.
+(ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ - line 8).
 The originality of our algorithm concerns the aggregation function (\agg{Q}).
- and (iv) if the query contains a \textit{composed measure}, that corresponds to the preferences associated to the query. Every element in the CSD list has its corresponding \textit{composed measure} (represented as the called function \textit{isRewriting}$(Q, p)$ - line 8). The result of this step is the list of valid 
+It is responsible to check and increment \textit{composed measures} (if present in the query). 
+This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
+The result of this step is the list of valid 
  rewritings of the query (line 14), that is those the provide expected data and respect quality preferences.
 
 %\noindent \textbf{Producing rewritings.} In the final step, given the list of
