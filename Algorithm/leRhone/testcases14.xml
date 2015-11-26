@@ -1,0 +1,168 @@
+<testcases>
+	<testcase id="0">
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	</testcase>
+	<testcase id="1">
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	</testcase>
+	<testcase id="2">
+	   <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	</testcase>
+	<testcase id="3">
+	   <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	</testcase>
+	<testcase id="4">
+	   <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S16(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S17(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S18(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S19(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S20(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	</testcase>
+	<testcase id="5">
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S16(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S17(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S18(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S19(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S20(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S21(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S22(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S23(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S24(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S25(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service> 
+	</testcase>
+	<testcase id="6">
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S16(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S17(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S18(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S19(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S20(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S21(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S22(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S23(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S24(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S25(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S26(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S27(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S28(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S29(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S30(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	</testcase>
+	<testcase id="7">
+	  <query>Q(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</query>					  			
+	  <service>S1(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S2(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S3(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S4(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S5(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S6(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S7(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S8(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S9(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S10(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S11(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S12(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S13(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S14(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S15(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S16(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S17(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S18(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S19(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S20(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S21(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S22(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S23(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S24(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S25(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service> 
+	  <service>S26(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S27(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S28(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S29(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S30(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S31(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S32(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S33(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S34(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 5, M2 = 5, M3 = 5, M4 = 5]</service>
+	  <service>S35(x?,y!) := A1(x?,y!),A2(x?,y!),A3(x?,y!),A4(x?,y!),A5(x?,y!),A6(x?,y!){x = "K"}[M1 = 3, M2 = 5, M3 = 5, M4 = 5]</service>  
+	</testcase>
+</testcases>
