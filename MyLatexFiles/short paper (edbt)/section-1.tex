@@ -1,22 +1,22 @@
 \section{Introduction}
 Data integration
 %~\cite{Halevy:2001} that 
-has evolved with the emergence of data   services that deliver data under different quality conditions  related to data freshness, cost, reliability, availability, among others. Data are produced continuously and on demand in huge quantities and sometimes with few associated meta-data, which makes the integration process more challenging. Some approaches express data integration as a service composition problem where given a query the objective is to lookup and compose data services that can contribute to produce a result. Finding the best service composition that can answer a query can be computationally costly, and executing the composition can lead to retrieve and process data collections that can require important memory resources.
-This problem has also been addressed in the service-oriented domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
-Generally, these kind of solutions deal with query rewriting problems.
+has evolved with the emergence of data   services that deliver data under different quality conditions  related to data freshness, cost, reliability, availability, among others. Data are produced continuously and on demand in huge quantities and sometimes with few associated meta-data, which makes the integration process more challenging. Some approaches express data integration as a service composition problem where given a query the objective is to lookup and compose data services that can contribute to produce a result. Finding the best service composition that can answer a query can be computationally costly. Furthermore,  executing the composition can lead to retrieve and process data collections that can require important memory, storage and computing resources.
+This problem has  been addressed in the service-oriented domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
+Generally, these solutions deal with query rewriting problems.
 \cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services. \cite{Benouaret2011} introduced a service composition framework to answer preference queries. In that approach, two algorithms based on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
 %: one (i) to produce all possible rewritings before computing their scores and other (ii)
 %which uses a quality metric that combines diversity and accuracy to,
 %incrementally, rank services and to build the best rewritings.
 
 \cite{ba2014} presented an algorithm that produces and order rewritings according to user preferences. Yet, to our knowledge few works consider quality measures associated both to data services and to user preferences in order to guide the rewriting process. In the context of the cloud, and also considering that queries can be executed in conditions in which energy, data transfer economic cost, memory and computing resources consumption can be limited or controlled by some economic model, it is important to design approaches and rewritting algorithms that consider these constraints.
-Our work addresses this issue and proposes the  algorithm \textit{Rhone} with  two original aspects: (i) the user can express her
-quality preferences and associate them to her queries; and (ii)  service's quality
-aspects defined on Service Level Agreements guide  service selection and  the whole rewriting process.    
 
- Accordingly, this paper introduces the early stages of our
+
+This paper introduces the early stages of our
 ongoing work on developing the \textit{Rhone} service-based query rewriting
-algorithm guided by SLA's.
+algorithm guided by SLA's. Our work addresses this issue and proposes the  algorithm \textit{Rhone} with  two original aspects: (i) the user can express her
+quality preferences and associate them to her queries; and (ii)  service's quality
+aspects defined on Service Level Agreements (SLA) guide  service selection and  the whole rewriting process.    
 
 The remainder of this paper is organized as follows. Section~\ref{sec:rhone}
 describes the  algorithm \textit{Rhone}, proposed in our work. Section~\ref{sec:implementationandresults} describes
