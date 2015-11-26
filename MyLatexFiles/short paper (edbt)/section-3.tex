@@ -1,12 +1,11 @@
 \section{Service-based Query Rewriting Algorithm}
 \label{sec:rhone} 
-The algorithm described in this section is called \textit{Rhone}. 
-The Rhone service-based query rewriting algorithm addresses the problem of given
+This section describes \textit{Rhone} the service-based query rewriting algorithm that we propose. Given
 a set of \textit{abstract services}, a set of \textit{concrete services}, a
 \textit{user query} and a set of user \textit{quality preferences}, derive a set
-of service compositions that answer the query and fulfill the quality preferences.
+of service compositions that answer the query and that fulfill the quality preferences.
 
-The basic input for the Rhone algorithm is: (1) a query; (2) a list of concrete services.
+The  input for  Rhone  is: (1) a query; (2) a list of concrete services defined in the following lines.
 
 \bigskip
 \noindent \textbf{Definition 1 (Query):} 
@@ -25,16 +24,16 @@ The result if this step is a list of \textit{candidate concrete services} which
  may be used in the rewriting process.
 
 \bigskip
-\noindent \textbf{Definition 2 (Concrete service):} A concrete service ($S$):
+\noindent \textbf{Definition 2 (Concrete service)}  ($S$):
 \begin{center}
 $S (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
 \end{center}  
 
 A concrete service ($S$) is defined as a set of abstract services ($A$), and by its quality constraints $P$. 
-These quality constraints associated to the service represent the service level agreement exported by the concrete service.
+These quality constraints associated to the service represent the Service Level Agreement (SLA) exported by the concrete service.
 
 
-The algorithm includes four steps: (i) select candidate concrete services; (ii)
+The algorithm consists in four steps: (i) select candidate concrete services; (ii)
 create mappings from concrete services to the query (called \textit{concrete
 service description (CSD)}); (iii) combine the list of CSDs; and finally (iv)
 produce rewritings from the query $Q$.
@@ -69,14 +68,14 @@ produce rewritings from the query $Q$.
 \end{algorithm}
 
 
-\noindent \textbf{Select candidate concrete services:} This step consists of
+\noindent \textbf{Select candidate concrete services:} This step consists in
  looking for concrete services that can be matched with the query (line 2). In
  this sense, there are three matching problems: (i) \textit{abstract service
  matching}, (ii) \textit{measure matching} and (iii) \textit{concrete service
  matching}.
  
  Considering \textit{abstract service matching}, an abstract service $A$ can be
- matched with a abstract service $B$ only if (\textit{a}) they have the same
+ matched with an abstract service $B$ only if (\textit{a}) they have the same
  name.  In the \textit{measure matching}, all single measures in the query must
  exist in the concrete service, and all of them can not violate the measures in
  the query. For the \textit{concrete service matching}, a concrete service can
@@ -86,11 +85,11 @@ produce rewritings from the query $Q$.
  the concrete service measures (satisfying the \textit{measures matching} problem).
 
 
-The result if this step is a list of \textit{candidate concrete services} which
+The result of this step is a list of \textit{candidate concrete services} which
  may be used in the rewriting process.
 
 
-\noindent \textbf{Creating concrete service descriptions:} In this step of the
+\noindent \textbf{Creating concrete service descriptions:} In this step  the
  algorithm tries to create \textit{concrete services description} (CSD) to be
  used in the rewriting process (line 3). A CSD maps abstract services and
  variables of a concrete service to abstract services and variables of the
@@ -99,32 +98,28 @@ The result if this step is a list of \textit{candidate concrete services} which
  \textit{local-local variables}.
  
   \textit{Head variables} in concrete services can be mapped to
-  \textit{head} or \textit{local variables} in the query if they are from the
+  \textit{head} or \textit{local variables} in the query if they are of the
   same type. \textit{Local-head variables} in concrete services can be mapped to
-  \textit{head variables} in the query if they are from the same type.
+  \textit{head variables} in the query if they are of the same type.
   \textit{Local-local variables} in concrete services can be mapped to
-  \textit{local-local variables} in the query if: (\textit{a}) they are from the
-  same type; and (\textit{b}) the concrete service cover all abstract service in
-  the query that depends on this variable. Depends here means that this local
-  variable is used as input in another abstract service. As result a list of
-  CSDs is produced.
+  \textit{local-local variables} in the query if: (\textit{a}) they are of the
+  same type; and (\textit{b}) the concrete service covers all abstract services in
+  the query that depend on this variable. The relation "depends"  means that this local variable is used as input in another abstract service. The  result of this step is a list of CSDs.
 
 %Regarding the example CSDs are created to ?????.
  
-\noindent \textbf{Combining CSDs.} In this step, given all CSDs produced (line
-4), all combinations of them is generated resulting in a list of lists of CSDs.
+\noindent \textbf{Combining CSDs.} Given all produced CSDs  (line
+4), they are combined among each other to generate  a list of lists of CSDs, each element representing a possible composition.
 
 \noindent \textbf{Producing rewritings.} In the final step, given the list of
  lists of CSDs, the algorithm identifies which lists of CSDs are a valid
- rewriting of the user query (lines 5-13).
-A combination of CSDs is a valid rewriting if: (i) the number of
+ rewritings of the user query (lines 5-13).
+A combination of CSDs is a valid rewriting iff: (i) the number of
  \textit{abstract services} in the query is equal to the result of adding the
- number of \textit{abstract services} of each CSD; (ii) there is no abstract
- service in duplicity; (iii) there is mapping to all head variables in the
- query; and (iv) if the query contains a \textit{composed measure}, this measure
- must be updated for each rewriting produced, and it can not be violated
- (represented as the called function \textit{isRewriting}$(Q, p)$ - line 8).
- As result of this step we have a list of rewritings of the query (line 14).
+ number of \textit{abstract services} of each CSD; (ii) there is no duplicated abstract
+ service; (iii) there is mapping to all head variables in the
+ query; and (iv) if the query contains a \textit{composed measure}, that corresponds to the preferences associated to the query. Every element in the CSD list has its corresponding \textit{composed measure} (represented as the called function \textit{isRewriting}$(Q, p)$ - line 8). The result of this step is the list of valid 
+ rewritings of the query (line 14), that is those the provide expected data and respect quality preferences.
 
 % Regarding our example the query has a preference which is associated to the
 % rewritings (composed measure). Its value is updated while rewriting the query. In that case, \emph{total cost} is updated by aggregating the value of \emph{price per call} of each service. The rewritings produced are below. Note that more rewritings can be produced if the \textit{composed measure} did not exists. The rewrintgs are listed in the lexicographical order considering the concrete services.
