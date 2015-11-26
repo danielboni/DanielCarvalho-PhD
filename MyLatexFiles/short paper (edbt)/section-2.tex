@@ -29,16 +29,17 @@ To perform these function consider the \textit{abstract services}: (i)
 
 Let us consider the following query: \textit{a user wants to retrieve patient's personal and DNA information of patients who were infected by a disease `K' using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less then 1 dollar.} 
 
-A query $Q$ tagged with user preferences is defined in accordance with the grammar:
-\begin{center}
-$Q (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
-\end{center}
-where the left side is the \textit{head} of the query; and the right side is the \textit{body}. 
-$\overline{I}$ and $\overline{O}$ are a set of \textit{input} and \textit{output} parameters, respectively.
-Input parameters present in both sides of the definition are called \textit{head variables}.
-In contrast, input parameters only in the body are called \textit{local variables}.
-$A_{1}, A_{2}, .., A_{n}$ are \textit{abstract services}.
-$P_{1}, P_{2}, .., P_{k}$ are user preferences (over the services). Preferences are in the form $x \otimes constant$ such that $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+% A query $Q$ tagged with user preferences is defined in accordance with the grammar:
+% \begin{center}
+% $Q (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
+% \end{center}
+% where the left side is the \textit{head} of the query; and the right side is the \textit{body}. 
+% $\overline{I}$ and $\overline{O}$ are a set of \textit{input} and \textit{output} parameters, respectively.
+% Input parameters present in both sides of the definition are called \textit{head variables}.
+% In contrast, input parameters only in the body are called \textit{local variables}.
+% $A_{1}, A_{2}, .., A_{n}$ are \textit{abstract services}.
+% $P_{1}, P_{2}, .., P_{k}$ are user preferences (over the services). Preferences are in the form $x \otimes constant$ such that $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+
 The query which express the example following our grammar is below.
 The decorations ? and ! are used to specify input and output parameters, respectively. 
 \begin{small}
@@ -57,7 +58,7 @@ per call) and \textit{composed measures} (total cost).
 %\textit{Concrete services} are defined follwing the same grammar as the
 %\textit{query}. The only difference is that concrete services do not have
 %\textit{composed measures}. 
- 
+  
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.35]{analysis.png}
