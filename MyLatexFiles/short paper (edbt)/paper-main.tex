@@ -1,12 +1,33 @@
 \documentclass{sig-alternate}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+
+
+\newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
+\newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
+\newcommand \tqS[1]{\hbox{${\cal T}_{\mathrm{inc}} [\![\ #1\ ]\!]$}}
+\newcommand \agg[1]{\ensuremath{{\cal A}{gg}(#1)}}
+
+
+\def\P{\hbox{${\cal P}$}}
+\def\bigLS{\hbox{${\cal L_{S}}$}}
+\def\bigLCSD{\hbox{${\cal L_{CSD}}$}}
+\def\bigS{\hbox{${\cal S}$}}
+\def\bigV{\hbox{${\cal S}$}}
+\def\V{\hbox{${S}$}}
+\def\v{\hbox{${s}$}}
+\def\MCDws{\ifmmode \mathit{COR\_D}\else \textit{COR\_D}\fi}
+
 \begin{document}
+
 %
 % --- Author Metadata here ---
 %\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
 %\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
- 
+  
 \title{Query Rewriting Algorithm for Data Integration Quality}
 %\titlenote{(Produces the permission block, andcopyright information). For use with
 %SIG-ALTERNATE.CLS. Supported by ACM.}}
@@ -27,7 +48,7 @@ Daniel A. S. Carvalho\\
        \email{danielboni@gmail.com}
 % 2nd. author
 \alignauthor
-Placido A. Souza Neto\\
+Pl\'acido A. Souza Neto\\
        \affaddr{Instituto Federal do Rio Grande do Norte - IFRN}\\
        \affaddr{Natal, Brazil}\\
        \email{placido.neto@ifrn.edu.br}
@@ -66,8 +87,8 @@ Genoveva Vargas-Solar\\
 \maketitle
 \begin{abstract}
 In this paper we describe \textit{Rhone}, a query rewriting algorithm for data
-integration using SLA measures. We present a running scenarion to validate the
-algorithm in a multi-cloud environment.
+integration using quality measures. We present a running scenarion to describe
+the \textit{Rhone}'s implementation in order to validate the algorithm.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -82,24 +103,26 @@ algorithm in a multi-cloud environment.
 
 \input{section-1}
 
-\input{section-3}
+\input{section-3} 
 
 \input{section-2}
 
-\input{section-4}
-
+%\input{section-4}
+ 
 \section{Conclusions}
-...
+The algorithm is implemented in Java. We are currently performing experiments
+in order to evaluate the performance of the Rhone.
 
 %ACKNOWLEDGMENTS are optional
-\section{Acknowledgments}
-optional..
+%\section{Acknowledgments}
+%optional..
 
 %
 % The following two commands are all you need in the
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
-\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+\bibliography{bibliography}  % sigproc.bib is the name of the Bibliography in
+% this case
 
 \end{document}

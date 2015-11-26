@@ -1,5 +1,5 @@
 %\section{Scenario and Preliminaries}
-\section{Running Scenario}
+\section{Implementation and Results}
 Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. Users can retrieve information about patients, diseases, dna information and others.
 To perform these function consider the \textit{abstract services} in table~\ref{table:abstractservices}. 
 \textit{Abstract services} are a set of basic service capabilities. 
@@ -53,6 +53,16 @@ The \textit{single measures} are the simplest type. It is a static measure which
 \textit{Concrete services} are defined follwing the same grammar as the
 \textit{query}. The only difference is that concrete services do not have
 \textit{composed measures}. We use 7 concrete services to run our approach.
+
+In this example all the queries have 6 \textit{abstract services} and 2
+\textit{single measures}. The number of local variables (dependencies) and CSDs
+is being modified to see how the algorithm works under these conditions.   
+
+By now, the analysis identified that the factor that influenciates the Rhone
+performance is the number of CSDs versus the number of abstract services in the
+query since they increase the number of possible combinations of CSDs.   
+
+
 %To illustrate our approach in the next section, consider the \textit{concrete
 % services} in table~\ref{table:concreteservices}.
 
