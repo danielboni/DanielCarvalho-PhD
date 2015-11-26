@@ -1,32 +1,11 @@
 \section{Introduction}
-%Data integration is a well-known and widely discussed problem in the database
-% domain.
-%The emergence of new architectures like the cloud opens new opportunities for
-% data integration.
-%The possibility of having unlimited access to cloud resources and the ``pay as
-% U go'' model make it possible to change the hypothesis for processing big  data collections.
-%Instead of designing processes and algorithms taking into consideration  limitations on resources availability, the cloud sets the focus on the economic cost implied when using resources and producing results.
-
- 
-%Integrating and processing heterogeneous huge data collections (i.e., Big Data) calls for efficient methods for correlating, associating, and filtering them according to their ``structural'' characteristics (due to data variety) and their quality (veracity), e.g., trust, freshness, provenance, partial or total consistency. 
-%Existing data integration techniques must be revisited considering weakly
-% curated and modeled data sets provided by different services under different quality conditions. Data integration can be done according to  (i) quality of service (QoS) requirements expressed by their consumers and (ii) Service Level Agreements (SLA)  exported by the cloud providers that host huge data collections and deliver resources for executing the associated management processes.
-%Yet, it is not an easy task to completely enforce SLAs particularly because
-%consumers use several cloud providers to store, integrate and process the data
-%they require under the specific conditions they expect. For example, a major concern when
-%integrating data from different sources (services) is privacy that can be
-%associated to the conditions in which integrated data collections are built and
-%shared~\cite{YauY08}.     
-%Naturally, a collaboration between cloud providers becomes necessary~\cite{036}
-%but this should be  done in a user-friendly way, with some degree of
-%transparency. 
-
-A query rewriting algorithm which processes queries on data provider services is
-proposed in~\cite{Barhamgi2010}. A service composition framework to answer
-preference queries is proposed in~\cite{Benouaret2011}. Two algorithms based on~\cite{Barhamgi2010} are
-presented: one (i) to produce all possible rewritings before computing their scores and other (ii)
-which uses a quality metric that combines diversity and accuracy to,
-incrementally, rank services and to build the best rewritings.
+Data integration is a well-know problem in the database domain (see~\cite{Halevy:2001}). 
+Recently, with the emergency of cloud environments, this problem has also been threated in the service-oriented domains~\cite{Barhamgi2010,Benouaret2011,ba2014}.
+Generally, these kind of applications deals with query rewriting problems.
+\cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services. \cite{Benouaret2011} introduced a service composition framework to answer preference queries. In that approach, two algorithms based on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
+%: one (i) to produce all possible rewritings before computing their scores and other (ii)
+%which uses a quality metric that combines diversity and accuracy to,
+%incrementally, rank services and to build the best rewritings.
 
 In this context, the aim of our work is to present the early stages of our
 ongoing work on developing the \textit{Rhone} service-based query rewriting
