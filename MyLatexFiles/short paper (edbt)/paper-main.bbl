@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{ba2014}
+C.~Ba, U.~Costa, M.~Halfeld~Ferrari, R.~Ferre, M.~A.~Musicante, V.~Peralta, and
+  S.~Robert.
+\newblock {Preference-Driven Refinement of Service Compositions}.
+\newblock In {\em {CLOSER (4th International Conference on Cloud Computing and
+  Services Science)}}, Proceedings of CLOSER 2014, page 8 pages, Barcelona,
+  Spain, Apr. 2014.
+\newblock POSTER presentation.
+
+\bibitem{Barhamgi2010}
+M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
+\newblock A query rewriting approach for web service composition.
+\newblock {\em Services Computing, IEEE Transactions on}, 3(3):206--222, July
+  2010.
+
+\bibitem{Benouaret2011}
+K.~{Benouaret}, D.~{Benslimane}, A.~{Hadjali}, and M.~{Barhamgi}.
+\newblock {FuDoCS: A Web Service Composition System Based on Fuzzy Dominance
+  for Preference Query Answering}, Sept. 2011.
+\newblock VLDB - 37th International Conference on Very Large Data Bases - Demo
+  Paper.
+
+\bibitem{Halevy:2001}
+A.~Y. Halevy.
+\newblock Answering queries using views: A survey.
+\newblock {\em The VLDB Journal}, 10(4):270--294, Dec. 2001.
+
+\end{thebibliography}

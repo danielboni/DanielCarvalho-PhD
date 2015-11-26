@@ -2,7 +2,8 @@
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{amsmath}
-
+\usepackage{graphicx}
+\usepackage{subfig}
 
 \newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
 \newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
@@ -111,6 +112,30 @@ the \textit{Rhone}'s implementation in order to evaluate the algorithm.
  
 \section{Conclusions}
 \label{sec:conclusions}
+
+\begin{figure}[!htb]
+\centering
+\subfloat[Droopy]{
+\includegraphics[scale=0.25]{fig2.pdf}
+\label{figdroopy}
+}
+\quad %espaco separador
+\subfloat[Snoop]{
+\includegraphics[scale=0.25]{fig1.pdf}
+\label{figsnoop}
+}
+\caption{Subfiguras}
+\label{fig01}
+\end{figure}
+%
+%\begin{figure}[h!]
+%\includegraphics[scale=0.3]{fig2.pdf} 
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\includegraphics[scale=0.3]{fig1.pdf} 
+%\end{figure}
+
 This work proposes a query rewriting algorithm for data integration quality
 named \textit{Rhone}. Given a query and a list of concrete services as input,
 the algorithm looks for candidate concrete services. These candidate services can be used probably in the rewriting
