@@ -1,9 +1,11 @@
 \section{Implementation and Results}
 \label{sec:implementationandresults}  
-Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. Users can retrieve information about patients, diseases, dna information and others.
+Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. 
+Users can retrieve information about patients, diseases, dna information and others.
 To perform these function consider the \textit{abstract services}: (i)
 \textit{DiseasePatients(d?,p!)}, (ii) \textit{PatientDNA(p?,dna!)} and (iii)
 \textit{PatientInformation(p?,info!)}.
+The decorations ? and ! are used to specify input and output parameters, respectively. 
 % 
 % \begin{table}[h!]
 % \center
@@ -41,7 +43,7 @@ Let us consider the following query: \textit{a user wants to retrieve patient's 
 % $P_{1}, P_{2}, .., P_{k}$ are user preferences (over the services). Preferences are in the form $x \otimes constant$ such that $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 
 The query which express the example following our grammar is below.
-The decorations ? and ! are used to specify input and output parameters, respectively. 
+%The decorations ? and ! are used to specify input and output parameters, respectively. 
 \begin{small}
 \begin{center}
 $Q (d?, dna!) := DiseasePatients(d?, p!), PatientDNA(p?, dna!),$ \\
