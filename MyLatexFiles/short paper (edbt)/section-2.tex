@@ -1,27 +1,31 @@
 \section{Implementation and Results}
 \label{sec:implementationandresults}  
 Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. Users can retrieve information about patients, diseases, dna information and others.
-To perform these function consider the \textit{abstract services} in table~\ref{table:abstractservices}. 
-\textit{Abstract services} are a set of basic service capabilities. 
+To perform these function consider the \textit{abstract services}: (i)
+\textit{DiseasePatients(d?,p!)}, (ii) \textit{PatientDNA(p?,dna!)} and (iii)
+\textit{PatientInformation(p?,info!)}.
+% 
+% \begin{table}[h!]
+% \center
+% \begin{tabular}{|p{3.7cm}|p{4cm}|}
+% \hline
+% \begin{small} \textbf{\textit{Abstract Service}} \end{small} & \begin{small}\textbf{\textit{Description}} \end{small}\\ 
+% \hline 
+% \begin{small} \textit{DiseasePatients(d?,p!)} \end{small} & \begin{small} Given a disease \textit{d}, a list of patients \textit{p} infected by it is retrieved. \end{small}\\ 
+% \hline 
+% \begin{small} \textit{PatientDNA(p?,dna!)} \end{small} & \begin{small} Given a patient \textit{p}, his DNA information \textit{dna} is retrieved. \end{small}\\ 
+% \hline 
+% \begin{small} \textit{PatientInformation(p?,info!)} \end{small} & \begin{small} Given a patient \textit{p}, his personal information \textit{info} is retrieved. \end{small}\\ 
+% \hline 
+% \end{tabular} \caption{List of \textit{abstract services}}
+% \end{table}\label{table:abstractservices}
 
-\begin{table}[h!]
-\center
-\begin{tabular}{|p{3.7cm}|p{4cm}|}
-\hline
-\begin{small} \textbf{\textit{Abstract Service}} \end{small} & \begin{small}\textbf{\textit{Description}} \end{small}\\ 
-\hline 
-\begin{small} \textit{DiseasePatients(d?,p!)} \end{small} & \begin{small} Given a disease \textit{d}, a list of patients \textit{p} infected by it is retrieved. \end{small}\\ 
-\hline 
-\begin{small} \textit{PatientDNA(p?,dna!)} \end{small} & \begin{small} Given a patient \textit{p}, his DNA information \textit{dna} is retrieved. \end{small}\\ 
-\hline 
-\begin{small} \textit{PatientInformation(p?,info!)} \end{small} & \begin{small} Given a patient \textit{p}, his personal information \textit{info} is retrieved. \end{small}\\ 
-\hline 
-\end{tabular} \caption{List of \textit{abstract services}}
-\end{table}\label{table:abstractservices}
-
-In our scenario, a \textit{query} expresses an abstract composition that describes the requirements of a user.
-\textit{Queries} and \textit{concrete services} are defined in terms of \textit{abstract services}.
-They can be associated to a single \textit{abstract service} or to a composition of them.
+%In our scenario, a \textit{query} expresses an abstract composition that
+% describes the requirements of a user.
+%\textit{Queries} and \textit{concrete services} are defined in terms of
+% \textit{abstract services}.
+%They can be associated to a single \textit{abstract service} or to a
+% composition of them.
 
 Let us consider the following query: \textit{a user wants to retrieve patient's personal and DNA information of patients who were infected by a disease `K' using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less then 1 dollar.} 
 
@@ -45,21 +49,35 @@ $[availability > 99\%, \ price \ per \ call < 0.2\$, \ total \ cost < 1\$]$
 \end{small}
 
 We highlight that in the query there are two types of preferences (let's refer
-to them as \textit{measures}): \textit{single measures} (availability and price per call) and \textit{composed measures} (total cost).
-The \textit{single measures} are the simplest type. It is a static measure which is has a name associated with an operation and a value. The\textit{ composed measure} is dynamically computed measure. It is defined as aggregations of \textit{single measures}. 
+to them as \textit{measures}): \textit{single measures} (availability and price
+per call) and \textit{composed measures} (total cost).
+%The \textit{single measures} are the simplest type. It is a static measure
+% which is has a name associated with an operation and a value. The\textit{ composed measure} is dynamically computed measure. It is defined as aggregations of \textit{single measures}.
 
-\textit{Concrete services} are defined follwing the same grammar as the
-\textit{query}. The only difference is that concrete services do not have
-\textit{composed measures}. We use 7 concrete services to run our approach.
+%\textit{Concrete services} are defined follwing the same grammar as the
+%\textit{query}. The only difference is that concrete services do not have
+%\textit{composed measures}. 
+ 
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.35]{analysis.png}
+\label{fig:fig01}
+\caption{Query rewriting evaluation.}
+\end{figure}
 
-In this example all the queries have 6 \textit{abstract services} and 2
-\textit{single measures}. The number of local variables (dependencies) and CSDs
+We use 7 concrete services to run our approach. In this example all the queries
+have 6 \textit{abstract services} and 2 \textit{single measures}. The number of local variables (dependencies) and CSDs
 is being modified to see how the algorithm works under these conditions.   
-
+ 
 By now, the analysis identified that the factor that influenciates the Rhone
 performance is the number of CSDs versus the number of abstract services in the
-query since they increase the number of possible combinations of CSDs.   
-
+query since they increase the number of possible combinations of CSDs.  
+We proceeded two types of analysis for the query $Q$ (\textit{Test 1} and
+\textit{Test 2} - Figure 1). The first set of tests doesn't consider quality measures,
+while the second consider the measures in the rewriting process. The number of
+concrete services used in the analysis is from 2 until 35 services. Our
+preliminary results show that our algorithm, considering the quality measures,
+presents a better result for performance and the total number of rewritings.     
 
 %To illustrate our approach in the next section, consider the \textit{concrete
 % services} in table~\ref{table:concreteservices}.
