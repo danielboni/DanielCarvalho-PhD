@@ -9,7 +9,7 @@ The  input for  Rhone  is: (1) a query; (2) a list of concrete services defined 
 
 \noindent \textbf{Definition 1 (Query):} 
 %A query $Q$ has the form:
-A query $Q$ is defined as a set of \textit{abstract services}, a set of \textit{constraints}, and a set of \textit{user preferences} in accordance with the grammar: 
+A query $Q$ is defined as a set of \textit{abstract services} ($A$), a set of \textit{constraints} ($C$), and a set of \textit{user preferences}($P$) in accordance with the grammar: 
 
 \begin{center}
 $Q (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O}),C_{1},C_{2}, .., C_{m}[P_{1},P_{2}, .., P_{k}]$
@@ -19,6 +19,7 @@ The left side of the definition is called the \textit{head} of the query; and th
 $\overline{I}$ and $\overline{O}$ are a set of \textit{input} and \textit{output} parameters, respectively.
 Input parameters in both sides of the definition are called \textit{head variables}.
 In contrast, input parameters only in the query body are called \textit{local variables}.
+The preferences (for short \textit{measures}) are classified as: \textit{single measures} (static measures) and \textit{composed measures} (defined as aggregations of \textit{single measures}).
 %
 %The result if this step is a list of \textit{candidate concrete services} which
 % may be used in the rewriting process.
@@ -35,7 +36,7 @@ These quality constraints associated to the service represent the Service Level 
 The algorithm consists in four steps: (i) select candidate concrete services; (ii)
 create mappings from concrete services to the query (called \textit{concrete
 service description (CSD)}); (iii) combine the list of CSDs; and finally (iv)
-produce rewritings from the query $Q$.
+produce rewritings for the query $Q$.
 
 
 \begin{algorithm}
