@@ -39,7 +39,7 @@ produce rewritings from the query $Q$.
 
 
 \begin{algorithm}
-%\small
+\tiny
 \caption{ - RHONE}
 \label{algo-rhone}
 
@@ -103,10 +103,12 @@ may be used in the rewriting process.
 % \textit{head variables}, (ii) \textit{local-head variables} and  (iii)
 % \textit{local-local variables}.
 according to variable mapping rules mainly based on 2 criterias: the type and the dependency (variables used as inputs on other abstract services). 
-\textit{Head} and \textit{local} variables in concrete services can be mapped to \textit{head} or \textit{local variables} in the query if they are of the same type. 
+%\textit{Head} and \textit{local} variables in concrete services can be mapped
+% to \textit{head} or \textit{local variables} in the query if they are of the same type.
 %\textit{Local} variables in concrete services can be mapped to \textit{head} variables in the query. 
-\textit{Local} variables in concrete services can be mapped to \textit{local} variables in the query if: (\textit{a}) they are of the same type; and (\textit{b}) the concrete service covers all abstract services in
-the query that depend on this variable. The relation ``depends''  means that this \textit{local} variable is used as input in another abstract service. The  result of this step is a list of CSDs.
+%\textit{Local} variables in concrete services can be mapped to \textit{local}
+% variables in the query if: (\textit{a}) they are of the same type; and (\textit{b}) the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this \textit{local} variable is used as input in another abstract service. 
+The  result of this step is a list of CSDs.
   
 %    \textit{Head variables} in concrete services can be mapped to
 %  \textit{head} or \textit{local variables} in the query if they are of the
@@ -130,7 +132,8 @@ The originality of our algorithm concerns the aggregation function (\agg{Q}).
 It is responsible to check and increment \textit{composed measures} (if present in the query). 
 This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
 The result of this step is the list of valid 
- rewritings of the query (line 14), that is those the provide expected data and respect quality preferences.
+ rewritings of the query (line 14).%, that is those the provide expected data
+ % and respect quality preferences.
 
 %\noindent \textbf{Producing rewritings.} In the final step, given the list of
 % lists of CSDs, the algorithm identifies which lists of CSDs are a valid
