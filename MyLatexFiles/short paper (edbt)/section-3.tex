@@ -3,7 +3,8 @@
 This section describes \textit{Rhone} the service-based query rewriting algorithm that we propose. Given
 a set of \textit{abstract services}, a set of \textit{concrete services}, a
 \textit{user query} and a set of user \textit{quality preferences}, derive a set
-of service compositions that answer the query and that fulfill the quality preferences.
+of service compositions that answer the query and that fulfill the quality preferences
+ regarding the context of data service deployment.
 
 The  input for  Rhone  is: (1) a query; (2) a list of concrete services defined in the following lines.
 
@@ -19,7 +20,7 @@ The left side of the definition is called the \textit{head} of the query; and th
 $\overline{I}$ and $\overline{O}$ are a set of \textit{input} and \textit{output} parameters, respectively.
 Input parameters in both sides of the definition are called \textit{head variables}.
 In contrast, input parameters only in the query body are called \textit{local variables}.
-The preferences (for short \textit{measures}) are classified as: \textit{single measures} (static measures) and \textit{composed measures} (defined as aggregations of \textit{single measures}).
+The preferences (for short \textit{measures}) are classified as: \textit{single measures} (static measures) and \textit{composed measures} (aggregations of \textit{single measures}).
 %
 %The result if this step is a list of \textit{candidate concrete services} which
 % may be used in the rewriting process.
@@ -29,27 +30,25 @@ The preferences (for short \textit{measures}) are classified as: \textit{single 
 $S (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
 \end{center}  
 
-A concrete service ($S$) is defined as a set of abstract services ($A$), and by its quality constraints $P$. 
+A concrete service ($S$) is defined as a set of abstract services ($A_{i}$), and by their quality constraints $P_{j}$. 
 These quality constraints associated to the service represent the Service Level Agreement (SLA) exported by the concrete service.
 
 
 The algorithm consists in four steps: (i) select candidate concrete services; (ii)
 create mappings from concrete services to the query (called \textit{concrete
 service description (CSD)}); (iii) combine the list of CSDs; and finally (iv)
-produce rewritings for the query $Q$.
+produce rewritings.
 
 
 \begin{algorithm}
-\tiny
+\small
 \caption{ - RHONE}
 \label{algo-rhone}
-
 \begin{algorithmic}[1]
- 
 \STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
  \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
  \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
- \STATE  $I \leftarrow CombineCSDs(Q, \bigLCSD)$
+ \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
  \STATE $R\leftarrow \emptyset$
 % \STATE ~\!\tqI{\agg{Q}} 
     \STATE $p \leftarrow I.next()$
@@ -62,11 +61,8 @@ produce rewritings for the query $Q$.
  \ENDWHILE
     \STATE \textbf{return} $R$
 \STATE \textbf{end function}
-
 \end{algorithmic}
-
 \end{algorithm}
-
 
 \noindent \textbf{Select candidate concrete services:} This step consists in
  looking for concrete services that can be matched with the query (line 2). In
@@ -95,7 +91,7 @@ The result of this step is a list of \textit{candidate concrete services} which
 may be used in the rewriting process.
 
 
-\noindent \textbf{Creating concrete service descriptions:} In this step  the
+\noindent \textbf{Creating concrete service descriptions:} This step the
  algorithm tries to create \textit{concrete services description} (CSD) to be
  used in the rewriting process (line 3). A CSD maps abstract services and
  variables of a concrete service to abstract services and variables of the
