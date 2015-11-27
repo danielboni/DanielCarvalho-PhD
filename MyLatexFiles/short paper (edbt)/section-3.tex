@@ -62,8 +62,8 @@ produce rewritings.
 \end{algorithmic}
 \end{algorithm}
 
-\noindent \textbf{Select candidate concrete services:} This step consists in
- looking for concrete services that can be matched with the query (line 2). In
+\noindent \textbf{Select candidate concrete services:} This step
+ looks for concrete services that can be matched with the query (line 2). In
  this sense, there are three matching problems: 
  (i) \textit{abstract service matching}, an abstract service $A$ can be
  matched with an abstract service $B$ only if (\textit{a}) they have the same
@@ -74,7 +74,6 @@ produce rewritings.
  (iii) \textit{concrete service matching}, a concrete service can
  be matched with the query if all its abstract services satisfy the \textit{abstract service
  matching} problem and all the \textit{single measures} satisfy the \textit{measures matching} problem.
- 
 % Considering \textit{abstract service matching}, an abstract service $A$ can be
 % matched with an abstract service $B$ only if (\textit{a}) they have the same
 % name.  In the \textit{measure matching}, all single measures in the query must
@@ -84,13 +83,11 @@ produce rewritings.
 % abstract service in the query (satisfying the \textit{abstract service
 % matching} problem) and all the single measures in the query can be matched with
 % the concrete service measures (satisfying the \textit{measures matching} problem).
-
 The result of this step is a list of \textit{candidate concrete services} which
 may be used in the rewriting process.
 
 
-\noindent \textbf{Creating concrete service descriptions:} This step if the
- algorithm tries to create \textit{concrete services description} (CSD) to be
+\noindent \textbf{Creating concrete service descriptions:} This step tries to create \textit{concrete services description} (CSD) to be
  used in the rewriting process (line 3). A CSD maps abstract services and
  variables of a concrete service onto abstract services and variables of the
  query. A CSD is created 

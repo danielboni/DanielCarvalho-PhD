@@ -97,12 +97,14 @@ The figure 1 shows our first results.
 \caption{Query rewriting evaluation.}
 \end{figure} 
  
-The analysis identified that the algorithm shares the same problem as  existing query rewriting 
-approaches using views (database domain) while it does not take into account quality measures (\textit{Test 1}): 
+The analysis identified that the algorithm shares the same problem as existing query rewriting 
+approaches using views while it does not consider quality measures (\textit{Test 1}): 
 increasing the processing time when the query and the number of concrete services increase. 
-However, while considering the quality measures (\textit{Test 2}), the results are promisingly.  
-The \textit{Rhone} presents a better performance, decreasing the processing time and 
-the total number of rewritings produced.  
+However, while considering the quality measures (\textit{Test 2}), the results are promising.  
+%The \textit{Rhone} presents a better performance, decreasing the processing time and 
+%the total number of rewritings produced.  
+%Reducing rewriting number allow to go straightforward to the rewriting solutions that are satisfactory avoiding any further backtrack.
+The \textit{Rhone} increases performance reducing rewriting number which allows to go straightforward to the rewriting solutions that are satisfactory avoiding any further backtrack and thus reducing successful integration time.
 
 %By now, the analysis identified that the factor that influenciates the Rhone
 %performance is the number of CSDs versus the number of abstract services in the
