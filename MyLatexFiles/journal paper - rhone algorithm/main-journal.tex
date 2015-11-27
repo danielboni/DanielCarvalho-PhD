@@ -1,0 +1,245 @@
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage{geometry}
+%\geometry{letterpaper}                   % ... or a4paper or a5paper or ...
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{amssymb} 
+\usepackage{epstopdf}
+  
+% bibliography packages
+%\usepackage[nodots,nocompress]{numcompress}
+\usepackage{multibib}
+%Defining new way to cite
+%\newcites{map}{Systematic Mapping References} 
+%\usepackage{bibtopic}       
+  
+\usepackage{datatool}
+\usepackage{tikz}
+ 
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.10}  
+
+\usetikzlibrary{patterns}
+\usepackage{lscape} 
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{rotating}
+
+
+%  \usepackage{multibbl}
+%  \usepackage{hyperref}
+
+
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+   
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout: 
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+%% \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+
+\journal{Information and Software Technology}
+
+%%% OUR MACROS %%%
+\newcommand{\COMMENT}[1]{ }
+
+%\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+
+\usepackage{amsmath}
+\usepackage[thmmarks,amsmath]{ntheorem}
+
+\newcommand{\openbox}{\leavevmode
+  \hbox to.77778em{%
+  \hfil\vrule
+  \vbox to.675em{\hrule width.6em\vfil\hrule}%
+  \vrule\hfil}}
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\newtheorem{algo}{Algorithm}
+
+\theoremstyle{plain}
+%\theoremheaderfont{\normalfont\itshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\theoremsymbol{\ensuremath{\openbox}} 
+\newtheorem{example}{Example}
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{.}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\theoremsymbol{\ensuremath{\Box}} 
+\newtheorem{defi}{Definition}
+
+\theoremstyle{plain} 
+\theoremsymbol{\ensuremath{\Box}} 
+\theoremseparator{.} 
+\newtheorem{prop}{Property}
+
+\def\FlyingPig{\textsl{FlyingPig}}
+
+\newcounter{numberInTrivlist}
+
+\newenvironment{numtrivlist}{\begin{list}{\rm \arabic{numberInTrivlist})} 
+                                         {\usecounter{numberInTrivlist}
+                                          \setlength{\leftmargin}{0pt}
+                                          \setlength{\rightmargin}{0pt}
+                                          \setlength{\itemindent}{12pt}
+                                          \setlength{\listparindent}{0pt}}}
+                            {\end{list}}
+
+\newenvironment{itemizedTrivlist}{\begin{list}{\rm ~\hspace{2mm} $\bullet$\ } 
+                                         {\setlength{\leftmargin}{0pt}
+                                          \setlength{\rightmargin}{0pt}
+                                          \setlength{\itemindent}{12pt}
+                                          \setlength{\listparindent}{0pt}}}
+                            {\end{list}}
+
+\usepackage{listings}
+
+
+\lstset{numbers=right, numbersep=5pt, numberstyle=\tiny, stepnumber=1,escapechar=\!,columns=fullflexible,
+        morekeywords={procedure,let,for,do,if,then,else,add,choose,end,while,
+        true,false,rise,exception,extend,resume,to,return,function}}
+
+\newcommand{\pisodm}[0]{$\pi$SOD-M\xspace}
+
+\begin{document}
+
+
+\begin{frontmatter}
+
+
+\title{\textit{Rhone:} A Query Rewriting Algorithm for Data Integration Quality}
+
+
+\author[inst1]{Daniel A. Carvalho}
+ 
+\author[inst2]{Pl\'acido A. Souza Neto}
+\tnotetext[label2]{Contact author: Pl\'acido A. Souza Neto}
+\ead{placido.neto@ifrn.edu.br}
+%\ead[url]{http://docente.ifrn.edu.br/placidoneto}
+\fntext[label3]{
+\textit{Address: }IFRN - Avenida Senador Salgado Filho, 1559, Campus Natal
+Central - Tirol. CEP 59015-000, Natal, RN, Brazil. \textit{Telephone/Fax:} +55
+84 4005 9980. \textit{Mobile phone:} +55 84 99911 1931.}
+			 	 
+\author[inst1]{Chirine Ghedira-Guegan}
+\author[inst3]{Nadia Bennani}
+\author[inst4]{Genoveva Vargas-Solar}
+
+ \address[inst1]{Universit\'e Jean Moulin, Lyon 3 MAGELLAN, IAE -- France}
+\address[inst2]{Instituto Federal do Rio Grande do Norte -- Natal, Brazil}
+\address[inst3]{CNRS INSA-Lyon, LIRIS, UMR5205 – France}
+\address[inst4]{CNRS, LIG-LAFMIA, Saint Martin d'H\`eres, France}
+
+
+%\maketitle
+
+\begin{abstract}
+\textbf{Context:}  \ldots
+
+\textbf{Objective:} \ldots. 
+
+\textbf{Method:} \ldots
+
+\textbf{Results:} \ldots
+
+\textbf{Conclusion:} \ldots
+
+\end{abstract}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+keyword \sep keyword.
+
+\end{keyword}
+
+
+\end{frontmatter}
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+%% main text
+%*********************************************************************************************************
+% \section{introduction}
+% \label{sec:intro}
+% \input{intro}
+ 
+% \section{background}
+% \label{sec:background}
+% \input{background}
+% 
+% \subsection{Related work}
+% \label{sec:relwork}
+% \input{relwork}
+
+
+
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-1a-num.tex'.
