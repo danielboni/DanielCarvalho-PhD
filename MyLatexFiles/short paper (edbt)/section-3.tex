@@ -33,12 +33,10 @@ $S (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\ove
 A concrete service ($S$) is defined as a set of abstract services ($A_{i}$), and by their quality constraints $P_{j}$. 
 These quality constraints associated to the service represent the Service Level Agreement (SLA) exported by the concrete service.
 
-
 The algorithm consists in four steps: (i) select candidate concrete services; (ii)
 create mappings from concrete services to the query (called \textit{concrete
 service description (CSD)}); (iii) combine the list of CSDs; and finally (iv)
 produce rewritings.
-
 
 \begin{algorithm}
 \small
@@ -91,10 +89,10 @@ The result of this step is a list of \textit{candidate concrete services} which
 may be used in the rewriting process.
 
 
-\noindent \textbf{Creating concrete service descriptions:} This step the
+\noindent \textbf{Creating concrete service descriptions:} This step if the
  algorithm tries to create \textit{concrete services description} (CSD) to be
  used in the rewriting process (line 3). A CSD maps abstract services and
- variables of a concrete service to abstract services and variables of the
+ variables of a concrete service onto abstract services and variables of the
  query. A CSD is created 
 % according to the following variable mapping rules:  (i)
 % \textit{head variables}, (ii) \textit{local-head variables} and  (iii)

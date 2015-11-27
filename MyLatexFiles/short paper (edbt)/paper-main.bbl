@@ -4,8 +4,7 @@
 C.~Ba, U.~Costa, M.~H.~Ferrari, R.~Ferre, M.~A.~Musicante, V.~Peralta, and
   S.~Robert.
 \newblock {Preference-Driven Refinement of Service Compositions}.
-\newblock In {\em {CLOSER (4th International Conference on Cloud Computing and
-  Services Science)}}, 2014.
+\newblock In {\em Int. Conf. on Cloud Computing and Services Science, 2014}.
 
 \bibitem{Barhamgi2010}
 M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
@@ -16,6 +15,6 @@ M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
 K.~{Benouaret}, D.~{Benslimane}, A.~{Hadjali}, and M.~{Barhamgi}.
 \newblock {FuDoCS: A Web Service Composition System Based on Fuzzy Dominance
   for Preference Query Answering}.
-\newblock 37th International Conference on Very Large Data Bases, 2011.
+\newblock In {\em Int. Conf. on Very Large Data Bases, 2011}.
 
 \end{thebibliography}
