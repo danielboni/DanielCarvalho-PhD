@@ -1,11 +1,19 @@
 \section{Implementation and Results}
 \label{sec:implementationandresults}  
 Let us suppose the following medical scenario to illustrate our service-based query rewriting algorithm. 
-Users can retrieve information about patients, diseases, dna information and others.
-To perform these function consider the \textit{abstract services}: (i)
-\textit{DiseasePatients(d?,p!)}, (ii) \textit{PatientDNA(p?,dna!)} and (iii)
-\textit{PatientInformation(p?,info!)}.
+Users can access \textit{abstract services} (basic service capabilities) to retrieve: (i) patients infected by a given disease (\textit{DiseasePatients(d?,p!)});
+(ii) patient dna information \textit{PatientDNA(p?, dna!)}; and (iii) patient personal information (\textit{PatientInformation(p?, info!)}).
+%To perform these function consider the \textit{abstract services}: (i)
+%, (ii)  and (iii)
+%.
 The decorations ? and ! are used to specify input and output parameters, respectively. 
+
+%Users can retrieve information about patients, diseases, dna information and others.
+%To perform these function consider the \textit{abstract services}: (i)
+%\textit{DiseasePatients(d?,p!)}, (ii) \textit{PatientDNA(p?,dna!)} and (iii)
+%\textit{PatientInformation(p?,info!)}.
+%The decorations ? and ! are used to specify input and output parameters, respectively. 
+
 % 
 % \begin{table}[h!]
 % \center
@@ -29,8 +37,8 @@ The decorations ? and ! are used to specify input and output parameters, respect
 %They can be associated to a single \textit{abstract service} or to a
 % composition of them.
 
-Let us consider the following query: \textit{a user wants to retrieve patient's personal and DNA information of patients who were infected by a disease `K' using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less then 1 dollar.} 
-
+Let us consider the query: \textit{a user wants to retrieve personal and DNA information of patients who were infected by a disease `K' using services that have availability higher than 98\%, price per call less than 0.2 dollars, and total cost less than 1 dollar.} 
+The query below corresponds to the example (see Definition 1).
 % A query $Q$ tagged with user preferences is defined in accordance with the grammar:
 % \begin{center}
 % $Q (\overline{I}, \overline{O}) := A_{1}(\overline{I}, \overline{O}), A_{2}(\overline{I}, \overline{O}), ..,  A_{n}(\overline{I}, \overline{O})[P_{1},P_{2}, .., P_{k}]$
@@ -42,7 +50,7 @@ Let us consider the following query: \textit{a user wants to retrieve patient's 
 % $A_{1}, A_{2}, .., A_{n}$ are \textit{abstract services}.
 % $P_{1}, P_{2}, .., P_{k}$ are user preferences (over the services). Preferences are in the form $x \otimes constant$ such that $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 
-The query which express the example following our grammar is below.
+%The query which express the example following our grammar is below.
 %The decorations ? and ! are used to specify input and output parameters, respectively. 
 \begin{small}
 \begin{center}
@@ -51,9 +59,9 @@ $[availability > 99\%, \ price \ per \ call < 0.2\$, \ total \ cost < 1\$]$
 \end{center} 
 \end{small}
 
-We highlight that in the query there are two types of preferences (let's refer
-to them as \textit{measures}): \textit{single measures} (availability and price
-per call) and \textit{composed measures} (total cost).
+%We highlight that in the query there are two types of preferences (let's refer
+%to them as \textit{measures}): \textit{single measures} (availability and price
+%per call) and \textit{composed measures} (total cost).
 %The \textit{single measures} are the simplest type. It is a static measure
 % which is has a name associated with an operation and a value. The\textit{ composed measure} is dynamically computed measure. It is defined as aggregations of \textit{single measures}.
 
