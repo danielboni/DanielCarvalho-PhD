@@ -1,0 +1,88 @@
+\begin{algorithm}
+\small
+\caption{ - RHONE}
+\label{algo-rhone}
+\begin{algorithmic}[1]
+\STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
+ \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
+ \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
+ \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
+ \STATE $R\leftarrow \emptyset$
+% \STATE ~\!\tqI{\agg{Q}} 
+    \STATE $p \leftarrow I.next()$
+    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
+      \IF {\textit{isRewriting}$(Q, p)$}
+  \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
+  \STATE ~\!\tqS{\agg{Q}}
+   \ENDIF
+      \STATE $p \leftarrow I.\mathit{Next}()$
+ \ENDWHILE
+    \STATE \textbf{return} $R$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
+
+\noindent \textbf{Select candidate concrete services:} This step
+ looks for concrete services that can be matched with the query (line 2). In
+ this sense, there are three matching problems: 
+ (i) \textit{abstract service matching}, an abstract service $A$ can be
+ matched with an abstract service $B$ only if (\textit{a}) they have the same
+ name, and (\textit{b}) they have a compatible number of variables;
+ (ii) \textit{measure matching}, all \textit{single measures} in the query must
+ exist in the concrete service, and all of them can not violate the measures in
+ the query ; and 
+ (iii) \textit{concrete service matching}, a concrete service can
+ be matched with the query if all its abstract services satisfy the \textit{abstract service
+ matching} problem and all the \textit{single measures} satisfy the \textit{measures matching} problem.
+% Considering \textit{abstract service matching}, an abstract service $A$ can be
+% matched with an abstract service $B$ only if (\textit{a}) they have the same
+% name.  In the \textit{measure matching}, all single measures in the query must
+% exist in the concrete service, and all of them can not violate the measures in
+% the query. For the \textit{concrete service matching}, a concrete service can
+% be matched with the query if all its abstract services can be matched with the
+% abstract service in the query (satisfying the \textit{abstract service
+% matching} problem) and all the single measures in the query can be matched with
+% the concrete service measures (satisfying the \textit{measures matching} problem).
+The result of this step is a list of \textit{candidate concrete services} which
+may be used in the rewriting process.
+
+
+\noindent \textbf{Creating concrete service descriptions:} This step tries to create \textit{concrete services description} (CSD) to be
+ used in the rewriting process (line 3). A CSD maps abstract services and
+ variables of a concrete service onto abstract services and variables of the
+ query. A CSD is created 
+% according to the following variable mapping rules:  (i)
+% \textit{head variables}, (ii) \textit{local-head variables} and  (iii)
+% \textit{local-local variables}.
+according to variable mapping rules mainly based on 2 criterias: the type and the dependency (variables used as inputs on other abstract services). 
+%\textit{Head} and \textit{local} variables in concrete services can be mapped
+% to \textit{head} or \textit{local variables} in the query if they are of the same type.
+%\textit{Local} variables in concrete services can be mapped to \textit{head} variables in the query. 
+%\textit{Local} variables in concrete services can be mapped to \textit{local}
+% variables in the query if: (\textit{a}) they are of the same type; and (\textit{b}) the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this \textit{local} variable is used as input in another abstract service. 
+The  result of this step is a list of CSDs.
+  
+%    \textit{Head variables} in concrete services can be mapped to
+%  \textit{head} or \textit{local variables} in the query if they are of the
+%  same type. \textit{Local-head variables} in concrete services can be mapped to
+%  \textit{head variables} in the query if they are of the same type.
+%  \textit{Local-local variables} in concrete services can be mapped to
+%  \textit{local-local variables} in the query if: (\textit{a}) they are of the
+%  same type; and (\textit{b}) the concrete service covers all abstract services in
+%  the query that depend on this variable. The relation "depends"  means that this local variable is used as input in another abstract service. The  result of this step is a list of CSDs.
+
+%Regarding the example CSDs are created to ?????.
+ 
+\noindent \textbf{Combining CSDs.} Given all produced CSDs  (line
+4), they are combined among each other to generate  a list of lists of CSDs, each element representing a possible composition.
+
+\noindent \textbf{Producing rewritings.} The final step (lines 5-13) identifies which lists of CSDs are a valid
+rewritings of the user query given the list of lists of CSDs.
+A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and 
+(ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ - line 8).
+The originality of our algorithm concerns the aggregation function (\agg{Q}).
+It is responsible to check and increment \textit{composed measures} (if present in the query). 
+This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
+The result of this step is the list of valid 
+ rewritings of the query (line 14).%, that is those the provide expected data
+ % and respect quality preferences.
