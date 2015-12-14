@@ -5,7 +5,13 @@
 \usepackage{xspace}
 \usepackage{amssymb} 
 \usepackage{epstopdf}
-  
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+
+
+
 % bibliography packages
 %\usepackage[nodots,nocompress]{numcompress}
 \usepackage{multibib}
@@ -87,7 +93,7 @@
 \journal{Information and Software Technology}
 
 %%% OUR MACROS %%%
-\newcommand{\COMMENT}[1]{ }
+%\newcommand{\COMMENT}[1]{ }
 
 %\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{xcolor}
@@ -163,6 +169,22 @@
 
 \newcommand{\pisodm}[0]{$\pi$SOD-M\xspace}
 
+
+\newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
+\newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
+\newcommand \tqS[1]{\hbox{${\cal T}_{\mathrm{inc}} [\![\ #1\ ]\!]$}}
+\newcommand \agg[1]{\ensuremath{{\cal A}{gg}(#1)}}
+
+
+\def\P{\hbox{${\cal P}$}}
+\def\bigLS{\hbox{${\cal L_{S}}$}}
+\def\bigLCSD{\hbox{${\cal L_{CSD}}$}}
+\def\bigS{\hbox{${\cal S}$}}
+\def\bigV{\hbox{${\cal S}$}}
+\def\V{\hbox{${S}$}}
+\def\v{\hbox{${s}$}}
+\def\MCDws{\ifmmode \mathit{COR\_D}\else \textit{COR\_D}\fi}
+
 \begin{document}
 
 
@@ -236,8 +258,18 @@ keyword \sep keyword.
 % \label{sec:relwork}
 % \input{relwork}
 
+\section{Introduction}
 
+\section{Related Work}
 
+\section{Service-based query rewriting algorithm}
+\input{rhone}
+
+\section{Scenario and Data Integration approach}
+
+\section{Experiments or Evaluation}
+
+\section{Conclusions}
 
 \end{document}
 
