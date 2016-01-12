@@ -1,0 +1,146 @@
+\documentclass{sig-alternate}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
+\newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
+\newcommand \tqS[1]{\hbox{${\cal T}_{\mathrm{inc}} [\![\ #1\ ]\!]$}}
+\newcommand \agg[1]{\ensuremath{{\cal A}{gg}(#1)}}
+
+
+\def\P{\hbox{${\cal P}$}}
+\def\bigLS{\hbox{${\cal L_{S}}$}}
+\def\bigLCSD{\hbox{${\cal L_{CSD}}$}}
+\def\bigS{\hbox{${\cal S}$}}
+\def\bigV{\hbox{${\cal S}$}}
+\def\V{\hbox{${S}$}}
+\def\v{\hbox{${s}$}}
+\def\MCDws{\ifmmode \mathit{COR\_D}\else \textit{COR\_D}\fi}
+
+\begin{document}
+
+%
+% --- Author Metadata here ---
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+  
+\title{Query Rewriting Algorithm for Data Integration Quality}
+%\titlenote{(Produces the permission block, andcopyright information). For use with
+%SIG-ALTERNATE.CLS. Supported by ACM.}}
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as
+%\textit{Author's Guide to Preparing ACM SIG Proceedings Using
+%\LaTeX$2_\epsilon$\ and BibTeX} at
+%\texttt{www.acm.org/eaddress.htm}}}
+
+\numberofauthors{5} 
+  
+\author{ 
+% 1st. author
+\alignauthor
+Daniel A. S. Carvalho\\
+       \affaddr{Magellan, IAE, Univ-Lyon3, France}\\
+       %\affaddr{Univ. Lyon 3 - Lyon, France}\\
+       \email{first.last@univ-lyon3.fr}
+% 2nd. author
+\alignauthor
+Pl\'acido A. Souza Neto\\
+       %\affaddr{Instituto Federal do Rio Grande do Norte - IFRN}\\
+       \affaddr{IFRN - Natal, Brazil}\\
+       \email{first.last@ifrn.edu.br}
+% 3rd. author
+\alignauthor 
+Chirine Ghedira-Guegan\\
+       \affaddr{LIRIS, IAE, Univ-Lyon3, France}\\
+       %\affaddr{Univ. Lyon 3 - Lyon, France}\\
+       \email{first.last@univ-lyon3.fr}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor 
+Nadia Bennani\\
+       %\affaddr{CNRS-INSA}\\
+       \affaddr{LIRIS, INSA-Lyon, France}\\
+       \email{first.last@insa-lyon.fr}
+% 5th. author
+\alignauthor 
+Genoveva Vargas-Solar\\
+       %\affaddr{CNRS-LIG-LAFMIA}\\
+       \affaddr{CNRS-LIG, Grenoble, France}\\
+       \email{first.last@imag.fr}
+}
+% There's nothing stopping you putting the seventh, eighth, etc.
+% author on the opening page (as the 'third row') but we ask,
+% for aesthetic reasons that you place these 'additional authors'
+% in the \additional authors block, viz.
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}  
+This paper  introduces the general lines of a rewritring algorithm named \textit{Rhone} that addresses query rewriting  for data
+integration. The originality of  \textit{Rhone} is that the rewriting process is
+guided by quality measures associated to data providers (services) and user
+preferences. The paper uses a running scenario to describe the \textit{Rhone}'s implementation and gives some hints about its experimental evaluation.
+\end{abstract} 
+
+% A category with the (minimum) three required fields
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
+%A category including the fourth, optional field follows...
+%\category{D.2.8}{Software Engineering}{Metrics}[complexity measures,
+% performance measures]
+
+%\terms{Theory}  
+ 
+%\keywords{Query rewriting, Data integration, Services composition}
+ 
+%\input{section-1}
+ 
+%\input{section-3} 
+
+%\input{section-2}
+
+%\input{section-4}
+ 
+\section{Conclusions}
+\label{sec:conclusions}
+%
+%\begin{figure}[h!]
+%\includegraphics[scale=0.3]{fig2.pdf} 
+%\end{figure}
+%
+%\begin{figure}[h!]
+%\includegraphics[scale=0.3]{fig1.pdf} 
+%\end{figure}
+ 
+This work proposes a query rewriting algorithm for data integration quality
+named \textit{Rhone}. Given a query and a list of concrete services as input,
+the algorithm looks for candidate concrete services. These candidate services can be used probably in the rewriting
+process to match the query. We are currently performing experiments in order to
+better evaluate the performance of the \textit{Rhone}.
+%The algorithm is implemented in Java and w\ldots
+% \ldots considering different sets of services in a multi-cloud environment.
+%
+%ACKNOWLEDGMENTS are optional
+%\section{Acknowledgments}
+%optional..
+%
+%
+% The following two commands are all you need in the
+% initial runs of your .tex file to
+% produce the bibliography for the citations in your paper.
+%{\tiny\bibliographystyle{abbrv}
+\bibliographystyle{abbrv}
+{\small
+\bibliography{bibliography}}
+
+\end{document}
