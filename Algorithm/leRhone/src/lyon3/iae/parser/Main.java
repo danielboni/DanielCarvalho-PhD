@@ -18,8 +18,8 @@ public class Main {
 //		rhone.combineCSDs();
 //		rhone.print_permutations();
 		
-		for (Integer i = 0; i < 8; i++) {
-			Rhone rhone = InputHandler.handleArguments("testcases14.xml", i.toString());
+		for (Integer i = 0; i < 2; i++) {
+			Rhone rhone = InputHandler.handleArguments("testcases2.xml", i.toString());
 			long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 			rhone.selectServices();
 			//rhone.printCandidateServices();
@@ -28,7 +28,6 @@ public class Main {
 			rhone.divideGroups6();
 			rhone.combine6();
 			//rhone.combineCSDs();
-			rhone.print_rewritings();
 			//rhone.print_permutations();
 			long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
 	        System.out.println("Testcase: " + i + " \tNumber of CSDs: " + rhone.getCsds().size() + "\tNumber of rewritings: " + rhone.getNumberOfRewritings() +  " \t--Done in: " + (double)time/1000000000 + " seconds");
