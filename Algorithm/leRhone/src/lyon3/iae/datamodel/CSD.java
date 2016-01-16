@@ -4,6 +4,14 @@ import java.util.List;
 
 public class CSD {
 	
+	private boolean grouped = false;
+	
+	public boolean isGrouped() {
+		return grouped;
+	}
+	public void setGrouped(boolean grouped) {
+		this.grouped = grouped;
+	}
 	private ConcreteService concrete_service;
 	
 	private List<Mapping> mappings;
