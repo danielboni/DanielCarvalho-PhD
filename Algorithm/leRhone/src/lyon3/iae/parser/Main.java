@@ -18,8 +18,8 @@ public class Main {
 //		rhone.combineCSDs();
 //		rhone.print_permutations();
 		
-		for (Integer i = 0; i < 7; i++) {
-			Rhone rhone = InputHandler.handleArguments("testcases2.xml", i.toString());
+		for (Integer i = 0; i < 8; i++) {
+			Rhone rhone = InputHandler.handleArguments("testcases1.xml", i.toString());
 			long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
 			rhone.selectServices();
 			//rhone.printCandidateServices();

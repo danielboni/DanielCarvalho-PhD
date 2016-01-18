@@ -896,6 +896,134 @@ public class Rhone {
 		}
 	}
 	
+	public void combine2(){
+		csdsPermutations = new ArrayList<List<CSD>>();
+
+		for (CSD csd1: this.group1){
+			List<CSD> list1 = new ArrayList<CSD>();
+			list1.add(csd1);
+			this.csdsPermutations.add(list1);
+			
+			for (CSD csd2: this.group2){
+				List<CSD> list2 = new ArrayList<CSD>();
+				list2.add(csd1);
+				list2.add(csd2);
+				this.csdsPermutations.add(list2);
+			}
+		}
+		
+		this.initiateAggregateMeasures();
+	}
+	
+	public void combine3(){
+		csdsPermutations = new ArrayList<List<CSD>>();
+
+		for (CSD csd1: this.group1){
+			List<CSD> list1 = new ArrayList<CSD>();
+			list1.add(csd1);
+			this.csdsPermutations.add(list1);
+			
+			for (CSD csd2: this.group2){
+				List<CSD> list2 = new ArrayList<CSD>();
+				list2.add(csd1);
+				list2.add(csd2);
+				this.csdsPermutations.add(list2);
+				
+				for (CSD csd3: this.group3){
+					List<CSD> list3 = new ArrayList<CSD>();
+					list3.add(csd1);
+					list3.add(csd2);
+					list3.add(csd3);
+					this.csdsPermutations.add(list3);
+				}
+			}
+		}
+		
+		this.initiateAggregateMeasures();
+	}
+	
+	public void combine4(){
+		csdsPermutations = new ArrayList<List<CSD>>();
+
+		for (CSD csd1: this.group1){
+			List<CSD> list1 = new ArrayList<CSD>();
+			list1.add(csd1);
+			this.csdsPermutations.add(list1);
+			
+			for (CSD csd2: this.group2){
+				List<CSD> list2 = new ArrayList<CSD>();
+				list2.add(csd1);
+				list2.add(csd2);
+				this.csdsPermutations.add(list2);
+				
+				for (CSD csd3: this.group3){
+					List<CSD> list3 = new ArrayList<CSD>();
+					list3.add(csd1);
+					list3.add(csd2);
+					list3.add(csd3);
+					this.csdsPermutations.add(list3);
+					
+					for (CSD csd4: this.group4){
+						List<CSD> list4 = new ArrayList<CSD>();
+						list4.add(csd1);
+						list4.add(csd2);
+						list4.add(csd3);
+						list4.add(csd4);
+						this.csdsPermutations.add(list4);
+					}
+				}
+			}
+		}
+		
+		this.initiateAggregateMeasures();
+	}
+	
+	public void combine5(){
+		csdsPermutations = new ArrayList<List<CSD>>();
+
+		for (CSD csd1: this.group1){
+			List<CSD> list1 = new ArrayList<CSD>();
+			list1.add(csd1);
+			this.csdsPermutations.add(list1);
+			
+			for (CSD csd2: this.group2){
+				List<CSD> list2 = new ArrayList<CSD>();
+				list2.add(csd1);
+				list2.add(csd2);
+				this.csdsPermutations.add(list2);
+				
+				for (CSD csd3: this.group3){
+					List<CSD> list3 = new ArrayList<CSD>();
+					list3.add(csd1);
+					list3.add(csd2);
+					list3.add(csd3);
+					this.csdsPermutations.add(list3);
+					
+					for (CSD csd4: this.group4){
+						List<CSD> list4 = new ArrayList<CSD>();
+						list4.add(csd1);
+						list4.add(csd2);
+						list4.add(csd3);
+						list4.add(csd4);
+						this.csdsPermutations.add(list4);
+						
+						for (CSD csd5: this.group5){
+							List<CSD> list5 = new ArrayList<CSD>();
+							list5.add(csd1);
+							list5.add(csd2);
+							list5.add(csd3);
+							list5.add(csd4);
+							list5.add(csd5);
+							this.csdsPermutations.add(list5);
+						}
+					}
+				}
+			}
+		}
+		
+		this.initiateAggregateMeasures();
+	}
+	
 	public void combine6(){
 		csdsPermutations = new ArrayList<List<CSD>>();
 
@@ -959,6 +1087,124 @@ public class Rhone {
 	private List<CSD> group4;
 	private List<CSD> group5;
 	private List<CSD> group6;
+	
+	public void divideGroups2(){
+		group1 = new ArrayList<CSD>();
+		group2 = new ArrayList<CSD>();
+		group3 = new ArrayList<CSD>();
+		group4 = new ArrayList<CSD>();
+		group5 = new ArrayList<CSD>();
+		
+		List<AbstractService> abstractServices = this.query.getAbstractServices();
+		for (int i = 0; i < abstractServices.size(); i++) {
+			AbstractService abs = abstractServices.get(i);
+			
+			for (CSD csd: this.csds) {
+				if (csd.getCoveredAbstractServices().contains(abs) && !csd.isGrouped()) {
+					if (i == 0) {
+						group1.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 1) {
+						group2.add(csd);
+						csd.setGrouped(true);
+					}
+				}
+			}	
+		}
+	}
+	
+	public void divideGroups3(){
+		group1 = new ArrayList<CSD>();
+		group2 = new ArrayList<CSD>();
+		group3 = new ArrayList<CSD>();
+		group4 = new ArrayList<CSD>();
+		group5 = new ArrayList<CSD>();
+		
+		List<AbstractService> abstractServices = this.query.getAbstractServices();
+		for (int i = 0; i < abstractServices.size(); i++) {
+			AbstractService abs = abstractServices.get(i);
+			
+			for (CSD csd: this.csds) {
+				if (csd.getCoveredAbstractServices().contains(abs) && !csd.isGrouped()) {
+					if (i == 0) {
+						group1.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 1) {
+						group2.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 2) {
+						group3.add(csd);
+						csd.setGrouped(true);
+					}
+				}
+			}	
+		}
+	}
+	
+	public void divideGroups4(){
+		group1 = new ArrayList<CSD>();
+		group2 = new ArrayList<CSD>();
+		group3 = new ArrayList<CSD>();
+		group4 = new ArrayList<CSD>();
+		group5 = new ArrayList<CSD>();
+		
+		List<AbstractService> abstractServices = this.query.getAbstractServices();
+		for (int i = 0; i < abstractServices.size(); i++) {
+			AbstractService abs = abstractServices.get(i);
+			
+			for (CSD csd: this.csds) {
+				if (csd.getCoveredAbstractServices().contains(abs) && !csd.isGrouped()) {
+					if (i == 0) {
+						group1.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 1) {
+						group2.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 2) {
+						group3.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 3) {
+						group4.add(csd);
+						csd.setGrouped(true);
+					}
+				}
+			}	
+		}
+	}
+	
+	public void divideGroups5(){
+		group1 = new ArrayList<CSD>();
+		group2 = new ArrayList<CSD>();
+		group3 = new ArrayList<CSD>();
+		group4 = new ArrayList<CSD>();
+		group5 = new ArrayList<CSD>();
+		
+		List<AbstractService> abstractServices = this.query.getAbstractServices();
+		for (int i = 0; i < abstractServices.size(); i++) {
+			AbstractService abs = abstractServices.get(i);
+			
+			for (CSD csd: this.csds) {
+				if (csd.getCoveredAbstractServices().contains(abs) && !csd.isGrouped()) {
+					if (i == 0) {
+						group1.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 1) {
+						group2.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 2) {
+						group3.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 3) {
+						group4.add(csd);
+						csd.setGrouped(true);
+					} else if (i == 4) {
+						group5.add(csd);
+						csd.setGrouped(true);
+					}
+				}
+			}	
+		}
+	}
 	
 	public void divideGroups6(){
 		group1 = new ArrayList<CSD>();
