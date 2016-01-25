@@ -1,0 +1,193 @@
+\documentclass{llncs}
+\usepackage{graphicx,color}
+\usepackage{xspace}
+\usepackage{amssymb} 
+\usepackage{epstopdf}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+% bibliography packages
+%\usepackage[nodots,nocompress]{numcompress}
+\usepackage{multibib}
+%Defining new way to cite
+%\newcites{map}{Systematic Mapping References} 
+%\usepackage{bibtopic}       
+  
+\usepackage{datatool}
+\usepackage{tikz}
+ 
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.10}  
+
+\usetikzlibrary{patterns}
+\usepackage{lscape} 
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{rotating}
+
+
+%  \usepackage{multibbl}
+%  \usepackage{hyperref}
+
+
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[preprint,review,12pt]{elsarticle}
+   
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout: 
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+%% \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{comma,round}
+
+% \biboptions{}
+
+
+%\journal{Information and Software Technology}
+
+%%% OUR MACROS %%%
+%\newcommand{\COMMENT}[1]{ }
+
+%\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{xcolor}
+
+
+\usepackage{amsmath}
+\usepackage[thmmarks,amsmath]{ntheorem}
+
+\newcommand{\openbox}{\leavevmode
+  \hbox to.77778em{%
+  \hfil\vrule
+  \vbox to.675em{\hrule width.6em\vfil\hrule}%
+  \vrule\hfil}}
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\newtheorem{algo}{Algorithm}
+
+\theoremstyle{plain}
+%\theoremheaderfont{\normalfont\itshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\theoremsymbol{\ensuremath{\openbox}} 
+%\newtheorem{example}{Example}
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\theoremseparator{.}
+\theoremindent0cm
+\theoremnumbering{arabic}
+\theoremsymbol{\ensuremath{\Box}} 
+\newtheorem{defi}{Definition}
+
+\theoremstyle{plain} 
+\theoremsymbol{\ensuremath{\Box}} 
+\theoremseparator{.} 
+\newtheorem{prop}{Property}
+
+\def\FlyingPig{\textsl{FlyingPig}}
+
+\newcounter{numberInTrivlist}
+
+\newenvironment{numtrivlist}{\begin{list}{\rm \arabic{numberInTrivlist})} 
+                                         {\usecounter{numberInTrivlist}
+                                          \setlength{\leftmargin}{0pt}
+                                          \setlength{\rightmargin}{0pt}
+                                          \setlength{\itemindent}{12pt}
+                                          \setlength{\listparindent}{0pt}}}
+                            {\end{list}}
+
+\newenvironment{itemizedTrivlist}{\begin{list}{\rm ~\hspace{2mm} $\bullet$\ } 
+                                         {\setlength{\leftmargin}{0pt}
+                                          \setlength{\rightmargin}{0pt}
+                                          \setlength{\itemindent}{12pt}
+                                          \setlength{\listparindent}{0pt}}}
+                            {\end{list}}
+
+\usepackage{listings}
+
+
+\lstset{numbers=right, numbersep=5pt, numberstyle=\tiny, stepnumber=1,escapechar=\!,columns=fullflexible,
+        morekeywords={procedure,let,for,do,if,then,else,add,choose,end,while,
+        true,false,rise,exception,extend,resume,to,return,function}}
+
+\newcommand{\pisodm}[0]{$\pi$SOD-M\xspace}
+
+
+\newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
+\newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
+\newcommand \tqS[1]{\hbox{${\cal T}_{\mathrm{inc}} [\![\ #1\ ]\!]$}}
+\newcommand \agg[1]{\ensuremath{{\cal A}{gg}(#1)}}
+
+
+\def\P{\hbox{${\cal P}$}}
+\def\bigLS{\hbox{${\cal L_{S}}$}}
+\def\bigLCSD{\hbox{${\cal L_{CSD}}$}}
+\def\bigS{\hbox{${\cal S}$}}
+\def\bigV{\hbox{${\cal S}$}}
+\def\V{\hbox{${S}$}}
+\def\v{\hbox{${s}$}}
+\def\MCDws{\ifmmode \mathit{COR\_D}\else \textit{COR\_D}\fi}
+
+
+
+\begin{document}
+
+\section{Introduction}
+\section{Related works}
+\section{Scenario}
+\section{Rhone service-based query rewriting algorithm}
+\input{rhone-pseudocodes}
+
+\end{document}

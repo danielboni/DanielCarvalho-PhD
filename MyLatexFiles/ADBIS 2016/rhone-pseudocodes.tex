@@ -1,5 +1,5 @@
 \begin{algorithm}
-%\small
+\small
 \caption{ - RHONE}
 \label{algo-rhone}
 \begin{algorithmic}[1]
@@ -90,30 +90,83 @@ The result of this step is the list of valid
 \begin{algorithm}
 %\small
 \caption{ - Select candidate services}
-%\label{algo-rhone}
+\label{selectingservices}
 \begin{algorithmic}[1]
-\STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
- \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
- \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
- \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
- \STATE $R\leftarrow \emptyset$
-% \STATE ~\!\tqI{\agg{Q}} 
-    \STATE $p \leftarrow I.next()$
-    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
-      \IF {\textit{isRewriting}$(Q, p)$}
-  \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
-  \STATE ~\!\tqS{\agg{Q}}
-   \ENDIF
-      \STATE $p \leftarrow I.\mathit{Next}()$
- \ENDWHILE
-    \STATE \textbf{return} $R$
+\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
+\STATE $\bigLS \leftarrow \emptyset$
+\FORALL  {$S_{i}$ in $\bigS$}
+	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
+		\STATE $b \leftarrow \mathit{true}$		
+		\FORALL  {$A_{j}$ in $S_{i}$}
+			\IF {$Q.\mathit{notContains(A_{i})}$}
+				\STATE $b \leftarrow \mathit{false}$	
+				\STATE $\mathit{break}$
+			\ENDIF
+		\ENDFOR
+		\IF {$b = true$}
+			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
+		\ENDIF
+	\ENDIF
+\ENDFOR
+\STATE \textbf{return} $\bigLS$
 \STATE \textbf{end function}
 \end{algorithmic}
 \end{algorithm}
 
- 
- 
- 
+\begin{algorithm}
+%\small
+\caption{ - Satisfy quality measures}
+\label{satisfymeasures}
+\begin{algorithmic}[1]
+\STATE \textbf{function} $\mathit{SatisfyQualityMeasures (Q, S_{i})}$
+\STATE to do
+%\STATE $\bigLS \leftarrow \emptyset$
+%\FORALL  {$S_{i}$ in $\bigS$}
+%	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
+%		\STATE $b \leftarrow \mathit{true}$		
+%		\FORALL  {$A_{j}$ in $S_{i}$}
+%			\IF {$Q.\mathit{notContains(A_{i})}$}
+%				\STATE $b \leftarrow \mathit{false}$	
+%				\STATE $\mathit{break}$
+%			\ENDIF
+%		\ENDFOR
+%		\IF {$b = true$}
+%			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
+%		\ENDIF
+%	\ENDIF
+%\ENDFOR
+\STATE \textbf{return} $true$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+%\small
+\caption{ - Create candidate service descriptions (CSDs)}
+\label{creatingcsds}
+\begin{algorithmic}[1]
+\STATE \textbf{function} $\mathit{CreateCSDs} (Q, \bigLS)$
+\STATE $\bigLCSD \leftarrow \emptyset$
+\FORALL  {$S_{i}$ in $\bigLS$}
+	\IF {There are mappings $\mathit{h}$ and $\varphi$ from $S_{i}$ to $Q$}	
+		\STATE $G \leftarrow \emptyset$	
+		\STATE $P \leftarrow \emptyset$		
+		\FORALL  {$A_{j}$ in $S_{i}$}
+			\STATE $G \leftarrow G \cup \lbrace A_{j} \rbrace$ 
+		\ENDFOR
+		\FORALL  {$M_{k}$ in $S_{i}$}
+			\STATE $P \leftarrow P \cup \lbrace M_{k} \rbrace$ 
+		\ENDFOR
+		\STATE $CSD := \langle S_{i}, h, \varphi, G, P \rangle$	
+		\STATE $\bigLCSD \leftarrow \bigLCSD \cup \lbrace CSD \rbrace$	
+	\ENDIF
+\ENDFOR
+\STATE \textbf{return} $\bigLCSD$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
+
+
 \textcolor{red}{Texto antigo... adicionar funcoes e ligar ao texto existente.} 
  
  The function \agg{\_} in Algorithm~\ref{algo-rhone} simply selects the aggregation conditions present in the query. 
