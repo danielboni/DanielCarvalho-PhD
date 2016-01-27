@@ -78,11 +78,11 @@ $S1(d?; p!) := diseasePatients(d?; p!)[availability > 99\%, \ price \ per \ call
 \\
 $S2(d?; p!) := diseasePatients(d?; p!)[availability > 97\%, \ price \ per \ call = 0.2\$]$
 \\
-$S3(p?; dna!) := GetDNA(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+$S3(p?; dna!) := GetDNA(d?; dna!)[availability > 98\%, \ price \ per \ call = 0.1\$]$
 \\
-$S4(p?; dna!) := GetDNA(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+$S4(p?; dna!) := DNA(d?; dna!)[availability > 98\%, \ price \ per \ call = 0.1\$]$
 \\
-$S5(d?; dna!) := diseasePatients(d?; p!), GetDNA(p?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+$S5(d?; dna!) := diseasePatients(d?; p!), GetDNA(p?; dna!)[availability > 98\%, \ price \ per \ call = 0.1\$]$
 \end{flushleft}
 $S1$, $S2$, $S3$, $S4$ and $S5$ are five different concrete services defined in terms of the abstract services described before in our scenario (see section \ref{scenario}). 
 Each concrete service is tagged with its \textit{quality measures} between the brackets. 
@@ -137,29 +137,35 @@ In the next sections, each phase of the algorithm is described in detail.
 
 \subsection{Selecting services}
 
-\noindent \textbf{Select candidate concrete services:} This step
- looks for concrete services that can be matched with the query (line 2). In
- this sense, there are three matching problems: 
- (i) \textit{abstract service matching}, an abstract service $A$ can be
- matched with an abstract service $B$ only if (\textit{a}) they have the same
- name, and (\textit{b}) they have a compatible number of variables;
- (ii) \textit{measure matching}, all \textit{single measures} in the query must
- exist in the concrete service, and all of them can not violate the measures in
- the query ; and 
- (iii) \textit{concrete service matching}, a concrete service can
- be matched with the query if all its abstract services satisfy the \textit{abstract service
- matching} problem and all the \textit{single measures} satisfy the \textit{measures matching} problem.
-% Considering \textit{abstract service matching}, an abstract service $A$ can be
-% matched with an abstract service $B$ only if (\textit{a}) they have the same
-% name.  In the \textit{measure matching}, all single measures in the query must
-% exist in the concrete service, and all of them can not violate the measures in
-% the query. For the \textit{concrete service matching}, a concrete service can
-% be matched with the query if all its abstract services can be matched with the
-% abstract service in the query (satisfying the \textit{abstract service
-% matching} problem) and all the single measures in the query can be matched with
-% the concrete service measures (satisfying the \textit{measures matching} problem).
-The result of this step is a list of \textit{candidate concrete services} which
-may be used in the rewriting process.
+While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
+
+\noindent \textbf{Definition 3 (\textit{measures} matching):} 
+Given a \textit{user preference} $P_{i}$ and a quality measure $Q_{j}$, a matching between them can be made if:
+(\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
+(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$.
+
+\noindent \textbf{Definition 4 (\textit{abstract service} matching):} 
+Given two abstract services $A_{i}$ and $A_{j}$, a match between \textit{abstract services} occurs when an \textit{abstract service} $A_{i}$ can be matched to $A_{j}$, denoted $A_{i} \equiv A_{j}$, according to the following conditions: 
+(\textit{i}) $A_{i}$ and $A_{j}$ must have the same abstract function name; 
+(\textit{ii}) the number of input variables of $A_{i}$, denoted $vars_{input}(A_{i})$, is equal or higher than the number of input variables of $A_{j}$ ($vars_{input}(A_{j})$); and 
+(\textit{iii}) the number of output variables of $A_{i}$, denoted $vars_{output}(A_{i})$, is equal or higher than the number of output variables of $A_{j}$ ($vars_{output}(A_{j})$).
+
+\noindent \textbf{Definition 5 (\textit{Concrete service} matching):} 
+A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
+(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and
+(\textit{ii}) . For all \textit{single measure} $P_{i}$ in $Q$, there is one \textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
+
+The process of selecting candidate concrete services
+is described in the algorithm~\ref{selectingservices}.
+Given the query and a set of concrete services, the algorithm
+looks for concrete services that can be used in the rewriting process.
+While iterating all concrete services in the list $\bigS$ (line 3), firstly,
+each service is checked to analyze if all its quality measures satisfies the user preferences
+in $Q$ (line 4). If it satisfies, each abstract service in $S_{i}$ is checked to confirm if 
+it matches or not with the query (lines 6-11). Once the service satisfies all the matching 
+problems, a set of candidate concrete services is produced (line 12-13). The result
+is a list of \textit{candidate concrete services} $\bigLS$ which
+probably can be used in the rewriting process (line 17).
 
 \begin{algorithm}
 %\small
@@ -189,86 +195,52 @@ may be used in the rewriting process.
 \end{algorithmic}
 \end{algorithm}
 
-While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
+\bigskip
+\noindent \textit{Example 2 (selecting candidate concrete services):} let us use as example, the query and concrete services presented in the example 1. The Rhone algorithm will iterate in the concrete service list,
+looking for the ones which satisfy the matching problems. 
+$S1$ is a candidate concrete service once it satisfies all measures problems.
+$S2$ is not select once it measures violate the user preferences.
+$S3$ is selected once it satisfies all measures problems.
+$S4$ is not select once it contains an abstract service that cannot be matched with the query.
+$S5$ is a candidate concrete service once it satisfies all measures problems. 
+Summarizing, $S1$, $S3$ and $S5$ are the services selected while applying the matching rules.  
+They will be included to the set of candidate concrete services $\bigLS$. 
 
-\noindent \textbf{Definition 3 (\textit{measures} matching):} 
-Given a \textit{user preference} $P_{i}$ and a quality measure $Q_{j}$, a matching between them can be made if:
-(\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
-(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$.
-
-\noindent \textbf{Definition 4 (\textit{abstract service} matching):} 
-Given two abstract services $A_{i}$ and $A_{j}$, a match between \textit{abstract services} occurs when an \textit{abstract service} $A_{i}$ can be matched to $A_{j}$, denoted $A_{i} \equiv A_{j}$, according to the following conditions: 
-(\textit{i}) $A_{i}$ and $A_{j}$ must have the same abstract function name; 
-(\textit{ii}) the number of input variables of $A_{i}$, denoted $vars_{input}(A_{i})$, is equal or higher than the number of input variables of $A_{j}$ ($vars_{input}(A_{j})$); and 
-(\textit{iii}) the number of output variables of $A_{i}$, denoted $vars_{output}(A_{i})$, is equal or higher than the number of output variables of $A_{j}$ ($vars_{output}(A_{j})$).
-
-\begin{algorithm}
-%\small
-\caption{ - Satisfy quality measures}
-\label{satisfymeasures}
-\begin{algorithmic}[1]
-\REQUIRE A query $Q$ and a concrete services $S_{i}$.
-\ENSURE A boolean value. \textit{True}, if the service satisfies the user preferences. \textit{False}, otherwise.
-\STATE \textbf{function} $\mathit{SatisfyQualityMeasures (Q, S_{i})}$
-\STATE to do
-%\STATE $\bigLS \leftarrow \emptyset$
-%\FORALL  {$S_{i}$ in $\bigS$}
-%	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
-%		\STATE $b \leftarrow \mathit{true}$		
-%		\FORALL  {$A_{j}$ in $S_{i}$}
-%			\IF {$Q.\mathit{notContains(A_{i})}$}
-%				\STATE $b \leftarrow \mathit{false}$	
-%				\STATE $\mathit{break}$
-%			\ENDIF
-%		\ENDFOR
-%		\IF {$b = true$}
-%			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
-%		\ENDIF
-%	\ENDIF
-%\ENDFOR
-\STATE \textbf{return} $true$
-\STATE \textbf{end function}
-\end{algorithmic}
-\end{algorithm}
-
-
-\noindent \textbf{Definition 5 (\textit{Concrete service} matching):} 
-A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
-(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and
-(\textit{ii}) . For all \textit{single measure} $P_{i}$ in $Q$, there is one \textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
-
-For the \textit{candidate concrete services} selected regarding the matching problems, the algorithm creates mappings from these services to the \textit{query}.
-A \textit{candidate service description} (CSD) describes how a \textit{candidate concrete service} can be used in the \textit{query} rewriting process.
-
-
+%\begin{algorithm}
+%%\small
+%\caption{ - Satisfy quality measures}
+%\label{satisfymeasures}
+%\begin{algorithmic}[1]
+%\REQUIRE A query $Q$ and a concrete services $S_{i}$.
+%\ENSURE A boolean value. \textit{True}, if the service satisfies the user preferences. \textit{False}, otherwise.
+%\STATE \textbf{function} $\mathit{SatisfyQualityMeasures (Q, S_{i})}$
+%\STATE to do
+%%\STATE $\bigLS \leftarrow \emptyset$
+%%\FORALL  {$S_{i}$ in $\bigS$}
+%%	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
+%%		\STATE $b \leftarrow \mathit{true}$		
+%%		\FORALL  {$A_{j}$ in $S_{i}$}
+%%			\IF {$Q.\mathit{notContains(A_{i})}$}
+%%				\STATE $b \leftarrow \mathit{false}$	
+%%				\STATE $\mathit{break}$
+%%			\ENDIF
+%%		\ENDFOR
+%%		\IF {$b = true$}
+%%			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
+%%		\ENDIF
+%%	\ENDIF
+%%\ENDFOR
+%\STATE \textbf{return} $true$
+%\STATE \textbf{end function}
+%\end{algorithmic}
+%\end{algorithm}
 
 \subsection{Candidate service description}
 
-\noindent \textbf{Creating concrete service descriptions:} This step tries to create \textit{concrete services description} (CSD) to be
- used in the rewriting process (line 3). A CSD maps abstract services and
- variables of a concrete service onto abstract services and variables of the
- query. A CSD is created 
-% according to the following variable mapping rules:  (i)
-% \textit{head variables}, (ii) \textit{local-head variables} and  (iii)
-% \textit{local-local variables}.
-according to variable mapping rules mainly based on 2 criterias: the type and the dependency (variables used as inputs on other abstract services). 
-%\textit{Head} and \textit{local} variables in concrete services can be mapped
-% to \textit{head} or \textit{local variables} in the query if they are of the same type.
-%\textit{Local} variables in concrete services can be mapped to \textit{head} variables in the query. 
-%\textit{Local} variables in concrete services can be mapped to \textit{local}
-% variables in the query if: (\textit{a}) they are of the same type; and (\textit{b}) the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this \textit{local} variable is used as input in another abstract service. 
-The  result of this step is a list of CSDs.
-  
-%    \textit{Head variables} in concrete services can be mapped to
-%  \textit{head} or \textit{local variables} in the query if they are of the
-%  same type. \textit{Local-head variables} in concrete services can be mapped to
-%  \textit{head variables} in the query if they are of the same type.
-%  \textit{Local-local variables} in concrete services can be mapped to
-%  \textit{local-local variables} in the query if: (\textit{a}) they are of the
-%  same type; and (\textit{b}) the concrete service covers all abstract services in
-%  the query that depend on this variable. The relation "depends"  means that this local variable is used as input in another abstract service. The  result of this step is a list of CSDs.
-
-%Regarding the example CSDs are created to ?????.
+After producing the set of candidate concrete services, the next step tries 
+to create candidate service descriptions (CSDs). 
+A CSD maps abstract services and variables of a concrete service into abstract 
+services and variables of the query. 
 
 \noindent \textbf{Definition 6 (candidate service description):} A CSD is represented by an n-tuple:
 \begin{center}
@@ -279,14 +251,15 @@ where $S$ is a \textit{concrete service}.
 $\varphi$ are mapping between variables in the \textit{concrete service} to variables in the \textit{query}.
 $G$ is a set of \textit{abstract services} covered by $S$. 
 $P$ is a set \textit{quality measures} associated to the service $S$. 
+ 
+A CSD is created according to 4 rules: (1) for all head variables in a concrete service, the mapping $h$ from the head to the body definition must exist; (2) Head variables in concrete services can be mapped to head or local variables in the query; (3) Local variables in concrete services can be mapped to head variables in the query;
+and (4) Local variables in concrete services can be mapped to local
+variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this an output local variable is used as input in another abstract service. 
 
-A CSD is created according to variable mapping rules mainly based on 2 criterias: the type and the dependency (variables used as inputs on other \textit{abstract services}). 
-\begin{description}
-\item \textit{Rule 1}: \textit{Head} variables in \textit{concrete services} can be mapped to \textit{head} or \textit{local} variables in the \textit{query}.
-\item \textit{Rule 2}: \textit{Local} variables in \textit{concrete services} can be mapped to \textit{head} variables in the \textit{query}.
-\item \textit{Rule 3}: \textit{Local} variables in \textit{concrete services} can be mapped to \textit{local}
- variables in the \textit{query} if the \textit{concrete service} covers all \textit{abstract services} in the \textit{query} that depend on this variable. The relation ``depends''  means that this \textit{local} variable is used as input in another \textit{abstract service}. 
-\end{description}
+The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. 
+The algorithm iterates on each service in $\bigLS$ (line 3), verifying if the mappings rules are being satisfied (line 4). For the ones which satisfies the mapping rules, a fresh copy of the abstract services in the concrete service is done in $G$(lines 7-9) and a copy of the service quality measures in done in $P$ (lines 10-12). Then,
+a CSD is created (line 13), and added to the final list os CSDs $\bigLCSD$ (line 14).
+The result of this phase is a list of CSDs that can be used to build rewriting of the query (line 17).
 
 \begin{algorithm}
 %\small
