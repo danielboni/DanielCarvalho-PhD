@@ -3,6 +3,8 @@
 \caption{ - RHONE}
 \label{algo-rhone}
 \begin{algorithmic}[1]
+\REQUIRE A query $Q$, a set of user preferences, and a set of concrete services $\bigS$.
+\ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
 \STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
  \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
  \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
@@ -92,6 +94,8 @@ The result of this step is the list of valid
 \caption{ - Select candidate services}
 \label{selectingservices}
 \begin{algorithmic}[1]
+\REQUIRE A query $Q$ and a set of concrete services $\bigS$.
+\ENSURE A set of candidate concrete services $\bigLS$ that can be used in the rewriting process and fulfill the user preferences.
 \STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
 \STATE $\bigLS \leftarrow \emptyset$
 \FORALL  {$S_{i}$ in $\bigS$}
@@ -118,6 +122,8 @@ The result of this step is the list of valid
 \caption{ - Satisfy quality measures}
 \label{satisfymeasures}
 \begin{algorithmic}[1]
+\REQUIRE A query $Q$ and a concrete services $S_{i}$.
+\ENSURE A boolean value. \textit{True}, if the service satisfies the user preferences. \textit{False}, otherwise.
 \STATE \textbf{function} $\mathit{SatisfyQualityMeasures (Q, S_{i})}$
 \STATE to do
 %\STATE $\bigLS \leftarrow \emptyset$
@@ -145,6 +151,8 @@ The result of this step is the list of valid
 \caption{ - Create candidate service descriptions (CSDs)}
 \label{creatingcsds}
 \begin{algorithmic}[1]
+\REQUIRE A query $Q$ and a set of candidate concrete services $\bigLS$.
+\ENSURE A set of candidate service descriptions (CSDs) $\bigLCSD$ that contains mappings from candidate concrete service to the query.
 \STATE \textbf{function} $\mathit{CreateCSDs} (Q, \bigLS)$
 \STATE $\bigLCSD \leftarrow \emptyset$
 \FORALL  {$S_{i}$ in $\bigLS$}

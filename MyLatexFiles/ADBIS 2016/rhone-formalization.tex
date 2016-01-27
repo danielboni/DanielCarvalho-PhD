@@ -71,15 +71,21 @@ These \textit{head} variable are used in the \textit{abstract services} $disease
 The local variable $p$ is an output in $diseaseInfectedPatients$ and it is used as input in $DNAinformation$.
 The constraint $d = ``flu''$ will be used while querying the databases in the \textit{where clause}.
 Between brackets there are \textit{user preferences}: $availability$, $price \ per \ call$ and $total \ cost$.
-Two concrete services are exemplified as following. 
+Five concrete services are exemplified below. 
 \begin{center}
 \small
 $S1(d?; p!) := diseaseInfectedPatients(d?; p!)[availability > 99\%, \ price \ per \ call < 0.1\$]$ 
 \\
 $S2(p?; dna!) := DNAinformation(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+\\
+$S3(p?; dna!) := DNAinformation(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+\\
+$S4(p?; dna!) := DNAinformation(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
+\\
+$S5(p?; dna!) := DNAinformation(d?; dna!)[availability > 98\%, \ price \ per \ call < 0.1\$]$
 \end{center}
 $S1$ and $S2$ are two different concrete services. $S1$ receives as input a disease $d$ and return as output the patients $p$ that were infected by $d$. 
-$S2$ receives a patient $p$ and returns the dna information $dna$. In both cases, their \textit{quality measures} are defined between the brackets. Highlighting that these measures are extract in a previous phase of our approach that is not the focus in this paper. In the next lines we will describe the Rhone algorithm in detail.
+$S2$ receives a patient $p$ and returns the dna information $dna$. In both cases, their \textit{quality measures} are defined between the brackets. Highlighting that these measures are extract in a previous phase of our approach that is not the focus in this paper.
  
 While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
 
