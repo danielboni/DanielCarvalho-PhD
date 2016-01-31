@@ -1,10 +1,9 @@
 package lyon3.iae.datamodel;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Rewriting {
 
@@ -15,7 +14,7 @@ public class Rewriting {
 	private Query rewriting;
 
 	public Rewriting(List<CSD> csds, Query query) {
-		this.csds = new ArrayList<CSD>();
+		this.csds = new LinkedList<CSD>();
 		this.csds.addAll(csds);
 		this.query = query;
 
@@ -26,7 +25,7 @@ public class Rewriting {
 
 	private void organiser() {
 		List<AbstractService> queryAbstractServices = query.getAbstractServices();
-		List<CSD> temporaryList = new ArrayList<CSD>(); 
+		List<CSD> temporaryList = new LinkedList<CSD>(); 
 		for (AbstractService abs: queryAbstractServices) {
 			for (CSD csd: csds) {
 				if (!temporaryList.contains(csd)) {
@@ -42,14 +41,14 @@ public class Rewriting {
 		this.setCsds(temporaryList);
 	}
 	
-	private boolean isOrganised() {
-		for (int i = 0; i < query.getAbstractServices().size(); i++) {
-			for (int j = 0; j < csds.size(); j++) {
-				
-			}
-		}
-		return true;
-	}
+//	private boolean isOrganised() {
+//		for (int i = 0; i < query.getAbstractServices().size(); i++) {
+//			for (int j = 0; j < csds.size(); j++) {
+//				
+//			}
+//		}
+//		return true;
+//	}
 
 	public Query getRewriting() {
 		return rewriting;

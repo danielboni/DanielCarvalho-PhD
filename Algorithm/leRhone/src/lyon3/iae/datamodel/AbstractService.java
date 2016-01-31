@@ -1,6 +1,6 @@
 package lyon3.iae.datamodel;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class AbstractService {
@@ -11,7 +11,7 @@ public class AbstractService {
 	private List<Dependency> dep;
 	
 	public AbstractService () {
-		this.dep = new ArrayList<Dependency>();
+		this.dep = new LinkedList<Dependency>();
 	}
 	
 	public String getName() {
@@ -53,23 +53,23 @@ public class AbstractService {
 //		if (this.getVariables().size() != abs.getVariables().size())
 //			return false;
 		
-		int cont_input = 0;
-		int cont_output = 0;
-		for (Variable var: this.getVariables()){
-			if (var instanceof InputVariable)
-				cont_input++;
-			else
-				cont_output++;
-		}
-		
-		int abs_cont_input = 0;
-		int abs_cont_output = 0;
-		for (Variable var: abs.getVariables()){
-			if (var instanceof InputVariable)
-				abs_cont_input++;
-			else
-				abs_cont_output++;
-		}
+//		int cont_input = 0;
+//		int cont_output = 0;
+//		for (Variable var: this.getVariables()){
+//			if (var instanceof InputVariable)
+//				cont_input++;
+//			else
+//				cont_output++;
+//		}
+//		
+//		int abs_cont_input = 0;
+//		int abs_cont_output = 0;
+//		for (Variable var: abs.getVariables()){
+//			if (var instanceof InputVariable)
+//				abs_cont_input++;
+//			else
+//				abs_cont_output++;
+//		}
 		return true;
 	}
 	

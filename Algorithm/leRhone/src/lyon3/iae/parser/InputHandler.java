@@ -1,11 +1,14 @@
 package lyon3.iae.parser;
 
-import java.io.ObjectInputStream.GetField;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+
+import org.dom4j.Attribute;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
 import lyon3.iae.datamodel.AbstractService;
 import lyon3.iae.datamodel.ConcreteService;
@@ -18,12 +21,6 @@ import lyon3.iae.datamodel.Query;
 import lyon3.iae.datamodel.UserPreference;
 import lyon3.iae.datamodel.Variable;
 import lyon3.iae.rhone.Rhone;
-
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
 
 public class InputHandler {
 
@@ -44,7 +41,7 @@ public class InputHandler {
 	
 	public static Rhone handleArguments(String url, String testID) throws DocumentException{
 		Document document = getDocument(url);
-		boolean check = readFile(document, testID);
+		readFile(document, testID);
 		return rhone;
 	}
 	 
@@ -65,7 +62,7 @@ public class InputHandler {
                 Attribute attribute = (Attribute) cont.next();
                 
                 if (attribute.getStringValue().equals(id)){
-                	List<ConcreteService> concreteServices = new ArrayList<ConcreteService>();
+                	List<ConcreteService> concreteServices = new LinkedList<ConcreteService>();
                 	
                 	for (Iterator<?> j = element.elementIterator(); j.hasNext(); ) {
                         Element child = (Element) j.next();
@@ -133,7 +130,7 @@ public class InputHandler {
 		int begin = s.indexOf("(") + 1;
 		int end = s.indexOf(")");
 		String s1 = s.substring(begin, end);
-		List<Variable> variables = new ArrayList<Variable>();
+		List<Variable> variables = new LinkedList<Variable>();
 		String[] vars = s1.split(",");
 		for (String var : vars) {
 			int i = var.indexOf("?");
@@ -152,7 +149,7 @@ public class InputHandler {
 	}
 	
 	public static List<UserPreference> getUserPreferences(String body){
-		List<UserPreference> userPreferences = new ArrayList<UserPreference>();
+		List<UserPreference> userPreferences = new LinkedList<UserPreference>();
 		int begin = body.indexOf("[");
 		int end = body.indexOf("]");
 		String userPref = body.substring(begin+1, end);
@@ -207,7 +204,7 @@ public class InputHandler {
 	}
 	
 	private static List<AbstractService> getAbstractServices(String body) {
-		List<AbstractService> abstractServices = new ArrayList<AbstractService>();
+		List<AbstractService> abstractServices = new LinkedList<AbstractService>();
 		int end = body.indexOf("{");
 		if (end == -1)
 			end = body.indexOf("[");
@@ -237,7 +234,7 @@ public class InputHandler {
 	}
 	
 	public static List<Constraints> getConstraints(String body){
-		List<Constraints> constraints = new ArrayList<Constraints>();
+		List<Constraints> constraints = new LinkedList<Constraints>();
 		int begin = body.indexOf("{");
 		int end = body.indexOf("}");
 		String constraintsPart = body.substring(begin+1, end);
@@ -292,7 +289,7 @@ public class InputHandler {
 	}
 	
 	private static List<QualityAspect> getQualityAspects(String body) {
-		List<QualityAspect> qualityAspects = new ArrayList<QualityAspect>();
+		List<QualityAspect> qualityAspects = new LinkedList<QualityAspect>();
 		int begin = body.indexOf("[");
 		int end = body.indexOf("]");
 		String userPref = body.substring(begin+1, end);
@@ -347,10 +344,10 @@ public class InputHandler {
 	}
 	
 	public static List<Dependency> findDependencies(ConcreteService service){
-		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Dependency> dependencies = new LinkedList<Dependency>();
 		List<Variable> head_variables = service.getHeadVariables();
 		List<AbstractService> list_of_abstract_services = service.getAbstractServices();
-		List<AbstractService> list_of_dependent_abstract_services = new ArrayList<AbstractService>();
+		List<AbstractService> list_of_dependent_abstract_services = new LinkedList<AbstractService>();
 		int size = service.getAbstractServices().size();
 		for (int i = 0; i < size; i++) {
 			AbstractService a = list_of_abstract_services.get(i);
@@ -387,10 +384,10 @@ public class InputHandler {
 	}
 	
 	public static List<Dependency> query_findDependencies(Query query){
-		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Dependency> dependencies = new LinkedList<Dependency>();
 		List<Variable> head_variables = query.getHeadVariables();
 		List<AbstractService> list_of_abstract_services = query.getAbstractServices();
-		List<AbstractService> list_of_dependent_abstract_services = new ArrayList<AbstractService>();
+		List<AbstractService> list_of_dependent_abstract_services = new LinkedList<AbstractService>();
 		int size = query.getAbstractServices().size();
 		for (int i = 0; i < size; i++) {
 			AbstractService a = list_of_abstract_services.get(i);

@@ -1,7 +1,7 @@
 package lyon3.iae.rhone;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,21 +40,21 @@ public class Rhone {
 	private Map<UserPreference, Double> aggregatedMeasures;
 	
 	public Rhone() {
-		this.aggregatedPreferences = new ArrayList<String>();
+		this.aggregatedPreferences = new LinkedList<String>();
 		this.aggregatedPreferences.add("total cost");
 	}
 
 	public void selectServices(){
-		this.setCadidateConcreteServices(new ArrayList<ConcreteService>());
+		this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
 		
 		for (ConcreteService c: concreteServices){
 			if (this.isCandidateService(c))
 				this.cadidateConcreteServices.add(c);
 		}
 		
-		List<ConcreteService> tempList = new ArrayList<ConcreteService>();
+		List<ConcreteService> tempList = new LinkedList<ConcreteService>();
 		
-		this.queryAggregatedPreferences = new ArrayList<UserPreference>();
+		this.queryAggregatedPreferences = new LinkedList<UserPreference>();
 		for (ConcreteService c: this.cadidateConcreteServices) {
 			if (this.itViolatesPreferences(c)) {
 				tempList.add(c);
@@ -197,8 +197,8 @@ public class Rhone {
 	
 	
 	public void combineCSDs() {		
-		csdsPermutations = new ArrayList<List<CSD>>();
-		rewritings = new ArrayList<Rewriting>();
+		csdsPermutations = new LinkedList<List<CSD>>();
+		rewritings = new LinkedList<Rewriting>();
 		
 		//List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		List<List<CSD>> subsetList = findCombinations(csds);
@@ -269,12 +269,12 @@ public class Rhone {
 		List<List<CSD>> result;
 
 		if (list.size() == 0){
-			result = new ArrayList<List<CSD>>();
-			result.add(new ArrayList<CSD>());
+			result = new LinkedList<List<CSD>>();
+			result.add(new LinkedList<CSD>());
 			return result;
 		}
 		
-		List<CSD> newList = new ArrayList<CSD>(list);
+		List<CSD> newList = new LinkedList<CSD>(list);
 		CSD lastMCD = newList.remove(newList.size()-1);		
 
 		return addMCDToSubsetList(lastMCD, findCombinations(newList));
@@ -348,11 +348,11 @@ public class Rhone {
 	}
 	
 	private List<List<CSD>> clone (List<List<CSD>> listOfLists){
-		List<List<CSD>> result = new ArrayList<List<CSD>>();
+		List<List<CSD>> result = new LinkedList<List<CSD>>();
 
 		for (List<CSD> list: listOfLists){
 			if (!(list.size() > this.query.getSize())) {
-				List<CSD> newList = new ArrayList<CSD>();
+				List<CSD> newList = new LinkedList<CSD>();
 				newList.addAll(list);
 				result.add(newList);
 			}	
@@ -408,7 +408,7 @@ public class Rhone {
 	}
 
 	public void createCSDs(){
-		csds = new ArrayList<CSD>();
+		csds = new LinkedList<CSD>();
 
 		/*if there is no dependency in the query, create mappings and CSDs for all candidate concrete*/
 		if (query.getDependencies().isEmpty()) {
@@ -417,7 +417,7 @@ public class Rhone {
 				CSD csd = new CSD();
 				csd.setConcrete_service(c);
 
-				List<Mapping> mappings = new ArrayList<Mapping>();
+				List<Mapping> mappings = new LinkedList<Mapping>();
 
 				for (AbstractService abs: c.getAbstractServices()) {
 					for (AbstractService query_abs: query.getAbstractServices()) {
@@ -444,7 +444,7 @@ public class Rhone {
 					CSD csd = new CSD();
 					csd.setConcrete_service(c);
 
-					List<Mapping> mappings = new ArrayList<Mapping>();
+					List<Mapping> mappings = new LinkedList<Mapping>();
 
 					for (AbstractService abs: c.getAbstractServices()) {
 						for (AbstractService query_abs: query.getAbstractServices()) {
@@ -612,7 +612,7 @@ public class Rhone {
 		int begin = s.indexOf("(") + 1;
 		int end = s.indexOf(")");
 		String s1 = s.substring(begin, end);
-		List<Variable> variables = new ArrayList<Variable>();
+		List<Variable> variables = new LinkedList<Variable>();
 		String[] vars = s1.split(",");
 		for (String var : vars) {
 			int i = var.indexOf("?");
@@ -879,7 +879,7 @@ public class Rhone {
 	
 	
 	public void initiateAggregateMeasures() {
-		rewritings = new ArrayList<Rewriting>();
+		rewritings = new LinkedList<Rewriting>();
 		
 		this.setAggregatedMeasures(new HashMap<UserPreference, Double>());
 		
@@ -897,15 +897,15 @@ public class Rhone {
 	}
 	
 	public void combine2(){
-		csdsPermutations = new ArrayList<List<CSD>>();
+		csdsPermutations = new LinkedList<List<CSD>>();
 
 		for (CSD csd1: this.group1){
-			List<CSD> list1 = new ArrayList<CSD>();
+			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
 			this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
-				List<CSD> list2 = new ArrayList<CSD>();
+				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
 				this.csdsPermutations.add(list2);
@@ -916,21 +916,21 @@ public class Rhone {
 	}
 	
 	public void combine3(){
-		csdsPermutations = new ArrayList<List<CSD>>();
+		csdsPermutations = new LinkedList<List<CSD>>();
 
 		for (CSD csd1: this.group1){
-			List<CSD> list1 = new ArrayList<CSD>();
+			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
 			this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
-				List<CSD> list2 = new ArrayList<CSD>();
+				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
 				this.csdsPermutations.add(list2);
 				
 				for (CSD csd3: this.group3){
-					List<CSD> list3 = new ArrayList<CSD>();
+					List<CSD> list3 = new LinkedList<CSD>();
 					list3.add(csd1);
 					list3.add(csd2);
 					list3.add(csd3);
@@ -943,28 +943,28 @@ public class Rhone {
 	}
 	
 	public void combine4(){
-		csdsPermutations = new ArrayList<List<CSD>>();
+		csdsPermutations = new LinkedList<List<CSD>>();
 
 		for (CSD csd1: this.group1){
-			List<CSD> list1 = new ArrayList<CSD>();
+			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
 			this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
-				List<CSD> list2 = new ArrayList<CSD>();
+				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
 				this.csdsPermutations.add(list2);
 				
 				for (CSD csd3: this.group3){
-					List<CSD> list3 = new ArrayList<CSD>();
+					List<CSD> list3 = new LinkedList<CSD>();
 					list3.add(csd1);
 					list3.add(csd2);
 					list3.add(csd3);
 					this.csdsPermutations.add(list3);
 					
 					for (CSD csd4: this.group4){
-						List<CSD> list4 = new ArrayList<CSD>();
+						List<CSD> list4 = new LinkedList<CSD>();
 						list4.add(csd1);
 						list4.add(csd2);
 						list4.add(csd3);
@@ -979,28 +979,28 @@ public class Rhone {
 	}
 	
 	public void combine5(){
-		csdsPermutations = new ArrayList<List<CSD>>();
+		csdsPermutations = new LinkedList<List<CSD>>();
 
 		for (CSD csd1: this.group1){
-			List<CSD> list1 = new ArrayList<CSD>();
+			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
 			this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
-				List<CSD> list2 = new ArrayList<CSD>();
+				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
 				this.csdsPermutations.add(list2);
 				
 				for (CSD csd3: this.group3){
-					List<CSD> list3 = new ArrayList<CSD>();
+					List<CSD> list3 = new LinkedList<CSD>();
 					list3.add(csd1);
 					list3.add(csd2);
 					list3.add(csd3);
 					this.csdsPermutations.add(list3);
 					
 					for (CSD csd4: this.group4){
-						List<CSD> list4 = new ArrayList<CSD>();
+						List<CSD> list4 = new LinkedList<CSD>();
 						list4.add(csd1);
 						list4.add(csd2);
 						list4.add(csd3);
@@ -1008,7 +1008,7 @@ public class Rhone {
 						this.csdsPermutations.add(list4);
 						
 						for (CSD csd5: this.group5){
-							List<CSD> list5 = new ArrayList<CSD>();
+							List<CSD> list5 = new LinkedList<CSD>();
 							list5.add(csd1);
 							list5.add(csd2);
 							list5.add(csd3);
@@ -1025,28 +1025,28 @@ public class Rhone {
 	}
 	
 	public void combine6(){
-		csdsPermutations = new ArrayList<List<CSD>>();
+		csdsPermutations = new LinkedList<List<CSD>>();
 
 		for (CSD csd1: this.group1){
-			List<CSD> list1 = new ArrayList<CSD>();
+			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
 			this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
-				List<CSD> list2 = new ArrayList<CSD>();
+				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
 				this.csdsPermutations.add(list2);
 				
 				for (CSD csd3: this.group3){
-					List<CSD> list3 = new ArrayList<CSD>();
+					List<CSD> list3 = new LinkedList<CSD>();
 					list3.add(csd1);
 					list3.add(csd2);
 					list3.add(csd3);
 					this.csdsPermutations.add(list3);
 					
 					for (CSD csd4: this.group4){
-						List<CSD> list4 = new ArrayList<CSD>();
+						List<CSD> list4 = new LinkedList<CSD>();
 						list4.add(csd1);
 						list4.add(csd2);
 						list4.add(csd3);
@@ -1054,7 +1054,7 @@ public class Rhone {
 						this.csdsPermutations.add(list4);
 						
 						for (CSD csd5: this.group5){
-							List<CSD> list5 = new ArrayList<CSD>();
+							List<CSD> list5 = new LinkedList<CSD>();
 							list5.add(csd1);
 							list5.add(csd2);
 							list5.add(csd3);
@@ -1063,7 +1063,7 @@ public class Rhone {
 							this.csdsPermutations.add(list5);
 							
 							for (CSD csd6: this.group6){
-								List<CSD> list6 = new ArrayList<CSD>();
+								List<CSD> list6 = new LinkedList<CSD>();
 								list6.add(csd1);
 								list6.add(csd2);
 								list6.add(csd3);
@@ -1089,11 +1089,11 @@ public class Rhone {
 	private List<CSD> group6;
 	
 	public void divideGroups2(){
-		group1 = new ArrayList<CSD>();
-		group2 = new ArrayList<CSD>();
-		group3 = new ArrayList<CSD>();
-		group4 = new ArrayList<CSD>();
-		group5 = new ArrayList<CSD>();
+		group1 = new LinkedList<CSD>();
+		group2 = new LinkedList<CSD>();
+		group3 = new LinkedList<CSD>();
+		group4 = new LinkedList<CSD>();
+		group5 = new LinkedList<CSD>();
 		
 		List<AbstractService> abstractServices = this.query.getAbstractServices();
 		for (int i = 0; i < abstractServices.size(); i++) {
@@ -1114,11 +1114,11 @@ public class Rhone {
 	}
 	
 	public void divideGroups3(){
-		group1 = new ArrayList<CSD>();
-		group2 = new ArrayList<CSD>();
-		group3 = new ArrayList<CSD>();
-		group4 = new ArrayList<CSD>();
-		group5 = new ArrayList<CSD>();
+		group1 = new LinkedList<CSD>();
+		group2 = new LinkedList<CSD>();
+		group3 = new LinkedList<CSD>();
+		group4 = new LinkedList<CSD>();
+		group5 = new LinkedList<CSD>();
 		
 		List<AbstractService> abstractServices = this.query.getAbstractServices();
 		for (int i = 0; i < abstractServices.size(); i++) {
@@ -1142,11 +1142,11 @@ public class Rhone {
 	}
 	
 	public void divideGroups4(){
-		group1 = new ArrayList<CSD>();
-		group2 = new ArrayList<CSD>();
-		group3 = new ArrayList<CSD>();
-		group4 = new ArrayList<CSD>();
-		group5 = new ArrayList<CSD>();
+		group1 = new LinkedList<CSD>();
+		group2 = new LinkedList<CSD>();
+		group3 = new LinkedList<CSD>();
+		group4 = new LinkedList<CSD>();
+		group5 = new LinkedList<CSD>();
 		
 		List<AbstractService> abstractServices = this.query.getAbstractServices();
 		for (int i = 0; i < abstractServices.size(); i++) {
@@ -1173,11 +1173,11 @@ public class Rhone {
 	}
 	
 	public void divideGroups5(){
-		group1 = new ArrayList<CSD>();
-		group2 = new ArrayList<CSD>();
-		group3 = new ArrayList<CSD>();
-		group4 = new ArrayList<CSD>();
-		group5 = new ArrayList<CSD>();
+		group1 = new LinkedList<CSD>();
+		group2 = new LinkedList<CSD>();
+		group3 = new LinkedList<CSD>();
+		group4 = new LinkedList<CSD>();
+		group5 = new LinkedList<CSD>();
 		
 		List<AbstractService> abstractServices = this.query.getAbstractServices();
 		for (int i = 0; i < abstractServices.size(); i++) {
@@ -1207,12 +1207,12 @@ public class Rhone {
 	}
 	
 	public void divideGroups6(){
-		group1 = new ArrayList<CSD>();
-		group2 = new ArrayList<CSD>();
-		group3 = new ArrayList<CSD>();
-		group4 = new ArrayList<CSD>();
-		group5 = new ArrayList<CSD>();
-		group6 = new ArrayList<CSD>();
+		group1 = new LinkedList<CSD>();
+		group2 = new LinkedList<CSD>();
+		group3 = new LinkedList<CSD>();
+		group4 = new LinkedList<CSD>();
+		group5 = new LinkedList<CSD>();
+		group6 = new LinkedList<CSD>();
 		
 		List<AbstractService> abstractServices = this.query.getAbstractServices();
 		for (int i = 0; i < abstractServices.size(); i++) {
