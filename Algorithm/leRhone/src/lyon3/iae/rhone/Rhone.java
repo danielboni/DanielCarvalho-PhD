@@ -29,7 +29,7 @@ public class Rhone {
 	
 	private List<CSD> csds;
 	
-	private List<Rewriting> rewritings;
+	private List<List<CSD>> rewritings;
 	
 	private List<List<CSD>> csdsPermutations;
 	
@@ -198,7 +198,7 @@ public class Rhone {
 	
 	public void combineCSDs() {		
 		csdsPermutations = new LinkedList<List<CSD>>();
-		rewritings = new LinkedList<Rewriting>();
+		//rewritings = new LinkedList<Rewriting>();
 		
 		//List<List<CSD>> subsetList = findMCDSubsetPref(csds) ;
 		List<List<CSD>> subsetList = findCombinations(csds);
@@ -215,7 +215,7 @@ public class Rhone {
 		for (List<CSD> mcdList : subsetList) {
 			if (isNotViolated(aggregatedMeasures)) {
 				if (isRewriting(mcdList) && aggregationFuntion(mcdList, aggregatedMeasures)) {
-					rewritings.add(new Rewriting(mcdList, query));
+	//				rewritings.add(new Rewriting(mcdList, query));
 				}
 			}
 		}
@@ -543,9 +543,67 @@ public class Rhone {
 	}
 	
 	public void print_rewritings() {
-		System.out.println("Number of rewritings: " + rewritings.size());
-		for (Rewriting r: rewritings) {
-			System.out.println(r.toString());
+		System.out.println("Number of rewritings: " + csdsPermutations.size());
+		for (List<CSD> r: csdsPermutations) {
+			StringBuilder sb = new StringBuilder();
+			sb.append(this.query.getHead() + " := ");
+			for (CSD csd: r) {
+				sb.append(csd.getConcrete_service().getName() + "(");
+				
+				for (int i = 0; i < csd.getConcrete_service().getHeadVariables().size(); i++) {
+					Variable headVar = csd.getConcrete_service().getHeadVariables().get(i); 
+					boolean check = false;
+					// se n ha mapeamento poe o _
+					boolean check2 = false;
+					if (i == csd.getConcrete_service().getHeadVariables().size() - 1) {
+						for (Mapping map: csd.getMappings()) {
+							if (check == true)
+								break;
+							for (Map.Entry<Variable, Variable> m: map.getMappings().entrySet()){
+								if (m.getKey().equals(headVar) && headVar instanceof InputVariable) {
+									sb.append(m.getValue().name + "?");
+									check = true;
+									check2 = true;
+								}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
+									sb.append(m.getValue().name + "!");
+									check = true;
+									check2 = true;
+								}
+							}
+						}
+						if (!check2) {
+							sb.append("_");
+							check = true;
+							check2 = false;
+						}
+					}else {
+						for (Mapping map: csd.getMappings()) {
+							if (check == true)
+								break;
+							for (Map.Entry<Variable, Variable> m: map.getMappings().entrySet()){
+								//System.out.println("---" + m.getKey());
+								if (m.getKey().equals(headVar) && headVar instanceof InputVariable ) {
+									sb.append(m.getValue().name + "?,");
+									check = true;
+									check2 = true;
+								}else if (m.getKey().equals(headVar) && headVar instanceof OutputVariable) {
+									sb.append(m.getValue().name + "!,");
+									check = true;
+									check2 = true;
+								}
+							}
+						}
+						if (!check2) {
+							sb.append("_,");
+							check = true;
+							check2 = false;
+						}
+					}
+					
+				}
+				sb.append(") ");
+			}
+			System.out.println(sb.toString());
 		}
 	}
 	
@@ -879,7 +937,7 @@ public class Rhone {
 	
 	
 	public void initiateAggregateMeasures() {
-		rewritings = new LinkedList<Rewriting>();
+		rewritings = new LinkedList<List<CSD>>();
 		
 		this.setAggregatedMeasures(new HashMap<UserPreference, Double>());
 		
@@ -890,7 +948,7 @@ public class Rhone {
 		for (List<CSD> mcdList : csdsPermutations) {
 			if (isNotViolated(aggregatedMeasures)) {
 				if (aggregationFuntion(mcdList, aggregatedMeasures)) {
-					rewritings.add(new Rewriting(mcdList, query));
+					rewritings.add(mcdList);
 				}
 			}
 		}
