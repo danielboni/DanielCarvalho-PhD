@@ -889,7 +889,7 @@ public class Rhone {
 		
 		for (List<CSD> mcdList : csdsPermutations) {
 			if (isNotViolated(aggregatedMeasures)) {
-				if (isRewriting(mcdList) && aggregationFuntion(mcdList, aggregatedMeasures)) {
+				if (aggregationFuntion(mcdList, aggregatedMeasures)) {
 					rewritings.add(new Rewriting(mcdList, query));
 				}
 			}
@@ -1030,20 +1030,25 @@ public class Rhone {
 		for (CSD csd1: this.group1){
 			List<CSD> list1 = new LinkedList<CSD>();
 			list1.add(csd1);
-			this.csdsPermutations.add(list1);
+			if (isRewriting(list1))
+				this.csdsPermutations.add(list1);
 			
 			for (CSD csd2: this.group2){
 				List<CSD> list2 = new LinkedList<CSD>();
 				list2.add(csd1);
 				list2.add(csd2);
-				this.csdsPermutations.add(list2);
+				//this.csdsPermutations.add(list2);
+				if (isRewriting(list2))
+					this.csdsPermutations.add(list2);
 				
 				for (CSD csd3: this.group3){
 					List<CSD> list3 = new LinkedList<CSD>();
 					list3.add(csd1);
 					list3.add(csd2);
 					list3.add(csd3);
-					this.csdsPermutations.add(list3);
+					//this.csdsPermutations.add(list3);
+					if (isRewriting(list3))
+						this.csdsPermutations.add(list3);
 					
 					for (CSD csd4: this.group4){
 						List<CSD> list4 = new LinkedList<CSD>();
@@ -1051,7 +1056,9 @@ public class Rhone {
 						list4.add(csd2);
 						list4.add(csd3);
 						list4.add(csd4);
-						this.csdsPermutations.add(list4);
+						//this.csdsPermutations.add(list4);
+						if (isRewriting(list4))
+							this.csdsPermutations.add(list4);
 						
 						for (CSD csd5: this.group5){
 							List<CSD> list5 = new LinkedList<CSD>();
@@ -1060,7 +1067,9 @@ public class Rhone {
 							list5.add(csd3);
 							list5.add(csd4);
 							list5.add(csd5);
-							this.csdsPermutations.add(list5);
+							//this.csdsPermutations.add(list5);
+							if (isRewriting(list5))
+								this.csdsPermutations.add(list5);
 							
 							for (CSD csd6: this.group6){
 								List<CSD> list6 = new LinkedList<CSD>();
@@ -1070,7 +1079,9 @@ public class Rhone {
 								list6.add(csd4);
 								list6.add(csd5);
 								list6.add(csd6);
-								this.csdsPermutations.add(list6);
+								//this.csdsPermutations.add(list6);
+								if (isRewriting(list6))
+									this.csdsPermutations.add(list6);
 							}
 						}
 					}

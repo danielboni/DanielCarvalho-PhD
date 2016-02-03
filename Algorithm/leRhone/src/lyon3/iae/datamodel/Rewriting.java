@@ -14,11 +14,11 @@ public class Rewriting {
 	private Query rewriting;
 
 	public Rewriting(List<CSD> csds, Query query) {
-		this.csds = new LinkedList<CSD>();
-		this.csds.addAll(csds);
+		this.csds = csds;
+		//this.csds.addAll(csds);
 		this.query = query;
 
-		organiser();
+//		organiser();
 //		setRewritingMapping();
 //		setRewritingQuery();
 	}

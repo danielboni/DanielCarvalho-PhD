@@ -1,0 +1,18 @@
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 50 	Number of concrete services: 50	Number of rewritings: 327680 	--Done in: 1.2012077 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 60 	Number of concrete services: 60	Number of rewritings: 990000 	--Done in: 3.4008218 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 80 	Number of concrete services: 80	Number of rewritings: 5493488 	--Done in: 18.876121 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 90 	Number of concrete services: 90	Number of rewritings: 11010048 	--Done in: 34.8974237 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 100 	Number of concrete services: 100	Number of rewritings:  	--Done in: 17.0977096 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 90 	Number of concrete services: 90	Number of rewritings:  	--Done in: 8.9232572 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 90 	Number of concrete services: 90	Number of rewritings:  	--Done in: 28.0177796 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 100 	Number of concrete services: 100	Number of rewritings:  	--Done in: 22.5733447 seconds 
+Results from experiment 1 (one). 
+Testcase: 0 	 Number of CSDs: 100 	Number of concrete services: 100	Number of rewritings: 20470320 	--Done in: 21.3565369 seconds 
