@@ -1,7 +1,7 @@
 package lyon3.iae.datamodel;
 
 public class Variable {
-	protected String name;
+	public String name;
 
 	public String getName() {
 		return name;
