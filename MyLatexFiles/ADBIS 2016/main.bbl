@@ -1,0 +1,44 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{ba2014}
+Ba, C., Costa, U., H.~Ferrari, M., Ferre, R., A.~Musicante, M., Peralta, V.,
+  Robert, S.: {Preference-Driven Refinement of Service Compositions}. In: Int.
+  Conf. on Cloud Computing and Services Science, 2014.
+  \url{https://hal.inria.fr/hal-00978912}
+
+\bibitem{Barhamgi2010}
+Barhamgi, M., Benslimane, D., Medjahed, B.: A query rewriting approach for web
+  service composition. Services Computing, IEEE Transactions on  3(3),
+  206--222 (July 2010)
+
+\bibitem{Benouaret2011}
+{Benouaret}, K., {Benslimane}, D., {Hadjali}, A., {Barhamgi}, M.: {FuDoCS: A
+  Web Service Composition System Based on Fuzzy Dominance for Preference Query
+  Answering} (Sep 2011), \url{http://liris.cnrs.fr/publis/?id=5120}, vLDB -
+  37th International Conference on Very Large Data Bases - Demo Paper
+
+\bibitem{Duschka:1997}
+Duschka, O.M., Genesereth, M.R.: Answering recursive queries using views. In:
+  Proceedings of the Sixteenth ACM SIGACT-SIGMOD-SIGART Symposium on Principles
+  of Database Systems. pp. 109--116. PODS '97, ACM, New York, NY, USA (1997),
+  \url{http://doi.acm.org/10.1145/263661.263674}
+
+\bibitem{Halevy:2001}
+Halevy, A.Y.: Answering queries using views: A survey. The VLDB Journal  10(4),
+   270--294 (Dec 2001), \url{http://dx.doi.org/10.1007/s007780100054}
+
+\bibitem{Levy:1996}
+Levy, A.Y., Rajaraman, A., Ordille, J.J.: Querying heterogeneous information
+  sources using source descriptions. In: Proceedings of the 22th International
+  Conference on Very Large Data Bases. pp. 251--262. VLDB '96, Morgan Kaufmann
+  Publishers Inc., San Francisco, CA, USA (1996),
+  \url{http://dl.acm.org/citation.cfm?id=645922.673469}
+
+\bibitem{Pottinger:2001}
+Pottinger, R., Halevy, A.: Minicon: A scalable algorithm for answering queries
+  using views. The VLDB Journal  10(2-3),  182--198 (Sep 2001),
+  \url{http://dl.acm.org/citation.cfm?id=767141.767146}
+
+\end{thebibliography}

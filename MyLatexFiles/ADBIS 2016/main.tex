@@ -210,20 +210,30 @@ Federal Institute of Education, Sciences and Technology, Natal, Brazil\\
 
 % ------ abstract and keywords ----- %
 \begin{abstract}
-Abstract goes here
+This paper  introduces the general lines of a rewriting algorithm named \textit{Rhone} that addresses query rewriting  for data
+integration. The originality of  \textit{Rhone} is that the rewriting process is
+guided by quality measures associated to data providers (services) and user
+preferences. The paper uses a running scenario to describe the \textit{Rhone}'s formalization and implementation, and it gives some hints about its experimental evaluation.
 \end{abstract}
 
-\keywords{...}
+\keywords{Data integration. Query rewriting. Query rewriting algorithm. Cloud computing. SLA.}
 
 % ------ end of abstract and keywords ----- %
 
 \section{Introduction}
 \section{Related works}
+\input{related-works}
 \section{Scenario} \label{scenario}
 \input{scenario}
 \section{Rhone service-based query rewriting algorithm}
 \input{rhone-description}
 \input{rhone-formalization}
-%\input{rhone-pseudocodes}
+\section{Evaluation}
+\input{rhone-experiments}
+\section{Final Remarks and Future Works}
+\input{conclusion}
+
+\bibliographystyle{splncs03} 
+\bibliography{bibliography}
 
 \end{document}

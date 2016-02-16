@@ -1,0 +1,63 @@
+The main aspect in a data integration solution is 
+the query rewriting process executed by a mediator
+in accordance with the different databases.
+%
+In this way, algorithms for rewriting queries have
+been proposed in two domains: (1) on the database 
+domain; and (2) on the service-oriented domain.
+
+On the database domain, query rewriting approaches using
+views have been widely discussed~\cite{Halevy:2001}.
+%
+The \textit{bucket algorithm}~\cite{Levy:1996}, 
+\textit{inverse-rules algorithm}~\cite{Duschka:1997} and 
+\textit{MiniCon algorithm}~\cite{Pottinger:2001} have
+tackled the rewriting problem on the database domain.
+%
+In addition, these algorithms have also inspired other
+algorithms in the database and service-oriented domains.
+These approaches will not be detailed here once the focus
+of this paper is on algorithms in the service-oriented domain.
+
+Generally, data integration solutions on the 
+service-oriented domain deal with query rewriting problems.
+%
+\cite{Barhamgi2010} proposed a query rewriting approach 
+which processes queries on data provider services.
+The query and data services are modeled as RDF views.
+A rewriting answer is a service composition in which 
+the set of data service graphs fully satisfy the query graph.  
+%
+\cite{Benouaret2011} introduced a service composition
+framework to answer preference queries. In that approach, two algorithms based
+on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
+%
+\cite{ba2014} presented an algorithm based on \textit{MiniCon} 
+that produces and order rewritings according to user preferences. 
+The user preferences on this approach are scores used to rank 
+services that should be previously define by the user.
+%
+Our approach differs from these works in three aspects:
+(1) the user can express quality measures and associate them
+to his queries, such as: \textit{I want to use services with response
+time less than 2 seconds, price per request less than 1 dollar
+and location close to my city}; 
+(2) the user preferences guides the service selection. 
+These preferences are matched with the services' quality aspects
+that are extracted from service level agreement contracts.
+Here, it is important to highlight that there
+is a previous phase in which the services' quality aspects are 
+processed and extracted from SLAs. 
+In this paper, we are assuming that these information are accessible and
+well-formatted to the algorithm; and
+(3) the user preferences are also used to guide the rewriting process.
+The rewriting answers (services compositions) produced must be in 
+accordance with the user preferences.
+%
+Summarizing, the main and original idea is to use SLA to guide
+the entire data integration process.
+Yet, to the best of our knowledge, few works consider quality
+measures associated both to data services and to user preferences in order to
+guide the rewriting process, and there is no approach using SLAs to guide the
+data integration solution. 
+     
