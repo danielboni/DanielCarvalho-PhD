@@ -43,7 +43,7 @@ The \textit{user preferences} (over the services) are specified in $P_{1}, P_{2}
 $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is a identifier; $c$ is a constant; and
 $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 %
-The \textit{preferences} can be of two types: single and composed. Single preferences are associated directly to each service involved in the composition. Composed preferences are linked to the entire composition; they are defined in terms of single preferences. For example, the total response time is a composed preferences which is obtained by adding the response time of each service involved in the composition. 
+The \textit{preferences} can be of two types: single and composed. Single preferences are associated directly to each service involved in the composition. Composed preferences are linked to the entire composition; they are defined in terms of single preferences. For example, the total response time is a composed preference obtained by adding the response time of each service involved in the composition. 
 
 \end{defi}
 
@@ -59,14 +59,35 @@ S (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l}; \overline{O}_
 \end{center}
 %
 
-A \textit{concrete service} definition is similar to the \textit{query} definition, excepting the fact that a \textit{concrete service} does not have constraints over input and output variables.
-The input variables $\overline{I}$ is the union of $\overline{I}_{h}$ (\textit{head} variables) and all $\overline{I}_{l}$ (\textit{local} variables) such as  
-$\overline{I}$ =  $\overline{I}_{h} \cup \lbrace\overline{I}_{1l},..,\overline{I}_{nl}\rbrace$, and
-the intersection $\overline{I}_{h} \cap \overline{I}_{1l} \cap \overline{I}_{2l},.., \cap \overline{I}_{fl}$ is not empty, meaning that there are \textit{head} and \textit{local }variables being shared among the \textit{abstract services}. 
-The same rules are applied to output variables $\overline{O}$ = $\overline{O}_{h} \cup \lbrace\overline{O}_{1l},..,\overline{O}_{nl}\rbrace$, and $\overline{O}_{h} \cap \overline{O}_{1l} \cap \overline{O}_{2l},.., \cap  \overline{O}_{fl}$ is not empty.
+%A \textit{concrete service} definition is similar to the \textit{query} definition, excepting the fact that a \textit{concrete service} does not have constraints over input and output variables.
+A \textit{concrete service} definition is similar to the \textit{query} definition, excepting it does not have constraints.
 %
-$M_{1},M_{2}, .., M_{g}$ are \textit{quality measures} associated to the concrete service. 
-These \textit{measures} reflect the quality aspects present in the service level agreement exported by the concrete service. 
+The left-hand of the definition is the \textit{head}; and the right-hand is the \textit{body}. 
+%
+$\overline{I}$ and $\overline{O}$ are a set of comma-separated \textit{input} and \textit{output} parameters, respectively.
+%
+Parameters can be of two types: \textit{head} variables (appearing in the head and in the body definition) and \textit{local} variables (appearing only in the body definition).
+%\textit{Head} variables are parameters appearing in the head of the query; they also appear in the body of the query.
+%\textit{Local} variables are parameters appearing only in the body of the query.
+%
+The sets of input and output parameters tagged with a subscript $h$ or $l$ refer to head or local parameters, respectively.
+%
+%The sets $\overline{I}_{h}$ and $\overline{O}_{h}$ refer to \textit{head} input and output variables, 
+%and the sets $\overline{I}_{l}$ and $\overline{O}_{l}$ refer to \textit{local} input and output variables.
+%Intuitively, $\overline{I}$ is the union of $\overline{I}_{h}$ and all $\overline{I}_{l}$ such as
+Two rules are applied to those parameters: the union and the intersection. 
+For instance, the union of head and local input variables builds $\overline{I}$ such as  
+$\overline{I}$ =  $\overline{I}_{h} \cup \lbrace\overline{I}_{1l},..,\overline{I}_{nl}\rbrace$; 
+the intersection of head and local input variables is never empty such as $\lbrace\overline{I}_{h} \cap \overline{I}_{1l} \cap \overline{I}_{2l},.., \cap \overline{I}_{nl}\rbrace \ \neq \ \emptyset$. 
+%is not empty which means that: (1) there are \textit{head} variable that are used on the \textit{abstract services} in the body definition; and (2) there are \textit{local variables} that are shared among the \textit{abstract services}. 
+Intuitively, the same example can be used to output variables.
+%The same rule can be applied to output variables: $\overline{O}$ =  $\overline{O}_{h} \cup \lbrace\overline{O}_{1l},..,\overline{O}_{nl}\rbrace$, and the intersection among $\overline{O}_{h}$ and all $\overline{O}_{l}$ is not empty.
+%
+
+Basic service capabilities are described by the \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$).
+%\textit{Abstract services} ($A_{1}, A_{2}, .., A_{n}$) describes a set of basic service capabilities.
+$M_{1},M_{2}, .., M_{g}$ are quality measures associated to the concrete service. 
+These measures reflect the quality aspects guaranteed by the service. These aspects and penalties for its violation are agreed between the service and the provider in the service level agreement (SLA).
 %
 In this algorithm, we are assuming that there is a previous phase in our approach which allow us to extract the \textit{quality measures} associated to concrete services from SLAs, and generate the expected input data according to the grammar.
 %
