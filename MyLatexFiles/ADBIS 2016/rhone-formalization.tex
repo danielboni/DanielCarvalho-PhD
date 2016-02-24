@@ -89,14 +89,15 @@ Basic service capabilities are described by the \textit{abstract services} ($A_{
 $M_{1},M_{2}, .., M_{g}$ are quality measures associated to the concrete service. 
 These measures reflect the quality aspects guaranteed by the service. These aspects and penalties for its violation are agreed between the service and the provider in the service level agreement (SLA).
 %
-In this algorithm, we are assuming that there is a previous phase in our approach which allow us to extract the \textit{quality measures} associated to concrete services from SLAs, and generate the expected input data according to the grammar.
+In this algorithm, we are assuming this inputs come from a previous phase in our approach.
+This phase allows (i) to extract the service's quality measures from SLAs; and (ii) to generate the expected input data according to the grammar.
 %
 $M_{i}$ is in the form $x \otimes c$, where $x$ is a special class of identifiers associated to the services; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 
 \end{defi}
  
-\bigskip
-\noindent \textit{Example 1 (query and concrete service):} To illustrate the definition above let us suppose an example based on the scenario. 
+%
+\noindent \textit{Example 1 (query and concrete service):} Let us suppose an example based on the scenario to illustrate the definitions previous described. 
 \textit{A user wants to retrieve patients DNA information that were infected by the disease ``flu'', using services with availability higher than 98\%, price per call less than 0.2\$ and total cost less than 2\$.}
 The query can be expressed using the grammar as follows. The decorations $?$ and $!$ differentiate input from output parameters, respectively. 
 \begin{center}
@@ -126,7 +127,7 @@ $S1$, $S2$, $S3$, $S4$ and $S5$ are five different concrete services defined in 
 Each concrete service is tagged with its \textit{quality measures} between the brackets. 
 Here, it is important to highlight that the \textit{quality measures} are extract from service level agreement in a previous phase of our approach that is not the focus in this paper.
 
-\bigskip
+\subsection{Overview on the algorithm}
 The main function of the Rhone is described in the algorithm \ref{algo-rhone}. 
 The input data for this function is a query, which includes a set of user preferences, and a set of concrete services. The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
 
@@ -141,16 +142,16 @@ The input data for this function is a query, which includes a set of user prefer
  \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
  \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
  \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
- \STATE $R\leftarrow \emptyset$
+ \STATE $R\leftarrow ProduceRewritings(Q, I)$
 % \STATE ~\!\tqI{\agg{Q}} 
-    \STATE $p \leftarrow I.next()$
-    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
-      \IF {\textit{isRewriting}$(Q, p)$}
-  \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
-  \STATE ~\!\tqS{\agg{Q}}
-   \ENDIF
-      \STATE $p \leftarrow I.\mathit{Next}()$
- \ENDWHILE
+%    \STATE $p \leftarrow I.next()$
+%    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
+%      \IF {\textit{isRewriting}$(Q, p)$}
+%  \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
+%  \STATE ~\!\tqS{\agg{Q}}
+%   \ENDIF
+%      \STATE $p \leftarrow I.\mathit{Next}()$
+% \ENDWHILE
     \STATE \textbf{return} $R$
 \STATE \textbf{end function}
 \end{algorithmic}
@@ -163,14 +164,14 @@ services. For this set of services, the Rhone tries to create
 A CSD is a structure that maps a concrete service to the query. 
 The  result of this step is a list of CSDs.
 Given all produced CSDs  (line 4), they are combined among each other to generate a list of lists of CSDs, each element representing a possible rewriting.
-The final step (lines 5-13) identifies which lists of CSDs are a valid
-rewriting of the user query given the list of lists of CSDs.
-A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and 
-(ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ - line 8).
-The originality of our algorithm concerns the aggregation function (\agg{Q}).
-It is responsible to check and increment \textit{composed measures} (if present in the query). 
-This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
-The result of this step is the list of valid rewriting of the query (line 14). 
+Finally, given the list of lists of CSDs, the \textit{Rhone} identifies the ones matching with the query and fulfilling the user preferences (line 5).
+% The final step (lines 5) identifies which lists of CSDs are a valid rewriting of the user query given the list of lists of CSDs.
+%A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and 
+%(ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ %- line 8).
+%The originality of our algorithm concerns the aggregation function (\agg{Q}).
+%It is responsible to check and increment \textit{composed measures} (if present in the query). 
+%This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
+%The final result is a list of valid rewriting (line 5). 
 In the next sections, each phase of the algorithm is described in detail. 
 
 \subsection{Selecting services}
@@ -349,6 +350,30 @@ two conditions: (1) the number of abstract services resulting from the union of 
 CSDs in $p$ must be equals to the number of abstract services in the query; and (2)
 The intersection of the abstract services of each CSD on $p$ must be empty. 
 It means that is forbidden to have abstract services replicated among the set $p$ (line 3).
+
+\begin{algorithm}[h!]
+\small
+\caption{ - Producing rewritings}
+\label{rewriting}
+\begin{algorithmic}[1]
+\REQUIRE A query $Q$ and a list of lists of CSDs $I$.
+\ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
+\STATE \textbf{function} $\mathit{ProduceRewritings} (Q, I)$
+	\STATE $R\leftarrow \emptyset$
+	\STATE ~\!\tqI{\agg{Q}} 
+    \STATE $p \leftarrow I.next()$
+    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqT{\agg{Q}}} 
+		\IF {\textit{isRewriting}$(Q, p)$}
+			\STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
+			\STATE ~\!\tqS{\agg{Q}}
+		\ENDIF
+		\STATE $p \leftarrow I.\mathit{next}()$
+	\ENDWHILE
+    \STATE \textbf{return} $R$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
+
 
 
 \begin{algorithm}
