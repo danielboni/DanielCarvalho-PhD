@@ -337,19 +337,9 @@ query following the rules, CSDs for all of them are produced, and included in $\
 
 
 \subsection{Combining and producing rewritings}
-Once list $\bigLCSD$ is produced, the next step is to produce all possible 
-combination of its elements. Producing the set of combinations $I$ (Algorithm 1)
-is the most expensive task in the algorithm. Its complexity increases while
-the number of CSDs and abstract services in the query increases.
-
-After combining CSDs, the rhone algorithm will verify if each combination
-is a rewriting or not of the original query. The algorithm~\ref{isrewriting}
-describes this validating process. Given a set of CSDs $p$ (line 2), the function 
-return $true$ if it is a rewriting of the query. $p$ is a rewriting if it satisfies
-two conditions: (1) the number of abstract services resulting from the union of all 
-CSDs in $p$ must be equals to the number of abstract services in the query; and (2)
-The intersection of the abstract services of each CSD on $p$ must be empty. 
-It means that is forbidden to have abstract services replicated among the set $p$ (line 3).
+Given the list of CSDs $\bigLCSD$ produced, the \textit{Rhone} produces all possible combinations of its elements. 
+Building combinations $I$ (Algorithm 1, line 4) deals with a NP hard complexity problem.
+The effort to process combinations increases while the number of CSDs and abstract services in the query increases.
 
 \begin{algorithm}[h!]
 \small
@@ -374,7 +364,21 @@ It means that is forbidden to have abstract services replicated among the set $p
 \end{algorithmic}
 \end{algorithm}
 
+%
+The last step identifies rewritings matching with the query and fulfilling the user preferences (Algorithm~\ref{rewriting}). The set of rewritings $R$ is initialized empty (line 2).
+%
+%A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and (ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ - line 8).
+%
+Another contribution in our algorithm concerns the aggregation functions $~\!\tqI{\agg{Q}}$, $~\!\tqT{\agg{Q}}$ and $~\!\tqS{\agg{Q}}$.
+They are responsible to initialize (line 3), check conditions (line 5) and increment (line 8) composed preferences defined by the user.
+This means for each element in the CSD list $p$ the value of a composed measure is computed and incremented. 
+Rewritings are produced while the user preferences are respected. 
 
+The Rhone algorithm verifies if a given list of CSDs $p$ is a rewriting of the original query (line 6). 
+The algorithm~\ref{isrewriting} describes this process in detail. 
+Given a set of CSDs $p$ (line 2), the function return $true$ if it is a rewriting of the query. 
+$p$ is a rewriting if it satisfies two conditions: (i) the number of abstract services resulting from the union of all CSDs in $p$ must be equals to the number of abstract services in the query; and (ii) the intersection of all abstract services in each CSD on $p$ must be empty. 
+It means that is forbidden to have abstract services replicated among the set $p$.
 
 \begin{algorithm}
 %\small
