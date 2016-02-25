@@ -221,7 +221,8 @@ Given two abstract services $A_{i}$ and $A_{j}$, a match between \textit{abstrac
 \begin{definition}[concrete service matching]
 A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
 (\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and
-(\textit{ii}) . For all \textit{single measure} $P_{i}$ in $Q$, there is one \textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
+(\textit{ii}) for all \textit{single measure} $P_{i}$ in $Q$, there is one
+\textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
 \end{definition}
 
 
@@ -265,7 +266,7 @@ probably can be used in the rewriting process (line 17).
 \end{algorithmic}
 \end{algorithm}
 
-\begin{example}[selecting candidate concrete services]
+\begin{example}
 The \textit{Rhone} iterates in the concrete service list looking for services satisfying the matching problems.
 Let us consider the query and concrete services specified in the \textit{Examples 1} and \textit{2}:  
 \begin{itemize}
@@ -303,11 +304,12 @@ Let us consider the query and concrete services specified in the \textit{Example
 %\STATE \textbf{end function}
 %\end{algorithmic}
 %\end{algorithm}
+\textcolor{red}{NÃO ESTÁ FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
 
 \subsection{Candidate service description}
 
-After producing the set of candidate concrete services, the next step tries 
-to create candidate service descriptions (CSDs). 
+After producing the set of candidate concrete services, the next step 
+creates candidate service descriptions (CSDs). 
 A CSD maps abstract services and variables of a concrete service into abstract 
 services and variables of the query. 
 
@@ -324,9 +326,12 @@ $P$ is a set \textit{quality measures} associated to the service $S$.
 \qed
 \end{definition} 
  
-A CSD is created according to 4 rules: (1) for all head variables in a concrete service, the mapping $h$ from the head to the body definition must exist; (2) Head variables in concrete services can be mapped to head or local variables in the query; (3) Local variables in concrete services can be mapped to head variables in the query;
-and (4) Local variables in concrete services can be mapped to local
-variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this an output local variable is used as input in another abstract service. 
+A CSD is created according to 4 rules: (\textit{i}) for all head variables in a
+concrete service, the mapping $h$ from the head to the body definition must
+exist; (\textit{ii}) Head variables in concrete services can be mapped to head
+or local variables in the query; (\textit{iii}) Local variables in concrete
+services can be mapped to head variables in the query; and (\textit{iv}) Local
+variables in concrete services can be mapped to local variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this an output local variable is used as input in another abstract service.
 
 The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. 
 The algorithm iterates on each service in $\bigLS$ (line 3), verifying if the mappings rules are being satisfied (line 4). For the ones which satisfies the mapping rules, a fresh copy of the abstract services in the concrete service is done in $G$(lines 7-9) and a copy of the service quality measures in done in $P$ (lines 10-12). Then,
@@ -361,7 +366,7 @@ The result of this phase is a list of CSDs that can be used to build rewriting o
 \end{algorithmic}
 \end{algorithm}
 
-\begin{example}[producing candidate services descriptions]
+\begin{example}%[producing candidate services descriptions]
 Let us consider the candidate concrete services selected in the \textit{Example 3}. The algorithm builds CSDs to concrete services satisfying the mapping rules. 
 \begin{itemize}
 \item Considering the service $S1$, $S3$ and $S4$ satisfy all mapping rules. CSDs for them are created.
@@ -369,6 +374,9 @@ Let us consider the candidate concrete services selected in the \textit{Example 
 \end{itemize}
 \qed
 \end{example}
+
+\textcolor{red}{NÃO ESTÁ FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
+ 
 
 \subsection{Combining and producing rewritings}
 Given the list of CSDs $\bigLCSD$ produced, the \textit{Rhone} produces all possible combinations of its elements. 
@@ -408,10 +416,15 @@ They are responsible to initialize (line 3), check conditions (line 5) and incre
 This means for each element in the CSD list $p$ the value of a composed measure is computed and incremented. 
 Rewritings are produced while the user preferences are respected. 
 
-The Rhone algorithm verifies if a given list of CSDs $p$ is a rewriting of the original query (line 6). 
+The \textit{Rhone} algorithm verifies if a given CSD list $p$ is a rewriting
+of the original query (line 6).
 The algorithm~\ref{isrewriting} describes this process in detail. 
-Given a set of CSDs $p$ (line 2), the function return $true$ if it is a rewriting of the query. 
-$p$ is a rewriting if it satisfies two conditions: (i) the number of abstract services resulting from the union of all CSDs in $p$ must be equals to the number of abstract services in the query; and (ii) the intersection of all abstract services in each CSD on $p$ must be empty. 
+Given the CSD list $p$ (line 2), the function return $true$ if it is a
+rewriting of the query.
+$p$ is a rewriting if it satisfies two conditions: (\textit{i}) the number of
+abstract services resulting from the union of all CSDs in $p$ must be equals to
+the number of abstract services in the query; and (\textit{ii}) the intersection
+of all abstract services in each CSD on $p$ must be empty.
 It means that is forbidden to have abstract services replicated among the set $p$.
 
 \begin{algorithm}[h!]
@@ -433,14 +446,15 @@ is equal to the number of abstract services in $Q$\\
 \end{algorithmic}
 \end{algorithm}
 
-\begin{example}[producing combinations and identifying rewritings] 
+\begin{example}%[producing combinations and identifying rewritings] 
 Let us consider the CSDs $CSD_{1}$, $CSD_{3}$ and $CSD_{5}$ produced in the \textit{Example 4} refers to the concrete services $S1$, $S3$ and $S4$, respectively. The \textit{Rhone} produces combinations as follows:
 \begin{flushleft}
 $p_{1} = \lbrace CSD_{1} \rbrace$ \\
 $p_{2} = \lbrace CSD_{1}, CSD_{3} \rbrace$ \\
 $p_{3} = \lbrace CSD_{1}, CSD_{3}, CSD_{4} \rbrace$
 \end{flushleft}
-Given the combinations, the Rhone checks if each one of them is a valid rewriting of the original query. 
+Given the combinations, the \textit{Rhone} checks if each one of them is a valid
+rewriting of the original query.
 \begin{itemize}
 \item $p_{1}$ and $p_{2}$ are not valid rewritings; their number of abstract services do not match with the number of abstract services in the query.
 \item $p_{3}$ is a valid rewriting; the number of abstract services matches and there is no repeated abstract service. 
