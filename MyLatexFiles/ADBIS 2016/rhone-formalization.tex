@@ -313,7 +313,7 @@ The algorithm iterates on each service in $\bigLS$ (line 3), verifying if the ma
 a CSD is created (line 13), and added to the final list os CSDs $\bigLCSD$ (line 14).
 The result of this phase is a list of CSDs that can be used to build rewriting of the query (line 17).
 
-\begin{algorithm}
+\begin{algorithm}[h!]
 %\small
 \caption{ - Create candidate service descriptions (CSDs)}
 \label{creatingcsds}
@@ -342,9 +342,11 @@ The result of this phase is a list of CSDs that can be used to build rewriting o
 \end{algorithm}
 
 \begin{example}[producing candidate services descriptions]
-Given the concrete services selected in the \textit{Example 3}, the algorithm creates CSDs to concrete services satisfying the mapping rules. 
-Looking to the services $S1$, $S3$ and $S5$, once their variables can be mapped to the
-query following the rules, CSDs for all of them are produced, and included in $\bigLCSD$.
+Let us consider the candidate concrete services selected in the \textit{Example 3}. The algorithm builds CSDs to concrete services satisfying the mapping rules. 
+\begin{itemize}
+\item Considering the service $S1$, $S3$ and $S4$ satisfy all mapping rules. CSDs for them are created.
+\item However, a CSD for $S5$ cannot be created; it contains a local variable mapped to a local variable in the query. Consequently, $S5$ must cover all abstract services in the query depending on this variable, but it does not cover.
+\end{itemize}
 \qed
 \end{example}
 
@@ -353,7 +355,7 @@ Given the list of CSDs $\bigLCSD$ produced, the \textit{Rhone} produces all poss
 Building combinations $I$ (Algorithm 1, line 4) deals with a NP hard complexity problem.
 The effort to process combinations increases while the number of CSDs and abstract services in the query increases.
 
-\begin{algorithm}[h!]
+\begin{algorithm}
 \small
 \caption{ - Producing rewritings}
 \label{rewriting}
@@ -392,7 +394,7 @@ Given a set of CSDs $p$ (line 2), the function return $true$ if it is a rewritin
 $p$ is a rewriting if it satisfies two conditions: (i) the number of abstract services resulting from the union of all CSDs in $p$ must be equals to the number of abstract services in the query; and (ii) the intersection of all abstract services in each CSD on $p$ must be empty. 
 It means that is forbidden to have abstract services replicated among the set $p$.
 
-\begin{algorithm}
+\begin{algorithm}[h!]
 %\small
 \caption{ - Validating a combination of CSDs}
 \label{isrewriting}
@@ -411,20 +413,17 @@ is equal to the number of abstract services in $Q$\\
 \end{algorithmic}
 \end{algorithm}
 
-\bigskip
-\noindent \textit{Example 4 (producing combinations and validating rewritings):} 
-Let us consider that the CSDs: $CSD_{1}$, $CSD_{3}$ and $CSD_{5}$ produced in the example 4 
-refers to the concrete services $S1$, $S3$ and $S5$, respectively. 
-Firstly, the combinations below are produced:
+\begin{example}[producing combinations and identifying rewritings] 
+Let us consider the CSDs $CSD_{1}$, $CSD_{3}$ and $CSD_{5}$ produced in the \textit{Example 4} refers to the concrete services $S1$, $S3$ and $S4$, respectively. The \textit{Rhone} produces combinations as follows:
 \begin{flushleft}
 $p_{1} = \lbrace CSD_{1} \rbrace$ \\
 $p_{2} = \lbrace CSD_{1}, CSD_{3} \rbrace$ \\
-$p_{4} = \lbrace CSD_{5}$ \\
-$p_{5} = \lbrace CSD_{5}, CSD_{3} \rbrace$ 
+$p_{3} = \lbrace CSD_{1}, CSD_{3}, CSD_{4} \rbrace$
 \end{flushleft}
-Given the combinations, the Rhone will check if each one of them is a valid rewriting of 
-the original query. $p_{1}$ and $p_{5}$ are not a valid rewriting considering that their number
-of abstract services do not match with the number of abstract services in the query. Also, $p_{5}$
-contains repeated abstract services. $p_{2}$ and $p_{5}$ are rewritings once they are in accordance
-with the rules presented before: the number of abstract services matches and there is no repeated abstract 
-service. 
+Given the combinations, the Rhone checks if each one of them is a valid rewriting of the original query. 
+\begin{itemize}
+\item $p_{1}$ and $p_{2}$ are not valid rewritings; their number of abstract services do not match with the number of abstract services in the query.
+\item $p_{3}$ is a valid rewriting; the number of abstract services matches and there is no repeated abstract service. 
+\end{itemize}
+\qed
+\end{example}
