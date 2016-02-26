@@ -59,7 +59,7 @@ Let us suppose a query specification based on the scenario (section \ref{sec:sce
 %
 \begin{center}
 \small
-$Q(d?; dna!, info!) := GetPatients(d?; p!), GetDNA(p?; dna!), GetInfo(p?; info!)$
+$Q(dis?; dna!, info!) := GetPatients(dis?; p!), GetDNA(p?; dna!), GetInfo(p?; info!)$
 \\
 $d = ``flu'' [availability > 98\%, \ price \ per \ call < 0.2\$, \ total \ cost < 2\$]$
 \end{center}
@@ -72,11 +72,9 @@ begins by retrieving infected patients ($GetPatients$). This operation returns p
 %The query $Q$ has an input parameter $d$ and an output parameter $dna$. 
 %These \textit{head} variable are used in the \textit{abstract services} $diseasePatients$ and $DNAinformation$. 
 %The local variable $p$ is an output in $diseasePatients$ and it is used as input in $GetDNA$.
-The query contains a constraint ($d = ``flu''$), and three user preferences ($availability$, $price \ per \ call$ and $total \ cost$).
+The query contains a constraint $d$ (disease name) equal to $flu$, and three user preferences $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 2 dollars.
 \qed
 \end{example}
-
-\textcolor{red}{CONTINUAR EXPLICANDO AS PREFERENCIAS}
 
 \begin{definition}[concrete services]
 A concrete service ($S$) is defined as a set of 
@@ -89,48 +87,48 @@ S (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l}; \overline{O}_
 \end{center}
 %
 %A \textit{concrete service} definition is similar to the \textit{query} definition, excepting the fact that a \textit{concrete service} does not have constraints over input and output variables.
-A \textit{concrete service} definition is similar to the \textit{query} definition, excepting it does not have constraints.
 %
-The left-hand of the definition is the \textit{head}; and the right-hand is the \textit{body}. 
+A \textit{concrete service} definition is similar to the \textit{query} definition, excepting it does not have constraints. Parameters type and rules are applied in the same way.
 %
-$\overline{I}$ and $\overline{O}$ are a set of comma-separated \textit{input} and \textit{output} parameters, respectively.
 %
-Parameters can be of two types: \textit{head} variables (appearing in the head and in the body definition) and \textit{local} variables (appearing only in the body definition).
+%The left-hand of the definition is the \textit{head}; and the right-hand is the \textit{body}. 
+%
+%$\overline{I}$ and $\overline{O}$ are a set of comma-separated \textit{input} and \textit{output} parameters, respectively.
+%
+%Parameters can be of two types: \textit{head} variables (appearing in the head and in the body definition) and \textit{local} variables (appearing only in the body definition).
 %\textit{Head} variables are parameters appearing in the head of the query; they also appear in the body of the query.
 %\textit{Local} variables are parameters appearing only in the body of the query.
 %
-The sets of input and output parameters tagged with a subscript $h$ or $l$ refer to head or local parameters, respectively.
+%The sets of input and output parameters tagged with a subscript $h$ or $l$ refer to head or local parameters, respectively.
 %
 %The sets $\overline{I}_{h}$ and $\overline{O}_{h}$ refer to \textit{head} input and output variables, 
 %and the sets $\overline{I}_{l}$ and $\overline{O}_{l}$ refer to \textit{local} input and output variables.
 %Intuitively, $\overline{I}$ is the union of $\overline{I}_{h}$ and all $\overline{I}_{l}$ such as
-Two rules are applied to those parameters: the union and the intersection. 
-For instance, the union of head and local input variables builds $\overline{I}$ such as  
-$\overline{I}$ =  $\overline{I}_{h} \cup \lbrace\overline{I}_{1l},..,\overline{I}_{nl}\rbrace$; 
-the intersection of head and local input variables is never empty such as $\lbrace\overline{I}_{h} \cap \overline{I}_{1l} \cap \overline{I}_{2l},.., \cap \overline{I}_{nl}\rbrace \ \neq \ \emptyset$. 
+%Two rules are applied to those parameters: the union and the intersection. 
+%For instance, the union of head and local input variables builds $\overline{I}$ such as  
+%$\overline{I}$ =  $\overline{I}_{h} \cup \lbrace\overline{I}_{1l},..,\overline{I}_{nl}\rbrace$; 
+%the intersection of head and local input variables is never empty such as $\lbrace\overline{I}_{h} \cap \overline{I}_{1l} \cap \overline{I}_{2l},.., \cap \overline{I}_{nl}\rbrace \ \neq \ \emptyset$. 
 %is not empty which means that: (1) there are \textit{head} variable that are used on the \textit{abstract services} in the body definition; and (2) there are \textit{local variables} that are shared among the \textit{abstract services}. 
-Intuitively, the same example can be used to output variables.
+%Intuitively, the same example can be used to output variables.
 %The same rule can be applied to output variables: $\overline{O}$ =  $\overline{O}_{h} \cup \lbrace\overline{O}_{1l},..,\overline{O}_{nl}\rbrace$, and the intersection among $\overline{O}_{h}$ and all $\overline{O}_{l}$ is not empty.
 %
-
-Basic service capabilities are described by the \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$).
+Concrete services are also defined in terms of \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$).
 %\textit{Abstract services} ($A_{1}, A_{2}, .., A_{n}$) describes a set of basic service capabilities.
-$M_{1},M_{2}, .., M_{g}$ are quality measures associated to the concrete service. 
-These measures reflect the quality aspects guaranteed by the service. These aspects and penalties for its violation are agreed between the service and the provider in the service level agreement (SLA).
+They contain a set of service's quality aspects (quality measures) $M_{1},M_{2}, .., M_{g}$. These measures are  associated to the concrete service itself and reflect the quality aspects guaranteed by the service. These aspects and penalties for its violation are agreed between the service and the provider in the service level agreement (SLA).
 %
 %
 $M_{i}$ is in the form $x \otimes c$, where $x$ is a special class of identifiers associated to the services; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 \qed
 \end{definition}
 
-\textcolor{red}{REVER DEFINIÇÃO QUE ESTÁ IGUAL A ANTERIOR}
+%\textcolor{red}{REVER DEFINIï¿½ï¿½O QUE ESTï¿½ IGUAL A ANTERIOR}
 
 In this algorithm, we are assuming this inputs come from a previous phase in our approach.
 This phase allows (i) to extract the service's quality measures from SLAs; and (ii) to generate the expected input data according to the grammar.
 
 \begin{example}
 %
-Let us consider the query $Q$ specified in the \textit{Example 1}. Five concrete services are exemplified below. 
+Assuming the query $Q$ specified in the \textit{Example 1}, five concrete services (that could be composed to answer it) are exemplified below. 
 \begin{flushleft}
 \small
 $S1(d?; p!) := GetPatients(d?; p!)[availability > 99\%, \ price \ per \ call = 0.1\$]$ 
@@ -143,12 +141,12 @@ $S4(p?; info!) := GetInfo(d?; dna!)[availability > 98\%, \ price \ per \ call = 
 \\
 $S5(d?; dna!) := GetPatients(d?; p!), GetDNA(p?; dna!)[availability > 98\%, \ price \ per \ call = 0.1\$]$
 \end{flushleft}
-$S1$, $S2$, $S3$, $S4$ and $S5$ are different concrete services defined in terms of abstract services or composition of abstract services (\textit{i.e.} $S5$). Each concrete service is tagged with its own quality measures. 
+$S1$, $S2$, $S3$, $S4$ and $S5$ are different concrete services defined in terms of abstract services or composition of abstract services (\textit{i.e.} $S5$). Each concrete service is tagged with its own quality measures. $S1$ and $S2$ retrieve infected patients, but they differ on the quality measures. $S3$ returns DNA information from a given patient. $S4$ retrieves personal information from patients. Finally, $S5$ covers two abstract services. It returns infected patients and their DNA information. 
 %Here, it is important to highlight that the \textit{quality measures} are extract from service level agreement in a previous phase of our approach that is not the focus in this paper.
 \qed
 \end{example}
 
-\textcolor{red}{NÃO ESTÁ FALTANDO ALGO??? CONTINUAR EXPLICANDO}
+%\textcolor{red}{Nï¿½O ESTï¿½ FALTANDO ALGO??? CONTINUAR EXPLICANDO}
 
 \subsection{Overview on the algorithm}
 The main function of the \textit{Rhone} is described in the algorithm
@@ -209,6 +207,7 @@ While selecting services, the algorithm deals with three matching problems: \tex
 Given a \textit{user preference} $P_{i}$ and a quality measure $Q_{j}$, a matching between them can be made if:
 (\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
 (\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$.
+\qed
 \end{definition}
 
 \begin{definition}[abstract service matching]
@@ -216,6 +215,7 @@ Given two abstract services $A_{i}$ and $A_{j}$, a match between \textit{abstrac
 (\textit{i}) $A_{i}$ and $A_{j}$ must have the same abstract function name; 
 (\textit{ii}) the number of input variables of $A_{i}$, denoted $vars_{input}(A_{i})$, is equal or higher than the number of input variables of $A_{j}$ ($vars_{input}(A_{j})$); and 
 (\textit{iii}) the number of output variables of $A_{i}$, denoted $vars_{output}(A_{i})$, is equal or higher than the number of output variables of $A_{j}$ ($vars_{output}(A_{j})$).
+\qed
 \end{definition}
 
 \begin{definition}[concrete service matching]
@@ -223,6 +223,7 @@ A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ accor
 (\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and
 (\textit{ii}) for all \textit{single measure} $P_{i}$ in $Q$, there is one
 \textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
+\qed
 \end{definition}
 
 
@@ -268,11 +269,8 @@ probably can be used in the rewriting process (line 17).
 
 \begin{example}
 The \textit{Rhone} iterates in the concrete service list looking for services satisfying the matching problems.
-Let us consider the query and concrete services specified in the \textit{Examples 1} and \textit{2}:  
-\begin{itemize}
-\item $S1$, $S3$, $S4$ and $S5$ are selected as candidate concrete service; they satisfy all matching problems.
-\item $S2$ is not select once it measures violate the user preferences.
-\end{itemize}
+Taking into account the query and concrete services specified in the \textit{Examples 1} and \textit{2}:  
+$S1$, $S3$, $S4$ and $S5$ are selected as candidate concrete service once they satisfy all matching problems. However, $S2$ is not select once it measures violate the user preference $availability$ which is higher than 97\% and the user expects higher than 98\%.
 \qed
 \end{example}
 
@@ -304,7 +302,8 @@ Let us consider the query and concrete services specified in the \textit{Example
 %\STATE \textbf{end function}
 %\end{algorithmic}
 %\end{algorithm}
-\textcolor{red}{NÃO ESTÁ FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
+
+%\textcolor{red}{NaO ESTa FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
 
 \subsection{Candidate service description}
 
@@ -367,15 +366,12 @@ The result of this phase is a list of CSDs that can be used to build rewriting o
 \end{algorithm}
 
 \begin{example}%[producing candidate services descriptions]
-Let us consider the candidate concrete services selected in the \textit{Example 3}. The algorithm builds CSDs to concrete services satisfying the mapping rules. 
-\begin{itemize}
-\item Considering the service $S1$, $S3$ and $S4$ satisfy all mapping rules. CSDs for them are created.
-\item However, a CSD for $S5$ cannot be created; it contains a local variable mapped to a local variable in the query. Consequently, $S5$ must cover all abstract services in the query depending on this variable, but it does not cover.
-\end{itemize}
+Given the candidate concrete services selected in the \textit{Example 3}. The algorithm builds CSDs to concrete services satisfying the mapping rules. $S1$, $S3$ and $S4$ satisfy all mapping rules. Consequently, CSDs for them are created. For instance, $CSD_{1}$ is produced to $S1$ as follows: 
+$\langle S1, \ h = \lbrace d \rightarrow d, \ p \rightarrow p \rbrace, \ \varphi = \lbrace d \rightarrow dis, \ p \rightarrow p \rbrace, \ G = \lbrace GetPatients \rbrace, \ P = \lbrace availability > 99\%, \ price \ per \ call = 0.1\$ \rbrace \rangle$. However, a CSD for $S5$ is not build because it violates the rule for local variables. It contains a local variable ($p$) mapped to a local variable in the query. Consequently, $S5$ must cover all abstract services in the query depending on this variable, but the abstract service $GetInfo$ is not covered.
 \qed
 \end{example}
 
-\textcolor{red}{NÃO ESTÁ FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
+%\textcolor{red}{Nï¿½O ESTï¿½ FALTANDO ALGO??? CONTINUAR EXPLICANDO O EXEMPLO}
  
 
 \subsection{Combining and producing rewritings}
