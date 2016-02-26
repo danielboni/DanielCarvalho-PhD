@@ -201,11 +201,11 @@ In the next sections, each phase of the algorithm is described in detail.
 
 \subsection{Selecting services}
 
+One contribution of our approach concerns the services selection process. Services are selected based on the user preferences and on the services' quality aspects collected from service level agreements.
 While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
 
 \begin{definition}[measures matching]
-Given a \textit{user preference} $P_{i}$ and a quality measure $Q_{j}$, a matching between them can be made if:
-(\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
+Given a \textit{user preference} $P_{i}$ and a service's quality measure $Q_{j}$, a matching between them can be made if: (\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
 (\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$.
 \qed
 \end{definition}
@@ -220,9 +220,8 @@ Given two abstract services $A_{i}$ and $A_{j}$, a match between \textit{abstrac
 
 \begin{definition}[concrete service matching]
 A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
-(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and
-(\textit{ii}) for all \textit{single measure} $P_{i}$ in $Q$, there is one
-\textit{single measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
+(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and (\textit{ii}) for all \textit{single preferences} $P_{i}$ in $Q$, there is one
+\textit{service quality measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3).
 \qed
 \end{definition}
 
