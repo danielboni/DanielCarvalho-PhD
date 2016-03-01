@@ -1,4 +1,5 @@
-Integrating data across different databases and providing a unique view of it to the user is a problem in the database domain (called data integration).
+Integrating data across different databases, and provide an unique view of it
+to the user, is a problem in the database domain (called data integration).
 %Data integration is a well-known problem in the database domain.
 This problem can be seen on the service-oriented architecture as a service composition issue in which given a query, the objective is to lookup and compose data services to produce a result. 
 % 	
@@ -9,23 +10,25 @@ The possibility of having an unlimited access to resources, the resource managem
 
 Service provider and service customer are first class citizens on cloud architecture.
 Both must agree together on quality conditions expected from the other side. 
-Generally, those condition and penalties associated to its violation are defined in service level 
-agreement (SLA). 
+Generally, those conditions and penalties associated to its violation are
+defined in service level agreement (SLA). 
 Proposals concerning SLAs on cloud computing are divided in two groups: (i)
 approaches focusing on the negotiation phase between providers and customers
-(REFs??); and, (ii) approaches that manage SLA to avoid SLA violation (REFs??).
-To our knowledge, SLA approaches have not been integrated to data integration solutions.
+\cite{}; and, (ii) approaches that manage SLA to avoid SLA violation \cite{}.
+To our knowledge, SLA approaches have not been yet integrated to data
+integration solutions.
 
-The goal of this work is to present a data integration solution
-concerning the \textit{Rhone} service-based query rewriting algorithm guided by SLA's.
-Our work addresses this issue and proposes the algorithm (we
+Based on these concepts and open challenges, the goal of this work is to present
+a data integration solution concerning the \textit{Rhone} service-based query rewriting algorithm guided by SLA's.
+Our work addresses these issues and proposes the algorithm (we
 called \textit{Rhone}) with two original aspects: (i) the user can express her
 quality preferences and associate them to her queries; and (ii)  service's quality aspects defined on Service Level Agreements (SLA) guide service selection and the whole rewriting process.
 Yet, to the best of our knowledge, we have not identified any other work that uses SLA to guide the entire data integration solution.
 
-The rest of this paper is organized as follows. 
-Section~\ref{sec:relatedwork} describes our related works. 
+This paper is organized as follows. Section~\ref{sec:relatedwork} presents
+some related works.
 Section~\ref{sec:scenario} contains the running scenario and challenges.
-Section~\ref{sec:rhone} describes the Rhone and its formalization. 
+Section~\ref{sec:rhone} describes the \textit{Rhone} algorithm and its
+formalization.
 Experiments and results are described in the section~\ref{sec:experiments}. 
 Finally, section~\ref{sec:conclusion} concludes the paper and discusses future works.
