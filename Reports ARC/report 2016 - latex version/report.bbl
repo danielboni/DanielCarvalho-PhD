@@ -1,0 +1,83 @@
+\begin{thebibliography}{10}
+
+\bibitem{AlhamadDC11}
+Mohammed Alhamad, Tharam~S. Dillon, and Elizabeth Chang.
+\newblock A survey on sla and performance measurement in cloud computing.
+\newblock In {\em OTM Conferences (2)}, volume 7045 of {\em Lecture Notes in
+  Computer Science}, pages 469--477. Springer, 2011.
+
+\bibitem{ba2014}
+Cheikh Ba, Umberto Costa, Mirian H.~Ferrari, R{\'e}my Ferre, Martin
+  A.~Musicante, Veronika Peralta, and Sophie Robert.
+\newblock Preference-driven refinement of service compositions.
+\newblock In {\em Int. Conf. on Cloud Computing and Services Science, 2014},
+  Proceedings of CLOSER 2014, 2014.
+
+\bibitem{Barhamgi2010}
+M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
+\newblock A query rewriting approach for web service composition.
+\newblock {\em Services Computing, IEEE Transactions on}, 3(3):206--222, July
+  2010.
+
+\bibitem{Benouaret2011}
+Karim {Benouaret}, Djamal {Benslimane}, Allel {Hadjali}, and Mahmoud
+  {Barhamgi}.
+\newblock {FuDoCS: A Web Service Composition System Based on Fuzzy Dominance
+  for Preference Query Answering}, September 2011.
+\newblock VLDB - 37th International Conference on Very Large Data Bases - Demo
+  Paper.
+
+\bibitem{Carvalho2015}
+Daniel A.~S. Carvalho, Pl{\'a}cido~A. Souza~Neto, Genoveva Vargas-Solar, Nadia
+  Bennani, and Chirine Ghedira.
+\newblock {\em Database and Expert Systems Applications: 26th International
+  Conference, DEXA 2015, Valencia, Spain, September 1-4, 2015, Proceedings,
+  Part II}, chapter Can Data Integration Quality Be Enhanced on Multi-cloud
+  Using SLA?, pages 145--152.
+\newblock Springer International Publishing, 2015.
+
+\bibitem{Duschka:1997}
+Oliver~M. Duschka and Michael~R. Genesereth.
+\newblock Answering recursive queries using views.
+\newblock In {\em Proceedings of the Sixteenth ACM SIGACT-SIGMOD-SIGART
+  Symposium on Principles of Database Systems}, PODS '97, pages 109--116, New
+  York, NY, USA, 1997. ACM.
+
+\bibitem{Halevy:2001}
+Alon~Y. Halevy.
+\newblock Answering queries using views: A survey.
+\newblock {\em The VLDB Journal}, 10(4):270--294, December 2001.
+
+\bibitem{Leitner2010}
+P.~Leitner, A.~Michlmayr, F.~Rosenberg, and S.~Dustdar.
+\newblock Monitoring, prediction and prevention of sla violations in composite
+  services.
+\newblock In {\em Web Services (ICWS), 2010 IEEE International Conference on},
+  pages 369--376, July 2010.
+
+\bibitem{Lenzerini:2002}
+Maurizio Lenzerini.
+\newblock Data integration: A theoretical perspective.
+\newblock In {\em Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART
+  Symposium on Principles of Database Systems}, PODS '02, pages 233--246, New
+  York, NY, USA, 2002. ACM.
+
+\bibitem{Mavrogeorgi2013}
+N.~Mavrogeorgi, V.~Alexandrou, S.~Gogouvitis, A.~Voulodimos, D.~Kiriazis,
+  T.~Varvarigou, and E.~K. Kolodner.
+\newblock Customized slas in cloud environments.
+\newblock In {\em P2P, Parallel, Grid, Cloud and Internet Computing (3PGCIC),
+  2013 Eighth International Conference on}, pages 262--269, Oct 2013.
+
+\bibitem{Pottinger:2001}
+Rachel Pottinger and Alon Halevy.
+\newblock Minicon: A scalable algorithm for answering queries using views.
+\newblock {\em The VLDB Journal}, 10(2-3):182--198, September 2001.
+
+\bibitem{rak2013}
+M.~Rak, N.~Suri, J.~Luna, D.~Petcu, V.~Casola, and U.~Villano.
+\newblock Security as a service using an sla-based approach via specs.
+\newblock In {\em Cloud Computing Technology and Science (CloudCom), 2013 IEEE
+  5th International Conference on}, volume~2, pages 1--6, 2013.
+
+\end{thebibliography}
