@@ -36,6 +36,13 @@ Daniel A.~S. Carvalho, Pl{\'a}cido~A. Souza~Neto, Genoveva Vargas-Solar, Nadia
   Using SLA?, pages 145--152.
 \newblock Springer International Publishing, 2015.
 
+\bibitem{Umberto}
+UmbertoS. Costa, MirianHalfeld Ferrari, MartinA. Musicante, and Sophie Robert.
+\newblock Automatic refinement of service compositions.
+\newblock In Florian Daniel, Peter Dolog, and Qing Li, editors, {\em Web
+  Engineering}, volume 7977 of {\em Lecture Notes in Computer Science}, pages
+  400--407. Springer Berlin Heidelberg, 2013.
+
 \bibitem{Duschka:1997}
 Oliver~M. Duschka and Michael~R. Genesereth.
 \newblock Answering recursive queries using views.
@@ -61,6 +68,13 @@ Maurizio Lenzerini.
 \newblock In {\em Proceedings of the Twenty-first ACM SIGMOD-SIGACT-SIGART
   Symposium on Principles of Database Systems}, PODS '02, pages 233--246, New
   York, NY, USA, 2002. ACM.
+
+\bibitem{Levy:1996}
+Alon~Y. Levy, Anand Rajaraman, and Joann~J. Ordille.
+\newblock Querying heterogeneous information sources using source descriptions.
+\newblock In {\em Proceedings of the 22th International Conference on Very
+  Large Data Bases}, VLDB '96, pages 251--262, San Francisco, CA, USA, 1996.
+  Morgan Kaufmann Publishers Inc.
 
 \bibitem{Mavrogeorgi2013}
 N.~Mavrogeorgi, V.~Alexandrou, S.~Gogouvitis, A.~Voulodimos, D.~Kiriazis,
