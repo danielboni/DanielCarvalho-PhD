@@ -35,9 +35,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-7.9404937"
-     inkscape:cy="523.50458"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="305.09198"
+     inkscape:cy="261.39496"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,666 +63,1852 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-opacity:1;stroke-dashoffset:0"
-       id="rect4136"
-       width="388.879"
-       height="983.85883"
-       x="186.3271"
-       y="38.688995"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9"
+       width="123.87359"
+       height="40.927238"
+       x="-135.56577"
+       y="-74.868454" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="340.58411"
-       y="1017.2231"
-       id="text4144"
+       x="-124.34309"
+       y="-48.538746"
+       id="text4144-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9"
+         x="-124.34309"
+         y="-48.538746"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">SLA Identifier</tspan></text>
+    <rect
+       style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9-9"
+       width="123.87359"
+       height="40.927238"
+       x="-135.56577"
+       y="-23.963694" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-73.740044"
+       y="-8.5330305"
+       id="text4144-9-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2"
+         x="-71.552544"
+         y="-8.5330305"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Service </tspan><tspan
+         sodipodi:role="line"
+         x="-73.740044"
+         y="13.341969"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4675">Definition</tspan></text>
+    <rect
+       style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9-6-6"
+       width="123.87359"
+       height="40.927238"
+       x="-135.56577"
+       y="25.845831" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-96.768623"
+       y="52.213993"
+       id="text4144-9-7-5-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6"
+         x="-96.768623"
+         y="52.213993"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Parties</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -171.18024,-56.547693 35.92446,0"
+       id="path4729"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -171.18024,-3.5000753 35.92446,0"
+       id="path4729-1"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -171.18024,46.309452 35.92446,0"
+       id="path4729-1-7-2"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -170.77184,-56.547692 0,102.857144"
+       id="path4813"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -170.47833,-3.7972133 -43.18402,0"
+       id="path4815"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -181.49302,225.07213 -43.18402,0"
+       id="path4815-9"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g4618"
+       transform="translate(-467.03177,-119.98133)">
+      <rect
+         y="95.470016"
+         x="131.63463"
+         height="40.927238"
+         width="123.87359"
+         id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-0"
+         style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-5"
+         y="110.92204"
+         x="193.46034"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan4548-0"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="110.92204"
+           x="193.46034"
+           sodipodi:role="line">General</tspan><tspan
+           id="tspan4616"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="132.79704"
+           x="193.46034"
+           sodipodi:role="line">Information</tspan></text>
+    </g>
+    <g
+       id="g5042"
+       transform="translate(-480.39959,14.126375)">
+      <rect
+         y="190.48213"
+         x="132.88062"
+         height="40.927238"
+         width="123.87359"
+         id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5"
+         style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-7"
+         y="216.87166"
+         x="194.95413"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan4548-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="216.87166"
+           x="194.95413"
+           sodipodi:role="line">Business rules</tspan></text>
+    </g>
+    <rect
+       style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5-6-7"
+       width="123.87359"
+       height="40.927238"
+       x="-146.85066"
+       y="304.79636" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-108.28423"
+       y="331.11325"
+       id="text4144-9-7-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0"
+         x="-108.28423"
+         y="331.11325"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Period</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -182.23145,124.88428 35.92446,0"
+       id="path4729-1-7"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7"
+       width="123.87359"
+       height="40.927238"
+       x="-146.8075"
+       y="104.42067" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-84.964699"
+       y="129.32338"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-7-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="-84.964699"
+         y="129.32338"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4548-2-1">Billing method</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -182.23145,175.02311 35.92446,0"
+       id="path4729-1-7-4"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7"
+       width="123.87359"
+       height="40.927238"
+       x="-146.8075"
+       y="154.55949" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-102.55015"
+       y="180.92764"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-2"
+         x="-102.55015"
+         y="180.92764"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Price</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -182.23145,225.1618 35.92447,0"
+       id="path4729-1-7-49"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5"
+       width="123.87359"
+       height="40.927238"
+       x="-146.8075"
+       y="204.69818" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-119.39646"
+       y="231.08771"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-9"
+         x="-119.39646"
+         y="231.08771"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Violations</tspan></text>
+    <rect
+       style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5-6"
+       width="123.87359"
+       height="40.927238"
+       x="-146.8075"
+       y="254.83698" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-115.59824"
+       y="281.2265"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-6-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-9-2"
+         x="-115.59824"
+         y="281.2265"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Penalties</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -182.23145,275.30059 35.92447,0"
+       id="path4729-1-7-49-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -182.42291,325.25997 35.92447,0"
+       id="path4729-1-7-49-6-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.15572369px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -181.88853,124.7447 0,200.36479"
+       id="path5017"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -719.63259,103.84282 35.92446,0"
+       id="path5344"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g5264"
+       transform="translate(-1018.2948,-617.66225)">
+      <rect
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5199"
+         width="123.87359"
+         height="40.927238"
+         x="334.0632"
+         y="701.04144" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3"
+         y="714.93829"
+         x="395.76929"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="714.93829"
+           x="397.95679"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6"
+           sodipodi:role="line">Backup </tspan><tspan
+           id="tspan5209"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="736.81329"
+           x="395.76929"
+           sodipodi:role="line">frequency</tspan></text>
+    </g>
+    <g
+       id="g5270"
+       transform="translate(-1018.2948,-614.99559)">
+      <rect
+         y="749.04144"
+         x="334.70142"
+         height="40.927238"
+         width="123.87359"
+         id="rect5201"
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0"
+         y="773.96124"
+         x="335.52921"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+           y="773.96124"
+           x="335.52921"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6-7"
+           sodipodi:role="line">Portability format</tspan></text>
+    </g>
+    <g
+       id="g5275"
+       transform="translate(-1018.2948,-616.32892)">
+      <rect
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5203"
+         width="123.87359"
+         height="40.927238"
+         x="334.0632"
+         y="801.04144" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3"
+         y="825.94415"
+         x="337.59546"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+           y="825.94415"
+           x="337.59546"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5"
+           sodipodi:role="line">Data geolocation</tspan></text>
+    </g>
+    <g
+       id="g5302"
+       transform="translate(-1018.2948,-615.66225)">
+      <rect
+         y="851.04144"
+         x="334.0632"
+         height="40.927238"
+         width="123.87359"
+         id="rect5205"
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2"
+         y="866.49347"
+         x="395.79065"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="866.49347"
+           x="397.97815"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2"
+           sodipodi:role="line">Data geolocation </tspan><tspan
+           id="tspan4548"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+           y="888.36847"
+           x="395.79065"
+           sodipodi:role="line">selection</tspan></text>
+    </g>
+    <g
+       id="g5290"
+       transform="translate(-1018.2948,-616.99559)">
+      <rect
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5207"
+         width="123.87359"
+         height="40.927238"
+         x="334.0632"
+         y="903.04144" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1"
+         y="929.44379"
+         x="334.95935"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+           y="929.44379"
+           x="334.95935"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3"
+           sodipodi:role="line">Data transfer cost</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -719.63259,154.50947 35.92446,0"
+       id="path5346"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -719.63259,205.17614 35.92447,0"
+       id="path5348"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -719.63259,255.84282 35.92447,0"
+       id="path5350"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5334"
+       d="m -260.01319,387.91061 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-8"
+       width="123.87359"
+       height="40.927238"
+       x="-224.6122"
+       y="367.44699" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-200.88402"
+       y="392.35397"
+       id="text4144-9-7-5-1-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3"
+         x="-200.88402"
+         y="392.35397"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Availability</tspan></text>
+    <rect
+       y="418.11368"
+       x="-224.6122"
+       height="40.927238"
+       width="123.87359"
+       id="rect5191"
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-213.50914"
+       y="442.92667"
+       id="text4144-9-7-5-1-6-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1"
+         x="-213.50914"
+         y="442.92667"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Response time</tspan></text>
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5193"
+       width="123.87359"
+       height="40.927238"
+       x="-224.6122"
+       y="468.78036" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-205.13512"
+       y="493.61472"
+       id="text4144-9-7-5-1-6-0-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1"
+         x="-205.13512"
+         y="493.61472"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Throughput</tspan></text>
+    <rect
+       y="519.44696"
+       x="-224.6122"
+       height="40.927238"
+       width="123.87359"
+       id="rect5195"
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-197.74803"
+       y="544.35394"
+       id="text4144-9-7-5-1-6-0-4-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8"
+         x="-197.74803"
+         y="544.35394"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Scalability</tspan></text>
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5197"
+       width="123.87359"
+       height="40.927238"
+       x="-224.6122"
+       y="570.11365" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-197.36778"
+       y="595.02063"
+       id="text4144-9-7-5-1-6-0-4-6-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0"
+         x="-197.36778"
+         y="595.02063"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Reliability</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5336"
+       d="m -260.01319,438.5773 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5338"
+       d="m -260.01319,489.24396 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5340"
+       d="m -260.01319,539.91061 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5342"
+       d="m -260.20465,590.5773 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5354"
+       d="m -259.67027,387.73454 0,202.9335"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.16310847px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -719.82405,306.50947 35.92447,0"
+       id="path5352"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5193-7"
+       width="123.87359"
+       height="40.927238"
+       x="-498.9758"
+       y="-62.653248" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-488.02225"
+       y="-36.263721"
+       id="text4144-9-7-5-1-6-0-4-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-9"
+         x="-488.02225"
+         y="-36.263721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Authentication</tspan></text>
+    <rect
+       y="-11.986574"
+       x="-498.9758"
+       height="40.927238"
+       width="123.87359"
+       id="rect5195-1"
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-483.9805"
+       y="12.822142"
+       id="text4144-9-7-5-1-6-0-4-6-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-5"
+         x="-483.9805"
+         y="12.822142"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Storage space</tspan></text>
+    <g
+       id="g5259-6"
+       transform="translate(-833.03897,-610.36134)">
+      <rect
+         y="649.04144"
+         x="334.0632"
+         height="40.927238"
+         width="123.87359"
+         id="rect5197-1"
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-8"
+         y="673.87579"
+         x="340.09058"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+           y="673.87579"
+           x="340.09058"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-3"
+           sodipodi:role="line">Backup method</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -534.37674,109.81038 35.92446,0"
+       id="path5344-9"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="89.346756"
+       x="-498.9758"
+       height="40.927238"
+       width="123.87359"
+       id="rect5199-1"
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-437.26968"
+       y="103.24361"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-02"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-73"
+         x="-435.08218"
+         y="103.24361"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Backup </tspan><tspan
+         sodipodi:role="line"
+         x="-437.26968"
+         y="125.11861"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan5209-1">frequency</tspan></text>
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5201-9"
+       width="123.87359"
+       height="40.927238"
+       x="-498.33755"
+       y="140.01341" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-497.5098"
+       y="164.93321"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-1"
+         x="-497.5098"
+         y="164.93321"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Portability format</tspan></text>
+    <g
+       id="g5275-7"
+       transform="translate(-833.03897,-610.36135)">
+      <rect
+         style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5203-3"
+         width="123.87359"
+         height="40.927238"
+         x="334.0632"
+         y="801.04144" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-0"
+         y="825.94415"
+         x="337.59546"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+           y="825.94415"
+           x="337.59546"
+           id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-3"
+           sodipodi:role="line">Data geolocation</tspan></text>
+    </g>
+    <rect
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5205-8"
+       width="123.87359"
+       height="40.927238"
+       x="-498.9758"
+       y="241.34676" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-437.24832"
+       y="256.79877"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-10"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-7"
+         x="-435.06082"
+         y="256.79877"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Data geolocation </tspan><tspan
+         sodipodi:role="line"
+         x="-437.24832"
+         y="278.67377"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4548-1">selection</tspan></text>
+    <rect
+       y="292.0134"
+       x="-498.9758"
+       height="40.927238"
+       width="123.87359"
+       id="rect5207-7"
+       style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-498.07962"
+       y="318.41574"
+       id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-0"
+         x="-498.07962"
+         y="318.41574"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Data transfer cost</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5338-3"
+       d="m -534.37674,-42.189625 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5340-8"
+       d="m -534.37674,8.4770252 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path5342-7"
+       d="m -534.5682,59.143715 35.92447,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -534.37674,160.47703 35.92446,0"
+       id="path5346-8"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -534.37674,211.14367 35.92447,0"
+       id="path5348-4"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -534.37674,261.81037 35.92447,0"
+       id="path5350-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -534.5682,312.47707 35.92447,0"
+       id="path5352-0"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="464.75143"
+       x="1.0628502"
+       height="200.71942"
+       width="743.28516"
+       id="rect4731"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.48475504;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4401"
+       y="440.33917"
+       x="-414.33676"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="440.33917"
+         x="-414.33676"
+         id="tspan4403"
+         sodipodi:role="line">SLA Identifier</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4405"
+       y="458.28488"
+       x="-335.81409"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         id="tspan4409"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="458.28488"
+         x="-335.81409"
+         sodipodi:role="line">Service definition</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4411"
+       y="476.23947"
+       x="-377.75345"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="476.23947"
+         x="-377.75345"
+         id="tspan4413"
+         sodipodi:role="line">Parties</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4432"
+       y="530.07593"
+       x="-323.06433"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="530.07593"
+         x="-323.06433"
+         id="tspan4434"
+         sodipodi:role="line">Period</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4436"
+       y="494.18491"
+       x="-307.8782"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         id="tspan4438"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="494.18491"
+         x="-307.8782"
+         sodipodi:role="line">Billing method</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4440"
+       y="512.13025"
+       x="-341.29401"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="512.13025"
+         x="-341.29401"
+         id="tspan4442"
+         sodipodi:role="line">Price</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4444"
+       y="565.96735"
+       x="-285.89569"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="565.96735"
+         x="-285.89569"
+         id="tspan4446"
+         sodipodi:role="line">Violations</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4448"
+       y="548.02167"
+       x="-304.83459"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="548.02167"
+         x="-304.83459"
+         id="tspan4450"
+         sodipodi:role="line">Penalties</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4481"
+       y="583.91302"
+       x="-267.78561"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="583.91302"
+         x="-267.78561"
+         id="tspan4483"
+         sodipodi:role="line">Availability</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4485"
+       y="619.80444"
+       x="-231.91608"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="619.80444"
+         x="-231.91608"
+         id="tspan4487"
+         sodipodi:role="line">Response time</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4489"
+       y="601.85876"
+       x="-249.79527"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="601.85876"
+         x="-249.79527"
+         id="tspan4491"
+         sodipodi:role="line">Throughput</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4493"
+       y="655.68695"
+       x="-195.58069"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="655.68695"
+         x="-195.58069"
+         id="tspan4495"
+         sodipodi:role="line">Scalability</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4497"
+       y="637.75012"
+       x="-213.68646"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="637.75012"
+         x="-213.68646"
+         id="tspan4499"
+         sodipodi:role="line">Reliability</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-176.63744"
+       y="673.64154"
+       id="text4144-9-7-5-1-6-0-4-3-6"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4146-9-2-0-6-3-1-1-9-4"
+         x="-176.63744"
+         y="673.64154"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Authentication</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4522"
+       y="691.58722"
+       x="-158.99734"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="691.58722"
+         x="-158.99734"
+         id="tspan4524"
+         sodipodi:role="line">Password management</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-122.5379"
+       y="727.47864"
+       id="text4526"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4528"
+         x="-122.5379"
+         y="727.47864"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Privacy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-140.76762"
+       y="709.53296"
+       id="text4526-1"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4528-6"
+         x="-140.76762"
+         y="709.53296"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Data protection</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4548"
+       y="745.42438"
+       x="-104.3081"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="745.42438"
+         x="-104.3081"
+         id="tspan4550"
+         sodipodi:role="line">Data integrity</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-86.185211"
+       y="763.36969"
+       id="text4552"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4554"
+         x="-86.185211"
+         y="763.36969"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Confidentiality</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4573"
+       y="781.30682"
+       x="-67.97261"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="781.30682"
+         x="-67.97261"
+         id="tspan4575"
+         sodipodi:role="line">Storage space</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4581"
+       y="871.04431"
+       x="23.299849"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="871.04431"
+         x="23.299849"
+         id="tspan4583"
+         sodipodi:role="line">Backup method</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4585"
+       y="888.98993"
+       x="104.57397"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         id="tspan4589"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="888.98993"
+         x="104.57397"
+         sodipodi:role="line">Backup frequency</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4591"
+       y="835.15289"
+       x="-13.15956"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="835.15289"
+         x="-13.15956"
+         id="tspan4593"
+         sodipodi:role="line">Backup portability format</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4599"
+       y="799.26141"
+       x="-49.619026"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="799.26141"
+         x="-49.619026"
+         id="tspan4601"
+         sodipodi:role="line">Data geolocation</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4603"
+       y="817.20715"
+       x="59.323593"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         id="tspan4607"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="817.20715"
+         x="59.323593"
+         sodipodi:role="line">Data geolocation selection</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4609"
+       y="853.09857"
+       x="5.0701098"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="853.09857"
+         x="5.0701098"
+         id="tspan4611"
+         sodipodi:role="line">Data transfer cost</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.70382315;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.8152925, 0.70382313;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 6.0609151,614.38241 65.0515139,0"
+       id="path4641"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 6.0609157,607.03852 0,7.82867"
+       id="path4643"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4645"
+       d="m 70.923134,606.91226 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4647"
+       d="m 84.06091,614.38241 114.56746,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93404001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.73616, 0.93404;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4649"
+       d="m 84.06092,607.03852 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 199.57616,606.91226 0,7.82867"
+       id="path4651"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93404001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.73616, 0.93404;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 214.06091,614.38241 114.56746,0"
+       id="path4653"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 214.06092,607.03852 0,7.82867"
+       id="path4655"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4657"
+       d="m 329.57616,606.91226 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4659"
+       d="m 342.06091,614.38241 137.80097,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.02437973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.09751884, 1.02437971;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4661"
+       d="m 342.06092,607.03852 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 479.57616,606.91226 0,7.82867"
+       id="path4663"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.12289464;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.49157832, 1.12289458;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 494.06091,614.38241 165.58016,0"
+       id="path4665"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 494.06092,607.03852 0,7.82867"
+       id="path4667"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4669"
+       d="m 659.57616,606.91226 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4671"
+       y="638.45721"
+       x="41.300522"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="638.45721"
+         x="41.300522"
+         id="tspan4673"
+         sodipodi:role="line">General</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="660.33221"
+         x="41.300522"
+         sodipodi:role="line"
+         id="tspan4676">Information</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="137.30052"
+       y="638.45721"
+       id="text4699"
+       sodipodi:linespacing="125%"><tspan
+         id="tspan4703"
+         sodipodi:role="line"
+         x="137.30052"
+         y="638.45721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Business</tspan><tspan
+         sodipodi:role="line"
+         x="137.30052"
+         y="657.20721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4707">Rules</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4709"
+       y="638.45721"
+       x="271.30054"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4713"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="638.45721"
+         x="271.30054"
+         sodipodi:role="line">Performance</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="657.20721"
+         x="271.30054"
+         sodipodi:role="line"
+         id="tspan4717">Guarantees</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="409.30054"
+       y="638.45721"
+       id="text4719"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="409.30054"
+         y="638.45721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4721">Security</tspan><tspan
+         id="tspan4723"
+         sodipodi:role="line"
+         x="409.30054"
+         y="657.20721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Guarantees</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4725"
+       y="638.45721"
+       x="573.30054"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4727"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="638.45721"
+         x="573.30054"
+         sodipodi:role="line">Data management</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="657.20721"
+         x="573.30054"
+         sodipodi:role="line"
+         id="tspan4729">Guarantees</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-666.88916"
+       y="696.88843"
+       id="text4735"
        sodipodi:linespacing="125%"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
-         id="tspan4146"
-         x="340.58411"
-         y="1017.2231"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Cloud SLA</tspan></text>
-    <g
-       id="g5427"
-       transform="translate(84.791751,47.684774)"
+         id="tspan4737"
+         x="-666.88916"
+         y="696.88843"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">SLA Identifier</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-588.36633"
+       y="714.83423"
+       id="text4739"
+       sodipodi:linespacing="125%"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90">
-      <g
-         id="g4795">
-        <g
-           id="g4699"
-           transform="translate(-0.57142639,0)">
-          <rect
-             y="21.898586"
-             x="333.7775"
-             height="40.927238"
-             width="123.87359"
-             id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9"
-             style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9"
-             y="48.228294"
-             x="345.00018"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="48.228294"
-               x="345.00018"
-               id="tspan4146-9"
-               sodipodi:role="line">SLA Identifier</tspan></text>
-        </g>
-        <g
-           id="g4686"
-           transform="translate(0.14286804,-0.23809814)">
-          <rect
-             y="73.041443"
-             x="333.0632"
-             height="40.927238"
-             width="123.87359"
-             id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9-9"
-             style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7"
-             y="88.472107"
-             x="394.88892"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="88.472107"
-               x="397.07642"
-               id="tspan4146-9-2"
-               sodipodi:role="line">Service </tspan><tspan
-               id="tspan4675"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="110.34711"
-               x="394.88892"
-               sodipodi:role="line">Definition</tspan></text>
-        </g>
-        <g
-           id="g4677"
-           transform="translate(-0.71427917,-52)">
-          <rect
-             y="174.61287"
-             x="333.92035"
-             height="40.927238"
-             width="123.87359"
-             id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-9-6-6"
-             style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1"
-             y="200.98103"
-             x="372.7175"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="200.98103"
-               x="372.7175"
-               id="tspan4146-9-2-0-6"
-               sodipodi:role="line">Parties</tspan></text>
-        </g>
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 297.5916,40.219346 35.92446,0"
-           id="path4729"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 297.5916,93.266964 35.92446,0"
-           id="path4729-1"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 297.5916,143.07649 35.92446,0"
-           id="path4729-1-7-2"
-           inkscape:connector-curvature="0" />
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4813"
-         d="m 298,40.219347 0,102.857143"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4815"
-         d="m 298.29351,92.969824 -43.18402,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4815-9"
-         d="m 299.40066,306.68688 -43.18402,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         transform="translate(1.7400687,-23.214289)"
-         id="g4618">
-        <rect
-           style="fill:#f3ff92;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-0"
-           width="123.87359"
-           height="40.927238"
-           x="131.63463"
-           y="95.470016" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="193.46034"
-           y="110.92204"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-5"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="193.46034"
-             y="110.92204"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-             id="tspan4548-0">General</tspan><tspan
-             sodipodi:role="line"
-             x="193.46034"
-             y="132.79704"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-             id="tspan4616">Information</tspan></text>
-      </g>
-      <g
-         transform="translate(0.4940818,95.741127)"
-         id="g5042">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5"
-           width="123.87359"
-           height="40.927238"
-           x="132.88062"
-           y="190.48213" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="194.95413"
-           y="216.87166"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-7"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="194.95413"
-             y="216.87166"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-             id="tspan4548-2">Business rules</tspan></text>
-      </g>
-      <g
-         id="g5121">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5-6-7"
-           width="123.87359"
-           height="40.927238"
-           x="334.043"
-           y="386.4111" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="372.60944"
-           y="412.728"
-           id="text4144-9-7-5"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4146-9-2-0"
-             x="372.60944"
-             y="412.728"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Period</tspan></text>
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4729-1-7"
-         d="m 298.66223,206.49903 35.92446,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         transform="translate(-0.22580945,0)"
-         id="g4967">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7"
-           width="123.87359"
-           height="40.927238"
-           x="334.31198"
-           y="186.03542" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="396.15479"
-           y="210.93813"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-7-9"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             x="396.15479"
-             y="210.93813"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-             id="tspan4548-2-1">Billing method</tspan></text>
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4729-1-7-4"
-         d="m 298.66223,256.63786 35.92446,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         transform="translate(-0.03806545,1.7936401)"
-         id="g4962">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7"
-           width="123.87359"
-           height="40.927238"
-           x="334.12424"
-           y="234.3806" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="378.38159"
-           y="260.74875"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-7"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-2"
-             x="378.38159"
-             y="260.74875"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Price</tspan></text>
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4729-1-7-49"
-         d="m 298.66223,306.77655 35.92447,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         transform="translate(-0.89087845,-3.8291016)"
-         id="g4957">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5"
-           width="123.87359"
-           height="40.927238"
-           x="334.97705"
-           y="290.14203" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="362.38809"
-           y="316.53156"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-6"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-9"
-             x="362.38809"
-             y="316.53156"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Violations</tspan></text>
-      </g>
-      <g
-         transform="translate(-1.9416295,-12)"
-         id="g4952">
-        <rect
-           style="fill:#dbdeff;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-1-5-7-7-5-6"
-           width="123.87359"
-           height="40.927238"
-           x="336.0278"
-           y="348.45172" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="367.23706"
-           y="374.84125"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-8-6-9"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4-9-2"
-             x="367.23706"
-             y="374.84125"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Penalties</tspan></text>
-      </g>
-      <path
-         inkscape:connector-curvature="0"
-         id="path4729-1-7-49-6"
-         d="m 298.66223,356.91534 35.92447,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4729-1-7-49-6-3"
-         d="m 298.47077,406.87472 35.92447,0"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path5017"
-         d="m 299.00515,206.35945 0,200.36479"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.15572369px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <g
-         id="g5356">
-        <path
-           inkscape:connector-curvature="0"
-           id="path5334"
-           d="m 298.66223,467.50506 35.92446,0"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <g
-           id="g5239">
-          <rect
-             y="447.04144"
-             x="334.0632"
-             height="40.927238"
-             width="123.87359"
-             id="rect4136-5-7-9-6-7-3-7-1-6-3-4-8-7-8"
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6"
-             y="471.94843"
-             x="357.79138"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="471.94843"
-               x="357.79138"
-               id="tspan4146-9-2-0-6-3"
-               sodipodi:role="line">Availability</tspan></text>
-        </g>
-        <g
-           id="g5244"
-           transform="translate(0,0.66668701)">
-          <rect
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             id="rect5191"
-             width="123.87359"
-             height="40.927238"
-             x="334.0632"
-             y="497.04144" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0"
-             y="521.85443"
-             x="345.16626"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="521.85443"
-               x="345.16626"
-               id="tspan4146-9-2-0-6-3-1"
-               sodipodi:role="line">Response time</tspan></text>
-        </g>
-        <g
-           id="g5249"
-           transform="translate(0,1.3333435)">
-          <rect
-             y="547.04144"
-             x="334.0632"
-             height="40.927238"
-             width="123.87359"
-             id="rect5193"
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4"
-             y="573.43097"
-             x="345.01672"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="573.43097"
-               x="345.01672"
-               id="tspan4146-9-2-0-6-3-1-1"
-               sodipodi:role="line">Authentication</tspan></text>
-        </g>
-        <g
-           id="g5254"
-           transform="translate(0,2)">
-          <rect
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             id="rect5195"
-             width="123.87359"
-             height="40.927238"
-             x="334.0632"
-             y="597.04144" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6"
-             y="621.85016"
-             x="349.05847"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="621.85016"
-               x="349.05847"
-               id="tspan4146-9-2-0-6-3-1-1-8"
-               sodipodi:role="line">Storage space</tspan></text>
-        </g>
-        <g
-           id="g5259"
-           transform="translate(0,0.66668701)">
-          <rect
-             y="649.04144"
-             x="334.0632"
-             height="40.927238"
-             width="123.87359"
-             id="rect5197"
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1"
-             y="673.87579"
-             x="340.09058"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="673.87579"
-               x="340.09058"
-               id="tspan4146-9-2-0-6-3-1-1-8-0"
-               sodipodi:role="line">Backup method</tspan></text>
-        </g>
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 298.66223,720.83841 35.92446,0"
-           id="path5344"
-           inkscape:connector-curvature="0" />
-        <g
-           id="g5264"
-           transform="translate(0,-0.66665649)">
-          <rect
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             id="rect5199"
-             width="123.87359"
-             height="40.927238"
-             x="334.0632"
-             y="701.04144" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1-3"
-             y="714.93829"
-             x="395.76929"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="714.93829"
-               x="397.95679"
-               id="tspan4146-9-2-0-6-3-1-1-8-0-6"
-               sodipodi:role="line">Backup </tspan><tspan
-               id="tspan5209"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="736.81329"
-               x="395.76929"
-               sodipodi:role="line">frequency</tspan></text>
-        </g>
-        <g
-           id="g5270"
-           transform="translate(0,2)">
-          <rect
-             y="749.04144"
-             x="334.70142"
-             height="40.927238"
-             width="123.87359"
-             id="rect5201"
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1-3-0"
-             y="773.96124"
-             x="335.52921"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="773.96124"
-               x="335.52921"
-               id="tspan4146-9-2-0-6-3-1-1-8-0-6-7"
-               sodipodi:role="line">Portability format</tspan></text>
-        </g>
-        <g
-           id="g5275"
-           transform="translate(0,0.66667175)">
-          <rect
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             id="rect5203"
-             width="123.87359"
-             height="40.927238"
-             x="334.0632"
-             y="801.04144" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1-3-0-3"
-             y="825.94415"
-             x="337.59546"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="825.94415"
-               x="337.59546"
-               id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5"
-               sodipodi:role="line">Data geolocation</tspan></text>
-        </g>
-        <g
-           id="g5302"
-           transform="translate(0,1.3333435)">
-          <rect
-             y="851.04144"
-             x="334.0632"
-             height="40.927238"
-             width="123.87359"
-             id="rect5205"
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2"
-             y="866.49347"
-             x="395.79065"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="866.49347"
-               x="397.97815"
-               id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2"
-               sodipodi:role="line">Data geolocation </tspan><tspan
-               id="tspan4548"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
-               y="888.36847"
-               x="395.79065"
-               sodipodi:role="line">selection</tspan></text>
-        </g>
-        <g
-           id="g5290">
-          <rect
-             style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             id="rect5207"
-             width="123.87359"
-             height="40.927238"
-             x="334.0632"
-             y="903.04144" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1"
-             y="929.44379"
-             x="334.95935"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-               y="929.44379"
-               x="334.95935"
-               id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3"
-               sodipodi:role="line">Data transfer cost</tspan></text>
-        </g>
-        <path
-           inkscape:connector-curvature="0"
-           id="path5336"
-           d="m 298.66223,518.17175 35.92446,0"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path5338"
-           d="m 298.66223,568.83841 35.92447,0"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path5340"
-           d="m 298.66223,619.50506 35.92447,0"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path5342"
-           d="m 298.47077,670.17175 35.92447,0"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 298.66223,771.50506 35.92446,0"
-           id="path5346"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 298.66223,822.17173 35.92447,0"
-           id="path5348"
-           inkscape:connector-curvature="0" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 298.66223,872.83841 35.92447,0"
-           id="path5350"
-           inkscape:connector-curvature="0" />
-        <path
-           inkscape:connector-curvature="0"
-           id="path5354"
-           d="m 299.00515,467.32899 0,456.18593"
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.74387062px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-        <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.82441008px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 298.47077,923.50506 35.92447,0"
-           id="path5352"
-           inkscape:connector-curvature="0" />
-      </g>
-      <path
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 299.40066,695.50506 -43.18402,0"
-         id="path5425"
-         inkscape:connector-curvature="0" />
-      <g
-         transform="translate(11.311495,71.064697)"
-         id="g5295">
-        <rect
-           style="fill:#b0ffa7;fill-opacity:1;stroke:#000000;stroke-width:0.64238501;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="rect5217"
-           width="123.87359"
-           height="40.927238"
-           x="122.0632"
-           y="603.97675" />
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="184.23071"
-           y="617.94196"
-           id="text4144-9-7-5-1-6-0-4-6-1-3-0-3-2-1-1"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan4146-9-2-0-6-3-1-1-8-0-6-7-5-2-3-4"
-             x="186.41821"
-             y="617.94196"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Quality </tspan><tspan
-             sodipodi:role="line"
-             x="184.23071"
-             y="639.81696"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
-             id="tspan5237"><tspan
-   style="text-align:center;text-anchor:middle"
-   id="tspan5285">guarantee</tspan>s</tspan></text>
-      </g>
-    </g>
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="-588.36633"
+         y="714.83423"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4741">Service definition</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-630.30579"
+       y="732.78882"
+       id="text4743"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4745"
+         x="-630.30579"
+         y="732.78882"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Parties</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-575.61652"
+       y="786.62537"
+       id="text4747"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4749"
+         x="-575.61652"
+         y="786.62537"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Period</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-560.43036"
+       y="750.73431"
+       id="text4751"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="-560.43036"
+         y="750.73431"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4753">Billing method</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-593.84625"
+       y="768.67969"
+       id="text4755"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4757"
+         x="-593.84625"
+         y="768.67969"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Price</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-538.44781"
+       y="822.51678"
+       id="text4759"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4761"
+         x="-538.44781"
+         y="822.51678"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Violations</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-557.38678"
+       y="804.57111"
+       id="text4763"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4765"
+         x="-557.38678"
+         y="804.57111"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Penalties</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-520.33771"
+       y="840.46246"
+       id="text4767"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4769"
+         x="-520.33771"
+         y="840.46246"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Availability</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-484.46817"
+       y="876.35388"
+       id="text4771"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4773"
+         x="-484.46817"
+         y="876.35388"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Response time</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-502.34738"
+       y="858.4082"
+       id="text4775"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4777"
+         x="-502.34738"
+         y="858.4082"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Throughput</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-448.13281"
+       y="912.23639"
+       id="text4779"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4781"
+         x="-448.13281"
+         y="912.23639"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Scalability</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-466.23859"
+       y="894.29956"
+       id="text4783"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4785"
+         x="-466.23859"
+         y="894.29956"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Reliability</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       sodipodi:linespacing="125%"
+       id="text4787"
+       y="930.19098"
+       x="-429.18958"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="930.19098"
+         x="-429.18958"
+         id="tspan4789"
+         sodipodi:role="line">Authentication</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-411.5495"
+       y="948.13666"
+       id="text4791"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4793"
+         x="-411.5495"
+         y="948.13666"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Password management</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       sodipodi:linespacing="125%"
+       id="text4795"
+       y="984.02808"
+       x="-375.09012"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="984.02808"
+         x="-375.09012"
+         id="tspan4797"
+         sodipodi:role="line">Privacy</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       sodipodi:linespacing="125%"
+       id="text4799"
+       y="966.0824"
+       x="-393.31982"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="966.0824"
+         x="-393.31982"
+         id="tspan4801"
+         sodipodi:role="line">Data protection</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-356.86032"
+       y="1001.9739"
+       id="text4803"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4805"
+         x="-356.86032"
+         y="1001.9739"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Data integrity</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       sodipodi:linespacing="125%"
+       id="text4807"
+       y="1019.9191"
+       x="-338.73746"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'"
+         y="1019.9191"
+         x="-338.73746"
+         id="tspan4809"
+         sodipodi:role="line">Confidentiality</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-320.52484"
+       y="1037.8563"
+       id="text4811"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4813"
+         x="-320.52484"
+         y="1037.8563"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Storage space</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-229.25243"
+       y="1127.5933"
+       id="text4815"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4817"
+         x="-229.25243"
+         y="1127.5933"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Backup method</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-147.97826"
+       y="1145.5388"
+       id="text4819"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="-147.97826"
+         y="1145.5388"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4821">Backup frequency</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-265.71182"
+       y="1091.7021"
+       id="text4823"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4825"
+         x="-265.71182"
+         y="1091.7021"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Backup portability format</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-302.17126"
+       y="1055.8107"
+       id="text4827"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4829"
+         x="-302.17126"
+         y="1055.8107"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Data geolocation</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-193.22865"
+       y="1073.7565"
+       id="text4831"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="-193.22865"
+         y="1073.7565"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4833">Data geolocation selection</tspan></text>
+    <text
+       transform="matrix(0.71263606,-0.70153392,0.70153392,0.71263606,0,0)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-247.48216"
+       y="1109.6476"
+       id="text4835"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4837"
+         x="-247.48216"
+         y="1109.6476"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face'">Data transfer cost</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4839"
+       d="m 6.0609151,974.38241 65.0515139,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.70382315;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.8152925, 0.70382313;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4841"
+       d="m 6.0609157,967.03852 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 70.923134,966.91226 0,7.82867"
+       id="path4843"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93404001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.73616, 0.93404;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 84.06091,974.38241 114.56746,0"
+       id="path4845"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 84.06092,967.03852 0,7.82867"
+       id="path4847"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4849"
+       d="m 199.57616,966.91226 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4851"
+       d="m 214.06091,974.38241 114.56746,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.93404001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.73616, 0.93404;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4853"
+       d="m 214.06092,967.03852 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 329.57616,966.91226 0,7.82867"
+       id="path4855"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.02437973;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.09751884, 1.02437971;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 342.06091,974.38241 137.80097,0"
+       id="path4857"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 342.06092,967.03852 0,7.82867"
+       id="path4859"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4861"
+       d="m 479.57616,966.91226 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4863"
+       d="m 494.06091,974.38241 165.58016,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.12289464;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4.49157832, 1.12289458;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4865"
+       d="m 494.06092,967.03852 0,7.82867"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.77210987;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.08843946, 0.77210987;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 659.57616,966.91226 0,7.82867"
+       id="path4867"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="41.300522"
+       y="998.45721"
+       id="text4869"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan4871"
+         x="41.300522"
+         y="998.45721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">General</tspan><tspan
+         id="tspan4873"
+         sodipodi:role="line"
+         x="41.300522"
+         y="1017.2073"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Information</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4875"
+       y="998.45721"
+       x="137.30052"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="998.45721"
+         x="137.30052"
+         sodipodi:role="line"
+         id="tspan4877">Business</tspan><tspan
+         id="tspan4879"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="1017.2073"
+         x="137.30052"
+         sodipodi:role="line">Rules</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="271.30054"
+       y="998.45721"
+       id="text4881"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="271.30054"
+         y="998.45721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4883">Performance</tspan><tspan
+         id="tspan4885"
+         sodipodi:role="line"
+         x="271.30054"
+         y="1017.2073"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Guarantees</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4887"
+       y="998.45721"
+       x="409.30054"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         id="tspan4889"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="998.45721"
+         x="409.30054"
+         sodipodi:role="line">Security</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="1017.2073"
+         x="409.30054"
+         sodipodi:role="line"
+         id="tspan4891">Guarantees</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="573.30054"
+       y="998.45721"
+       id="text4893"
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="573.30054"
+         y="998.45721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4895">Data management</tspan><tspan
+         id="tspan4897"
+         sodipodi:role="line"
+         x="573.30054"
+         y="1017.2073"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle">Guarantees</tspan></text>
   </g>
 </svg>
