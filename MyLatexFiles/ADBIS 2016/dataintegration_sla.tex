@@ -18,3 +18,32 @@ Thus, the query plan executor decides the best location to execute the sub-query
 Service level agreement (SLA) contracts have been widely adopted in the context of Cloud computing. Research contributions mainly concern (i) SLA negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations.
 \cite{Nie07} proposed a data integration model guided by SLAs in a grid environment. Their architecture is subdivided into four parts: (i) a SLA-based resource description model describes the database resources; (ii) a SLA-based query model normalizes the different queries based on the SLA; (iii) a SLA-based matching algorithm selects the databases; and finally (iv) a SLA-based evaluation model obtains the final query solution.
 Apart from our previous work~\cite{Bennani2014}, to the best of our knowledge, there is no evidence of researches on SLA applied to data integration in a (multi-)cloud context.
+
+\subsection{SLA guided data integration}
+%Given a user query, a set of user preferences associated to it, cloud providers and services, our SLA guided data integration process can be divided in four steps. %The figure 1 illustrates our data integration approach.
+%
+%\begin{figure}[h!]
+%\center
+%\includegraphics[scale=0.7]{general_approach.PNG}\label{fig:approach}
+%\caption{SLA-guided data integration approach}
+%\end{figure}
+
+%\underline{The first phase} is the SLA derivation in which a SLA for the user request is created. It consists in looking for a (stored, integrated) SLA derived for a similar request. If a similar SLA is found, the request is forwarded to the query evaluation phase. Otherwise, a new SLA to the integration (called integrated SLA) is produced. The query is expressed as a service composition with associated user preferences. In \underline{the second phase}, service composition, the query is rewritten in terms of different services considering the user preferences and the SLAs of each service involved in the composition. The rewriting result is stored for further uses. \underline{Finally}, in the query evaluation phase, the query is optimized in terms of user preferences and SLAs concerning the consumed resources and the economic cost of the query. Once optimized, the query processed in the execution engine. In addition, we are assuming a SLA management module and monitoring system responsible to verify if the SLA contracts are being respected. Firstly, we have worked on the phases two in order to have an algorithm that will allow us to run important experiments to evaluate our approach. 
+Given a user query, a set of user preferences associated to it, cloud providers and services, our SLA guided data integration process can be divided in four steps.
+\bigskip
+
+\noindent \underline{SLA derivation}. This step creates an \textsl{integrated SLA} that includes a set of measures corresponding to the user preferences. The \textsl{integrated SLA} guides the query evaluation, and the way results are computed and delivered. \\
+\underline{Filtering data services}. The \textsl{integrated SLA} is used (i) to filter previous SLA derived for a similar request in order to reuse previous results; or (ii) to filter possible data services that can be used for answering the query. \\
+\underline{Query rewriting}. Given a set of data services that can potentially provide data for integrating the query result, a set of service compositions is generated according to the \textsl{integrated SLA} and the agreed SLA of each data service. \\
+\underline{Integrating a query result}. The service compositions are executed in one or several clouds where the user has a subscription. The execution cost of service compositions must fulfill the \textsl{integrated SLA} (that expresses user requirements). Here, the clouds resources needed to execute the composition and how to use them is decided taking in consideration the economic cost determined by the data to be transferred, the number of external calls to services, data storage and delivery cost.
+\bigskip
+
+Although \textit{the SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration, the focus in this paper is our query rewriting algorithm which deals with user preferences and SLAs exported by different cloud providers and data services. Here, we are assuming that there is a mechanism responsible to extract the services' quality aspects from SLA, and to provide this information as input to the algorithm. The figure~\ref{fig:cloudsla} illustrates the structure of SLA and its measures that are used inside our approach.
+
+%The first phase is an open issue for dealing with SLAs and particularly for adding quality dimensions to  data integration. The problem is complex because SLA describe different elements participating in the data integration process: data services, cloud services at the different levels of the architecture (i.e., IaaS, PaaS, SaaS), data consumers subscriptions to cloud providers. The SLAs contain measures related to the way services are provided but also related to the data they provide. All these aspects must be considered for matching resources (i.e., services) with data consumers preferences. As shown in the following section and in our study SLA models and languages have been proposed. In contrast  efficient preferences and SLAs matching algorithms need to be proposed to compute derived SLAs. Concerning the other data integration phases, they have been partially addressed by existing works, where some quality dimensions are considered (e.g., data privacy). In our vision there are open issues to be addressed in order to have solutions that consider SLA in order to enhance data integration in multi-cloud environments. 
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.57]{Cloud_SLA.pdf}
+\caption{Cloud SLA}\label{fig:cloudsla}
+\end{figure}
