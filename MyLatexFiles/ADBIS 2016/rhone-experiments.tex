@@ -24,22 +24,34 @@ experiment, it is easily to identify that the algorithm shares the same problem
 as existing query rewriting approaches using views (REF WORK): increasing the
 processing time when the size of the query and the number of concrete services increase.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.4]{exp2.png}
-\caption{Query rewriting evaluation.}\label{fig02}
-\end{figure} 
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=0.4]{exp2.png}
+%\caption{Query rewriting evaluation.}\label{fig02}
+%\end{figure} 
 
 The \textit{experiment 2} presents the results considering our contribution regarding the use of user preferences and services' quality aspects extracted from SLAs to guide the service selection and query rewriting.
 \textit{Test 1} and \textit{Test 2} include queries with six abstract services. 
 The important difference between them is use of quality measures guiding the process. \textit{Test 1} do not consider quality measures as any other existing rewriting approach. On the other hand, \textit{Test 2} considers them.
 The figure~\ref{fig02} shows our results. 
 
-\begin{figure}[!h]
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[scale=0.4]{exp3.png}
+%\caption{Query rewriting evaluation.}\label{fig03}
+%\end{figure} 
+
+
+\begin{figure}%
 \centering
-\includegraphics[scale=0.4]{exp3.png}
-\caption{Query rewriting evaluation.}\label{fig03}
-\end{figure} 
+\parbox{2.2in}{\includegraphics[scale=0.30]{exp2.png}}% 
+\qquad
+\begin{minipage}{2in}%
+\includegraphics[scale=0.30]{exp3.png}
+\end{minipage}%
+\caption{Here are two figures side-by-side.}%
+\label{fig:1figs}%
+\end{figure}
 
 Analyzing the \textit{experiment 2} (figures~\ref{fig02} and \ref{fig03}), the results while considering the quality measures are promising.  
 %The \textit{Rhone} presents a better performance, decreasing the processing time and 
