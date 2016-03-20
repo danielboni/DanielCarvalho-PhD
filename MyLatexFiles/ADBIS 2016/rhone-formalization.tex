@@ -333,7 +333,7 @@ variables in concrete services can be mapped to local variables in the query if 
 
 The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. 
 The algorithm iterates on each service in $\bigLS$ (line 3), verifying if the mappings rules are being satisfied (line 4). For the ones which satisfies the mapping rules, a fresh copy of the abstract services in the concrete service is done in $G$(lines 7-9) and a copy of the service quality measures in done in $P$ (lines 10-12). Then,
-a CSD is created (line 13), and added to the final list os CSDs $\bigLCSD$ (line 14).
+a CSD is created (line 13), and added to the final list of CSDs $\bigLCSD$ (line 14).
 The result of this phase is a list of CSDs that can be used to build rewriting of the query (line 17).
 
 \begin{algorithm}[h!]
