@@ -10,14 +10,24 @@ The on-demand resource provision imposed by the cloud computing architecture ope
 %The possibility of having an unlimited access to resources, the resource management, the geographically distributed location of services, and the economic model imposed by the cloud architecture open challenges to data integration solutions.
 Data integration has evolved with the emergence of data services that
 deliver data under different quality conditions related to data freshness, cost, reliability,
-availability, among others. Data are produced continuously and on demand in huge
-quantities and sometimes with few associated meta-data, which makes the
-integration process more challenging. Some approaches express data integration
-as a service composition problem where given a query the objective is to lookup
-and compose data services that can contribute to produce a result. Finding the
-best service composition that can answer a query can be computationally costly.
-Furthermore,  executing the composition can lead to retrieve and process data
-collections that can require important memory, storage and computing resources.     
+availability, among others.  Current data integration implies consuming data
+from different data services and integrating the results while meeting users' quality requirements. Such
+requirements include the data that is retrieved and integrated, but also the
+properties of the data, its producers and the conditions in which such data is
+produced and processed. For example, whether the user accepts to pay for data,
+its provenance, veracity and freshness and how much is the user ready to pay for
+the resources necessary for integrating her expected result. Data services
+provide data according to specific APIs that specify method headers with input
+parameters describing the data to be retrieved and the type of results they can
+produce.         
+% Data are produced continuously and on demand in huge
+% quantities and sometimes with few associated meta-data, which makes the
+% integration process more challenging. Some approaches express data integration
+% as a service composition problem where given a query the objective is to lookup
+% and compose data services that can contribute to produce a result. Finding the
+% best service composition that can answer a query can be computationally costly.
+% Furthermore,  executing the composition can lead to retrieve and process data
+% collections that can require important memory, storage and computing resources.     
 
 This problem has been addressed in the service-oriented
 domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
@@ -35,7 +45,28 @@ Computing resources are delivered as services by the cloud. Services are billed 
 Both sides must agree together on quality conditions and penalties under which the service is delivered. 
 %Generally, those conditions and penalties associated to its violation are defined in service level agreement (SLA). 
 Several researches have reported their studies on SLA in different domains~\cite{AlhamadDC11}.
-SLA proposals for cloud computing could be divided in two groups: (i) works developing tools and methods to help on SLA negotiation and enforcement phase~\cite{rak2013,Mavrogeorgi2013}; and (ii) approaches that monitor contracts and cloud resources in order to detect and avoid SLA violations~\cite{Leitner2010,Maarouf2015}. To our knowledge, SLA publications have not been yet integrated to data integration in a multi-cloud environment.
+SLA proposals for cloud computing could be divided in two groups: (i) works
+developing tools and methods to help on SLA negotiation and enforcement
+phase~\cite{rak2013,Mavrogeorgi2013}; and (ii) approaches that monitor contracts
+and cloud resources in order to detect and avoid SLA
+violations~\cite{Leitner2010,Maarouf2015}. To our knowledge, SLA publications
+have not been yet integrated to data integration in a multi-cloud environment.
+
+Thus, the \textit{first challenge} is to compute what we call an integrated SLA
+that matches the user's integration preferences (including quality constraints
+and data requirements) with the SLA's provided by cloud services, given a
+specific user cloud subscription. Computing an integrated SLA can imply dealing
+with heterogeneous SLA specifications and SLA-preferences incompatibilities.
+The \textit{second challenge} is to guide data integration taking into
+consideration the integrated SLA. Here, the data integration process includes (i) looking up services that can be used as data providers, and for services required to process retrieved data and build an
+integrated result; (ii) performing data retrieval, processing and integration
+and (iii) deliver results to the user considering her preferences (quality
+requirements, context and resources consumption). The integrated SLA can guide
+services filtering in the look up phase; it can help to control the amounts of
+data to retrieve and process according to consumption rights depending on the
+user subscription to the participating cloud providers and how to deliver data
+considering the user's context.          
+
 
 Based on these concepts and open challenges, the goal of this work is to present
 a data integration solution concerning a service-based query rewriting algorithm guided by SLA's.
