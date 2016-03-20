@@ -40,6 +40,11 @@ that produces and order rewritings according to user preferences.
 The user preferences on this approach are scores used to rank 
 services that should be previously define by the user. 
 %
+Considering the scenario presented in the previous section and the related works
+discussed in this one, we identify a gap between the application of quality
+measures in the context of data integration domain. Thus, the main
+and original proposal of our work is to use SLA to guide the entire data integration process.
+
 Our approach differs from these works in three aspects:
 (i) the user can express quality measures and associate them
 to his queries, such as: \textit{I want to use services with response
@@ -57,10 +62,17 @@ well-formatted to the algorithm; and
 The rewriting answers (services compositions) produced must be in 
 accordance with the user preferences.
 %
-Summarizing, the main and original proposal of our work is to use SLA to guide
-the entire data integration process.
+
 % Yet, to the best of our knowledge, few works consider quality
 % measures associated both to data services and to user preferences in order to
 % guide the rewriting process, and there is no approach using SLAs to guide the
 % data integration solution. 
-     
+
+Here, it is important to highlight that this paper focus on the description and
+evaluation of the algorithm that rewrites queries in terms of services
+composition taking into account user preferences and service quality aspects
+expressed in SLA contracts. We are assuming that the extraction of quality
+aspects from SLAs is performed in a previous phase of our global data
+integration solution. 
+In the next section, the Rhone service-based algorithm is described and
+formalized.
