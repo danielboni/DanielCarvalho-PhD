@@ -1,25 +1,18 @@
 %Integrating data across different databases, and provide an unique view of it to the user, is a problem in the database domain (called data integration).
-Data integration problem has been studied by many researchers in the database domain.
-This can be seen in the service-oriented architecture as a service composition issue, such as given a query, the objective is to lookup for data services and compose them in order to achieve a desired result. 
+Data integration problem has been studied by many researchers in the database domain. It consists in merging data which is distributed across different data sources, and providing a unified view of it to the user.
+%This can be seen in the service-oriented architecture as a service composition issue, such as given a query, the objective is to lookup for data services and compose them in order to achieve a desired result. 
 %
 %Finding the best service composition to answer a query can be computationally costly. 	
-However, it is computationally costly to find the best service composition to answer a query. 
-Furthermore, executing the composition can lead to retrieve and process data collections that can require important memory, storage and computing resources.
-The on-demand resource provision imposed by the cloud computing architecture opens challenges to data processing and management.
+%However, it is computationally costly to find the best service composition to answer a query. 
+%Furthermore, executing the composition can lead to retrieve and process data collections that can require important memory, storage and computing resources.
+%The on-demand resource provision imposed by the cloud computing architecture opens challenges to data processing and management.
 %The cloud architecture allows and opens challenges to the data integration once such architecture give us an unlimited access to resources. 
 %The possibility of having an unlimited access to resources, the resource management, the geographically distributed location of services, and the economic model imposed by the cloud architecture open challenges to data integration solutions.
-Data integration has evolved with the emergence of data services that
-deliver data under different quality conditions related to data freshness, cost, reliability,
-availability, among others.  Current data integration implies consuming data
-from different data services and integrating the results while meeting users' quality requirements. Such
-requirements include the data that is retrieved and integrated, but also the
-properties of the data, its producers and the conditions in which such data is
-produced and processed. For example, whether the user accepts to pay for data,
-its provenance, veracity and freshness and how much is the user ready to pay for
-the resources necessary for integrating her expected result. Data services
-provide data according to specific APIs that specify method headers with input
-parameters describing the data to be retrieved and the type of results they can
-produce.         
+%Data integration has evolved with the emergence of data services that deliver data under different quality conditions related to data freshness, cost, reliability, availability, among others.  
+Current data integration implies consuming data from different data services and integrating the results while meeting users' quality requirements. Such requirements include the data that is retrieved and integrated, but also the properties of the data, its producers and the conditions in which such data is produced and processed. For example, whether the user accepts to pay for data, its provenance, veracity and freshness and how much is the user ready to pay for the resources necessary for integrating her expected result. 
+
+Data services provide data according to specific APIs that specify method headers with input parameters describing the data to be retrieved and the type of results they can produce. Moreover data provision can be done by services according to different data quality measures. Such measures describe the conditions in which a service can provide or process data. These measures can be expressed in a service level agreement (SLA). An SLA states, what the user can expect from a service or system behavior. For example, whether it implements an authentication process, if it respects data consumer's privacy and the quality of the data the service can deliver, like freshness, veracity, reputation and other non-functional conditions like the business model that controls data delivery.   
+
 % Data are produced continuously and on demand in huge
 % quantities and sometimes with few associated meta-data, which makes the
 % integration process more challenging. Some approaches express data integration
@@ -29,28 +22,30 @@ produce.
 % Furthermore,  executing the composition can lead to retrieve and process data
 % collections that can require important memory, storage and computing resources.     
 
-This problem has been addressed in the service-oriented
-domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
-Generally, these solutions deal with query rewriting problems.
-\cite{Barhamgi2010} proposed a query rewriting approach which processes queries
-on data provider services. \cite{Benouaret2011} introduced a service composition
-framework to answer preference queries. In that approach, two algorithms based
-on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
-\cite{ba2014} presented an algorithm that produces and order rewritings
-according to user preferences. Yet, to our knowledge few works consider quality
-measures associated both to data services and to user preferences in order to
-guide the rewriting process. 
+%This problem has been addressed in the service-oriented
+%domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
+%Generally, these solutions deal with query rewriting problems.
+%\cite{Barhamgi2010} proposed a query rewriting approach which processes queries
+%on data provider services. \cite{Benouaret2011} introduced a service composition
+%framework to answer preference queries. In that approach, two algorithms based
+%on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
+%\cite{ba2014} presented an algorithm that produces and order rewritings
+%according to user preferences. Yet, to our knowledge few works consider quality
+%measures associated both to data services and to user preferences in order to
+%guide the rewriting process. 
 
-Computing resources are delivered as services by the cloud. Services are billed and agreed between service providers and service customers under service level agreement (SLA) contracts.
-Both sides must agree together on quality conditions and penalties under which the service is delivered. 
-%Generally, those conditions and penalties associated to its violation are defined in service level agreement (SLA). 
-Several researches have reported their studies on SLA in different domains~\cite{AlhamadDC11}.
-SLA proposals for cloud computing could be divided in two groups: (i) works
-developing tools and methods to help on SLA negotiation and enforcement
-phase~\cite{rak2013,Mavrogeorgi2013}; and (ii) approaches that monitor contracts
-and cloud resources in order to detect and avoid SLA
-violations~\cite{Leitner2010,Maarouf2015}. To our knowledge, SLA publications
-have not been yet integrated to data integration in a multi-cloud environment.
+Data provision and data processing services may need a considerable amount of storage, memory and computing capacity that can be provided by cloud architectures. Furthermore, users could need to integrate the data provisioned by services in a homogeneous and general result. The integration process can also require important computing resources that can be obtained from the cloud too. Data provision and processing services can be deployed in the cloud. Their SLA includes the measures about the cloud services that they require to execute their requests. The cloud, itself exports a general SLA that specifies the conditions in which users can access the services (infrastructure, platform and software) deployed in it. A user willing to use the cloud services establishes a contract with the cloud provider guided by an economic model that defines the services she can access, the conditions in which they can be accessed (duplication, geographical location) and their associated cost. Different cloud providers have different possible contracts to establish with users (i.e., platinum, silver, gold, ivory users). Thus, for a given requirement, a user could decide which cloud services (from one or several cloud providers) to use for retrieving, processing and integrating data according to the type of contracts she can establish with them.
+
+%Computing resources are delivered as services by the cloud. Services are billed and agreed between service providers and service customers under service level agreement (SLA) contracts.
+%Both sides must agree together on quality conditions and penalties under which the service is delivered. 
+%%Generally, those conditions and penalties associated to its violation are defined in service level agreement (SLA). 
+%Several researches have reported their studies on SLA in different domains~\cite{AlhamadDC11}.
+%SLA proposals for cloud computing could be divided in two groups: (i) works
+%developing tools and methods to help on SLA negotiation and enforcement
+%phase~\cite{rak2013,Mavrogeorgi2013}; and (ii) approaches that monitor contracts
+%and cloud resources in order to detect and avoid SLA
+%violations~\cite{Leitner2010,Maarouf2015}. To our knowledge, SLA publications
+%have not been yet integrated to data integration in a multi-cloud environment.
 
 Thus, the \textit{first challenge} is to compute what we call an integrated SLA
 that matches the user's integration preferences (including quality constraints
@@ -68,12 +63,16 @@ user subscription to the participating cloud providers and how to deliver data
 considering the user's context.          
 
 
-Based on these concepts and open challenges, the goal of this work is to present
-a data integration solution concerning a service-based query rewriting algorithm guided by SLA's.
-Our work addresses these issues and proposes the algorithm (we
-called \textit{Rhone}) with two original aspects: (i) the user can express her
-quality preferences and associate them to her queries; and (ii)  service's quality aspects defined on Service Level Agreements (SLA) guide service selection and the whole rewriting process.
-Yet, to the best of our knowledge, we have not identified any other work that uses SLA to guide the entire data integration solution.
+Based on the open challenges, the long-term objective of this research is design a data integration solution guided by SLAs in a multi-cloud context. In this paper, we focus on presenting our service-based query rewriting algorithm guided by user preferences and services' quality aspects extracted from SLAs. Our work addresses these issues and proposes the algorithm (we called \textit{Rhone}) with two original aspects: (i) the user can express her
+quality preferences and associate them to her queries; and (ii)  service's quality aspects defined on SLAs guide service selection and the whole rewriting process.
+Yet, to the best of our knowledge, we have not identified any other work that combines SLA and data integration solution in the (multi-)cloud context.
+
+%Based on these concepts and open challenges, the goal of this work is to present
+%a data integration solution concerning a service-based query rewriting algorithm guided by SLA's.
+%Our work addresses these issues and proposes the algorithm (we
+%called \textit{Rhone}) with two original aspects: (i) the user can express her
+%quality preferences and associate them to her queries; and (ii)  service's quality aspects defined on Service Level Agreements (SLA) guide service selection and the whole rewriting process.
+%Yet, to the best of our knowledge, we have not identified any other work that uses SLA to guide the entire data integration solution.
 
 This paper is organized as follows. Section ~\ref{sec:disla} discusses
 about data integration and service level agreements (SLA).
