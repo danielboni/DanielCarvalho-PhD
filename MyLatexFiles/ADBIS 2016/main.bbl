@@ -2,12 +2,6 @@
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
-\bibitem{AlhamadDC11}
-Alhamad, M., Dillon, T.S., Chang, E.: A survey on sla and performance
-  measurement in cloud computing. In: OTM Conferences (2). Lecture Notes in
-  Computer Science, vol. 7045, pp. 469--477. Springer (2011),
-  \url{http://dblp.uni-trier.de/db/conf/otm/otm2011-2.html\#AlhamadDC11}
-
 \bibitem{ba2014}
 Ba, C., Costa, U., H.~Ferrari, M., Ferre, R., A.~Musicante, M., Peralta, V.,
   Robert, S.: Preference-driven refinement of service compositions. In: Int.
@@ -67,29 +61,12 @@ ElSheikh, G., ElNainay, M.Y., ElShehaby, S., Abougabal, M.S.: {SODIM: Service
 Halevy, A.Y.: Answering queries using views: A survey. The VLDB Journal  10(4),
    270--294 (Dec 2001), \url{http://dx.doi.org/10.1007/s007780100054}
 
-\bibitem{Leitner2010}
-Leitner, P., Michlmayr, A., Rosenberg, F., Dustdar, S.: Monitoring, prediction
-  and prevention of sla violations in composite services. In: Web Services
-  (ICWS), 2010 IEEE International Conference on. pp. 369--376 (July 2010)
-
 \bibitem{Levy:1996}
 Levy, A.Y., Rajaraman, A., Ordille, J.J.: Querying heterogeneous information
   sources using source descriptions. In: Proceedings of the 22th International
   Conference on Very Large Data Bases. pp. 251--262. VLDB '96, Morgan Kaufmann
   Publishers Inc., San Francisco, CA, USA (1996),
   \url{http://dl.acm.org/citation.cfm?id=645922.673469}
-
-\bibitem{Maarouf2015}
-Maarouf, A., Hamlaoui, M.E., Marzouk, A., Haqiq, A.: Combining multi-agent
-  systems and mde approach for monitoring sla violations in the cloud
-  computing. In: Cloud Technologies and Applications (CloudTech), 2015
-  International Conference on. pp. 1--6 (2015)
-
-\bibitem{Mavrogeorgi2013}
-Mavrogeorgi, N., Alexandrou, V., Gogouvitis, S., Voulodimos, A., Kiriazis, D.,
-  Varvarigou, T., Kolodner, E.K.: Customized slas in cloud environments. In:
-  P2P, Parallel, Grid, Cloud and Internet Computing (3PGCIC), 2013 Eighth
-  International Conference on. pp. 262--269 (Oct 2013)
 
 \bibitem{Nie07}
 Nie, T., Wang, G., Shen, D., Li, M., Yu, G.: Sla-based data integration on
@@ -100,12 +77,6 @@ Nie, T., Wang, G., Shen, D., Li, M., Yu, G.: Sla-based data integration on
 Pottinger, R., Halevy, A.: Minicon: A scalable algorithm for answering queries
   using views. The VLDB Journal  10(2-3),  182--198 (Sep 2001),
   \url{http://dl.acm.org/citation.cfm?id=767141.767146}
-
-\bibitem{rak2013}
-Rak, M., Suri, N., Luna, J., Petcu, D., Casola, V., Villano, U.: Security as a
-  service using an sla-based approach via specs. In: Cloud Computing Technology
-  and Science (CloudCom), 2013 IEEE 5th International Conference on. vol.~2,
-  pp. 1--6 (2013)
 
 \bibitem{Tian2010}
 Tian, Y., Song, B., Park, J., nam Huh, E.: Inter-cloud data integration system
