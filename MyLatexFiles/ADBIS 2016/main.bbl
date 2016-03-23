@@ -39,11 +39,11 @@ Correndo, G., Salvadores, M., Millard, I., Glaser, H., Shadbolt, N.: {SPARQL
   \url{http://dl.acm.org/citation.cfm?id=1754239.1754244
   http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.177.8935}
 
-\bibitem{costa2013}
-Da~Costa, U., Halfeld~Ferrari, M., Musicante, M., Robert, S.: {Automatic
-  Refinement of Service Compositions}. In: Daniel, F., Dolog, P., Li, Q. (eds.)
-  {ICWE}. vol. 7977, pp. 400--407. {Springer}, Aalborg, Denmark (Jul 2013),
-  \url{https://hal.inria.fr/hal-00861101}
+\bibitem{Umberto}
+Costa, U., Ferrari, M., Musicante, M., Robert, S.: Automatic refinement of
+  service compositions. In: Daniel, F., Dolog, P., Li, Q. (eds.) Web
+  Engineering, Lecture Notes in Computer Science, vol. 7977, pp. 400--407.
+  Springer Berlin Heidelberg (2013)
 
 \bibitem{Duschka:1997}
 Duschka, O.M., Genesereth, M.R.: Answering recursive queries using views. In:

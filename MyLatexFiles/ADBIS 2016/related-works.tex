@@ -15,73 +15,66 @@ data across different services.
 be executed in service providers or on a cloud repository. Each option has its own  privacy and processing costs.
 Thus, the query plan executor decides the best location to execute the sub-query to meet privacy and cost constraints.
 
-Service level agreement (SLA) contracts have been widely adopted in the context of Cloud computing. Research contributions mainly concern (i) SLA negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations.
-\cite{Nie07} proposed a data integration model guided by SLAs in a grid environment. Their architecture is subdivided into four parts: (i) a SLA-based resource description model describes the database resources; (ii) a SLA-based query model normalizes the different queries based on the SLA; (iii) a SLA-based matching algorithm selects the databases; and finally (iv) a SLA-based evaluation model obtains the final query solution.
-Apart from our previous work~\cite{Bennani2014}, to the best of our knowledge, there is no evidence of researches on SLA applied to data integration in a (multi-)cloud context.
+Service level agreement (SLA) contracts have been widely adopted in the context of cloud computing. Research contributions mainly concern (i) SLA negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations.
+\cite{Nie07} proposed a data integration model guided by SLAs in a grid environment. Their work use SLAs to define database resources. Then, resources can be evaluated (in terms of processing cost, amount of data and price of using the grid) and selected to the integration. A matching algorithm is proposed to produce query plans. The most appropriated solutions based on the QoS are selected as final results. Apart from our previous work~\cite{Bennani2014}, to the best of our knowledge, there is no evidence of researches on SLA applied to data integration in a (multi-)cloud context.
 
-The main aspect in a data integration solution is 
-the query rewriting process executed by a mediator
-in accordance with the different databases.
-%
-In this way, algorithms for rewriting queries have
-been proposed in two domains: (i) on the database 
-domain; and (ii) on the service-oriented domain.
+%Service level agreement (SLA) contracts have been widely adopted in the context of cloud computing. Research contributions mainly concern (i) SLA negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations.
+%\cite{Nie07} proposed a data integration model guided by SLAs in a grid environment. Their architecture is subdivided into four parts: (i) a SLA-based resource description model describes the database resources; (ii) a SLA-based query model normalizes the different queries based on the SLA; (iii) a SLA-based matching algorithm selects the databases; and finally (iv) a SLA-based evaluation model obtains the final query solution.
+%Apart from our previous work~\cite{Bennani2014}, to the best of our knowledge, there is no evidence of researches on SLA applied to data integration in a (multi-)cloud context.
 
-On the database domain, query rewriting approaches using
-views have been widely discussed~\cite{Halevy:2001}.
+The main aspect in a data integration solution is the query rewriting. In the database domain, the query rewriting problem using views have been widely discussed~\cite{Halevy:2001,Levy:1996,Duschka:1997,Pottinger:2001}.
+Similarly, data integration can be seen in the service-oriented domain as a service composition problem in which given a query the objective is to lookup and compose data services that can contribute to produce a result.
+%The main aspect in a data integration solution is the query rewriting process executed by a mediator in accordance with the different databases.
 %
-For instance, the \textit{bucket algorithm}~\cite{Levy:1996}, 
-\textit{inverse-rules algorithm}~\cite{Duschka:1997} and 
-\textit{MiniCon algorithm}~\cite{Pottinger:2001} have
-tackled the rewriting problem on the database domain.
+%In this way, algorithms for rewriting queries have been proposed in two domains: (i) on the database domain; and (ii) on the service-oriented domain.
+
+%On the database domain, query rewriting approaches using views have been widely discussed~\cite{Halevy:2001}.
 %
-In addition, \cite{Pottinger:2001} has inspired rewriting methods in service-oriented domain~\cite{costa2013,ba2014}.
+%For instance, the \textit{bucket algorithm}~\cite{Levy:1996}, \textit{inverse-rules algorithm}~\cite{Duschka:1997} and \textit{MiniCon algorithm}~\cite{Pottinger:2001} have tackled the rewriting problem on the database domain.
+%
+%In addition, \cite{Pottinger:2001} has inspired rewriting methods in service-oriented domain~\cite{costa2013,ba2014}.
 %In addition, these algorithms have also inspired other algorithms in the database and service-oriented domains♣~\cite{costa2013} (REF THE WORKS).
 %These approaches will not be detailed here once the focus
 %of this paper is on algorithms in the service-oriented domain.
 
 %Generally, data integration solutions on the service-oriented domain deal with query rewriting problems.
-Data integration solutions on the 
-service-oriented domain deal with query rewriting problems. \cite{Carvalho2015} identifies
-trends and open issues regarding the use of SLA in data integration solutions on
-multi-cloud environments.
+%Data integration solutions on the 
+%service-oriented domain deal with query rewriting problems. \cite{Carvalho2015} identifies
+%trends and open issues regarding the use of SLA in data integration solutions on
+%multi-cloud environments.
 %
-\cite{Barhamgi2010} proposes a query rewriting approach 
-which processes queries on data provider services.
-The query and data services are modeled as RDF views.
-A rewriting answer is a service composition in which 
-the set of data service graphs fully satisfy the query graph.  
+
+Generally, data integration solutions on the service-oriented domain deal with query rewriting problems. \cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services.
+%The query and data services are modeled as RDF views. A rewriting answer is a service composition in which the set of data service graphs fully satisfy the query graph.  
 %
-\cite{Benouaret2011} introduces a service composition
-framework to answer preference queries. In that approach, two algorithms based
+\cite{Benouaret2011} introduced a service composition framework to answer preference queries. Two algorithms inspired
 on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
 %
-\cite{ba2014} presents an algorithm based on \textit{MiniCon} 
-that produces and order rewritings according to user preferences. 
-The user preferences on this approach are scores used to rank 
-services that should be previously define by the user. 
-%
-Considering the scenario presented in the previous section and the related works
-discussed in this one, we identify a gap between the application of quality
-measures in the context of data integration domain. Thus, the main
-and original proposal of our work is to use SLA to guide the entire data integration process.
+\cite{ba2014} extended \cite{Umberto} and presented an refinement algorithm based on \textit{MiniCon} that produces and order rewritings according to user preferences and scores used to rank services that should be previously define by the user. 
+In general, these approaches shares the same performance problem as the traditional database algorithms. Furthermore, they do not take into consideration user's integration requirements what can lead to produce rewritings that are not satisfactory to the user in terms of quality requirements and cost.
 
-Our approach differs from these works in three aspects:
-(i) the user can express quality measures and associate them
-to his queries, such as: \textit{I want to use services with response
-time less than 2 seconds, price per request less than 1 dollar
-and location close to my city}; 
-(ii) the user preferences guides the service selection. 
-These preferences are matched with the services' quality aspects
-that are extracted from service level agreement contracts.
-Here, it is important to highlight that there
-is a previous phase in which the services' quality aspects are 
-processed and extracted from SLAs. 
-In our proposal we are assuming that these information are accessible and
-well-formatted to the algorithm; and
-(iii) the user preferences are also used to guide the rewriting process.
-The rewriting answers (services compositions) produced must be in 
-accordance with the user preferences.
+%
+%Considering the scenario presented in the previous section and the related works
+%discussed in this one, we identify a gap between the application of quality
+%measures in the context of data integration domain. Thus, the main
+%and original proposal of our work is to use SLA to guide the entire data integration process.
+
+%Our approach differs from these works in three aspects:
+%(i) the user can express quality measures and associate them
+%to his queries, such as: \textit{I want to use services with response
+%time less than 2 seconds, price per request less than 1 dollar
+%and location close to my city}; 
+%(ii) the user preferences guides the service selection. 
+%These preferences are matched with the services' quality aspects
+%that are extracted from service level agreement contracts.
+%Here, it is important to highlight that there
+%is a previous phase in which the services' quality aspects are 
+%processed and extracted from SLAs. 
+%In our proposal we are assuming that these information are accessible and
+%well-formatted to the algorithm; and
+%(iii) the user preferences are also used to guide the rewriting process.
+%The rewriting answers (services compositions) produced must be in 
+%accordance with the user preferences.
 %
 
 % Yet, to the best of our knowledge, few works consider quality
