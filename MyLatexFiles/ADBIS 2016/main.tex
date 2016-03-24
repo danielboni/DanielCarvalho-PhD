@@ -6,7 +6,7 @@
 \usepackage{algorithm} 
 \usepackage{algorithmic}
     
-   
+     
 % bibliography packages 
 %\usepackage[nodots,nocompress]{numcompress}
 \usepackage{multibib}
@@ -215,9 +215,19 @@ CNRS-LIG, Grenoble, France\\
   
 % ------ abstract and keywords ----- %
 \begin{abstract}
-Nowadays, data provision is mostly done by data services. Thus, data integration can be seen as composition of data services and data processing services that can lead to integrate data collections. Producing service compositions is computationally costly. Furthermore, executing them can require a considerable amount of memory, storage and computing resources that can be provided by clouds. Our research focus on how enhancing the quality on data integration in a cloud context.
-This paper presents our data integration approach which takes into account user's integration requirements while producinng and delivering her results. The service selection and service composition are guided by the service level agreement exported by different services (from one or more clouds).  In addition, our matching algorithm (called \textit{Rhone}) that addresses
-query rewriting for data integration is presented as proof of concept. 
+Nowadays, data provision is mostly done by data services. Data integration can
+be seen as composition of data services and data processing services that can
+deal with to integrate data collections. Producing service compositions is
+computationally costly. Furthermore, executing them can require a considerable
+amount of memory, storage and computing resources that can be provided by
+clouds. Our research focuses on how enhancing quality on data integration in
+a cloud context.
+This paper presents a data integration approach which takes into account user's
+integration requirements while producinng and delivering her results. The
+service selection and service composition are guided by the service level
+agreement - SLA exported by different services (from one or more clouds).  In
+addition, our matching algorithm (called \textit{Rhone}) that addresses query
+rewriting for data integration is presented as proof of concept.
 %The originality of  \textit{Rhone} is the rewriting process
 %guided by quality measures associated to data providers (services) and user
 %preferences. The paper uses a running scenario to describe the \textit{Rhone}'s
@@ -244,9 +254,9 @@ query rewriting for data integration is presented as proof of concept.
 \input{introduction}
 \section{Related works}\label{sec:relatedwork}
 \input{related-works}
-\section{Scenario}\label{sec:scenario}
+\section{SLA guided data integration: A running scenario}\label{sec:scenario}
 \input{scenario}
-\section{SLA guided data integration}\label{sec:disla}
+%\section{SLA guided data integration}\label{sec:disla}
 \input{dataintegration_sla}
 \section{Rhone service-based query rewriting algorithm}\label{sec:rhone}
 \input{rhone-description}

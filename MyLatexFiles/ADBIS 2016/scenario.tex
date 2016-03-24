@@ -1,9 +1,16 @@
 %This section is devoted to describe the motivation scenario %and challenges concerning our data integration approach.
 %
 
-Let us assume the following scenario in the medical domain. Users are able to retrieve information about (i) patients that were infected by a disease; (ii) regions most affected by a disease in Europe; (iii) patients' personal information; and 
-(iv) patients' DNA information. There are four services to perform these actions: \textbf{S1} retrieves the list
-of infected patients given a disease name; \textbf{S2} it returns the list of cities most affected given a disease name; \textbf{S3} retrieves patient' personal information given the patient' id; and \textbf{S4} retrieves patient' DNA information given the patient's id.
+Let us assume the following scenario. Users are able to retrieve information  in
+the medical domain about (i) \textit{patients that were infected by a disease;}
+(ii) \textit{regions most affected by a disease in specific region}; (iii)
+\textit{patients' personal information}; and (iv) \textit{patients' DNA
+information}.
+Let us also assume that there are four services to perform these actions:
+\textbf{S1} retrieves the list of infected patients given a disease name; 
+\textbf{S2} it returns the list of cities most affected given a disease name; 
+\textbf{S3} retrieves patient' personal information given the patient' id; and 
+\textbf{S4} retrieves patient' DNA information given the patient's id.
 
 %To perform these actions, four family of services are necessary: family
 %\textbf{A} has services which given a disease name, it retrieves the list
@@ -13,8 +20,19 @@ of infected patients given a disease name; \textbf{S2} it returns the list of ci
 %information; and family \textbf{D} has services which given a patient id, it
 %retrieves patients' dna information. 
 
-Doctor Marcel would like to study the type of people suffering of a particular disease. For such reason, he needs to query the patients' personal information and patients' DNA information from patients that were infected by flu. Presuming that Marcel has at his disposal access to a cloud including the services previously described. To achieve his needs, Marcel could compose the data services as follows: (i) he invokes service \textbf{S1} with the disease information then he gets the set of people infected by flu; (ii) then he invokes service \textbf{S3} with the obtained patients in order to retrieve their personal information; just after (iii) Doctor Marcel invokes service \textbf{S4} with the obtained patients to retrieve their DNA information.
+Doctor \textit{Marcel} is researching about the type of people suffering of a
+particular disease. For such reason, he needs to query the patients'
+informations and patients' DNA information from the ones that were infected by
+flu. Presuming that \textit{Marcel} has at his disposal access to a cloud
+including the services previously described. 
+
+To achieve his needs, he may
+compose the data services as follows:
+(i) he invokes service \textbf{S1} with the disease information then he gets the set of people infected by flu; 
 %Finally, the query results is integrated and returned.
+(ii) then he invokes service \textbf{S3} with the obtained patients in order to retrieve their personal information; 
+just after (iii) he invokes service \textbf{S4} with the obtained patients to
+retrieve their DNA information.
 
 %Doctor Marcel would like to study the type of people suffering of a
 %particular disease. For instance, he needs to query the patients' personal
@@ -29,9 +47,14 @@ Doctor Marcel would like to study the type of people suffering of a particular d
 %\textbf{D}) with the obtained patients to retrieve their dna information.
 %Finally, the query results is integrated and returned.
 
-In this scenario, depending on the amount of services available to Marcel, many service compositions could be produced to answer Marcel's query. As mentioned in the section~\ref{sec:relatedwork}, some authors have tackled this issue. However, the proposals share the same problems: (i) producing service compositions when a considerable amount of services are available
-is extremely expensive (in terms of performance); (ii) not always the quality of the rewritings produced is enough for meeting user's requirements; and (iii) executing rewritings that are not satisfactory for the user, generates an extra cost (in term of economic price).
-%Motivated by these problems, our approach proposes a new vision of data integration as follows.
+In this scenario, depending on the amount of services available, many service compositions could be produced to answer \textit{Marcel}'s query. 
+As mentioned in the section~\ref{sec:relatedwork}, some authors have tackled this issue. 
+However, the proposals share the same problems.
+% (i) producing service compositions when a considerable amount of services are available
+% is extremely expensive (in terms of performance); 
+% (ii) not always the quality of the rewritings produced is enough for meeting user's requirements; and 
+% (iii) executing rewritings that are not satisfactory for the user, generates an extra cost (in term of economic price).
+Motivated by these problems, our approach proposes a new vision of data integration.
 
 %In this scenario, depending on the amount of services available to Marcel, many service compositions could be produced to answer Marcel's query. AA large quantity of
 %algorithms for this purpose have been developed, and all of them share the same
@@ -55,23 +78,24 @@ is extremely expensive (in terms of performance); (ii) not always the quality of
 %The user preferences are matched with the service quality aspects that are
 %defined on its SLAs.     
 %
-%This vision of data integration brings some reflections and questions
-%considering the challenges presented previously, such as:
-%(i) The amount of services involved in a multi-cloud context is bigger than in a
-%single cloud. Consequently, the number of services that can be used in the
-%rewriting process and the number of rewriting produced is higher. Such
-%environment calls for a better services selection process, \textit{i.e.}, guided
-%by the SLAs and user preferences; (ii) How can the different SLAs associated to
-%services and cloud provider can be integrated with the user preferences? There
-%are different levels of SLAs: the one agreed between services and cloud
-%providers; and the ones agreed between services and users. These SLAs should be
-%integrated; and (iii) How can a previous processed query be reused for a next query?
+This vision of data integration brings some reflections and questions
+considering the challenges presented previously, such as:
+(i) The amount of services involved in a multi-cloud context is bigger than in a
+single cloud. Consequently, the number of services that can be used in the
+rewriting process and the number of rewriting produced is higher. Such
+environment calls for a better services selection process, \textit{i.e.}, guided
+by the SLAs and user preferences; (ii) How can the different SLAs associated to
+services and cloud provider can be integrated with the user preferences? There
+are different levels of SLAs: the one agreed between services and cloud
+providers; and the ones agreed between services and users. These SLAs should be
+integrated; and (iii) How can a previous processed query be reused for a next query?
 
-% Here, it is important to highlight that this paper focus on the description and
-% evaluation of the algorithm that rewrites queries in terms of services
+% Here, it is important to highlight that our proposal focuses on the
+% description and evaluation of the algorithm that rewrites queries in terms of services
 % composition taking into account user preferences and service quality aspects
 % expressed in SLA contracts. We are assuming that the extraction of quality
 % aspects from SLAs is performed in a previous phase of our global data integration solution.
 %In the next section we are going to discuss the related works concerning data
 %integration and service level agreements, in order to identify the gap between
 %the presented challenges and how the works address these problems.
+\bigskip
