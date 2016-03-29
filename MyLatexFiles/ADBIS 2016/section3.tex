@@ -1,0 +1,17 @@
+Let us assume the following medical scenario in which users are able to retrieve and integrate data concerning (i) \textit{patients that were infected by a disease;}
+(ii) \textit{regions most affected by a disease in specific region}; (iii)
+\textit{patients' personal information}; and (iv) \textit{patients' DNA
+information}.
+
+The figure~\ref{fig:scenario} illustrates our vision of data integration. Data is delivered as \textit{data services} deployed in a multi-cloud context. Each \textit{data service} and cloud export their SLA specifying the level of services, the available services and their cost, and the access conditions the user can expect. Therefore, given a user query, her integration quality requirements and her cloud subscription, it is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user.
+
+Assuming the medical scenario and the new vision of data integration, Doctor \textit{Marcel}'s research is interested in the type of people suffering of \textit{flu} in the Europe. For such reason, he needs to query the patients'
+information and patients' DNA information from the ones that were infected by
+flu. Presuming that \textit{Marcel} has at his disposal access to a cloud
+including the services previously described.
+
+Assuming the medical scenario and \textit{Marcel}'s interest in the type of people
+suffering of the particular disease, he can be
+also capable to express his preferences while integrating services. For instance, he needs to query the patients' personal information and patients' DNA information from patients that were infected by flu, using services with availability higher than 98\%, price per call less than 0.2\$ and total cost less than 2\$.
+\textit{Marcel} has at his disposal a set of services \textbf{S1}, \textbf{S2}, \textbf{S3} and \textbf{S4} geographically disposed on different cloud provides (configuring a multi-cloud environment).
+To achieve his needs, \textit{Marcel} can use the data services as before invoking in sequence the service \textbf{S1}, \textbf{S3} and \textbf{S4}. However, in this new context, the service selection and rewriting process should meet the user' requirements.   
