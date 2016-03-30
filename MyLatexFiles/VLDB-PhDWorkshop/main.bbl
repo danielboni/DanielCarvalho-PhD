@@ -1,0 +1,101 @@
+\begin{thebibliography}{10}
+
+\bibitem{ba2014}
+C.~Ba, U.~Costa, M.~H.~Ferrari, R.~Ferre, M.~A.~Musicante, V.~Peralta, and
+  S.~Robert.
+\newblock Preference-driven refinement of service compositions.
+\newblock In {\em Int. Conf. on Cloud Computing and Services Science, 2014},
+  Proceedings of CLOSER 2014, 2014.
+
+\bibitem{Barhamgi2010}
+M.~Barhamgi, D.~Benslimane, and B.~Medjahed.
+\newblock A query rewriting approach for web service composition.
+\newblock {\em Services Computing, IEEE Transactions on}, 3(3):206--222, July
+  2010.
+
+\bibitem{Bennani2014}
+N.~Bennani, C.~Ghedira-Guegan, M.~Musicante, and G.~Vargas-Solar.
+\newblock Sla-guided data integration on cloud environments.
+\newblock In {\em 2014 IEEE 7th International Conference on Cloud Computing
+  (CLOUD)}, pages 934--935, June 2014.
+
+\bibitem{Benouaret2011}
+K.~{Benouaret}, D.~{Benslimane}, A.~{Hadjali}, and M.~{Barhamgi}.
+\newblock {FuDoCS: A Web Service Composition System Based on Fuzzy Dominance
+  for Preference Query Answering}, Sept. 2011.
+\newblock VLDB - 37th International Conference on Very Large Data Bases - Demo
+  Paper.
+
+\bibitem{Carvalho2015}
+D.~A.~S. Carvalho, P.~A. Souza~Neto, G.~Vargas-Solar, N.~Bennani, and
+  C.~Ghedira.
+\newblock {\em Database and Expert Systems Applications: 26th International
+  Conference, DEXA 2015, Valencia, Spain, September 1-4, 2015, Proceedings,
+  Part II}, chapter Can Data Integration Quality Be Enhanced on Multi-cloud
+  Using SLA?, pages 145--152.
+\newblock Springer International Publishing, 2015.
+
+\bibitem{Correndo2010}
+G.~Correndo, M.~Salvadores, I.~Millard, H.~Glaser, and N.~Shadbolt.
+\newblock {SPARQL query rewriting for implementing data integration over linked
+  data}.
+\newblock In {\em Proceedings of the 1st International Workshop on Data
+  Semantics - DataSem '10}, page~1, New York, New York, USA, Mar. 2010. ACM
+  Press.
+
+\bibitem{Umberto}
+U.~Costa, M.~Ferrari, M.~Musicante, and S.~Robert.
+\newblock Automatic refinement of service compositions.
+\newblock In F.~Daniel, P.~Dolog, and Q.~Li, editors, {\em Web Engineering},
+  volume 7977 of {\em Lecture Notes in Computer Science}, pages 400--407.
+  Springer Berlin Heidelberg, 2013.
+
+\bibitem{Duschka:1997}
+O.~M. Duschka and M.~R. Genesereth.
+\newblock Answering recursive queries using views.
+\newblock In {\em Proceedings of the Sixteenth ACM SIGACT-SIGMOD-SIGART
+  Symposium on Principles of Database Systems}, PODS '97, pages 109--116, New
+  York, NY, USA, 1997. ACM.
+
+\bibitem{ElSheikh2013}
+G.~ElSheikh, M.~Y. ElNainay, S.~ElShehaby, and M.~S. Abougabal.
+\newblock {SODIM: Service Oriented Data Integration based on MapReduce}.
+\newblock {\em Alexandria Engineering Journal}, 52(3):313--318, Sept. 2013.
+
+\bibitem{Halevy:2001}
+A.~Y. Halevy.
+\newblock Answering queries using views: A survey.
+\newblock {\em The VLDB Journal}, 10(4):270--294, Dec. 2001.
+
+\bibitem{Levy:1996}
+A.~Y. Levy, A.~Rajaraman, and J.~J. Ordille.
+\newblock Querying heterogeneous information sources using source descriptions.
+\newblock In {\em Proceedings of the 22th International Conference on Very
+  Large Data Bases}, VLDB '96, pages 251--262, San Francisco, CA, USA, 1996.
+  Morgan Kaufmann Publishers Inc.
+
+\bibitem{Nie07}
+T.~Nie, G.~Wang, D.~Shen, M.~Li, and G.~Yu.
+\newblock Sla-based data integration on database grids.
+\newblock In {\em Computer Software and Applications Conference, 2007. COMPSAC
+  2007. 31st Annual International}, volume~2, pages 613--618, July 2007.
+
+\bibitem{Pottinger:2001}
+R.~Pottinger and A.~Halevy.
+\newblock Minicon: A scalable algorithm for answering queries using views.
+\newblock {\em The VLDB Journal}, 10(2-3):182--198, Sept. 2001.
+
+\bibitem{Tian2010}
+Y.~Tian, B.~Song, J.~Park, and E.~nam Huh.
+\newblock Inter-cloud data integration system considering privacy and cost.
+\newblock In J.-S. Pan, S.-M. Chen, and N.~T. Nguyen, editors, {\em ICCCI (1)},
+  volume 6421 of {\em Lecture Notes in Computer Science}, pages 195--204.
+  Springer, 2010.
+
+\bibitem{YauY08}
+S.~S. Yau and Y.~Yin.
+\newblock A privacy preserving repository for data integration across data
+  sharing services.
+\newblock {\em IEEE T. Services Computing}, 1(3):130--140, 2008.
+
+\end{thebibliography}

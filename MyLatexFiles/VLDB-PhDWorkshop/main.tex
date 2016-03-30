@@ -45,7 +45,7 @@
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{5} %  in this sample file, there are a *total*
+\numberofauthors{2} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 
@@ -63,34 +63,48 @@
 % 1st. author
 \alignauthor 
 Daniel A. S. Carvalho\\
+	   \affaddr{(Supervised by Chirine Ghedira-Guegan)}\\
        \affaddr{Universit\'e Jean Moulin Lyon 3}\\
        \affaddr{Centre de Recherche Magellan - IAE}\\
        \affaddr{Lyon, France}\\
-       \email{first.last@univ-lyon3.fr}
-% 2nd. author
-\alignauthor 
-Pl\'acido A. Souza Neto\\
-       \affaddr{Federal Institute of Rio Grande do Norte}\\
-       \affaddr{Natal, Brazil}\\
-       \email{first.last@ifrn.edu.br}
-% 3rd. author
-\alignauthor Chirine Ghedira-Guegan\\
-       \affaddr{Universit\'e Jean Moulin Lyon 3}\\
-       \affaddr{Centre de Recherche Magellan - IAE}\\
-       \affaddr{Lyon, France}\\
-       \email{first.last@univ-lyon3.fr}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor Nadia Bennani\\
-       \affaddr{LIRIS - INSA}\\
-       \affaddr{Lyon, France}\\
-       \email{first.last@insa-lyon.fr}
-% 5th. author
-\alignauthor Genoveva Vargas-Solar\\
-       \affaddr{CNRS-LIG}\\
-       \affaddr{Grenoble, France}
-       \email{first.last@imag.fr}
+       \email{daniel.carvalho@univ-lyon3.fr} 
 }
+%% 2nd. author
+%\alignauthor 
+%Pl\'acido A. Souza Neto\\
+%       \affaddr{Federal Institute of Rio Grande do Norte}\\
+%       \affaddr{Natal, Brazil}\\
+%       \email{first.last@ifrn.edu.br}
+%% 3rd. author
+%\alignauthor Chirine Ghedira-Guegan\\
+%       \affaddr{Universit\'e Jean Moulin Lyon 3}\\
+%       \affaddr{Centre de Recherche Magellan - IAE}\\
+%       \affaddr{Lyon, France}\\
+%       \email{first.last@univ-lyon3.fr}
+%\and  % use '\and' if you need 'another row' of author names
+%% 4th. author
+%\alignauthor Nadia Bennani\\
+%       \affaddr{LIRIS - INSA}\\
+%       \affaddr{Lyon, France}\\
+%       \email{first.last@insa-lyon.fr}
+%% 5th. author
+%\alignauthor Genoveva Vargas-Solar\\
+%       \affaddr{CNRS-LIG}\\
+%       \affaddr{Grenoble, France}
+%       \email{first.last@imag.fr}
+%}
+
+\additionalauthors{
+  Additional authors: John Smith 
+  (The Th{\o}rv\"{a}ld Group, {\texttt{jsmith@affiliation.org}}), 
+  Julius P. Kumquat 
+  (The \\Kumquat Consortium, 
+  {\small \texttt{jpkumquat@consortium.net}}), and 
+  Ahmet Sacan 
+  (Drexel University, 
+  {\small \texttt{ahmetdevel@gmail.com}}).
+}
+
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
@@ -104,16 +118,24 @@ Pl\'acido A. Souza Neto\\
 \maketitle
 
 \begin{abstract}
-\ldots
+Se referir ao projeto como um todo..
+This paper  introduces the general lines of a rewritring algorithm named \textit{Rhone} that addresses query rewriting  for data
+integration. The originality of  \textit{Rhone} is that the rewriting process is
+guided by quality measures associated to data providers (services) and user
+preferences. The paper uses a running scenario to describe the \textit{Rhone}'s implementation and gives some hints about its experimental evaluation.
 \end{abstract}
 
 
 \section{Introduction}
+\input{introduction}
 
 \section{Related works}
-Maybe merge this section while introducing...
+\input{relatedworks}
 
-\section{Approach}
+\section{Contributions}
+Escrever um paragrafo resumindo as contribuicoes pretendidas no projeto e depois em subsecoes falar de alguns pontos principais... approach, model, schema, algoritmo... fazer essa imagem da abordagem no inkscape...
+
+\input{contributions}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{general_approach}
@@ -122,11 +144,12 @@ Maybe merge this section while introducing...
 \end{figure}
 
 \section{Preliminary results}
-
+colocar parte dos resultados do adbis + um grafico do custo da reescrita..
+\input{preliminaryexperiments}
 
 \section{Conclusions}
-
-
+recapitular as ideias do projeto e o que vamos fazer...
+\input{conclusion}
 % \end{document}  % This is where a 'short' article might terminate
 
 % ensure same length columns on last page (might need two sub-sequent latex runs)
@@ -146,5 +169,5 @@ Maybe merge this section while introducing...
 %  and remember to run:
 % latex bibtex latex latex
 % to resolve all references
- 
+
 \end{document}
