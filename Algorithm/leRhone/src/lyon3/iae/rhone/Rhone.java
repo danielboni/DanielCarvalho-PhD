@@ -31,7 +31,7 @@ public class Rhone {
 	
 	private List<List<CSD>> rewritings;
 	
-	private List<List<CSD>> csdsPermutations;
+	public List<List<CSD>> csdsPermutations;
 	
 	private List<String> aggregatedPreferences;
 	
@@ -1082,6 +1082,8 @@ public class Rhone {
 		this.initiateAggregateMeasures();
 	}
 	
+	public long total = 0;
+	
 	public void combine6(){
 		csdsPermutations = new LinkedList<List<CSD>>();
 
@@ -1090,9 +1092,10 @@ public class Rhone {
 			list1.add(csd1);
 			if (isRewriting(list1)) {
 				this.csdsPermutations.add(list1);
+				//total = total + 1;
 			} else {
 				list1 = null;
-				System.gc();
+				//System.gc();
 			}
 			for (CSD csd2: this.group2){
 				List<CSD> list2 = new LinkedList<CSD>();
@@ -1101,9 +1104,10 @@ public class Rhone {
 				//this.csdsPermutations.add(list2);
 				if (isRewriting(list2)) {
 					this.csdsPermutations.add(list2);
+					//total = total + 2;
 				}else {
 					list2 = null;
-					System.gc();
+					//System.gc();
 				}
 				for (CSD csd3: this.group3){
 					List<CSD> list3 = new LinkedList<CSD>();
@@ -1113,9 +1117,10 @@ public class Rhone {
 					//this.csdsPermutations.add(list3);
 					if (isRewriting(list3)) {
 						this.csdsPermutations.add(list3);
+						//total = total + 3;
 					}else {
 						list3 = null;
-						System.gc();
+						//System.gc();
 					}
 					for (CSD csd4: this.group4){
 						List<CSD> list4 = new LinkedList<CSD>();
@@ -1126,9 +1131,10 @@ public class Rhone {
 						//this.csdsPermutations.add(list4);
 						if (isRewriting(list4)){
 							this.csdsPermutations.add(list4);
+							//total = total + 4;
 						}else {
 							list4 = null;
-							System.gc();
+							//System.gc();
 						}
 						for (CSD csd5: this.group5){
 							List<CSD> list5 = new LinkedList<CSD>();
@@ -1140,9 +1146,10 @@ public class Rhone {
 							//this.csdsPermutations.add(list5);
 							if (isRewriting(list5)) {
 								this.csdsPermutations.add(list5);
+								//total = total + 5;
 							}else {
 								list5 = null;
-								System.gc();
+								//System.gc();
 							}
 							for (CSD csd6: this.group6){
 								List<CSD> list6 = new LinkedList<CSD>();
@@ -1155,9 +1162,10 @@ public class Rhone {
 								//this.csdsPermutations.add(list6);
 								if (isRewriting(list6)) {
 									this.csdsPermutations.add(list6);
+									//total = total + 6;
 								}else {
 									list6 = null;
-									System.gc();
+									//System.gc();
 								}
 							}
 						}
@@ -1166,7 +1174,7 @@ public class Rhone {
 			}
 		}
 		
-		this.initiateAggregateMeasures();
+		//this.initiateAggregateMeasures();
 	}
 	
 	private List<CSD> group1;
