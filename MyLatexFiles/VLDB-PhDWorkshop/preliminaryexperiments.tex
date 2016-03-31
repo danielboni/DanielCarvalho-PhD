@@ -1,4 +1,4 @@
-This section describes the experiments performed as proof of concept to the algorithm.
+We have developed a prototype of our query rewriting algorithm (called \textit{Rhone}) which takes into consideration users' requirements and services' quality aspects extracted from SLAs.
 The Rhone prototype is implemented in Java.
 It includes 15 java classes in which 14 of them model the basic concepts 
 (\textit{query}, \textit{abstract services}, \textit{concrete services}, etc), 
@@ -13,23 +13,29 @@ services varies from 5 until to reach 100.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[scale=0.4]{exp1.png}
-\caption{Query rewriting evaluation.}\label{fig01}
+\includegraphics[scale=0.8]{fig1.pdf}
+\caption{Performance evaluation.}\label{fig01}
 \end{figure} 
 
 The \textit{experiment 2} (figure~\ref{fig:fig02}) presents the results while testing the algorithm in the presence of user preferences and services' quality aspects extracted from SLAs.  The difference between \textit{Test 1} and \textit{Test 2} concerns the way services are selected and the query is rewritten. Once \textit{Test 1} do not consider quality measures as any other existing query rewriting approach, \textit{Test 2} uses the user preferences statements and services' quality aspects to guide the service selection and query rewriting.
 Both include queries with six abstract services and quality requirements concerning availability, response time, price per call and integration cost (total cost). The figure~\ref{fig:fig02} shows our results. 
 
-\begin{figure}%
+%\begin{figure}%
+%\centering
+%\parbox{2.2in}{\includegraphics[scale=0.30]{exp2.png}}% 
+%\qquad
+%\begin{minipage}{2in}%
+%\includegraphics[scale=0.30]{exp3.png}
+%\end{minipage}%
+%\caption{Results concerning processing time (left-side) and rewritings number (right-side).}%
+%\label{fig:fig02}%
+%\end{figure}
+
+\begin{figure}[!h]
 \centering
-\parbox{2.2in}{\includegraphics[scale=0.30]{exp2.png}}% 
-\qquad
-\begin{minipage}{2in}%
-\includegraphics[scale=0.30]{exp3.png}
-\end{minipage}%
-\caption{Results concerning processing time (left-side) and rewritings number (right-side).}%
-\label{fig:fig02}%
-\end{figure}
+\includegraphics[scale=0.8]{fig2.pdf}
+\caption{Performance evaluation.}\label{fig02}
+\end{figure} 
 
 The results while considering user preferences and SLAs are promisingly.  
 %The \textit{Rhone} presents a better performance, decreasing the processing time and 

@@ -12,22 +12,27 @@ import lyon3.iae.rhone.Rhone;
 public class Main {
 
 	public static void main(String[] args) throws DocumentException, IOException {
-		File file = new File("test1.txt");
-		FileWriter writer = new FileWriter(file, true);
-		writer.write("Results from experiment 1 (one). \n");
-		Rhone rhone = InputHandler.handleArguments("testcasesE1.xml", "1");
-		long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
-		rhone.selectServices();
-		rhone.createCSDs();
-		rhone.divideGroups6();
-		rhone.combine6();
+		// -XX:-UseGCOverheadLimit -Xms1024M -Xmx7120M
+		for (Integer i = 0; i < 6; i++) {
+			
+			System.out.println("Starting ...");
+			
+			Rhone rhone = InputHandler.handleArguments("testcasesD.xml", i.toString());
+			long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
+			rhone.selectServices();
+			rhone.createCSDs();
+			rhone.divideGroups6();
+			rhone.combine6();
 
-		long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
-		
-		writer.write("Testcase: 0 \t Number of CSDs: " + rhone.getCsds().size() + " \tNumber of concrete services: " + rhone.getConcreteServices().size() +
-        		"\tNumber of rewritings: " + rhone.getNumberOfRewritings() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
-        System.gc();
-        writer.close();
+			long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
+			
+			System.out.println("Testcase: " + i + " \tNumber of CSDs: " + rhone.getCsds().size() + " \tNumber of concrete services: " + rhone.getConcreteServices().size() +
+	        		"\tNumber of rewritings: " + rhone.csdsPermutations.size() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n" + "cost: " + rhone.total);
+//			writer.write("Testcase: " + i + " \tNumber of CSDs: " + rhone.getCsds().size() + " \tNumber of concrete services: " + rhone.getConcreteServices().size() +
+//	        		"\tNumber of rewritings: " + rhone.getNumberOfRewritings() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
+	        System.gc();
+//	        writer.close();
+		}
 		
 //		File file = new File("test1.txt");
 //		File file2 = new File("test2.txt");
