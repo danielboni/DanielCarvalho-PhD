@@ -1,50 +1,19 @@
+In recent years, the cloud have been the most popular deployment environment for data integration~\cite{Carvalho2015}.
 Data integration has evolved with the emergence of data services that deliver
 data under different quality conditions related to data freshness, cost, reliability,
 availability, among others. Data are produced continuously and on demand in huge
 quantities and sometimes with few associated meta-data, which makes the
 integration process more challenging. Some approaches express data integration
-as a service composition problem where given a query the objective is to lookup and compose data services that can contribute to produce a result. Finding the best service composition that can answer a query can be computationally costly. Furthermore,  executing the composition can lead to retrieve and process data collections that can require important memory, storage and computing resources.
-This problem has been addressed in the service-oriented
-%domain~\cite{Benouaret2011,ba2014}.
-domain~\cite{Barhamgi2010,Benouaret2011,ba2014}.
-Generally, these solutions deal with query rewriting problems.
-%\cite{Benouaret2011} introduced a service composition
-%framework to answer preference queries based on a previous a query rewriting approach which processes queries
-%on data provider services. 
-%In that approach, two algorithms are presented to rank the best rewritings based on previously computed scores.
-\cite{Barhamgi2010} proposed a query rewriting approach which processes queries
-on data provider services. \cite{Benouaret2011} introduced a service composition
-framework to answer preference queries. In that approach, two algorithms based
-on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
-%: one (i) to produce all possible rewritings before computing their scores and other (ii)
-%which uses a quality metric that combines diversity and accuracy to,
-%incrementally, rank services and to build the best rewritings.
-\cite{ba2014} presented an algorithm that produces and order rewritings
-according to user preferences. Yet, to our knowledge few works consider quality
-measures associated both to data services and to user preferences in order to
-guide the rewriting process. 
-%In the context of the cloud, and also considering
-%that queries can be executed in conditions in which energy, data transfer
-%economic cost, memory and computing resources consumption can be limited or
-%controlled by some economic model, it is important to design approaches and
-%rewriting algorithms that consider these constraints.       
+as a service composition problem in which given a query the objective is to lookup and compose data services that can contribute to produce a result. Finding the best service composition that can answer a query can be computationally costly. Furthermore,  executing the composition can lead to retrieve and process data collections that can require important memory, storage and computing resources.
 
+Data integration has been addressed in the service-oriented architectures~\cite{Correndo2010,ElSheikh2013,Tian2010,YauY08}. 
+\cite{Correndo2010} proposed a rewriting method based on SPARQL for RDF data integration. The work focused on avoiding ineffective data integration by solving the entity co-reference problem. \cite{ElSheikh2013} introduced SODIM, a system which combines data integration, service-oriented architecture and MapReduce distributed processing. \cite{YauY08} presented a solution focusing on data privacy in order to integrate data. \cite{Tian2010} developed an inter-cloud data integration system that considers a trade-off between users' privacy requirements and the cost for protecting and processing data. According to the users' requirements, the query is created and executed meeting privacy and cost constraints. The novelty of these approaches is that they perform data integration in service oriented contexts, particularly considering data services. They also take into consideration the requirement of computing resources for integrating data. Thus, they exploit parallel settings for implementation costly data integration processes. However, they are manly focused on performance and privacy aspects putting aside other users' integration requirements such as data provenance, data integrity, confidentiality, reliability, availability, whether she wants to use free services, among others. Moreover, even with the cloud on-demand resources provisioning (which implies an  associated cost), the user is limited to her cloud subscription and maximum budget she is ready to pay for her desired integration. The economic cost should be taken into consideration.
 
-This paper introduces the early stages of our
-ongoing work on developing the \textit{Rhone} service-based query rewriting
-algorithm guided by SLA's. Our work addresses this issue and proposes the 
-algorithm \textit{Rhone} with two original aspects: (i) the user can express
-her quality preferences and associate them to her queries; and (ii)  service's
-quality aspects defined on Service Level Agreements (SLA) guide service
-selection and  the whole rewriting process.
+As highlighted in our previous work~\cite{Carvalho2015}, we strongly believe that service level agreements (SLA) can be used in order to cover the limitations and enhance the quality in the current data integration solutions. Research contributions SLA in cloud computing mainly concern (i) the negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations. Yet, to the best of our knowledge, we have not find works proposing SLA-based approach for data integration in a multi-cloud environment. Simiraly to our idea, \cite{Nie07} proposed a SLA-based data integration model for grid environments. The approach uses SLAs to define database resources and evaluated them in terms of processing cost, amount of data and price of using the grid. In addition, a matching algorithm is proposed to produce query plans using the selected resources. The most appropriated solutions based on these QoS are selected as final results. Our work differs from \cite{Nie07} in some aspects: 
+\begin{itemize}
+\item Data is delivered as \textit{data services} in a multi-cloud context. \textit{Data services} and \textit{cloud providers} export their SLA defining the quality conditions under which the service is delivered.
+\item SLAs are not limited only to describe the cost and amount of data, but also data quality aspects such its provenance, privacy, confidentiality, freshness, and service's delivery aspects such as response time, availability, reliability, among others.
+\item Users are able to express queries associating quality integration requirements to them. Then, the service selection and rewriting process in terms of service compositions are guided by the user's requirements and the SLAs exported by \textit{data services} and \textit{cloud providers}.
+\end{itemize}
 
- The remainder of this paper is organized as follows. Section~\ref{sec:rhone}
- describes the algorithm \textit{Rhone}, proposed in our work.
- Section~\ref{sec:implementationandresults} describes a running scenario and also
- implementation issues.
- Finally, section~\ref{sec:conclusions} concludes the paper and discusses our work perspectives.
-
-%Section~\ref{sec:rhone} describes the algorithm \textit{Rhone}, proposed in our
-%work. Section~\ref{sec:implementationandresults} describes a running scenario
-%and also implementation issues.
-%Finally, section~\ref{sec:conclusions} concludes the paper.
+In this context, current SLA models are not sufficient to cover the data integration requirements and multi-cloud context. Thus, we are current working on new models to tackle these aspects. In summary, the objectives of this PhD project contribute as following: (1) we design a new SLA model for data integration; (2) propose data integration approach adapted to the vision of the economic model of the cloud. The originality of our approach consists in guiding the entire data integration solution taking into account (i) user preferences statements; (ii) SLA contracts exported by different cloud providers; and (iii) several QoS measures associated to data collections properties (for instance, trust, privacy, economic cost); and (3) validation of our approach in a multi-cloud scenario.
