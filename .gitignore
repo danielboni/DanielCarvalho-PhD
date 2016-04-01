@@ -19,3 +19,5 @@ MyLatexFiles/VLDB-PhDWorkshop/main.pdf
 MyLatexFiles/VLDB-PhDWorkshop/main.pdf
 MyLatexFiles/VLDB-PhDWorkshop/main.pdf
 MyLatexFiles/VLDB-PhDWorkshop/main.pdf
+*.bbl
+MyLatexFiles/VLDB-PhDWorkshop/main.blg
