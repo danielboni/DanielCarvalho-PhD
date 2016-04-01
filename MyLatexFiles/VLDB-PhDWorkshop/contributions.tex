@@ -37,31 +37,8 @@ potentially provide data for integrating the query result, a set of service comp
 \textbf{\underline{Integrating a query result}}. The service compositions are executed
 in one or several clouds where the user has a subscription. The execution cost of service compositions must fulfill the \textsl{integrated SLA}. The clouds resources needed to execute the composition and how to use them is decided taking in consideration the economic cost determined by the data to be transferred, the number of external calls to services, data storage and delivery cost.
 
-%\subsection{SLA model}
+The algorithm 1 describes in general lines our approach. Giver a user query $Q$, its associated user preferences $P$, a user integration context (its cloud subscription ($C$)), a set of previous \textit{integrated SLA} $\bigSLA$, a set of \textit{data services} ($DS$), a set of \textit{data processing services} ($DPS$) and a set of \textit{cloud providers} $CP$, the integration results ($IR$) is delivered to the user fulfilling her preferences and considering her integration context. The approach begins looking for previous integrated SLAs that can be matched with the user query and user' preferences (lines 2-6). The set $pI$ includes all matched integrated SLAs (line 4). If previous integrated SLA are identified (line 7), the one that perfectly matches with the user preferences is selected (line 8). Then, a new integrated SLA is computed to user query based on the previous integrated SLA, her preferences and her context (line 9). At this step, the services composition produced to a previous query is reused from its integrated SLA ($sI$). Otherwise, a new integrated SLA is created to user request given the query, the preferences and the context (line 11). Then, it is updated by calling the \textit{Rhone} procedure (line 12). The \textit{Rhone} is responsible (i) to select \textit{data services} (in $DS$) and \textit{data processing services} (in $DPS$) which satisfy the user preferences based on their SLAs; and (ii) to produce services compositions that completely match with the query and fulfill the user preferences. Finally, the integration results ($IR$) are produced and delivered to the user considering her context executing the service compositions generated to the user query (included in the integrated SLA). Note that while executing compositions, it is necessary to satisfy the user context requirements and also to dynamically update the integrated SLA adding the information of contracts that were established to allow the integration. Finally, the integrated SLA is stored to be used in a next query.   
 
-\subsection{Query rewriting algorithm}
-To serve as a proof of concept to our approach, we intend to develop a query
-rewriting algorithm which is guided by users' integration requirements and
-service level agreements exported by different data services and cloud
-providers. The query rewriting is an important issue in data integration. In
-cloud computing, researches have refereed to it as a service composition problem
-in which given a query the objective is to lookup and compose data services that
-can contribute to produce a result. \cite{Barhamgi2010} proposed a query
-rewriting approach which processes queries on data provider services.
-\cite{Benouaret2011} introduced a service composition framework to answer
-preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented
-to rank the best rewritings based on previously computed scores. \cite{ba2014}
-extended \cite{Umberto} and presented an refinement algorithm that produces and
-order rewritings according to user preferences and scores. In general, these
-works share the same performance problem depending on the size of the query and
-on the number of available services. Furthermore, they do not take into
-consideration user's integration requirements what can lead to produce
-rewritings that are not satisfactory to the user in terms of quality
-requirements and cost. Currently, we have formalized and developed a rewriting
-algorithm that considers user preferences and services' quality aspects while
-selecting services and producing rewritings.                    
-
-PREPARAR UMA ESTRUTURA GERAL PARA O AGORITMO MULTI CLOUD
 \begin{algorithm} 
 %\small
 \caption{ - \ldots}
@@ -94,10 +71,32 @@ PREPARAR UMA ESTRUTURA GERAL PARA O AGORITMO MULTI CLOUD
 %	\ENDFOR
 \ELSE
 	\STATE $newSLA_{i} \leftarrow deriveSLA(Q, P, C)$
-	\STATE $newSLA_{i} \leftarrow updateSLA(Rhone(newSLA_{i}))$
+	\STATE $newSLA_{i} \leftarrow Rhone(newSLA_{i})$
 \ENDIF
 \STATE $IR \leftarrow execute(newSLA_{i})$
 \STATE \textbf{return} $IR$
 \STATE \textbf{end function}
 \end{algorithmic}
 \end{algorithm} 
+
+\subsection{Query rewriting algorithm}
+To serve as a proof of concept to our approach, we intend to develop a query
+rewriting algorithm which is guided by users' integration requirements and
+service level agreements exported by different data services and cloud
+providers. The query rewriting is an important issue in data integration. In
+cloud computing, researches have refereed to it as a service composition problem
+in which given a query the objective is to lookup and compose data services that
+can contribute to produce a result. \cite{Barhamgi2010} proposed a query
+rewriting approach which processes queries on data provider services.
+\cite{Benouaret2011} introduced a service composition framework to answer
+preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented
+to rank the best rewritings based on previously computed scores. \cite{ba2014}
+extended \cite{Umberto} and presented an refinement algorithm that produces and
+order rewritings according to user preferences and scores. In general, these
+works share the same performance problem depending on the size of the query and
+on the number of available services. Furthermore, they do not take into
+consideration user's integration requirements what can lead to produce
+rewritings that are not satisfactory to the user in terms of quality
+requirements and cost. Currently, we have formalized and developed a rewriting
+algorithm that considers user preferences and services' quality aspects while
+selecting services and producing rewritings.                    
