@@ -88,12 +88,13 @@ PREPARAR UMA ESTRUTURA GERAL PARA O AGORITMO MULTI CLOUD
 \ENDFOR
 \IF {$pI \neq \emptyset$}
 	\STATE $sI \leftarrow chooseBest(P, pI)$
-	\STATE $newSLA_{i} \leftarrow deriveSLA(P, C, sI)$
+	\STATE $newSLA_{i} \leftarrow deriveSLA(sI, P, C)$
 %	\FORALL  {$SLA_{i}$ in $pI$}
 %		\STATE $sI \leftarrow choose(P,)$
 %	\ENDFOR
 \ELSE
 	\STATE $newSLA_{i} \leftarrow deriveSLA(Q, P, C)$
+	\STATE $newSLA_{i} \leftarrow updateSLA(Rhone(newSLA_{i}))$
 \ENDIF
 \STATE $IR \leftarrow execute(newSLA_{i})$
 \STATE \textbf{return} $IR$
