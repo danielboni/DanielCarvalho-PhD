@@ -7,13 +7,60 @@
 \documentclass{vldb}
 \usepackage{graphicx}
 \usepackage{balance}  % for  \balance command ON LAST PAGE  (only there!)
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{amssymb} 
+\usepackage{epstopdf}
+\usepackage{algorithm} 
+\usepackage{algorithmic}
+% bibliography packages 
+%\usepackage[nodots,nocompress]{numcompress}
+\usepackage{multibib}
+%Defining new way to cite
+%\newcites{map}{Systematic Mapping References} 
+%\usepackage{bibtopic}       
+  \usepackage{amssymb}
+  \usepackage{xcolor}
+
+
+\usepackage{amsmath}
+\usepackage[thmmarks,amsmath]{ntheorem}
+  
+\usepackage{datatool}
+\usepackage{tikz}
  
- 
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.10}  
+
+\usetikzlibrary{patterns}
+\usepackage{lscape} 
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{rotating}  
+
+\def\P{\hbox{${\cal P}$}}
+\def\bigLS{\hbox{${\cal L_{S}}$}}
+\def\bigLCSD{\hbox{${\cal L_{CSD}}$}}
+\def\bigS{\hbox{${\cal S}$}}
+\def\bigV{\hbox{${\cal S}$}}
+\def\V{\hbox{${S}$}}
+\def\v{\hbox{${s}$}}
+\def\MCDws{\ifmmode \mathit{COR\_D}\else \textit{COR\_D}\fi}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand \tqI[1]{\hbox{${\cal T}_{\mathrm{init}} [\![\ #1\ ]\!]$}}
+\newcommand \tqT[1]{\hbox{${\cal T}_{\mathrm{cond}} [\![\ #1\ ]\!]$}}
+\newcommand \tqS[1]{\hbox{${\cal T}_{\mathrm{inc}} [\![\ #1\ ]\!]$}}
+\newcommand \agg[1]{\ensuremath{{\cal A}{gg}(#1)}}
+
+  
 \begin{document} 
  
 % ****************** TITLE ****************************************
 
-\title{Data Integration On Multi-Cloud Environments}
+\title{Quality-Based Data Integration On Multi-Cloud Environments}
 
 % possible, but not really needed or used for PVLDB:
 %\subtitle{[Extended Abstract]
@@ -30,7 +77,7 @@
 % NOTE: You are NOT restricted in how many 'rows' of
 % "name/affiliations" may appear. We just ask that you restrict
 % the number of 'columns' to three.
-%
+% 
 % Because of the available 'opening page real-estate'
 % we ask you to refrain from putting more than six authors
 % (two rows with three columns) beneath the article title.

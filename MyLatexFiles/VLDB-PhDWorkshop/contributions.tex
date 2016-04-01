@@ -40,4 +40,52 @@ in one or several clouds where the user has a subscription. The execution cost o
 %\subsection{SLA model}
 
 \subsection{Query rewriting algorithm}
-To serve as a proof of concept to our approach, we intend to develop a query rewriting algorithm which is guided by users' integration requirements and service level agreements exported by different data services and cloud providers. The query rewriting is an important issue in data integration. In cloud computing, researches have refereed to it as a service composition problem in which given a query the objective is to lookup and compose data services that can contribute to produce a result. \cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services. \cite{Benouaret2011} introduced a service composition framework to answer preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores. \cite{ba2014} extended \cite{Umberto} and presented an refinement algorithm that produces and order rewritings according to user preferences and scores. In general, these works share the same performance problem depending on the size of the query and on the number of available services. Furthermore, they do not take into consideration user's integration requirements what can lead to produce rewritings that are not satisfactory to the user in terms of quality requirements and cost. Currently, we have formalized and developed a rewriting algorithm that considers user preferences and services' quality aspects while selecting services and producing rewritings. 
+To serve as a proof of concept to our approach, we intend to develop a query
+rewriting algorithm which is guided by users' integration requirements and
+service level agreements exported by different data services and cloud
+providers. The query rewriting is an important issue in data integration. In
+cloud computing, researches have refereed to it as a service composition problem
+in which given a query the objective is to lookup and compose data services that
+can contribute to produce a result. \cite{Barhamgi2010} proposed a query
+rewriting approach which processes queries on data provider services.
+\cite{Benouaret2011} introduced a service composition framework to answer
+preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented
+to rank the best rewritings based on previously computed scores. \cite{ba2014}
+extended \cite{Umberto} and presented an refinement algorithm that produces and
+order rewritings according to user preferences and scores. In general, these
+works share the same performance problem depending on the size of the query and
+on the number of available services. Furthermore, they do not take into
+consideration user's integration requirements what can lead to produce
+rewritings that are not satisfactory to the user in terms of quality
+requirements and cost. Currently, we have formalized and developed a rewriting
+algorithm that considers user preferences and services' quality aspects while
+selecting services and producing rewritings.                    
+
+PREPARAR UMA ESTRUTURA GERAL PARA O AGORITMO MULTI CLOUD
+\begin{algorithm} 
+%\small
+\caption{ - \ldots}
+\label{qualityBasedAlgorithm}
+\begin{algorithmic}[1]
+\REQUIRE \ldots.
+\ENSURE \ldots.
+\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
+\STATE $\bigLS \leftarrow \emptyset$
+\FORALL  {$S_{i}$ in $\bigS$}
+	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
+		\STATE $b \leftarrow \mathit{true}$		
+		\FORALL  {$A_{j}$ in $S_{i}$}
+			\IF {$Q.\mathit{notContains(A_{i})}$}
+				\STATE $b \leftarrow \mathit{false}$	
+				\STATE $\mathit{break}$
+			\ENDIF
+		\ENDFOR
+		\IF {$b = true$}
+			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
+		\ENDIF
+	\ENDIF
+\ENDFOR
+\STATE \textbf{return} $\bigLS$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm} 
