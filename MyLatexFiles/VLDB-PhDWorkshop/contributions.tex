@@ -2,7 +2,7 @@
 
 %\subsection{New vision of Data Integration}
 
-In our work, we consider a new vision of data integration in a multi-cloud context (see figure~\ref{fig:scenario}). Data is accessed and retrieved as \textit{data services} deployed in \textit{cloud providers} geographically distributed. \textit{Data services} and \textit{cloud providers} export their SLA specifying the level of services they can guarantee to users. Two types of SLA are considered: (1) cloud SLA (SLA$_{C}$), agreements between a \textit{data service} and a \textit{cloud provider}; and (2) service SLA (SLA$_{S}$), agreements between \textit{users} and \textit{data services}. The figure~\ref{fig:cloudsla} illustrates a cloud SLA schema.  
+In our work, we consider a new vision of data integration in a multi-cloud context (see figure~\ref{fig:scenario}). Data are accessed and retrieved as \textit{data services} deployed in \textit{cloud providers} geographically distributed. \textit{Data services} and \textit{cloud providers} export their SLA specifying the level of services they can guarantee to users. Two types of SLA are considered: (1) cloud SLA (SLA$_{C}$), agreements between a \textit{data service} and a \textit{cloud provider}; and (2) service SLA (SLA$_{S}$), agreements between \textit{users} and \textit{data services}. The figure~\ref{fig:cloudsla} illustrates a cloud SLA schema.  
 
 \begin{figure}[th!]
 \center
@@ -13,23 +13,31 @@ In our work, we consider a new vision of data integration in a multi-cloud conte
 \begin{figure*}[th!]
 \center
 \includegraphics[scale=0.57]{Cloud_SLA.pdf}
-\caption{Cloud SLA}\label{fig:cloudsla}
+\caption{Cloud SLA model}\label{fig:cloudsla}
 \end{figure*}
 
-Therefore, given a user query, her integration quality requirements and cloud subscription, the query is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user. This new vision brings challenges to data integration, such as:
+Therefore, given a user query, his/her integration quality requirements and cloud subscription, the query is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user. This new vision brings challenges to data integration, such as:
 \begin{itemize}
 \item \textbf{Performance}. In the multi-cloud, we are dealing with a huge amount of \textit{data services}, \textit{data processing services} and \textit{cloud providers}. Consequently, producing and executing service compositions can require an important quantity of resources and processing time.
-\item \textbf{Economic model}. Even with the possibility of having an unlimited access to resources, the user is limited to the resources she has contracted and to the budget she is ready to pay for. Thus, it is crucial to design new methods in order to produce rewritings which satisfies the user integration requirements and the cloud economic model. 
+\item \textbf{Economic model}. Even with the possibility of having an unlimited access to resources, the user is limited to the resources he/she has contracted and to the budget he/she is ready to pay for. Thus, it is crucial to design new methods in order to produce rewritings which satisfies the user integration requirements and the cloud economic model. 
 \item \textbf{Quality issues}. Some rewritings produced and executed to the user query could not satisfy her quality requirements concerning privacy, data provenance, cost, among others. Producing and executing these rewritings implies increasing time processing and integration total cost. 
-\item \textbf{SLA heterogeneity}. While producing the rewritings, it is necessary to match the user requirements with the different SLAs exported by the \textit{cloud providers} and \textit{cloud services}. In the multi-cloud, \textit{cloud providers} and \textit{cloud services} export SLAs with different semantics and structure that makes the matching SLA and user requirement challenging. In addition, we are also dealing with incompatibilities of SLAs.
+\item \textbf{SLA heterogeneity}. In the multi-cloud, \textit{cloud services} and \textit{cloud providers} export their SLAs with different semantics and structure making the matching of users' integration requirements with the SLAs more challenging. Moreover, while integrating services, we can also face incompatibilities of SLAs such as measures with the same meaning but with different names, measures with the same name but with different associated values and units, among others.
+%\item \textbf{SLA heterogeneity}. While producing the rewritings, it is necessary to match the user requirements with the different SLAs exported by the \textit{cloud providers} and \textit{cloud services}. In the multi-cloud, \textit{cloud providers} and \textit{cloud services} export SLAs with different semantics and structure that makes the matching SLA and user requirement challenging. In addition, we are also dealing with incompatibilities of SLAs.
 \item \textbf{Reuse}. Rewriting and executing the user query is computationally costly in terms of processing time and economic cost. Thus, it is necessary to propose a manner of reusing previous integration in order to save time and money, but also meeting the user expectations.
 \end{itemize}
 
 \subsection{SLA-based data integration}
-We propose our SLA-based data integration approach which includes (i) looking up services that can be used as \textit{data services}, and for services required to process the retrieved data and build an integrated result (called \textit{data processing services}); (ii) processing data retrieval, processing and integration; and (iii) delivering results to the user considering her quality requirements, context and resource consumption.  In this sense, our approach is divided in four steps. Given a user \textit{query}, a set of user \textit{preferences} associated to it, \textit{cloud providers} and \textit{cloud services}:
+We propose our SLA-based data integration approach which includes (i) looking up services that can be used as \textit{data services}, and for services required to process the retrieved data and build an integrated result (called \textit{data processing services}); (ii) processing data retrieval and integration; and (iii) delivering results to the user considering her quality requirements, context and resource consumption.  In this sense, our approach is divided in four steps as illustrated in the figure~\ref{fig:generalapproach}. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{workflow-approach.pdf}
+\caption{SLA-based data integration workflow.}
+\label{fig:generalapproach}
+\end{figure}
+
+Given a user \textit{query}, a set of user \textit{preferences} associated to it, \textit{cloud providers} and \textit{cloud services}:
 \\
-\textbf{\underline{SLA derivation}}. In this step, we compute what we call an \textsl{integrated
-SLA} that matches (including quality constraints and data requirements) with the SLA's provided by \textit{cloud services}, given a specific user cloud subscription. The user may have general \textit{preferences} depending on the context she wants to integrate her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The \textit{SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration. Furthermore, the \textsl{integrated SLA} guides the query evaluation, and the way results are computed and delivered. \\
+\textbf{\underline{SLA derivation}}. In this step, we compute what we call an \textsl{integrated SLA} that matches user' integration requirements (including quality constraints and data requirements) with the SLA's provided by \textit{cloud services}, given a specific user cloud subscription. The user may have general \textit{preferences} depending on the context she wants to integrate her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The \textit{SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration. Furthermore, the \textsl{integrated SLA} guides the query evaluation, and the way results are computed and delivered. \\
 \textbf{\underline{Filtering data services}}. The \textsl{integrated SLA} is used (i)
 to filter previous SLA derived for a similar request in order to reuse previous results; or (ii) to filter possible \textit{cloud services} that can be used for answering the query. The SLA exported by a selected \textit{cloud service} should satisfy the user \textit{preferences}. \\
 \textbf{\underline{Query rewriting}}. Given a set of \textit{data services} that can
@@ -42,7 +50,7 @@ The algorithm 1 describes in general lines our approach which integrate data on 
 As input, we consider (1) a user query $Q$; (2) a set of user preferences $P$; (3) a user cloud subscription $C$; (4) a set of previous \textit{integrated SLA} $\bigSLA$; (5) a set of \textit{data services} $DS$; (6) a set of \textit{data processing services} $DPS$; and (7) a set of \textit{cloud providers} $CP$. As output, the integration results $IR$ is delivered to the user while fulfilling her preferences and cloud subscription. 
 %
 
-The approach begins looking for previous \textit{integrated SLAs} that can be matched with the user query and user' preferences (lines 2 - 6), and adding them to the set $pI$ (line 4). 
+The approach begins looking for previous \textit{integrated SLAs} in our registry that can be matched with the user' query and preferences (lines 2 - 6), and adding them to the set $pI$ (line 4). 
 %
 If previous \textit{integrated SLA} are identified (line 7), the one that perfectly matches with the user preferences is selected (line 8). 
 %
@@ -60,7 +68,7 @@ Finally, the integration results ($IR$) are produced and delivered to the user c
 %
 Note that while executing compositions, it is necessary to satisfy the user requirements and cloud subscription, and also to dynamically update the \textit{integrated SLA} adding the information of contracts that were established to allow the integration. 
 %
-Finally, the \textit{integrated SLA} is stored to be used in a next query.   
+Finally, the \textit{integrated SLA} is stored in our registry to be used in a next query.   
 
 \begin{algorithm} 
 %\small
@@ -68,7 +76,7 @@ Finally, the \textit{integrated SLA} is stored to be used in a next query.
 \label{qualityBasedAlgorithm}
 \begin{algorithmic}[1]
 \REQUIRE Query ($Q$), user preferences ($P$), user cloud subscription ($C$) and a set of previous \textit{integrated SLA} ($\bigSLA$).
-\ENSURE Integration results delivered considering the user context (cloud subscription).
+\ENSURE Integration results delivered considering the user cloud subscription.
 %\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
 %\STATE let $\bigSLA$ be a set of previous integrated SLA
 \STATE $pI \leftarrow \emptyset$
@@ -102,24 +110,40 @@ Finally, the \textit{integrated SLA} is stored to be used in a next query.
 \end{algorithmic}
 \end{algorithm} 
 
-\subsection{Query rewriting algorithm}
+\subsection{SLA-based query rewriting algorithm}
 To serve as a proof of concept to our approach, we intend to develop a query
 rewriting algorithm which is guided by users' integration requirements and
 service level agreements exported by different data services and cloud
 providers. The query rewriting is an important issue in data integration. In
 cloud computing, researches have refereed to it as a service composition problem
 in which given a query the objective is to lookup and compose data services that
-can contribute to produce a result. \cite{Barhamgi2010} proposed a query
-rewriting approach which processes queries on data provider services.
-\cite{Benouaret2011} introduced a service composition framework to answer
-preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented
-to rank the best rewritings based on previously computed scores. \cite{ba2014}
-extended \cite{Umberto} and presented an refinement algorithm that produces and
-order rewritings according to user preferences and scores. In general, these
-works share the same performance problem depending on the size of the query and
-on the number of available services. Furthermore, they do not take into
-consideration user's integration requirements what can lead to produce
-rewritings that are not satisfactory to the user in terms of quality
-requirements and cost. Currently, we have formalized and developed a rewriting
+can contribute to produce a result. Currently, we have formalized and developed a rewriting
 algorithm that considers user preferences and services' quality aspects while
-selecting services and producing rewritings called \textit{Rhone} (Invoked in the algorithm 1, line 12).                    
+selecting services and producing rewritings called \textit{Rhone} (Invoked in the algorithm 1, line 12).
+The \textit{Rhone} algorithm consists in four macro steps: 
+\\
+\textbf{\underline{Selecting data services}}. The \textit{Rhone} looks for \textit{data services} that can contribute to answer the query while satisfying the user' preferences; \\
+\textbf{\underline{Building candidate service descriptions}}. A candidate service description (CSD) describes how a \textit{data service} can contribute to answer the query. CSD maps a \textit{data service} (including its variables) to the entire query or part of it. For all selected services, the \textit{Rhone} tries to build CSDs when the mapping of variables is possible. \\
+\textbf{\underline{Combining CSDs}}. All CSDs are combined producing a list of CSD combinations. Each combination can be a rewriting of the query. \\
+\textbf{\underline{Producing rewritings}}. Each list of CSDs is checked in order to verify whether it is a rewriting of the query or not. To be a valid rewriting, it is forbidden to have CSDs covering the same part of the query. Rewritings are producing while the user' requirements are being respected.
+%
+%To serve as a proof of concept to our approach, we intend to develop a query
+%rewriting algorithm which is guided by users' integration requirements and
+%service level agreements exported by different data services and cloud
+%providers. The query rewriting is an important issue in data integration. In
+%cloud computing, researches have refereed to it as a service composition problem
+%in which given a query the objective is to lookup and compose data services that
+%can contribute to produce a result. \cite{Barhamgi2010} proposed a query
+%rewriting approach which processes queries on data provider services.
+%\cite{Benouaret2011} introduced a service composition framework to answer
+%preference queries. Two algorithms inspired on~\cite{Barhamgi2010} are presented
+%to rank the best rewritings based on previously computed scores. \cite{ba2014}
+%extended \cite{Umberto} and presented an refinement algorithm that produces and
+%order rewritings according to user preferences and scores. In general, these
+%works share the same performance problem depending on the size of the query and
+%on the number of available services. Furthermore, they do not take into
+%consideration user's integration requirements what can lead to produce
+%rewritings that are not satisfactory to the user in terms of quality
+%requirements and cost. Currently, we have formalized and developed a rewriting
+%algorithm that considers user preferences and services' quality aspects while
+%selecting services and producing rewritings called \textit{Rhone} (Invoked in the algorithm 1, line 12).                     
