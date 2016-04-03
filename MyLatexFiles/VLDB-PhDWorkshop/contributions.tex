@@ -102,7 +102,7 @@ Finally, the \textit{integrated SLA} is stored in our registry to be used in a n
 %	\ENDFOR
 \ELSE
 	\STATE $newSLA_{i} \leftarrow deriveSLA(Q, P, C)$
-	\STATE $newSLA_{i} \leftarrow Rhone(newSLA_{i})$
+	\STATE $newSLA_{i} \leftarrow Rhone(Q, newSLA_{i})$
 \ENDIF
 \STATE $IR \leftarrow execute(newSLA_{i})$
 \STATE \textbf{return} $IR$
@@ -119,13 +119,54 @@ cloud computing, researches have refereed to it as a service composition problem
 in which given a query the objective is to lookup and compose data services that
 can contribute to produce a result. Currently, we have formalized and developed a rewriting
 algorithm that considers user preferences and services' quality aspects while
-selecting services and producing rewritings called \textit{Rhone} (Invoked in the algorithm 1, line 12).
+selecting services and producing rewritings called \textit{Rhone} (See algorithm
+\ref{algo-rhone}, invoked in the algorithm 1, line 12).
 The \textit{Rhone} algorithm consists in four macro steps: 
 \\
-\textbf{\underline{Selecting data services}}. The \textit{Rhone} looks for \textit{data services} that can contribute to answer the query while satisfying the user' preferences; \\
-\textbf{\underline{Building candidate service descriptions}}. A candidate service description (CSD) describes how a \textit{data service} can contribute to answer the query. CSD maps a \textit{data service} (including its variables) to the entire query or part of it. For all selected services, the \textit{Rhone} tries to build CSDs when the mapping of variables is possible. \\
-\textbf{\underline{Combining CSDs}}. All CSDs are combined producing a list of CSD combinations. Each combination can be a rewriting of the query. \\
-\textbf{\underline{Producing rewritings}}. Each list of CSDs is checked in order to verify whether it is a rewriting of the query or not. To be a valid rewriting, it is forbidden to have CSDs covering the same part of the query. Rewritings are producing while the user' requirements are being respected.
+\textbf{\underline{Selecting data services}}. The \textit{Rhone} looks for
+\textit{data services} (line 1) that can contribute to answer the query while
+satisfying the user' preferences; \\
+\textbf{\underline{Building candidate service descriptions}}. A candidate
+service description (CSD) describes how a \textit{data service} can contribute to answer the query. CSD maps a \textit{data service} (including its variables) to the entire query or part of it. For all selected services, the \textit{Rhone} tries to build CSDs when the mapping of variables is possible (line
+2). \\
+\textbf{\underline{Combining CSDs}}. All CSDs are combined (line 3) producing a
+list of CSD combinations. Each combination can be a rewriting of the query. \\
+\textbf{\underline{Producing rewritings}}. Each list of CSDs is checked in order
+to verify whether it is a rewriting of the query or not (lines 5-12). To be a
+valid rewriting, it is forbidden to have CSDs covering the same part of the query.
+Rewritings are producing while the user' requirements are being respected. Un
+originality of our algorithm concerns the aggregation function (\agg{Q}).     
+It is responsible to check and increment \textit{composed measures} (if present
+in the query). This means for each element in the CSD list the value of
+\textit{composed measure} is incremented (line 9), and rewritings are produced
+while the values of these measures are respected (line 7-8).  The result of this
+step is the list of valid rewritings of the query (line 13).
+
+\begin{algorithm}
+\small
+\caption{ - \textit{Rhone}}
+\label{algo-rhone}
+\begin{algorithmic}[1]
+\REQUIRE A query $Q$, a set of user preferences, and a set of concrete services $\bigS$.
+\ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
+%\STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
+ \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
+ \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
+ \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
+ \STATE $R\leftarrow \emptyset$
+% \STATE ~\!\tqI{\agg{Q}} 
+    \STATE $p \leftarrow I.next()$
+    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
+      \IF {\textit{isRewriting}$(Q, p)$}
+  \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
+  \STATE ~\!\tqS{\agg{Q}}
+   \ENDIF
+      \STATE $p \leftarrow I.\mathit{Next}()$
+ \ENDWHILE
+    \STATE \textbf{return} $R$
+\STATE \textbf{end function}
+\end{algorithmic}
+\end{algorithm}
 %
 %To serve as a proof of concept to our approach, we intend to develop a query
 %rewriting algorithm which is guided by users' integration requirements and
