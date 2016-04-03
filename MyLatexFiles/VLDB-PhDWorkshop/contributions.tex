@@ -16,15 +16,16 @@ In our work, we consider a new vision of data integration in a multi-cloud conte
 \caption{Cloud SLA model}\label{fig:cloudsla}
 \end{figure*}
 
-Therefore, given a user query, his/her integration quality requirements and cloud subscription, the query is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user. This new vision brings challenges to data integration, such as:
-\begin{itemize}
-\item \textbf{Performance}. In the multi-cloud, we are dealing with a huge amount of \textit{data services}, \textit{data processing services} and \textit{cloud providers}. Consequently, producing and executing service compositions can require an important quantity of resources and processing time.
-\item \textbf{Economic model}. Even with the possibility of having an unlimited access to resources, the user is limited to the resources he/she has contracted and to the budget he/she is ready to pay for. Thus, it is crucial to design new methods in order to produce rewritings which satisfies the user integration requirements and the cloud economic model. 
-\item \textbf{Quality issues}. Some rewritings produced and executed to the user query could not satisfy her quality requirements concerning privacy, data provenance, cost, among others. Producing and executing these rewritings implies increasing time processing and integration total cost. 
-\item \textbf{SLA heterogeneity}. In the multi-cloud, \textit{cloud services} and \textit{cloud providers} export their SLAs with different semantics and structure making the matching of users' integration requirements with the SLAs more challenging. Moreover, while integrating services, we can also face incompatibilities of SLAs such as measures with the same meaning but with different names, measures with the same name but with different associated values and units, among others.
-%\item \textbf{SLA heterogeneity}. While producing the rewritings, it is necessary to match the user requirements with the different SLAs exported by the \textit{cloud providers} and \textit{cloud services}. In the multi-cloud, \textit{cloud providers} and \textit{cloud services} export SLAs with different semantics and structure that makes the matching SLA and user requirement challenging. In addition, we are also dealing with incompatibilities of SLAs.
-\item \textbf{Reuse}. Rewriting and executing the user query is computationally costly in terms of processing time and economic cost. Thus, it is necessary to propose a manner of reusing previous integration in order to save time and money, but also meeting the user expectations.
-\end{itemize}
+Therefore, given a user query, his/her integration quality requirements and cloud subscription, the query is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user. This new vision brings challenges to data integration, such as: (i) \underline{Performance issues}. Given the huge amount of \textit{data services}, \textit{data processing services} present in the multi-cloud context, the data integration tasks can require an also huge amount of cloud resources and processing time; (ii) \underline{Economic model}. The cloud provides resources in an on-demand and pay-per-use way to cloud consumers. However they are limited to the resources they have contracted and to the budget they are ready to pay for. Thus, it is crucial to design new methods for data integration adapted to this new context; (iii) \underline{Quality issues}. Some rewritings produced and executed to the user query could not satisfy his/her quality requirements concerning privacy, data provenance, cost, among others. Producing and executing these rewritings implies increasing time processing and integration total cost; (iv) \underline{SLA heterogeneity}. In the multi-cloud, \textit{cloud services} and \textit{cloud providers} export their SLAs with different semantics and structure making the matching of users' integration requirements with the SLAs more challenging. Moreover, while integrating services, we can also face incompatibilities of SLAs such as measures with the same meaning but with different names, measures with the same name but with different associated values and units, among others; and (iv) \underline{Reuse}. Rewriting and executing the user query is computationally costly in terms of processing time and economic cost. Thus, it is necessary to propose a manner of reusing previous integration in order to save time and money, but also meeting the user expectations.
+
+%\begin{itemize}
+%\item \textbf{Performance}. In the multi-cloud, we are dealing with a huge amount of \textit{data services}, \textit{data processing services} and \textit{cloud providers}. Consequently, producing and executing service compositions can require an important quantity of resources and processing time.
+%\item \textbf{Economic model}. Even with the possibility of having an unlimited access to resources, the user is limited to the resources he/she has contracted and to the budget he/she is ready to pay for. Thus, it is crucial to design new methods in order to produce rewritings which satisfies the user integration requirements and the cloud economic model. 
+%\item \textbf{Quality issues}. Some rewritings produced and executed to the user query could not satisfy her quality requirements concerning privacy, data provenance, cost, among others. Producing and executing these rewritings implies increasing time processing and integration total cost. 
+%\item \textbf{SLA heterogeneity}. In the multi-cloud, \textit{cloud services} and \textit{cloud providers} export their SLAs with different semantics and structure making the matching of users' integration requirements with the SLAs more challenging. Moreover, while integrating services, we can also face incompatibilities of SLAs such as measures with the same meaning but with different names, measures with the same name but with different associated values and units, among others.
+%%\item \textbf{SLA heterogeneity}. While producing the rewritings, it is necessary to match the user requirements with the different SLAs exported by the \textit{cloud providers} and \textit{cloud services}. In the multi-cloud, \textit{cloud providers} and \textit{cloud services} export SLAs with different semantics and structure that makes the matching SLA and user requirement challenging. In addition, we are also dealing with incompatibilities of SLAs.
+%\item \textbf{Reuse}. Rewriting and executing the user query is computationally costly in terms of processing time and economic cost. Thus, it is necessary to propose a manner of reusing previous integration in order to save time and money, but also meeting the user expectations.
+%\end{itemize}
 
 \subsection{SLA-based data integration}
 We propose our SLA-based data integration approach which includes (i) looking up services that can be used as \textit{data services}, and for services required to process the retrieved data and build an integrated result (called \textit{data processing services}); (ii) processing data retrieval and integration; and (iii) delivering results to the user considering her quality requirements, context and resource consumption.  In this sense, our approach is divided in four steps as illustrated in the figure~\ref{fig:generalapproach}. 
@@ -60,7 +61,9 @@ The service compositions produced to a previous query is reused based its \texti
 %
 Otherwise, a new \textit{integrated SLA} is created to user request given the query, her preferences and cloud subscription (line 11). 
 %
-This new \textit{integrated SLA} is updated by calling the \textit{Rhone} procedure (line 12). 
+The SLA information of $\mathit{DS}$ and $\mathit{DPS}$ is extracted and included in the set of \bigS (line 12). 
+%
+This new \textit{integrated SLA} is updated by calling the \textit{Rhone} procedure (line 13). 
 %
 The \textit{Rhone} is responsible (i) to select \textit{data services} (in $DS$) and \textit{data processing services} (in $DPS$) which satisfy the user preferences based on their SLAs; and (ii) to produce service compositions that completely match with the query and fulfill the user preferences. 
 %
@@ -75,7 +78,7 @@ Finally, the \textit{integrated SLA} is stored in our registry to be used in a n
 \caption{ - SLA-based data integration}
 \label{qualityBasedAlgorithm}
 \begin{algorithmic}[1]
-\REQUIRE Query ($Q$), user preferences ($P$), user cloud subscription ($C$) and a set of previous \textit{integrated SLA} ($\bigSLA$).
+\REQUIRE Query ($Q$), user preferences ($P$), user cloud subscription ($C$), a set of \textit{data services} ($\mathit{DS}$) and \textit{data processing services} ($\mathit{DPS}$) and a set of previous \textit{integrated SLA} ($\bigSLA$).
 \ENSURE Integration results delivered considering the user cloud subscription.
 %\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
 %\STATE let $\bigSLA$ be a set of previous integrated SLA
@@ -102,7 +105,8 @@ Finally, the \textit{integrated SLA} is stored in our registry to be used in a n
 %	\ENDFOR
 \ELSE
 	\STATE $newSLA_{i} \leftarrow deriveSLA(Q, P, C)$
-	\STATE $newSLA_{i} \leftarrow Rhone(Q, newSLA_{i})$
+	\STATE $\bigS \leftarrow extract(\mathit{DS}, \mathit{DPS})$
+	\STATE $newSLA_{i} \leftarrow updateSLA(Rhone(Q, \bigS))$
 \ENDIF
 \STATE $IR \leftarrow execute(newSLA_{i})$
 \STATE \textbf{return} $IR$
@@ -124,23 +128,20 @@ selecting services and producing rewritings called \textit{Rhone} (See algorithm
 The \textit{Rhone} algorithm consists in four macro steps: 
 \\
 \textbf{\underline{Selecting data services}}. The \textit{Rhone} looks for
-\textit{data services} (line 1) that can contribute to answer the query while
+\textit{data services} (line 2) that can contribute to answer the query while
 satisfying the user' preferences; \\
 \textbf{\underline{Building candidate service descriptions}}. A candidate
 service description (CSD) describes how a \textit{data service} can contribute to answer the query. CSD maps a \textit{data service} (including its variables) to the entire query or part of it. For all selected services, the \textit{Rhone} tries to build CSDs when the mapping of variables is possible (line
-2). \\
-\textbf{\underline{Combining CSDs}}. All CSDs are combined (line 3) producing a
+3). \\
+\textbf{\underline{Combining CSDs}}. All CSDs are combined (line 4) producing a
 list of CSD combinations. Each combination can be a rewriting of the query. \\
 \textbf{\underline{Producing rewritings}}. Each list of CSDs is checked in order
-to verify whether it is a rewriting of the query or not (lines 5-12). To be a
+to verify whether it is a rewriting of the query or not (line 9). To be a
 valid rewriting, it is forbidden to have CSDs covering the same part of the query.
-Rewritings are producing while the user' requirements are being respected. Un
-originality of our algorithm concerns the aggregation function (\agg{Q}).     
-It is responsible to check and increment \textit{composed measures} (if present
-in the query). This means for each element in the CSD list the value of
-\textit{composed measure} is incremented (line 9), and rewritings are produced
-while the values of these measures are respected (line 7-8).  The result of this
-step is the list of valid rewritings of the query (line 13).
+Rewritings are producing while the user' requirements are being respected (lines 6-14).
+%
+The originality of our algorithm concerns the functions ~\!\tqI{}, ~\!\tqT{} and ~\!\tqS{}.     
+They are responsible to initialize, check and increment user preferences associated to the integration (such as the total cost). This means that these preferences are initialized (line 6), and for each element in the CSD list they are incremented (line 11), and rewritings are produced while they are respected (line 8).  The result of this step is the list of valid rewritings of the query (line 14).
 
 \begin{algorithm}
 \small
@@ -149,19 +150,19 @@ step is the list of valid rewritings of the query (line 13).
 \begin{algorithmic}[1]
 \REQUIRE A query $Q$, a set of user preferences, and a set of concrete services $\bigS$.
 \ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
-%\STATE \textbf{function} $\mathit{rhone} (Q, \bigS)$
+\STATE \textbf{function} $\mathit{Rhone} (Q, \bigS)$
  \STATE  $\bigLS \leftarrow \mathit{SelectCandidateServices}(Q, \bigS)$ \label{rhone:buildPCD}
  \STATE  $\bigLCSD \leftarrow CreateCSDs(Q, \bigLS)$
  \STATE  $I \leftarrow CombineCSDs(\bigLCSD)$
  \STATE $R\leftarrow \emptyset$
-% \STATE ~\!\tqI{\agg{Q}} 
+ \STATE ~\!\tqI{\agg{Q}} 
     \STATE $p \leftarrow I.next()$
-    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqI{\agg{Q}}} 
+    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqT{\agg{Q}}} 
       \IF {\textit{isRewriting}$(Q, p)$}
   \STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
   \STATE ~\!\tqS{\agg{Q}}
    \ENDIF
-      \STATE $p \leftarrow I.\mathit{Next}()$
+      \STATE $p \leftarrow I.\mathit{next}()$
  \ENDWHILE
     \STATE \textbf{return} $R$
 \STATE \textbf{end function}
