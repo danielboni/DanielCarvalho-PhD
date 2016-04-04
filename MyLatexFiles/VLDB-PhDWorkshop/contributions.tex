@@ -12,7 +12,7 @@ Figure~\ref{fig:scenario} illustrates our vision of data integration. Data are a
 
 \begin{figure*}[th!]
 \center
-\includegraphics[scale=0.57]{Cloud_SLA.pdf}
+\includegraphics[scale=0.50]{Cloud_SLA.pdf}
 \caption{Cloud SLA model}\label{fig:cloudsla}
 \end{figure*}
 
@@ -37,7 +37,7 @@ Motivated by these challenges, our data integration approach adapted to the mult
 We propose our SLA-based data integration approach which includes (i) looking for services that can be used as \textit{data services} and \textit{data processing services}, the last are responsible to retrieve and integrate data; (ii) data retrieval and integration; and (iii) delivering results to the user considering context and resource consumption.  In this sense, our approach is divided in four steps as illustrated in the figure~\ref{fig:generalapproach}. 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.35]{workflow-approach.pdf}
+\includegraphics[scale=0.33]{workflow-approach.pdf}
 \caption{SLA-based data integration workflow.}
 \label{fig:generalapproach}
 \end{figure}
@@ -164,7 +164,7 @@ They are responsible to initialize, check and increment user preferences
 associated to some aggregation like user constraints (total cost). This means
 that these preferences are initialized (line 6), and for each element in the CSD list they are incremented (line 11), and rewritings are produced while they are respected (line 8).  The result of this step is the list of valid rewritings of the query (line 14).
 
-\begin{algorithm}
+\begin{algorithm}[h!]
 \small
 \caption{ - \textit{Rhone}}
 \label{algo-rhone}
