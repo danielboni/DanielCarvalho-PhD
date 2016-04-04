@@ -49,19 +49,32 @@ Given a user \textit{query}, a set of associated user \textit{preferences}, \tex
 to filter previous \textsl{integration SLA} derived for a similar request in order to reuse results; or (ii) to filter possible \textit{cloud services} that can be used for answering the query. \\ %The SLA exported by a selected \textit{cloud service} should satisfy the user \textit{preferences}. \\
 \textbf{\underline{Query rewriting}}. Given a set of \textit{data services} that can
 potentially provide data for integrating the query result, a set of service compositions is generated according to the \textsl{derived SLA} and the agreed SLA of each \textit{data services}. \\
-\textbf{\underline{Integrating a query result}}. The service compositions are executed
-in one or several clouds where the user has a subscription. The execution cost of service compositions must fulfill the \textsl{derived SLA}. The clouds resources needed to execute the composition and how to use them is decided taking in consideration the economic cost determined by the data to be transferred, the number of external calls to services, data storage and delivery cost.
+\textbf{\underline{Integrating a query result}}. The service compositions are
+executed with services from one or several clouds where the user has a
+subscription.
+The execution cost of service compositions must fulfill the \textsl{derived
+SLA}. The clouds resources needed by the user to execute the composition and how
+to use them is decided taking in consideration the economic cost determined by
+the data to be transferred, the number of external calls to services, data storage and delivery cost.
 
-The algorithm 1 describes in general lines our approach which integrate data on multi-cloud environments considering quality aspects. 
+The algorithm 1 describes in general lines our approach which integrate data
+from multi-cloud environments considering quality aspects.
 %
-As input, we consider (1) a user query $Q$; (2) a set of user preferences $P$; (3) a user cloud subscription $C$; (4) a set of previous \textit{integrated SLA} $\bigSLA$; (5) a set of \textit{data services} $DS$; (6) a set of \textit{data processing services} $DPS$; and (7) a set of \textit{cloud providers} $CP$. As output, the integration results $IR$ is delivered to the user while fulfilling her preferences and cloud subscription. 
+As input, we consider (1) a user query $Q$; (2) a set of user preferences $P$;
+(3) a user cloud subscription $C$; (4) a set of previous \textit{integrated SLA}
+$\bigSLA$, obtained from a local register; (5) a set of \textit{data services}
+$DS$; (6) a set of \textit{data processing services} $DPS$; and (7) a set of \textit{cloud providers} $CP$. As output, the integration results $IR$ is delivered to the user while fulfilling her preferences and cloud subscription.
 %
 
-The approach begins looking for previous \textit{integrated SLAs} in our registry that can be matched with the user' query and preferences (lines 2 - 6), and adding them to the set $pI$ (line 4). 
+The approach begins looking for previous \textit{integrated SLAs} in our
+local registry. From each \textit{integrated SLA} we verify if it matches
+the user' query and preferences (lines 2 - 6), and adding them to the set $pI$ (line 4).
 %
-If previous \textit{integrated SLA} are identified (line 7), the one that perfectly matches with the user preferences is selected (line 8). 
+If previous \textit{integrated SLA} matches (line 7), the one that
+partially matches with the user preferences is selected (line 8).
 %
-Then, a new \textit{integrated SLA} is computed to user query based on the previous \textit{integrated SLA}, her preferences and cloud subscription (line 9). 
+Then, a new \textit{integrated SLA} is computed for user query based on the
+previous \textit{integrated SLA}, her preferences and cloud subscription (line 9).
 %
 The service compositions produced to a previous query is reused based its \textit{integrated SLA} ($sI$). 
 %
@@ -84,7 +97,8 @@ Finally, the \textit{integrated SLA} is stored in our registry to be used in a n
 \caption{ - SLA-based data integration}
 \label{qualityBasedAlgorithm}
 \begin{algorithmic}[1]
-\REQUIRE Query ($Q$), user preferences ($P$), user cloud subscription ($C$), a set of \textit{data services} ($\mathit{DS}$) and \textit{data processing services} ($\mathit{DPS}$) and a set of previous \textit{integrated SLA} ($\bigSLA$).
+\REQUIRE Query ($Q$), user preferences ($P$), user cloud subscriptions ($C$), a
+set of \textit{data services} ($\mathit{DS}$) and \textit{data processing services} ($\mathit{DPS}$) and a set of previous \textit{integrated SLA} ($\bigSLA$).
 \ENSURE Integration results delivered considering the user cloud subscription.
 %\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
 %\STATE let $\bigSLA$ be a set of previous integrated SLA
@@ -124,7 +138,7 @@ Finally, the \textit{integrated SLA} is stored in our registry to be used in a n
 To serve a proof of concept to our approach, we develop a query
 rewriting algorithm which is guided by users' integration requirements and
 service level agreements exported by different data services and cloud
-providers. Researches have refereed to data integration as a service composition problem
+providers. Researches have refered to data integration as a service composition problem
 in which given a query the objective is to lookup and compose data services that
 can contribute to produce a result. Currently, we have formalized and developed a rewriting
 algorithm that considers user preferences and services' quality aspects while
@@ -146,7 +160,9 @@ valid rewriting, it is forbidden to have CSDs covering the same part of the quer
 Rewritings are produced while the user' requirements are being respected (lines 6-14).
 %
 The originality of our algorithm concerns the functions ~\!\tqI{}, ~\!\tqT{} and ~\!\tqS{}.     
-They are responsible to initialize, check and increment user preferences associated to the integration (such as the total cost). This means that these preferences are initialized (line 6), and for each element in the CSD list they are incremented (line 11), and rewritings are produced while they are respected (line 8).  The result of this step is the list of valid rewritings of the query (line 14).
+They are responsible to initialize, check and increment user preferences
+associated to some aggregation like user constraints (total cost). This means
+that these preferences are initialized (line 6), and for each element in the CSD list they are incremented (line 11), and rewritings are produced while they are respected (line 8).  The result of this step is the list of valid rewritings of the query (line 14).
 
 \begin{algorithm}
 \small
