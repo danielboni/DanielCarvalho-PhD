@@ -104,7 +104,7 @@ $Q(dis; dna, info) := A1(dis; p), A2(p; dna), A3(p; info) \ d = ``flu'' $
 $[availability > 98\%, \ price \ per \ call < 0.2\$, \ total \ cost < 5\$]$
 \end{center}
 
-The \textit{Marcel's }\textit{query} plan (Figure~\ref{fig:queryandservices}, left-side) begins by retrieving infected patients ($A1$). This operation returns patients' ids $p$. The \textit{abstract services} $A2$ and $A3$ use patient ids to return their DNA and personal information ($dna$ and $info$).
+The \textit{Marcel's }\textit{query} plan begins by retrieving infected patients ($A1$). This operation returns patients' ids $p$. The \textit{abstract services} $A2$ and $A3$ use patient ids to return their DNA and personal information ($dna$ and $info$).
 %\textit{A user wants to retrieve patients DNA and personal information from patients infected by the disease ``flu'', using services with availability higher than 98\%, price per call less than 0.2\$ and total cost less than 2\$.}
 %The query can be specified in terms of previous defined abstract services ($GetPatients$, $GetDNA$ and $GetInfo$) as follows. 
 %The query $Q$ has an input parameter $d$ and an output parameter $dna$. 
