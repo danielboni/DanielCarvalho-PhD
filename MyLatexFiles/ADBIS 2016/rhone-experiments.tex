@@ -1,8 +1,5 @@
-This section describes the experiments performed as proof of concept to the algorithm.
-The Rhone prototype is implemented in Java.
-It includes 15 java classes in which 14 of them model the basic concepts 
-(\textit{query}, \textit{abstract services}, \textit{concrete services}, etc), 
-and 1 responsible to implement the core of the algorithm. 
+%This section describes the experiments performed as proof of concept to the
+% algorithm.
 
 %Currently, our approach runs in a controlled environment. 
 %Different experiments were produced to analyze the algorithm's behavior.
@@ -11,22 +8,48 @@ and 1 responsible to implement the core of the algorithm.
 %In each experiment, there are a set of tests in which the number of concrete 
 %services varies from 5 until to reach 100.
 
-Currently, our approach runs in a local controlled environment simulating a mono-cloud including a service registry of 100 concrete services. 
-Experiments were produced to analyze the algorithm's behavior concerning performance, and quality and cost of the integration. 
-The experiments include two different approaches: (i) the \textit{traditional approach} in which user preferences and SLAs are not considered; and (ii) the \textit{preference-guided approach} (P-GA) which considers the users' integration requirements and SLAs.
-The figures~\ref{fig01} and \ref{fig02} summarize our first results.
+Different experiments~\footnote{The \textit{Rhone} algorithm is implemented in
+Java and it includes 15 java classes in which 14 of them model the basic concepts (\textit{query}, \textit{abstract services}, \textit{concrete services}, etc), 
+and 1 responsible to implement the core of the algorithm. 
+} were produced to analyze the algorithm's
+behavior. The \textit{Rhone}, so far, was evaluated in a local controlled
+environment simulating a mono-cloud including a service registry of 100 concrete
+services. Some experiments were produced to analyze the its behavior
+concerning performance, and quality and cost of the integration.
+The experiments include two different approaches: (i) the \textit{traditional
+approach} in which user preferences and SLAs are not considered; and (ii) the
+\textit{preference-guided approach} (P-GA) which considers the users'
+integration requirements and SLAs.
+Figures~\ref{fig01} and \ref{fig02} summarize our first results.
 
-\begin{figure}[!h]
+\begin{figure}
 \centering
-\includegraphics[scale=0.8]{fig1.pdf}
-\caption{Performance evaluation.}\label{fig01}
-\end{figure} 
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.61]{fig1.pdf}
+  \caption{Performance evaluation.}
+  \label{fig01}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[scale=0.53]{fig2.pdf}
+  \caption{Integration cost.}\label{fig02}
+\end{subfigure}
+\caption{\textit{Rhone} execution evaluation.}
+\label{fig:figs-exp}
+\end{figure}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.72]{fig2.pdf}
-\caption{Performance evaluation.}\label{fig02}
-\end{figure} 
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[scale=0.8]{fig1.pdf}
+% \caption{Performance evaluation.}\label{fig01}
+% \end{figure} 
+% 
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[scale=0.72]{fig2.pdf}
+% \caption{Performance evaluation.}\label{fig02}
+% \end{figure} 
 
 %\begin{figure}%
 %\centering
@@ -40,7 +63,13 @@ The figures~\ref{fig01} and \ref{fig02} summarize our first results.
 %\end{figure}
 
 The results P-GA are promisingly.  
-The \textit{Rhone} increases performance reducing rewriting number which allows to go straightforward to the rewriting solutions that are satisfactory avoiding any further backtrack and thus reducing successful integration time (Figure~\ref{fig01}). Moreover, using the P-GA to meet the user preferences, the quality of the rewritings produced has been enhanced and the integration economic cost has considerable reduced while delivering the expected results (Figure~\ref{fig02}). However, the \textit{Rhone} still need to be tested in a large scale case and in a context of parallel multi-tenant to test efficacy.
+Our approach increases performance reducing rewriting number which allows
+to go straightforward to the rewriting solutions that are satisfactory avoiding
+any further backtrack and thus reducing successful integration time
+(Figure~\ref{fig01}). Moreover, using the P-GA to meet the user preferences, the
+quality of the rewritings produced has been enhanced and the integration
+economic cost has considerable reduced while delivering the expected results
+(Figure~\ref{fig02}). 
 
 %\begin{figure}[!h]
 %\centering

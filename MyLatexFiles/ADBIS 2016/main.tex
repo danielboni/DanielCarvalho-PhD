@@ -5,7 +5,9 @@
 \usepackage{epstopdf}
 \usepackage{algorithm} 
 \usepackage{algorithmic}
-     
+\usepackage{caption}
+\usepackage{subcaption}
+      
 % bibliography packages 
 %\usepackage[nodots,nocompress]{numcompress}
 \usepackage{multibib}
@@ -241,7 +243,7 @@ agreement - SLA exported by different services (from one or more clouds) and use
 %evaluation. It shows that quality can be improved on data integration solutions.
 %In addition, perspectives concerning our data integration approach and algorithm are presented.
 \end{abstract}
- 
+  
 \keywords{Data integration. Query rewriting. Query rewriting algorithm. Cloud computing. SLA.}
  
 % ------ end of abstract and keywords ----- %
@@ -251,16 +253,16 @@ agreement - SLA exported by different services (from one or more clouds) and use
 \section{Related works}\label{sec:relatedwork}
 \input{related-works}
 \section{SLA guided data integration in cloud evironments}\label{sec:scenario}
-%\input{scenario}
+%\input{scenario} 
 \input{section3}
 %\section{SLA guided data integration}\label{sec:disla}
 %\input{dataintegration_sla}
 \section{Rhone service-based query rewriting algorithm}\label{sec:rhone}
 \input{rhone-description}
 \input{rhone-formalization}
-\section{Evaluation}\label{sec:experiments}
+%\section{Evaluation}\label{sec:experiments}
+\section{Final Remarks and Conclusions}\label{sec:conclusion}
 \input{rhone-experiments}
-\section{Final Remarks and Future Works}\label{sec:conclusion}
 \input{conclusion}
 
  
