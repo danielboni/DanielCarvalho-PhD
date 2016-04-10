@@ -5,7 +5,7 @@
 \item $A$ is a name which identifies the \textit{abstract service}.
 \item $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
 \end{itemize}
-The table~\ref{table:abstractservices} exemplifies \textit{abstract services} concerning our medical scenario described in the section~\ref{sec:scenario}.
+The table~\ref{table:abstractservices} exemplifies \textit{abstract services} concerning our medical scenario described in the section~\ref{sec:scenario}. The decorations $?$ and $!$ differentiate input and output parameters, respectively. 
 %
 %
 \begin{table}[]
@@ -13,17 +13,17 @@ The table~\ref{table:abstractservices} exemplifies \textit{abstract services} co
 \begin{tabular}{|l|p{8cm}|l|}
 \hline
 \multicolumn{1}{|c|}{\textbf{\textit{Abstract service} name}} & \multicolumn{1}{c|}{\textbf{Description}} \\ \hline
-$A1 \ (x; \ y)$ & Given a disease name $x$, $A1$ returns a list of infected patients' id $y$. \\ \hline
-$A2 \ (w; \ z)$ & Given a patient id $w$, $A2$ returns her DNA information $z$. \\ \hline
-$A3 \ (w; \ a)$ & Given a patient id $w$, $A3$ returns her personal information $a$.\\ \hline
-$A4 \ (x; \ r)$ & Given a disease name $x$, $A4$ returns the most affected region $r$. \\ \hline
+$A1 \ (d\_name?; \ p\_id!)$ & Given a disease name $d\_name$, $A1$ returns a list of infected patients' id $p\_id$. \\ \hline
+$A2 \ (p\_id?; \ p\_dna!)$ & Given a patient id $p\_id$, $A2$ returns her DNA information $p\_dna$. \\ \hline
+$A3 \ (p\_id?; \ p\_info!)$ & Given a patient id $p\_id$, $A3$ returns her personal information $p\_info$.\\ \hline
+$A4 \ (d\_name?; \ regions!)$ & Given a disease name $d\_name$, $A4$ returns the most affected region $regions$. \\ \hline
 \end{tabular}
 \caption{List of \textit{abstract services}.}
 \label{table:abstractservices}
 \end{table}
 \bigskip
 
-\noindent \textbf{Definition 2 (\textit{Concrete service})}. A \textit{concrete service} is defined as a set of \textit{abstract services}, and by its \textit{quality measures} extracted from its SLA according to the grammar:
+\noindent \textbf{Definition 2 (\textit{Concrete service})}. A \textit{concrete service} is defined as a set of \textit{abstract services}, and by its \textit{quality measures} extracted from its SLA according to the following grammar:
 %
 \begin{center}
 \begin{math}
@@ -35,10 +35,10 @@ The left-hand of the definition is called the \textit{head}; and the right-hand 
 A \textit{concrete service} $S$ includes a set of input $\overline{I}$ and output $\overline{O}$ variables, respectively.
 Variables in the \textit{head} are identified by $\overline{I}_{h}$ and $\overline{O}_{h}$, and called \textit{head} variables. 
 They appear in the \textit{head} and in the \textit{body} definition. 
-Variables appearing only in the \textit{body} are identified by $\overline{I}_{l}$ and $\overline{O}_{l}$, and are called \textit{local} variables.
+Variables appearing only in the \textit{body} are identified by $\overline{I}_{l}$ and $\overline{O}_{l}$, and are called \textit{local} variables. \textit{Head} variables can be accessed and shared among different services. On the other hand, \textit{local} variables can be used only by the service which define them.
 
 \textit{Concrete services} are defined in terms of \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$), and they include a set of service's quality aspects (quality measures) ($M_{1},M_{2}, .., M_{g}$). 
-These measures are extracted from the respective SLA exported by the service.
+These measures are extracted from the SLA exported by the service $S$.
 %
 %
 $M_{i}$ is in the form $x \otimes c$, where $x$ is a special class of identifiers associated to the services; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$. For example, consider the following \textit{concrete service} $S1$ which retrieves infected patients given a disease: 
@@ -51,7 +51,7 @@ S1(d; p) := A1(d; p)[availability > 99\%, \ price \ per \ call = 0.1\$]
 %
 $S1$ is written using the \textit{abstract service} $A1$ defined before.
 $d$ and $p$ are \textit{head} variables. 
-$Availability$ and $price per call$ are quality measures extracted from $S1$ SLA.
+$Availability$ and $price \ per \ call$ are identifiers associated to $S1$'s quality measures with an associated constant value extracted from $S1$'s SLA.
 %
 %The table~\ref{table:concreteservices} shows examples of \textit{concrete services} and their functionality considering the \textit{abstract services} described before.
 
@@ -73,8 +73,8 @@ $Availability$ and $price per call$ are quality measures extracted from $S1$ SLA
 % ----------------------------------- DEFINITION 3 QUERY --------------------------------- %
 \bigskip
 
-\noindent \textbf{Definition 3 (\textit{Query})}.
-A user \textit{query} $Q$ is defined as a set of \textit{abstract services}, a set of \textit{constraints}, and a set of \textit{user integration preferences} in accordance with the grammar:
+\noindent \textbf{Definition 3 (\textit{User query})}.
+A user \textit{query} $Q$ is defined as a set of \textit{abstract services}, a set of \textit{constraints}, and a set of \textit{user integration preferences} in accordance with the following grammar:
 %
 \begin{center}
 \small
@@ -84,7 +84,7 @@ Q (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l};
 \end{math}
 \end{center}
 %
-The \textit{query} definition is similar to a \textit{concrete service} concerning the variables and \textit{abstract services}. In addition, queries have constraints over the input or output variables ($C_{1}, C_{2}, .., C_{m}$). These constraints are used while querying the databases. The user \textit{integration preferences} over the services or over service compositions are specified in $P_{1}, P_{2}, .., P_{k}$. $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is a identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+The \textit{query} definition is similar to a \textit{concrete service} concerning the variables and \textit{abstract services}. In addition, queries have constraints over the input or output variables ($C_{1}, C_{2}, .., C_{m}$). Constraints are used while querying the databases (\textit{i.e} in the \textit{where} clause). The user \textit{integration preferences} over the services or over service compositions are specified in $P_{1}, P_{2}, .., P_{k}$. $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is an identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 %
 
 User preferences can be of two types, single and composed. Single preferences
@@ -94,12 +94,12 @@ single preferences. For instance, the total response time is a composed
 preference obtained by adding the response time of each service involved in the composition.
 
 Let us suppose a query specification based on the medical scenario (section \ref{sec:scenario}) in which doctor \textit{Marcel} wants to query the personal and DNA information from patients that were infected by \textit{flu}, using services with availability higher than 98\%, price per call less than 0.2\$ and integration total cost less than 5\$.
-To achieve his needs, \textit{Marcel} should compose the \textit{abstract services} $A1$, $A2$ and $A3$ as follows. 
+To achieve his needs, the \textit{abstract services} $A1$, $A2$ and $A3$ should be composed as follows. 
 %The figure~\ref{fig:queryandservices} illustrates doctor \textit{Marcel's} query and six \textit{concrete services} specified in terms of \textit{abstract services} defined before (Table~\ref{table:abstractservices}).
 
 \begin{center}
 \small
-$Q(dis; dna, info) := A1(dis; p), A2(p; dna), A3(p; info) \ d = ``flu'' $
+$Q(dis?; dna!, info!) := A1(dis?; p!), A2(p?; dna!), A3(p?; info!), \ d = ``flu" , $
 \\
 $[availability > 98\%, \ price \ per \ call < 0.2\$, \ total \ cost < 5\$]$
 \end{center}
@@ -110,7 +110,7 @@ The \textit{Marcel's }\textit{query} plan begins by retrieving infected patients
 %The query $Q$ has an input parameter $d$ and an output parameter $dna$. 
 %These \textit{head} variable are used in the \textit{abstract services} $diseasePatients$ and $DNAinformation$. 
 %The local variable $p$ is an output in $diseasePatients$ and it is used as input in $GetDNA$.
-The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, and three user \textit{integration preferences} $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 2 dollars.
+The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, and three identifiers define the user' \textit{integration preferences} with their associated constant value: $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 5 dollars.
 %
 %\begin{figure}[h!]
 %\center
@@ -131,7 +131,7 @@ The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, an
 %The query contains a constraint $d$ (disease name) equal to $flu$, and three user preferences $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 2 dollars.
 
 
-\subsection{Overview on the algorithm}
+\subsection{Overview of the algorithm}
 The main function of the \textit{Rhone} is described in the algorithm
 \ref{algo-rhone}.
 The input data for this function is a query, which includes a set of user preferences, and a set of concrete services. The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
@@ -153,8 +153,8 @@ The input data for this function is a query, which includes a set of user prefer
 \end{algorithmic}
 \end{algorithm}
 
-In the first step, the algorithm looks for concrete services that 
-can be matched with the query (line 2), resulting in a set of candidate concrete
+In the first step, the algorithm looks for \textit{concrete services} including \textit{abstract services} that 
+can be matched with the query' \textit{abstract services} (line 2) considering their name and input/output parameters, resulting in a set of candidate concrete
 services. For this set of services, the Rhone tries to create 
 \textit{concrete services description} (CSD) for each service (line 3). 
 A CSD is a structure that maps a concrete service to the query, or part of it. 
@@ -173,7 +173,7 @@ ones matching with the query and fulfilling the user preferences (line 5).
 %The final result is a list of valid rewriting (line 5). 
 In the next sections, each phase of the algorithm is described in detail. 
 
-\subsection{Selecting services}
+\subsection{Selecting candidate concrete services}
 
 One contribution of our approach concerns the services selection process. Services are selected based on the user preferences and on the services' quality aspects collected from service level agreements.
 While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
@@ -181,7 +181,7 @@ While selecting services, the algorithm deals with three matching problems: \tex
 
 \noindent \textbf{Definition 3 (Measures matching)}.
 Given a \textit{user preference} $P_{i}$ and a service's quality measure $Q_{j}$, a matching between them can be made if: (\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
-(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$.
+(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$. For instance, $price \ per \ call < 0.2\$$ is a \textit{user preference} that can be matched with a service' quality measure $price \ per \ call = 0.1\$$.
 \bigskip
 
 \noindent \textbf{Definition 4 (\textit{Abstract service} matching)}.
