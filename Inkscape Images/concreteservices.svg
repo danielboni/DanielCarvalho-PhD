@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="125mm"
+   height="43mm"
+   viewBox="0 0 442.91339 152.36221"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="concreteservices.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="208.85433"
+     inkscape:cy="123.85229"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-899.99999)">
+    <text
+       sodipodi:linespacing="125%"
+       id="text4163"
+       y="913.78796"
+       x="160.46896"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4167"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="913.78796"
+         x="160.46896"
+         sodipodi:role="line">S1 (a?; b!) := A1(a?; b!) [availability &gt; 98%, price per call = 0.2$]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4175"
+       y="958.77936"
+       x="160.46896"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4179"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="958.77936"
+         x="160.46896"
+         sodipodi:role="line">S3 (a?; b!) := A2(a?; b!) [availability &gt; 99%, price per call = 0.1$]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="188.66721"
+       y="981.27502"
+       id="text4181"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="188.66721"
+         y="981.27502"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4185">S4 (a?; b!) := A1(a?; p!), A2(p?; b!) [availability &gt; 98%, price per call = 0.1$]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4187"
+       y="1003.7707"
+       x="160.46896"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4191"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         y="1003.7707"
+         x="160.46896"
+         sodipodi:role="line">S5 (a?; b!) := A3(a?; b!) [availability &gt; 98%, price per call = 0.0$]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="223.44504"
+       y="1026.2664"
+       id="text4193"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="223.44504"
+         y="1026.2664"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4197">S6 (a?; b!, c!) := A1(a?; p!), A2(p?; b!), A3(p?; c!) [availability &gt; 99%, price per call = 0.2$]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="160.46896"
+       y="936.28363"
+       id="text4205"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="160.46896"
+         y="936.28363"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4209">S2 (a?; b!) := A1(a?; b!) [availability &gt; 98%, price per call = 0.1$]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="158.90646"
+       y="1048.7621"
+       id="text4193-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="158.90646"
+         y="1048.7621"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';text-align:center;text-anchor:middle"
+         id="tspan4197-0">S7(a?; b!) := A3(a?; b!) [availability &gt; 99%, price per call = 0.2$]</tspan></text>
+  </g>
+</svg>
