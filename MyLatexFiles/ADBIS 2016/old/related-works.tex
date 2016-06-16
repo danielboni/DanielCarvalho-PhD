@@ -1,0 +1,47 @@
+In recent years, the cloud have been the most popular deployment environment for data integration~\cite{Carvalho2015}. Researches have proposed their works addressing this issue~\cite{ElSheikh2013,Tian2010}.
+Moreover, once query rewriting is strictly related to data integration, rewriting algorithms have been presented~\cite{ba2014,Barhamgi2010,Benouaret2011}.
+%Existing works addressing this issue can be grouped according to two different lines of research:
+%\textit{(i)} data integration and services~\cite{ElSheikh2013,Tian2010}; and
+%\textit{(ii)} service level agreements (SLA) and data integration~\cite{Bennani2014,Nie07}. 
+
+%In~\cite{Correndo2010}, the authors propose a query rewriting method for achieving RDF data
+%integration. 
+%The objective of the approach is: (i) solve the entity co-reference problem which can lead to ineffective 
+%data integration; and (ii) exploit ontology alignments with a particular interest in data manipulation. 
+In~\cite{ElSheikh2013}, the authors introduced a system (called SODIM) which combines data
+integration, service-oriented architecture and distributed processing.
+The novelty of their approach is that they perform data integration 
+in service oriented contexts, particularly considering data services. 
+%They also take into consideration the requirement of computing 
+%resources for integrating data. 
+%Thus, they use parallel settings for implementing costly data integration processes. 
+%
+A major concern when integrating data from different sources (services) is privacy that can be associated to the conditions in which integrated data collections are built and shared.
+%\cite{YauY08} focuses on data privacy in order to integrate data.
+%Based on users' integration requirements, the repository supports the retrieval and integration of
+%data across different services. 
+\cite{Tian2010} proposed an inter-cloud data integration system that considers a trade-off between users' privacy requirements and the cost for protecting and processing data. According to the users' privacy requirements, the query plan in the cloud repository creates the users' query. 
+%This query is subdivided into sub-queries that can
+%be executed in service providers or on a cloud repository. Each execution option has its own  privacy and processing costs.
+Thus, the query plan executor decides the best location to execute the sub-query to meet privacy and cost constraints.
+This work is mostly interested in privacy and performance issues forgetting other users' integration requirements.
+
+%Service level agreement (SLA) contracts have been widely adopted in the context of cloud computing. Research contributions mainly concern (i) SLA negotiation phase (step in which the contracts are established between customers and providers) and (ii) monitoring and allocation of cloud resources to detect and avoid SLA violations.
+%\cite{Nie07} proposes a data integration model guided by SLAs in a grid
+%environment. Their work uses SLAs to define database resources. Then, resources
+%can be evaluated (in terms of processing cost, amount of data and price of using the grid) and selected to the integration. A matching algorithm is proposed to produce query plans. The most appropriated solutions based on the QoS are selected as final results. 
+%Apart from our previous work~\cite{Bennani2014}, to the best of our knowledge, there is no evidence of researches on SLA in order to guide and enhance the quality on data integration in a multi-cloud context.
+
+The main aspect in a data integration solution is the query rewriting. In the database domain, the query rewriting problem using views have been widely discussed~\cite{Halevy:2001}.
+%~\cite{Halevy:2001,Levy:1996,Duschka:1997,Pottinger:2001}.
+Similarly, data integration can be seen in the service-oriented domain as a service composition problem in which given a query the objective is to lookup and compose data services that can contribute to produce a result.
+Generally, data integration solutions on the service-oriented domain deal with
+query rewriting problems. 
+\cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services.
+\cite{Benouaret2011} introduced a service composition framework to answer
+preference queries. Two algorithms are presented to rank the best rewritings based on previously computed scores.
+%Two algorithms inspired on~\cite{Barhamgi2010} are presented to rank the best rewritings based on previously computed scores.
+\cite{ba2014} presented an refinement algorithm based
+on \textit{MiniCon} that produces and order rewritings according to user preferences and scores used to rank services that should be previously define by the user.
+%In general, these approaches share the same performance problem as the traditional database algorithms. 
+Furthermore, they do not take into consideration user's integration requirements which can lead to produce rewritings that are not satisfactory in terms of quality requirements and constraints imposed by the user and the cloud environment. We assume that these requirements and constraints are expressed on SLAs, but the SLA model and schema, and their manipulation are not covered in this paper.

@@ -1,0 +1,160 @@
+\bigskip
+
+\noindent \textbf{Definition 1 (\textit{Abstract service})}. An \textit{abstract service} describes the small piece of function that can be performed by a cloud service. For instance, retrieve patients, DNA information and personal information. The \textit{abstract service} is defined as $A \ (\overline{I}; \ \overline{O})$ where: $A$ is a name which identifies the \textit{abstract service}; and $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
+The table~\ref{table:abstractservices} exemplifies \textit{abstract services} in a medical scenario. 
+The decorations $?$ and $!$ differentiate input and output parameters, respectively. 
+\begin{table}[]
+\centering
+\begin{tabular}{|l|p{8cm}|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{\textit{Abstract service} name}} & \multicolumn{1}{c|}{\textbf{Description}} \\ \hline
+$A1 \ (d\_name?; \ p\_id!)$ & Given a disease name $d\_name$, $A1$ returns a list of infected patients' id $p\_id$. \\ \hline
+$A2 \ (p\_id?; \ p\_dna!)$ & Given a patient id $p\_id$, $A2$ returns her DNA information $p\_dna$. \\ \hline
+$A3 \ (p\_id?; \ p\_info!)$ & Given a patient id $p\_id$, $A3$ returns her personal information $p\_info$.\\ \hline
+$A4 \ (d\_name?; \ regions!)$ & Given a disease name $d\_name$, $A4$ returns the most affected region $regions$. \\ \hline
+\end{tabular}
+\caption{List of \textit{abstract services}.}
+\label{table:abstractservices}
+\end{table}
+\bigskip
+
+\noindent \textbf{Definition 2 (\textit{Concrete service})}. A \textit{concrete service} is defined as a set of \textit{abstract services}, and by its \textit{quality features} extracted from its SLA according to the following grammar:
+%
+\begin{center}
+\begin{math}
+S (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l}; \overline{O}_{1l}), A_{2}(\overline{I}_{2l}; \overline{O}_{2l}), ..,  A_{f}(\overline{I}_{fl}; \overline{O}_{fl})[M_{1},M_{2}, ..,M_{g}]
+\end{math}
+\end{center}
+The left-hand of the definition is called the \textit{head}; and the right-hand is the \textit{body}. 
+A \textit{concrete service} $S$ includes a set of input $\overline{I}$ and output $\overline{O}$ variables, respectively.
+Variables in the \textit{head} are identified by $\overline{I}_{h}$ and $\overline{O}_{h}$, and called \textit{head} variables. 
+They appear in the \textit{head} and in the \textit{body} definition. 
+Variables appearing only in the \textit{body} are identified by $\overline{I}_{l}$ and $\overline{O}_{l}$, and are called \textit{local} variables. \textit{Head} variables can be accessed and shared among different services. On the other hand, \textit{local} variables can be used only by the service which define them.
+
+\textit{Concrete services} are defined in terms of \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$), and they include a set of service's quality features ($M_{1},M_{2}, .., M_{g}$) that are extracted from the SLA exported by the service $S$.
+$M_{i}$ is in the form $x \otimes c$, where $x$ is a special class of identifiers associated to the services; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$. 
+
+Let us consider the following \textit{concrete services} specified using the \textit{abstract services} previously presented to be used as examples to the algorithm: 
+
+\begin{small}
+\begin{verbatim}
+S1(a?;b!) := A1(a?;b!) [availability > 98%, price per call = 0.2$]
+S2(a?;b!) := A1(a?;b!) [availability > 98%, price per call = 0.1$]
+S3(a?;b!) := A2(a?;b!) [availability > 99%, price per call = 0.1$]
+S4(a?;b!) := A1(a?;p!), A2(p?; b!) 
+                       [availability > 98%, price per call = 0.1$]
+S5(a?;b!) := A3(a?;b!) [availability > 98%, price per call = 0.0$]
+S6(a?;b!,c!) := A1(a?;p!), A2(p?;b!), A3(p?;c!) 
+                       [availability > 99%, price per call = 0.2$]
+S7(a?;b!) := A4(a?;b!) [availability > 99%, price per call = 0.2$]
+\end{verbatim}
+\end{small}
+%
+For instance, $S1$ is written using the \textit{abstract service} $A1$.
+$a$ and $b$ are \textit{head} variables. 
+$Availability$ and $price \ per \ call$ are identifiers associated to $S1$'s quality features with an associated constant value extracted from $S1$'s SLA.
+
+% ----------------------------------- DEFINITION 3 QUERY --------------------------------- %
+\bigskip
+
+\noindent \textbf{Definition 3 (\textit{User query})}.
+A user \textit{query} $Q$ is defined as a set of \textit{abstract services}, a set of \textit{constraints}, and a set of \textit{user integration requirements} in accordance with the following grammar:
+%
+\begin{center}
+\small
+\begin{math}
+Q (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l};
+\overline{O}_{1l}), A_{2}(\overline{I}_{2l}; \overline{O}_{2l}), ..,  A_{n}(\overline{I}_{nl}; \overline{O}_{nl}),C_{1},C_{2}, .., C_{m}[P_{1},P_{2}, .., P_{k}]
+\end{math}
+\end{center}
+%
+The \textit{query} definition is similar to a \textit{concrete service} concerning the variables and \textit{abstract services}. In addition, queries have constraints over the input or output variables ($C_{1}, C_{2}, .., C_{m}$). Constraints are used while querying the databases (\textit{i.e} in the ``\textit{where}" clause). The user \textit{integration requirements} over the services or over service compositions are specified in $P_{1}, P_{2}, .., P_{k}$. $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is an identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+
+User requirements can be of two types, single and composed. Single
+are associated directly to each service involved in the composition. Composed
+are linked to the entire composition. They are defined in terms of
+single requirements. For instance, the total response time is a composed
+preference obtained by adding the response time of each service involved in the composition.
+
+Let us suppose a query specification based on a medical scenario in which doctor \textit{Marcel} wants to query the personal and DNA information from patients that were infected by \textit{flu}, using services with availability higher than 98\%, price per call less than 0.2\$ and integration total cost less than 5\$.
+To achieve his needs, the \textit{abstract services} $A1$, $A2$ and $A3$ should be composed as follows. 
+
+\begin{small}
+\begin{verbatim}
+Q(dis?;dna!,info!) := A1(dis?;p!), A2(p?;dna!), A3(p?;info!), d = "flu",
+             [availability > 98%, price per call < 0.2$, total cost < 5$]
+\end{verbatim}
+\end{small}
+
+The \textit{Marcel's }\textit{query} plan begins by retrieving infected patients ($A1$). This operation returns patients' ids $p$. The \textit{abstract services} $A2$ and $A3$ use patient ids to return their DNA and personal information ($dna$ and $info$).
+The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, and three identifiers define the user' \textit{integration preferences} with their associated constant value. 
+
+The input data for the \textit{Rhone} is a query and a set of concrete services. 
+The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
+The main function of the algorithm is divided in four steps: selecting candidate concrete services, creating candidate service descriptions and combining and producing rewritings.
+In the next sections, each step of the algorithm will be described. 
+
+\subsection{Selecting candidate concrete services}
+
+While selecting services, the algorithm deals with three matching problems: 
+(\textit{i}) \textit{quality features} matching, each \textit{feature} in a query should be found in a concrete service. Moreover, the evaluation of a \textit{feature} in a concrete service must satisfy the evaluation of a \textit{feature} in the query; 
+(\textit{ii}) \textit{abstract service} matching, abstract services can be matched if they have the same abstract function name and if the number and type of variable are equivalent; and (\textit{iii}) \textit{concrete service} matching, all abstract services in the concrete service must exist in the query, and all of them should satisfy the \textit{feature} and \textit{abstract service matching} problems. 
+Compared to~\cite{ba2014}, our algorithm includes the \textit{features} matching and extends the \textit{concrete service} matching by not accepting \textit{concrete services} that covers useless \textit{abstract services} to the query rewriting.
+
+\subsection{Candidate service description creation}
+
+After producing the set of candidate concrete services, the next step 
+creates candidate service descriptions (CSDs). 
+A CSD maps abstract services and variables of a concrete service into abstract 
+services and variables of the query. 
+
+\noindent \textbf{Definition 6 (candidate service description)}.
+A CSD is represented by an n-tuple:
+\begin{center}
+$\langle S, h, \varphi, G, P\rangle$
+\end{center}
+where $S$ is a \textit{concrete service}. 
+\textit{h} are mappings between variables in the \textit{head} of $S$ to variables in the \textit{body} of $S$. 
+$\varphi$ are mapping between variables in the \textit{concrete service} to variables in the \textit{query}.
+$G$ is a set of \textit{abstract services} covered by $S$. 
+$P$ is a set of \textit{quality features} associated to the service $S$. 
+ 
+A CSD is created according to 4 rules: (\textit{i}) for all head variables in a
+concrete service, the mapping $h$ from the head to the body definition must
+exist; (\textit{ii}) Head variables in concrete services can be mapped to head
+or local variables in the query; (\textit{iii}) Local variables in concrete
+services can be mapped to head variables in the query; and (\textit{iv}) Local
+variables in concrete services can be mapped to local variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that an output local variable is used as input in another abstract service.
+
+Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. A  CSD is created only for candidate concrete services in which the mappings rules are being satisfied.
+
+Given the candidate concrete services \texttt{S2}, \texttt{S3}, \texttt{S4} and \texttt{S5} selected in the previous step. The algorithm builds CSDs to \texttt{S2}, \texttt{S3} and \texttt{S5} once they satisfy all the mapping rules as follows.
+For instance, $CSD_{2}$ is produced to \texttt{S2} as follows: 
+$\langle S2, \ h = \lbrace a \rightarrow a, \ b \rightarrow b \rbrace, \ \varphi = \lbrace a \rightarrow dis, \ b \rightarrow p \rbrace, \ G = \lbrace A1 \rbrace, \ P = \lbrace availability > 98\%, \ price \ per \ call = 0.1\$ \rbrace \rangle$. However, a CSD for \texttt{S4} is not build because it violates the rule for local variables. It contains a local variable ($p$) mapped to a local variable in the query. Consequently, \texttt{S4} must cover all abstract services in the query depending on this variable, but the abstract service $A3$ is not covered.
+
+\subsection{Combining and producing rewritings step}
+Given the list of CSDs $\bigLCSD$ produced, the \textit{Rhone} produces all possible combinations of its elements. 
+Building combinations deals with a NP hard complexity problem.
+The effort to process combinations increases while the number of CSDs and abstract services in the query increases.
+
+The last step identifies rewritings matching with the query and fulfilling the user preferences.
+The \textit{Rhone} algorithm verifies if a given CSD list $p$ is a rewriting
+of the original query.
+The function return $true$ if (\textit{i}) the number of
+abstract services resulting from the union of all CSDs in $p$ is equal to
+the number of abstract services in the query; and (\textit{ii}) the intersection
+of all abstract services in each CSD on $p$ is empty.
+It means that is forbidden to have abstract services replicated among the set $p$.
+
+Let us consider $CSD_{2}$, $CSD_{3}$ and $CSD_{5}$ are CSDs that refer to the concrete services \texttt{S2}, \texttt{S3} and \texttt{S5}, respectively. The \textit{Rhone} produces combinations taking into account the part of the query covered by the service as follows:
+\begin{flushleft}
+$p_{1} = \lbrace CSD_{2} \rbrace$ \\
+$p_{2} = \lbrace CSD_{2}, CSD_{3} \rbrace$ \\
+$p_{3} = \lbrace CSD_{2}, CSD_{3}, CSD_{5} \rbrace$
+\end{flushleft}
+Given the combinations, the \textit{Rhone} checks if each one of them is a valid
+rewriting of the original query.
+\begin{itemize}
+\item $p_{1}$ and $p_{2}$ are not valid rewritings; their number of abstract services do not match with the number of abstract services in the query.
+\item $p_{3}$ is a valid rewriting; the number of abstract services matches and there is no repeated abstract service. 
+\end{itemize}

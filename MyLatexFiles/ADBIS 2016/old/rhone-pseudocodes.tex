@@ -1,0 +1,76 @@
+
+
+
+\textcolor{red}{Texto antigo... adicionar funcoes e ligar ao texto existente.} 
+ 
+ The function \agg{\_} in Algorithm~\ref{algo-rhone} simply selects the aggregation conditions present in the query. 
+This function is defined as follows:
+\[
+\agg{\mathbf{SELECT}\ \alpha\ \mathbf{FROM}\ \beta\ \mathbf{WHERE}\ \gamma\ \mathbf{SUCH\ THAT}\ \delta} = \delta 
+\]
+
+Where $\delta \in \Delta$ is defined by the following grammar rules (where $c$ denotes any constant and $x$ denotes any identifier:
+\begin{eqnarray*}
+\Delta & ::= & E = E \mid E \leq E \mid \dots \mid \Delta\ ;\ \Delta   \\
+E      & ::= & c \mid x \mid \$\mathit{SUM(x)} \mid \$\mathit{AVG(x)} \mid \dots \mid \\
+       &     & E + E \mid E - E \mid E * E \mid E / E \mid ( E )
+\end{eqnarray*}
+
+The translation functions \tqI{\_}, \tqT{\_} and \tqS{\_} take the aggregation portion of a query and produce code, respectively, for the initialization, property check and increment of the variables which implement the aggregation part of the query.
+Notice that these function definitions are overloaded (they take both elements from $\Delta$ and $E$.
+They are defined as follows (we use the operation ``+'' for string concatenation and $\lambda$ is the empty string):
+
+\begin{eqnarray*}
+\tqI{\delta_1 ; \ \delta_2}	& = & \tqI{\delta_1} + \hbox{``;''} + \tqI{\delta_2} \\
+\tqI{E_1 \Bumpeq \ E_2} 		& = & \tqI{E_1} + \hbox{``;''} + \tqI{E_2}
+									\qquad \mathit{where} \Bumpeq \in \{ =, \leq, <, \dots \}\\
+\tqI{c} 						& = & \lambda \\
+\tqI{x} 						& = & \lambda \\
+\tqI{\$\mathit{SUM(x)}}	 	& = & \hbox{``\textbf{var} $x_{sum} = 0$''} \\
+\tqI{\$\mathit{AVG(x)}}	 	& = & \hbox{``\textbf{var} $x_{sum} = 0$ ; \textbf{var} $x_{count} = 0$''} \\
+\tqI{E_1 \odot \ E_2} 		& = & \tqI{E_1} + \hbox{``;''} + \tqI{E_2} 
+									\qquad \mathit{where}\ \odot \in \{ +, -, *, / \}\\
+\tqI{( E )} 					& = & \tqI{E} 
+\end{eqnarray*}
+
+The function \tqI{\_} generates the initialization code for the aggregates in the query. 
+Notice that, for the sake of simplicity, we suppose that there is no repetition among aggregates.
+
+The next definition generates the tests generated for each aggregation condition in the query:
+
+\begin{eqnarray*}
+\tqT{\delta_1 ; \ \delta_2} 	& = & \tqT{\delta_1} + \hbox{``$\wedge$''} + \tqT{\delta_2} \\
+\tqT{E_1 \Bumpeq \ E_2} 		& = & \tqT{E_1} + \hbox{``$\wedge$''} + \tqT{E_2}
+									\qquad \mathit{where} \Bumpeq \in \{ =, \leq, <, \dots \}\\
+\tqT{c} 						& = & c \\
+\tqT{x} 						& = & x \\
+\tqT{\$\mathit{SUM(x)}} 		& = & \hbox{``$x_{sum}$''} \\
+\tqT{\$\mathit{AVG(x)}} 		& = & \hbox{``$x_{sum} / x_{count}$''} \\
+\tqT{E_1 \odot \ E_2}		& = & \tqI{E_1} + \hbox{``$\odot$''} + \tqI{E_2} 
+									\qquad \mathit{where}\ \odot \in \{ +, -, *, / \}\\
+\tqT{( E )} 					& = & \hbox{``(''} + \tqI{E} \hbox{``)''}
+\end{eqnarray*}
+
+The function \tqS{\_} is responsible for generating the operations that update the variables involved in the aggregation expressions of the query.
+This function is defined as follows:
+
+\begin{eqnarray*}
+\tqS{\delta_1 ; \ \delta_2} 	& = & \tqS{\delta_1} + \hbox{``;''} + \tqS{\delta_2} \\
+\tqS{E_1 \Bumpeq \ E_2} 		& = & \tqS{E_1} + \hbox{``;''} + \tqS{E_2}
+									\qquad \mathit{where} \Bumpeq \in \{ =, \leq, <, \dots \}\\
+\tqS{c} 						& = & \lambda \\
+\tqS{x} 						& = & \lambda \\
+\tqS{\$\mathit{SUM(x)}} 		& = & \hbox{``$x_{sum} := x_{sum} + x$''} \\
+\tqS{\$\mathit{AVG(x)}} 		& = & \hbox{``$x_{sum}:= x_{sum} + x ; x_{count} := x_{count} + 1$''} \\
+\tqS{E_1 \odot \ E_2}		& = & \tqS{E_1} + \hbox{``;''} + \tqS{E_2} 
+									\qquad \mathit{where}\ \odot \in \{ +, -, *, / \}\\
+\tqS{( E )} 					& = & \tqS{E}
+\end{eqnarray*}
+
+The function $\mathit{BuildPCDs}(Q, \bigS)$ (Algorithm~\ref{algo-rhone}, line~\ref{rhone:buildPCD}) is responsible for creating one PCD for each concrete service.
+
+The iterator $I$ is responsible for producing sets of PCDs such that \textit{(i)} their combination \textit{covers} the body of the abstract query and \textit{(ii)} they are produced in a decreasing order of priority (the first set produced by the iterator maximizes the combined preference).
+
+The iterator $I$ implements a dynamic priority queue. 
+Its initialization stores the most preferred solutions in the queue (according to the order determined by the SLAs).
+The operation $I.\mathit{Next}()$ de-queues the next preferred set of PCDs, calculates the successors of this set (in the pareto order determined by the SLA), inserts the successors in the priority queue and finally returns the de-queued set.

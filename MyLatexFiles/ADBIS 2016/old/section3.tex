@@ -5,13 +5,7 @@ In this vision
 (iii) \textit{data services} and \textit{data processing services} can be deployed in different \textit{cloud providers} geographically distributed; 
 (iv) \textit{data services}, \textit{data processing services} and the \textit{cloud} itself export their SLA defining the services they provide and the quality conditions under which they are delivered. Different levels of SLA are considered: contracts agreed between \textit{data services} or \textit{data processing services} and \textit{cloud providers}, called \textit{cloud SLA} (SLA$_{C}$); and contracts agreed between users and \textit{data services} or \textit{data processing services}, called \textit{service SLA} (SLA$_{S}$). 
 Therefore, given a user query, his/her integration quality requirements and his/her cloud subscription, the query is rewritten in terms of cloud services (\textit{data services} and \textit{data processing services}) composition that fulfill the integration requirements and deliver the expected results to the user.
-%The figure~\ref{fig:scenario} illustrates our data integration vision.
 
-% \begin{figure}[h!]
-% \center
-% \includegraphics[scale=0.57]{scenario.pdf}
-% \caption{New vision of data integration}\label{fig:scenario}
-% \end{figure}
 
 To better understand our vision and challenges, let us consider the following medical scenario in which users are able to retrieve and integrate data concerning (i) \textit{patients that were infected by a disease;}
 (ii) \textit{regions most affected by a disease}; (iii) \textit{patients' personal information}; and (iv) \textit{patients' DNA information}. For instance, doctor \textit{Marcel} would like to study the type of people suffering of \textit{flu} in the Europe. To perform this, he has at his disposal a set of cloud services delivered by different \textit{cloud providers}.
@@ -24,13 +18,13 @@ Each cloud service and \textit{cloud provider} describe their quality guarantees
 \item Executing data integration tasks is computationally costly in terms of processing time and economic cost. Therefore, it is crucial to reuse previous integration results in order to save time and money while satisfying the user.
 \end{itemize}
 
-Motivated by the challenges discussed above, the figure~\ref{fig:workflow} illustrates our SLA-based data integration workflow. Given a user query, a set of user preferences associated to it, cloud providers and cloud services, the workflow can be divided in four steps:
-
-\begin{figure}[h!]
-\center
-\includegraphics[scale=0.40]{workflow-approach.pdf}
-\caption{SLA-based data integration workflow}\label{fig:workflow}
-\end{figure}
+Motivated by the challenges discussed above, we propose a SLA-based data integration workflow as follows. Given a user query, a set of user preferences associated to it, cloud providers and cloud services, the workflow can be divided in four steps:
+%
+%\begin{figure}[h!]
+%\center
+%\includegraphics[scale=0.40]{workflow-approach.pdf}
+%\caption{SLA-based data integration workflow}\label{fig:workflow}
+%\end{figure}
 
 \noindent \textbf{\underline{SLA derivation}}. In this step, we compute what we call a \textsl{derived SLA} that matches user' integration requirements (including quality constraints and data requirements) with the SLA's provided by \textit{cloud services}, given a specific user cloud subscription. The user may have general \textit{preferences} depending on the context he/she wants to integrate his/her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The \textit{SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration. Furthermore, the \textsl{derived SLA} guides the query evaluation, and the way results are computed and delivered. \\
 \textbf{\underline{Filtering data services}}. The \textsl{derived SLA} is used (i)
@@ -54,9 +48,9 @@ services' quality aspects from SLA, and to provide this information as input to
 the algorithm. The figure~\ref{fig:cloudsla} illustrates the structure of SLA
 and its measures that are considered in the algorithm we will detail in the next
 section.   
-
-\begin{figure}[h!]
-\center
-\includegraphics[scale=0.47]{Cloud_SLA.pdf}
-\caption{Cloud SLA model}\label{fig:cloudsla}
-\end{figure}
+%
+%\begin{figure}[h!]
+%\center
+%\includegraphics[scale=0.47]{Cloud_SLA.pdf}
+%\caption{Cloud SLA model}\label{fig:cloudsla}
+%\end{figure}

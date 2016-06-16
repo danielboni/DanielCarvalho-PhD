@@ -1,11 +1,12 @@
 \bigskip
 
-\noindent \textbf{Definition 1 (\textit{Abstract service})}. A \textit{abstract service} describes the small piece of function that can be performed by a cloud service. For instance, retrieve patients, DNA information and personal information. The \textit{abstract service} is defined as $A \ (\overline{I}; \ \overline{O})$ where: 
-\begin{itemize}
-\item $A$ is a name which identifies the \textit{abstract service}.
-\item $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
-\end{itemize}
-The table~\ref{table:abstractservices} exemplifies \textit{abstract services} concerning our medical scenario described in the section~\ref{sec:scenario}. The decorations $?$ and $!$ differentiate input and output parameters, respectively. 
+\noindent \textbf{Definition 1 (\textit{Abstract service})}. An \textit{abstract service} describes the small piece of function that can be performed by a cloud service. For instance, retrieve patients, DNA information and personal information. The \textit{abstract service} is defined as $A \ (\overline{I}; \ \overline{O})$ where: $A$ is a name which identifies the \textit{abstract service}; and $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
+%\begin{itemize}
+%\item $A$ is a name which identifies the \textit{abstract service}.
+%\item $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
+%\end{itemize}
+The table~\ref{table:abstractservices} exemplifies \textit{abstract services} in a medical scenario. 
+The decorations $?$ and $!$ differentiate input and output parameters, respectively. 
 %
 %
 \begin{table}[]
@@ -23,7 +24,7 @@ $A4 \ (d\_name?; \ regions!)$ & Given a disease name $d\_name$, $A4$ returns the
 \end{table}
 \bigskip
 
-\noindent \textbf{Definition 2 (\textit{Concrete service})}. A \textit{concrete service} is defined as a set of \textit{abstract services}, and by its \textit{quality measures} extracted from its SLA according to the following grammar:
+\noindent \textbf{Definition 2 (\textit{Concrete service})}. A \textit{concrete service} is defined as a set of \textit{abstract services}, and by its \textit{quality features} extracted from its SLA according to the following grammar:
 %
 \begin{center}
 \begin{math}
@@ -37,8 +38,7 @@ Variables in the \textit{head} are identified by $\overline{I}_{h}$ and $\overli
 They appear in the \textit{head} and in the \textit{body} definition. 
 Variables appearing only in the \textit{body} are identified by $\overline{I}_{l}$ and $\overline{O}_{l}$, and are called \textit{local} variables. \textit{Head} variables can be accessed and shared among different services. On the other hand, \textit{local} variables can be used only by the service which define them.
 
-\textit{Concrete services} are defined in terms of \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$), and they include a set of service's quality aspects (quality measures) ($M_{1},M_{2}, .., M_{g}$). 
-These measures are extracted from the SLA exported by the service $S$.
+\textit{Concrete services} are defined in terms of \textit{abstract services} ($A_{1}, A_{2}, .., A_{n}$), and they include a set of service's quality aspects (quality features) ($M_{1},M_{2}, .., M_{g}$) that are extracted from the SLA exported by the service $S$.
 %
 %
 $M_{i}$ is in the form $x \otimes c$, where $x$ is a special class of identifiers associated to the services; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$. 
@@ -59,29 +59,9 @@ S7(a?;b!) := A4(a?;b!) [availability > 99%, price per call = 0.2$]
 \end{verbatim}
 \end{small}
 %
-%
-%
-% \begin{figure}[h!]
-% \center
-% \includegraphics[scale=0.85]{concreteservices.pdf}
-% \caption{Concrete services available.}\label{fig:scenario}
-% \end{figure}
-%
-%
-%\begin{flushleft}
-%\small
-%$S1(d?; p!) := A1(d?; p!)[availability > 98\%, \ price \ per \ call = 0.2\$]$ \\
-%$S2(d?; p!) := A1(d?; p!)[availability > 98\%, \ price \ per \ call = 0.1\$]$ \\
-%$S3(p?; dna!) := A2(p?; dna!)[availability > 99\%, \ price \ per \ call = 0.1\$]$ \\
-%$S4(d?; dna!) := A1(d?; p!), A2(p?; dna!)[availability > 98\%, \ price \ per \ call = 0.1\$]$ \\
-%$S5(p?; info!) := A3(p?; info!)[availability > 98\%, \ price \ per \ call = 0.0\$]$ \\
-%$S6(d?; dna!, info!) := A1(d?; p!), A2(p?; dna!), A3(p?; info!)[availability > 99\%, \ price \ per \ call = 0.2\$]$ \\
-%$S7(d?; r!) := A4(d?; r!)[availability > 99\%, \ price \ per \ call = 0.2\$]$ \\
-%\end{flushleft}
-%
 For instance, $S1$ is written using the \textit{abstract service} $A1$.
-$d$ and $p$ are \textit{head} variables. 
-$Availability$ and $price \ per \ call$ are identifiers associated to $S1$'s quality measures with an associated constant value extracted from $S1$'s SLA.
+$a$ and $b$ are \textit{head} variables. 
+$Availability$ and $price \ per \ call$ are identifiers associated to $S1$'s quality features with an associated constant value extracted from $S1$'s SLA.
 %
 %The table~\ref{table:concreteservices} shows examples of \textit{concrete services} and their functionality considering the \textit{abstract services} described before.
 
@@ -114,7 +94,7 @@ Q (\overline{I}_{h}; \overline{O}_{h}) := A_{1}(\overline{I}_{1l};
 \end{math}
 \end{center}
 %
-The \textit{query} definition is similar to a \textit{concrete service} concerning the variables and \textit{abstract services}. In addition, queries have constraints over the input or output variables ($C_{1}, C_{2}, .., C_{m}$). Constraints are used while querying the databases (\textit{i.e} in the \textit{where} clause). The user \textit{integration preferences} over the services or over service compositions are specified in $P_{1}, P_{2}, .., P_{k}$. $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is an identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
+The \textit{query} definition is similar to a \textit{concrete service} concerning the variables and \textit{abstract services}. In addition, queries have constraints over the input or output variables ($C_{1}, C_{2}, .., C_{m}$). Constraints are used while querying the databases (\textit{i.e} in the ``\textit{where}" clause). The user \textit{integration preferences} over the services or over service compositions are specified in $P_{1}, P_{2}, .., P_{k}$. $C_{i}$ and $P_{j}$ are in the form $x \otimes c$, where $x$ is an identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$.
 %
 
 User preferences can be of two types, single and composed. Single preferences
@@ -123,13 +103,13 @@ preferences are linked to the entire composition. They are defined in terms of
 single preferences. For instance, the total response time is a composed
 preference obtained by adding the response time of each service involved in the composition.
 
-Let us suppose a query specification based on the medical scenario (section \ref{sec:scenario}) in which doctor \textit{Marcel} wants to query the personal and DNA information from patients that were infected by \textit{flu}, using services with availability higher than 98\%, price per call less than 0.2\$ and integration total cost less than 5\$.
+Let us suppose a query specification based on a medical scenario in which doctor \textit{Marcel} wants to query the personal and DNA information from patients that were infected by \textit{flu}, using services with availability higher than 98\%, price per call less than 0.2\$ and integration total cost less than 5\$.
 To achieve his needs, the \textit{abstract services} $A1$, $A2$ and $A3$ should be composed as follows. 
 %The figure~\ref{fig:queryandservices} illustrates doctor \textit{Marcel's} query and six \textit{concrete services} specified in terms of \textit{abstract services} defined before (Table~\ref{table:abstractservices}).
 
 \begin{small}
 \begin{verbatim}
-Q(dis?;dna!,info!) := A1(dis?;p!), A2(p?;dna!), A3(p?;info!), d = “flu”,
+Q(dis?;dna!,info!) := A1(dis?;p!), A2(p?;dna!), A3(p?;info!), d = "flu",
              [availability > 98%, price per call < 0.2$, total cost < 5$]
 \end{verbatim}
 \end{small}
@@ -148,7 +128,8 @@ The \textit{Marcel's }\textit{query} plan begins by retrieving infected patients
 %The query $Q$ has an input parameter $d$ and an output parameter $dna$. 
 %These \textit{head} variable are used in the \textit{abstract services} $diseasePatients$ and $DNAinformation$. 
 %The local variable $p$ is an output in $diseasePatients$ and it is used as input in $GetDNA$.
-The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, and three identifiers define the user' \textit{integration preferences} with their associated constant value: $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 5 dollars.
+The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, and three identifiers define the user' \textit{integration preferences} with their associated constant value.
+%: $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 5 dollars.
 %
 %\begin{figure}[h!]
 %\center
@@ -169,9 +150,9 @@ The \textit{query} contains a constraint $dis$ (disease name) equal to $flu$, an
 %The query contains a constraint $d$ (disease name) equal to $flu$, and three user preferences $availability$ higher than 98 percent, $price \ per \ call$ less than 2 cents, and $total \ cost$ less than 2 dollars.
 
 
-\subsection{Overview of the algorithm}
-The input data for the \textit{Rhone} is a query, which includes a set of user preferences, and a set of concrete services. The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
-The main function of the algorithm is divided in four steps:
+%\subsection{Overview of the algorithm}
+%The input data for the \textit{Rhone} is a query, which includes a set of user preferences, and a set of concrete services. %The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
+%The main function of the algorithm is divided in four steps:
 %The main function of the \textit{Rhone} is described in the algorithm
 %\ref{algo-rhone}.
 %The input data for this function is a query, which includes a set of user preferences, and a set of concrete services. The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
@@ -193,16 +174,16 @@ The main function of the algorithm is divided in four steps:
 %\end{algorithmic}
 %\end{algorithm}
 
-\noindent \underline{\textbf{Select candidate services}.} The algorithm looks for \textit{concrete services} including \textit{abstract services} that can be matched with the query' \textit{abstract services} considering their name and input/output parameters, resulting in a set of candidate concrete services. 
-
-\noindent \underline{\textbf{Building CSDs}.} For each candidate concrete service, the Rhone tries to create \textit{concrete service description} (CSD). A CSD is a structure that maps a concrete service to the query, or part of it. 
-The  result of this step is a list of CSDs.
-
-\noindent \underline{\textbf{Combining CSDs}.} Given all CSDs, they are combined among each other to
-generate lists of CSD combinations in which each element represents a possible
-rewriting.
-
-\noindent \underline{\textbf{Producing rewritings}.} Finally, given the list of combinations, the \textit{Rhone} identifies the ones matching with the query and fulfilling the user preferences.
+%\noindent \underline{\textbf{Select candidate services}.} The algorithm looks for \textit{concrete services} including \textit{abstract services} that can be matched with the query' \textit{abstract services} considering their name and input/output parameters, resulting in a set of candidate concrete services. 
+%
+%\noindent \underline{\textbf{Building CSDs}.} For each candidate concrete service, the Rhone tries to create \textit{concrete service description} (CSD). A CSD is a structure that maps a concrete service to the query, or part of it. 
+%The  result of this step is a list of CSDs.
+%
+%\noindent \underline{\textbf{Combining CSDs}.} Given all CSDs, they are combined among each other to
+%generate lists of CSD combinations in which each element represents a possible
+%rewriting.
+%
+%\noindent \underline{\textbf{Producing rewritings}.} Finally, given the list of combinations, the \textit{Rhone} identifies the ones matching with the query and fulfilling the user preferences.
 %In the first step, the algorithm looks for \textit{concrete services} including \textit{abstract services} that 
 %can be matched with the query' \textit{abstract services} (line 2) considering their name and input/output parameters, resulting in a set of candidate concrete
 %services. For this set of services, the Rhone tries to create 
@@ -221,35 +202,42 @@ rewriting.
 %It is responsible to check and increment \textit{composed measures} (if present in the query). 
 %This means for each element in the CSD list the value of \textit{composed measure} is incremented (line 10), and rewritings are produced while the values of these measures are respected (line 7). 
 %The final result is a list of valid rewriting (line 5). 
-In the next sections, each phase of the algorithm is described in detail. 
+
+The input data for the \textit{Rhone} is a query and a set of concrete services. 
+The result is a set of rewriting of the query in terms of concrete services, fulfilling the user preferences.
+The main function of the algorithm is divided in four steps: selecting candidate concrete services, creating candidate service descriptions and combining and producing rewritings.
+In the next sections, each step of the algorithm will be described. 
 
 \subsection{Selecting candidate concrete services}
 
-One contribution of our approach concerns the services selection process. Services are selected based on the user preferences and on the services' quality aspects collected from service level agreements.
-While selecting services, the algorithm deals with three matching problems: \textit{measures} matching, \textit{abstract service} matching and \textit{concrete service} matching.
+%One contribution of our approach concerns the services selection process. Services are selected based on the user preferences and on the services' quality aspects collected from service level agreements.
+While selecting services, the algorithm deals with three matching problems: 
+(\textit{i}) \textit{quality features} matching, each \textit{feature} in a query should be found in a concrete service. Moreover, the evaluation of a \textit{feature} in a concrete service must satisfy the evaluation of a \textit{feature} in the query; 
+(\textit{ii}) \textit{abstract service} matching, abstract services can be matched if they have the same abstract function name and if the number and type of variable are equivalent; and (\textit{iii}) \textit{concrete service} matching, all abstract services in the concrete service must exists in the query, and all of them should satisfy the \textit{feature} and \textit{abstract service matching} problems. 
+Compared to~\cite{ba2014}, our algorithm includes the \textit{features} matching and extends the \textit{concrete service} matching by not accepting \textit{concrete services} that covers useless \textit{abstract services} to the query rewriting.
 
-\noindent \textbf{Definition 3 (Measures matching)}.
-Given a \textit{user preference} $P_{i}$ and a service's quality measure $Q_{j}$, a matching between them can be made if: (\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
-(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$. For instance, $price \ per \ call < 0.2\$$ is a \textit{user preference} that can be matched with a service' quality measure $price \ per \ call = 0.1\$$.
-
-\noindent \textbf{Definition 4 (\textit{Abstract service} matching)}.
-Given two abstract services $A_{i}$ and $A_{j}$, a matching between \textit{abstract services} occurs when an \textit{abstract service} $A_{i}$ can be matched to $A_{j}$, denoted $A_{i} \equiv A_{j}$, according to the following conditions: 
-(\textit{i}) $A_{i}$ and $A_{j}$ must have the same abstract function name; 
-(\textit{ii}) the number of input variables of $A_{i}$, denoted $vars_{input}(A_{i})$, is equal or higher than the number of input variables of $A_{j}$ ($vars_{input}(A_{j})$); and 
-(\textit{iii}) the number of output variables of $A_{i}$, denoted $vars_{output}(A_{i})$, is equal or higher than the number of output variables of $A_{j}$ ($vars_{output}(A_{j})$).
-
-\noindent \textbf{Definition 5 (\textit{Concrete service} matching)}.
-A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
-(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and (\textit{ii}) $\forall \ P_{iQ}, \ \exists \ Q_{iS} \ / \ Eval(Q_{iS}) \ = \ true$.
+%\noindent \textbf{Definition 3 (Measures matching)}.
+%Given a \textit{user preference} $P_{i}$ and a service's quality measure $Q_{j}$, a matching between them can be made if: (\textit{i}) the identifier $c_{i}$ in $P_{i}$ has the same name of $c_{j}$ in $Q_{j}$; and
+%(\textit{ii}) the evaluation of $Q_{j}$, denoted $eval(Q_{j})$, must satisfy the evaluation of $P_{i}$ ($eval(P_{i})$). In other words, $eval(Q_{j}) \subset eval(P_{i})$. For instance, $price \ per \ call < 0.2\$$ is a \textit{user preference} that can be matched with a service' quality measure $price \ per \ call = 0.1\$$.
+%
+%\noindent \textbf{Definition 4 (\textit{Abstract service} matching)}.
+%Given two abstract services $A_{i}$ and $A_{j}$, a matching between \textit{abstract services} occurs when an \textit{abstract service} $A_{i}$ can be matched to $A_{j}$, denoted $A_{i} \equiv A_{j}$, according to the following conditions: 
+%(\textit{i}) $A_{i}$ and $A_{j}$ must have the same abstract function name; 
+%(\textit{ii}) the number of input variables of $A_{i}$, denoted $vars_{input}(A_{i})$, is equal or higher than the number of input variables of $A_{j}$ ($vars_{input}(A_{j})$); and 
+%(\textit{iii}) the number of output variables of $A_{i}$, denoted $vars_{output}(A_{i})$, is equal or higher than the number of output variables of $A_{j}$ ($vars_{output}(A_{j})$).
+%
+%\noindent \textbf{Definition 5 (\textit{Concrete service} matching)}.
+%A \textit{concrete service} $S$ can be matched with the \textit{query} $Q$ according to the following conditions:
+%(\textit{i}) $\forall A_{i}  \ s. \ t. \lbrace\ A_{i} \in \ S\rbrace, \ \exists \ A_{j} \ $ $s. \ t. \lbrace\ A_{j} \in \ Q\rbrace, \ where \ A_{i} \equiv A_{j}.$ For all \textit{abstract services} $A_{i}$ in $S$, there is one \textit{abstract service} $A_{j}$ in $Q$ that satisfies the \textit{abstract service} matching problem (Definition 4); and (\textit{ii}) $\forall \ P_{iQ}, \ \exists \ Q_{iS} \ / \ Eval(Q_{iS}) \ = \ true$.
 %and (\textit{ii}) for all \textit{single preferences} $P_{i}$ in $Q$, there is one
 %\textit{service quality measure} $Q_{i}$ in $S$ that satisfies the \textit{measures} matching problem (Definition 3)
 
-The process of selecting candidate concrete services
-is described in the algorithm~\ref{selectingservices}.
-Given the query $Q$ and a set of concrete services $\bigS$, the algorithm
-looks for concrete services that can be used in the rewriting process.
-Each selected service should satisfy the user preferences in $Q$ (line 4), and match with the query (line 7).
-The services that satisfy all the matching problems are included in a set of candidate concrete services $\bigLS$ (line 12-13) which probably can be used in the rewriting process.
+%The process of selecting candidate concrete services
+%is described in the algorithm~\ref{selectingservices}.
+%Given the query $Q$ and a set of concrete services $\bigS$, the algorithm
+%looks for concrete services that can be used in the rewriting process.
+%Each selected service should satisfy the user preferences in $Q$ (line 4), and match with the query (line 7).
+%The services that satisfy all the matching problems are included in a set of candidate concrete services $\bigLS$ (line 12-13) which probably can be used in the rewriting process.
 
 %The process of selecting candidate concrete services
 %is described in the algorithm~\ref{selectingservices}.
@@ -263,37 +251,37 @@ The services that satisfy all the matching problems are included in a set of can
 %is a list of \textit{candidate concrete services} $\bigLS$ which
 %probably can be used in the rewriting process (line 17).
 
-\begin{algorithm}
-\small
-\caption{ - Select candidate services}
-\label{selectingservices}
-\begin{algorithmic}[1]
-\REQUIRE A query $Q$ and a set of concrete services $\bigS$.
-\ENSURE A set of candidate concrete services $\bigLS$ that can be used in the rewriting process and fulfill the user preferences.
-\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
-\STATE $\bigLS \leftarrow \emptyset$
-\FORALL  {$S_{i}$ in $\bigS$}
-	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
-		\STATE $b \leftarrow \mathit{true}$		
-		\FORALL  {$A_{j}$ in $S_{i}$}
-			\IF {$Q.\mathit{notContains(A_{i})}$}
-				\STATE $b \leftarrow \mathit{false}$	
-				\STATE $\mathit{break}$
-			\ENDIF
-		\ENDFOR
-		\IF {$b = true$}
-			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
-		\ENDIF
-	\ENDIF
-\ENDFOR
-\STATE \textbf{return} $\bigLS$
-\STATE \textbf{end function}
-\end{algorithmic}
-\end{algorithm}
+%\begin{algorithm}
+%\small
+%\caption{ - Select candidate services}
+%\label{selectingservices}
+%\begin{algorithmic}[1]
+%\REQUIRE A query $Q$ and a set of concrete services $\bigS$.
+%\ENSURE A set of candidate concrete services $\bigLS$ that can be used in the rewriting process and fulfill the user preferences.
+%\STATE \textbf{function} $\mathit{SelectCandidateServices} (Q, \bigS)$
+%\STATE $\bigLS \leftarrow \emptyset$
+%\FORALL  {$S_{i}$ in $\bigS$}
+%	\IF {$\mathit{SatisfyQualityMeasures(Q, S_{i})}$}
+%		\STATE $b \leftarrow \mathit{true}$		
+%		\FORALL  {$A_{j}$ in $S_{i}$}
+%			\IF {$Q.\mathit{notContains(A_{i})}$}
+%				\STATE $b \leftarrow \mathit{false}$	
+%				\STATE $\mathit{break}$
+%			\ENDIF
+%		\ENDFOR
+%		\IF {$b = true$}
+%			\STATE $\bigLS \leftarrow \bigLS \cup \lbrace S_{i} \rbrace$	
+%		\ENDIF
+%	\ENDIF
+%\ENDFOR
+%\STATE \textbf{return} $\bigLS$
+%\STATE \textbf{end function}
+%\end{algorithmic}
+%\end{algorithm}
 
-Let us consider the \textit{query} and \textit{concrete services} illustrated in the section 4.1.
-The \textit{Rhone} iterates in the \textit{concrete service} list looking for services satisfying the matching problems.
-Taking into account the \textit{query} and the \textit{concrete services}, \texttt{S2}, \texttt{S3}, \texttt{S4} and \texttt{S5} are selected as candidate concrete services as they satisfy all matching problems. However, \texttt{S1}, \texttt{S6} and \texttt{S7} are not selected once their measures violate the user \textit{integration preference} `$price \ per \ call$'. In addition, \texttt{S7} is not also selected because it contains a \textit{abstract service} that does not contribute to answer the \textit{query}.
+%Let us consider the \textit{query} and \textit{concrete services} illustrated in the section 4.1.
+%The \textit{Rhone} iterates in the \textit{concrete service} list looking for services satisfying the matching problems.
+%Taking into account the \textit{query} and the \textit{concrete services}, \texttt{S2}, \texttt{S3}, \texttt{S4} and \texttt{S5} are selected as candidate concrete services as they satisfy all matching problems. However, \texttt{S1}, \texttt{S6} and \texttt{S7} are not selected once their measures violate the user \textit{integration preference} `$price \ per \ call$'. In addition, \texttt{S7} is not also selected because it contains a \textit{abstract service} that does not contribute to answer the \textit{query}.
 %\begin{figure}[h!]
 %\center
 %\includegraphics[scale=0.57]{query-and-services-selecting.pdf}
@@ -366,9 +354,9 @@ concrete service, the mapping $h$ from the head to the body definition must
 exist; (\textit{ii}) Head variables in concrete services can be mapped to head
 or local variables in the query; (\textit{iii}) Local variables in concrete
 services can be mapped to head variables in the query; and (\textit{iv}) Local
-variables in concrete services can be mapped to local variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that this an output local variable is used as input in another abstract service.
+variables in concrete services can be mapped to local variables in the query if and only if the concrete service covers all abstract services in the query that depend on this variable. The relation ``depends''  means that an output local variable is used as input in another abstract service.
 
-The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. A  CSD is created only for candidate concrete services in which the mappings rules are being satisfied (line 4).
+Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. A  CSD is created only for candidate concrete services in which the mappings rules are being satisfied.
 %The list of CSDs (line 17) is used to build rewritings of the query.
 %
 %The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query $Q$ and a list of candidate concrete services $\bigLS$, a list of CSDs $\bigLCSD$ is produced. 
@@ -376,33 +364,33 @@ The algorithm~\ref{creatingcsds} describes the creation of CSDs. Given the query
 %a CSD is created (line 13), and added to the final list of CSDs $\bigLCSD$ (line 14).
 %The result of this phase is a list of CSDs that can be used to build rewriting of the query (line 17).
 
-\begin{algorithm}[h!]
-\small
-\caption{ - Create candidate service descriptions (CSDs)}
-\label{creatingcsds}
-\begin{algorithmic}[1]
-\REQUIRE A query $Q$ and a set of candidate concrete services $\bigLS$.
-\ENSURE A set of candidate service descriptions (CSDs) $\bigLCSD$ that contains mappings from candidate concrete service to the query.
-\STATE \textbf{function} $\mathit{CreateCSDs} (Q, \bigLS)$
-\STATE $\bigLCSD \leftarrow \emptyset$
-\FORALL  {$S_{i}$ in $\bigLS$}
-	\IF {There are mappings $\mathit{h}$ and $\varphi$ from $S_{i}$ to $Q$}	
-		\STATE $G \leftarrow \emptyset$	
-		\STATE $P \leftarrow \emptyset$		
-		\FORALL  {$A_{j}$ in $S_{i}$}
-			\STATE $G \leftarrow G \cup \lbrace A_{j} \rbrace$ 
-		\ENDFOR
-		\FORALL  {$M_{k}$ in $S_{i}$}
-			\STATE $P \leftarrow P \cup \lbrace M_{k} \rbrace$ 
-		\ENDFOR
-		\STATE $CSD := \langle S_{i}, h, \varphi, G, P \rangle$	
-		\STATE $\bigLCSD \leftarrow \bigLCSD \cup \lbrace CSD \rbrace$	
-	\ENDIF
-\ENDFOR
-\STATE \textbf{return} $\bigLCSD$
-\STATE \textbf{end function}
-\end{algorithmic}
-\end{algorithm}
+%\begin{algorithm}[h!]
+%\small
+%\caption{ - Create candidate service descriptions (CSDs)}
+%\label{creatingcsds}
+%\begin{algorithmic}[1]
+%\REQUIRE A query $Q$ and a set of candidate concrete services $\bigLS$.
+%\ENSURE A set of candidate service descriptions (CSDs) $\bigLCSD$ that contains mappings from candidate concrete service to the query.
+%\STATE \textbf{function} $\mathit{CreateCSDs} (Q, \bigLS)$
+%\STATE $\bigLCSD \leftarrow \emptyset$
+%\FORALL  {$S_{i}$ in $\bigLS$}
+%	\IF {There are mappings $\mathit{h}$ and $\varphi$ from $S_{i}$ to $Q$}	
+%		\STATE $G \leftarrow \emptyset$	
+%		\STATE $P \leftarrow \emptyset$		
+%		\FORALL  {$A_{j}$ in $S_{i}$}
+%			\STATE $G \leftarrow G \cup \lbrace A_{j} \rbrace$ 
+%		\ENDFOR
+%		\FORALL  {$M_{k}$ in $S_{i}$}
+%			\STATE $P \leftarrow P \cup \lbrace M_{k} \rbrace$ 
+%		\ENDFOR
+%		\STATE $CSD := \langle S_{i}, h, \varphi, G, P \rangle$	
+%		\STATE $\bigLCSD \leftarrow \bigLCSD \cup \lbrace CSD \rbrace$	
+%	\ENDIF
+%\ENDFOR
+%\STATE \textbf{return} $\bigLCSD$
+%\STATE \textbf{end function}
+%\end{algorithmic}
+%\end{algorithm}
 
 Given the candidate concrete services \texttt{S2}, \texttt{S3}, \texttt{S4} and \texttt{S5} selected in the previous step. The algorithm builds CSDs to \texttt{S2}, \texttt{S3} and \texttt{S5} once they satisfy all the mapping rules as follows.
 For instance, $CSD_{2}$ is produced to \texttt{S2} as follows: 
@@ -417,7 +405,8 @@ $\langle S2, \ h = \lbrace a \rightarrow a, \ b \rightarrow b \rbrace, \ \varphi
 
 \subsection{Combining and producing rewritings step}
 Given the list of CSDs $\bigLCSD$ produced, the \textit{Rhone} produces all possible combinations of its elements. 
-Building combinations $I$ (Algorithm~\ref{rewriting}) deals with a NP hard complexity problem.
+Building combinations deals with a NP hard complexity problem.
+%uilding combinations $I$ (Algorithm~\ref{rewriting}) deals with a NP hard complexity problem.
 The effort to process combinations increases while the number of CSDs and abstract services in the query increases.
 
 %\begin{center}
@@ -466,47 +455,55 @@ The effort to process combinations increases while the number of CSDs and abstra
 %\end{center}
 
 
-\begin{algorithm}
-\small
-\caption{ - Producing rewritings}
-\label{rewriting}
-\begin{algorithmic}[1]
-\REQUIRE A query $Q$ and a list of lists of CSDs $I$.
-\ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
-\STATE \textbf{function} $\mathit{ProduceRewritings} (Q, I)$
-	\STATE $R\leftarrow \emptyset$
-	\STATE ~\!\tqI{\agg{Q}} 
-    \STATE $p \leftarrow I.next()$
-    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqT{\agg{Q}}} 
-		\IF {\textit{isRewriting}$(Q, p)$}
-			\STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
-			\STATE ~\!\tqS{\agg{Q}}
-		\ENDIF
-		\STATE $p \leftarrow I.\mathit{next}()$
-	\ENDWHILE
-    \STATE \textbf{return} $R$
-\STATE \textbf{end function}
-\end{algorithmic}
-\end{algorithm}
+%\begin{algorithm}
+%\small
+%\caption{ - Producing rewritings}
+%\label{rewriting}
+%\begin{algorithmic}[1]
+%\REQUIRE A query $Q$ and a list of lists of CSDs $I$.
+%\ENSURE A set of rewritings $R$ that matches with the query and fulfill the user preferences.
+%\STATE \textbf{function} $\mathit{ProduceRewritings} (Q, I)$
+%	\STATE $R\leftarrow \emptyset$
+%	\STATE ~\!\tqI{\agg{Q}} 
+%    \STATE $p \leftarrow I.next()$
+%    \WHILE {$p\ \neq\ \emptyset$ \AND ~\!\tqT{\agg{Q}}} 
+%		\IF {\textit{isRewriting}$(Q, p)$}
+%			\STATE $R\leftarrow R\,\cup \mathit{Rewriting}(p)$
+%			\STATE ~\!\tqS{\agg{Q}}
+%		\ENDIF
+%		\STATE $p \leftarrow I.\mathit{next}()$
+%	\ENDWHILE
+%    \STATE \textbf{return} $R$
+%\STATE \textbf{end function}
+%\end{algorithmic}
+%\end{algorithm}
 
 %
-The last step identifies rewritings matching with the query and fulfilling the user preferences (Algorithm~\ref{rewriting}). %The set of rewritings $R$ is initialized empty (line 2).
+The last step identifies rewritings matching with the query and fulfilling the user preferences. %(Algorithm~\ref{rewriting}). %The set of rewritings $R$ is initialized empty (line 2).
 %
 %A combination of CSDs is a valid rewriting if: (i) they cover all abstract services in the query; and (ii) there is mapping to all head variables in the query (implemented by the function \textit{isRewriting}$(Q, p)$ - line 8).
 %
-Another contribution in our algorithm concerns the aggregation functions $~\!\tqI{\agg{Q}}$, $~\!\tqT{\agg{Q}}$ and $~\!\tqS{\agg{Q}}$.
-They are responsible to initialize (line 3), check conditions (line 5) and increment (line 8) composed preferences defined by the user.
-This means for each element $p$ in the CSD list the value of a composed measure is computed and incremented. 
-Rewritings are produced while the user preferences are respected. 
-
+%Another contribution in our algorithm concerns the aggregation functions $~\!\tqI{\agg{Q}}$, $~\!\tqT{\agg{Q}}$ and $~\!\tqS{\agg{Q}}$.
+%They are responsible to initialize (line 3), check conditions (line 5) and increment (line 8) composed preferences defined by the user.
+%This means for each element $p$ in the CSD list the value of a composed measure is computed and incremented. 
+%Rewritings are produced while the user preferences are respected. 
+%
 The \textit{Rhone} algorithm verifies if a given CSD list $p$ is a rewriting
-of the original query (Algorithm 4, line 6).
-The algorithm~\ref{isrewriting} describes this process in detail. 
-Given the CSD list $p$ (line 2), the function return $true$ if (\textit{i}) the number of
+of the original query.
+The function return $true$ if (\textit{i}) the number of
 abstract services resulting from the union of all CSDs in $p$ is equals to
 the number of abstract services in the query; and (\textit{ii}) the intersection
 of all abstract services in each CSD on $p$ is empty.
 It means that is forbidden to have abstract services replicated among the set $p$.
+%
+%The \textit{Rhone} algorithm verifies if a given CSD list $p$ is a rewriting
+%of the original query (Algorithm 4, line 6).
+%The algorithm~\ref{isrewriting} describes this process in detail. 
+%Given the CSD list $p$ (line 2), the function return $true$ if (\textit{i}) the number of
+%abstract services resulting from the union of all CSDs in $p$ is equals to
+%the number of abstract services in the query; and (\textit{ii}) the intersection
+%of all abstract services in each CSD on $p$ is empty.
+%It means that is forbidden to have abstract services replicated among the set $p$.
 
 %%
 %The last step identifies rewritings matching with the query and fulfilling the user preferences (Algorithm~\ref{rewriting}). The set of rewritings $R$ is initialized empty (line 2).
@@ -529,24 +526,24 @@ It means that is forbidden to have abstract services replicated among the set $p
 %of all abstract services in each CSD on $p$ must be empty.
 %It means that is forbidden to have abstract services replicated among the set $p$.
 
-\begin{algorithm}[h!]
-\small
-\caption{ - Validating a combination of CSDs}
-\label{isrewriting}
-\begin{algorithmic}[1]
-\REQUIRE A query $Q$ and a set of candidate services descriptions $p$.
-\ENSURE A boolean value. \textit{True}, if the set $p$ is a rewriting of the query. \textit{False}, otherwise.
-\STATE \textbf{function} $\mathit{isRewriting} (Q, p)$
-\STATE  $\mathbf{let} \ p = \lbrace CSD_{1}, CSD_{2}, ..., CSD_{k} \rbrace$
-\IF {(a) The number of elements in the union $CSD_{1}.G_{1} \ \cup \ CSD_{2}.G_{2}, ..., \ \cup \ CSD_{k}.G_{k}$
-is equal to the number of abstract services in $Q$\\
-	(b) The intersection $CSD_{1}.G_{1} \ \cap \ CSD_{2}.G_{2}, ..., \ \cap \ CSD_{k}.G_{k}$ is empty}	
-	\STATE \textbf{return} $true$		
-\ENDIF
-\STATE \textbf{return} $false$
-\STATE \textbf{end function}
-\end{algorithmic}
-\end{algorithm}
+%\begin{algorithm}[h!]
+%\small
+%\caption{ - Validating a combination of CSDs}
+%\label{isrewriting}
+%\begin{algorithmic}[1]
+%\REQUIRE A query $Q$ and a set of candidate services descriptions $p$.
+%\ENSURE A boolean value. \textit{True}, if the set $p$ is a rewriting of the query. \textit{False}, otherwise.
+%\STATE \textbf{function} $\mathit{isRewriting} (Q, p)$
+%\STATE  $\mathbf{let} \ p = \lbrace CSD_{1}, CSD_{2}, ..., CSD_{k} \rbrace$
+%\IF {(a) The number of elements in the union $CSD_{1}.G_{1} \ \cup \ CSD_{2}.G_{2}, ..., \ \cup \ CSD_{k}.G_{k}$
+%is equal to the number of abstract services in $Q$\\
+%	(b) The intersection $CSD_{1}.G_{1} \ \cap \ CSD_{2}.G_{2}, ..., \ \cap \ CSD_{k}.G_{k}$ is empty}	
+%	\STATE \textbf{return} $true$		
+%\ENDIF
+%\STATE \textbf{return} $false$
+%\STATE \textbf{end function}
+%\end{algorithmic}
+%\end{algorithm}
 
 Let us consider $CSD_{2}$, $CSD_{3}$ and $CSD_{5}$ are CSDs that refer to the concrete services \texttt{S2}, \texttt{S3} and \texttt{S5}, respectively. The \textit{Rhone} produces combinations taking into account the part of the query covered by the service as follows:
 \begin{flushleft}

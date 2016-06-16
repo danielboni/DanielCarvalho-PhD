@@ -20,7 +20,7 @@
 \end{flushleft}
 
 \begin{flushleft}
-\textbf{1 Context} \\
+\textbf{1 Context\footnote{The complete list of references can be found at: https://www.dropbox.com/s/98mith5xtn1dnb0/references-doctoral-school.pdf?dl=0}} \\
 \end{flushleft} 
 
 %Data integration is a widely studied issue in the database domain. It consists in merging data from different databases and providing a unified view of this data to the user~\cite{Lenzerini:2002}. Commonly, data integration is referred in the literature as a problem of answering queries using views. Many authors have reported their algorithms for this purpose~\cite{Halevy:2001}. Levy \textit{et al.} proposed the \textit{bucket algorithm}~\cite{Levy:1996}.
@@ -28,16 +28,17 @@
 %Pottinger and Halevy presented the \textit{MiniCon algorithm} in~\cite{Pottinger:2001}. \cite{Pottinger:2001} extended some ideas of~\cite{Duschka:1997}, and developed an implementation more efficient than the others.
 %In general, algorithms in this domain share the same performance problem while combining views to produce a rewriting. 
 
-Current data integration implies consuming data from different data services and integrating the results while meeting users' quality requirements. %Such requirements include the data that is retrieved and integrated, but also the properties of the data, its producers and the conditions in which such data is produced and processed. 
-For example, whether the user accepts to pay for data, its provenance, veracity and freshness and how much is the user ready to pay for the resources necessary for integrating her expected result. 
-%Data services provide data according to specific APIs that specify method headers with input parameters describing the data to be retrieved and the type of results they can produce. 
-Moreover, data provision can be done by services according to different data quality measures. Such measures describe the conditions in which a service can provide or process data. These measures can be expressed in a service level agreement (SLA). An SLA states, what the user can expect from a service or system behavior. For example, whether it implements an authentication process, if it respects data consumer's privacy and the quality of the data the service can deliver, like freshness, veracity, reputation and other non-functional conditions like the business model that controls data delivery.
+Current data integration implies consuming data from different data services and integrating the results while meeting users' quality requirements. For example, whether the user accepts to pay for data, its provenance, veracity and freshness. 
+The data itself can be delivered by services according to different data quality measures describing the conditions in which a service can provide or process data. These measures can be expressed in a service level agreement (SLA) stating what the user can expect from a service or system behavior. %For example, whether it implements an authentication process, if it respects data consumer's privacy and the quality of the data the service can deliver, like freshness, veracity, reputation and other non-functional conditions like the business model that controls data delivery.
 
-Data provision and data processing services may need a considerable amount of storage, memory and computing capacity that can be provided by cloud architectures. 
-%Furthermore, users could need to integrate the data provisioned by services in a homogeneous and general result. 
-%The integration process can also require important computing resources that can be obtained from the cloud too. 
-%Data provision and processing services can be deployed in the cloud. 
-Their SLA includes the measures about the cloud services that they require to execute their requests. The cloud, itself exports a general SLA that specifies the conditions in which users can access the services (infrastructure, platform and software) deployed in it. A user willing to use the cloud services establishes a contract with the cloud provider guided by an economic model that defines the services she can access, the conditions in which they can be accessed (duplication, geographical location) and their associated cost. Different cloud providers have different possible contracts to establish with users (i.e., platinum, silver, gold, ivory users). Thus, for a given requirement, a user could decide which cloud services (from one or several cloud providers) to use for retrieving, processing and integrating data according to the type of contracts she can establish with them.
+Data processing may need a considerable amount of storage, memory and computing capacity that can be provided by cloud architectures. Authors have presented their integration approaches and systems in cloud or service-oriented contexts~\cite{Correndo2010,ElSheikh2013,Tian2010,YauY08}. \cite{Correndo2010,ElSheikh2013} have considered the requirement of computing resources for integrating data focusing on performance aspects. \cite{Tian2010,YauY08} tackled quality aspects of the integration such as privacy and cost. Although these works have considered data integration, particularly by using data services, we believe that there are other crucial aspects that should be studied regarding the requirements and constraints of data consumers, data producers, the associated infrastructure, and the data itself:
+\begin{itemize}
+\item Data consumers have cloud subscription which has an associated SLA describing characteristics and constraints such as data quality, current location, validity interval, budget, and resources limit over the cloud infrastructure.
+\item Data producers describe the type of data they produce, the production rate, production time, location, cost, service availability, response time, for instance. In addition, they also have cloud subscription defining access policies and resources limit over the infrastructure. 
+\item The infrastructure (the cloud) are characterized considering access policies, processing (VMs scale up and down), storage and memory limit. 
+\item The data itself can be tagged considering security issues (privacy and trust), quality (veracity, freshness, provenance, degree of rawness) and the type of data.
+\end{itemize}
+We believe that the current SLA models can be extended to cover these aspects. Thus, given a consumer query and his/her integration requirements, the integration process deals with a multi-dimensional matching problem taking into account the different contracts established between consumers and producers with their associated cloud infrastructure.
 
 %Data integration can be seen in the cloud computing as a service composition problem. %Selecting services and producing service compositions is computationally costly. %Moreover, executing compositions can lead to retrieve and process data collections that can require an important amount of memory, storage and computing resources. 
 %%Data integration solutions on the service-oriented domain deal with query rewriting problems. 
@@ -124,7 +125,7 @@ During the second year, we have organized our research activities as follows:
 
 %h) SLA model to data integration. The state of the art on SLA have been analyzed to serve as basis to our SLA model. The works on SLA to cloud computing can be divided in two groups: (i) approaches dealing with the SLA negotiation phase. They focus on methods to stablish good and well-defined agreements between providers and customers; and (ii) works focus on monitoring/allocating resources in order to detect and avoid SLA violations. These works helped while proposing our SLA model and schema. Note that the SLA is the main concept in our proposal. It is responsible to guide the entire approach from the beginning to the end. There are some challenges regarding SLA: (i) once we are inserted into a multi-cloud context, we are dealing with a large heterogeneity of SLAs among different clouds. It is possible to have the same concept defined in a different way depending on the cloud; (ii) there are different levels of SLA: user SLAs, service SLAs and cloud SLAs. It is necessary to have a mapping between SLA measures that can be expressed in a different manner depending on the level; and (iii) it is possible to face a diversity chain of SLA from different levels and to map and identify measures is a hard process.
 
-Currently, we have been working on the SLA model to data integration, on the schema for user SLA, cloud SLA and integration SLA, and on a scenario description to illustrate our approach.  %The result of this work is going to be described in a VLDB PhD workshop (to be submitted until 4 April).
+%The result of this work is going to be described in a VLDB PhD workshop (to be submitted until 4 April).
 
 %With this work performed, we have been designing our SLA model to data integration. As mentioned before, proposals to SLA in cloud computing can be divided in two groups: (i) approaches dealing with the SLA negotiation phase. They focus on methods to establish good and well-defined agreements between providers and customers; and (ii) works focus on monitoring/allocating resources in order to detect and avoid SLA violations. These works helped us while proposing our SLA model and schema. The SLA is the main concept in our proposal. It is responsible to guide the entire approach from the beginning to the end while fulfilling the user requirements. At this point, some challenges arises: (i) In a multi-cloud context, we are dealing with a large heterogeneity of SLAs among different clouds in terms of semantics and structure. A SLA and its measure can be defined in a different way depending on the cloud; (ii) there are different levels of SLA: between users and services, between services and clouds, between clouds and clouds. Consequently, a user requirement defined in a user SLA is computed in terms of different measures on Service and Cloud SLAs. It is necessary to have a mechanism that maps and compute the user requirement and SLA measures; and (iii) it is possible to exists a chain of SLA, and to map and computed measures in this chain can require a hard processing. i) Paper to ADBIS and VLDB PhD consortium. Currently, we have been working on a paper that focus on the description of our SLA model, schema and data integration approach to be submitted to the VLDB PhD workshop (deadline 4 April).
 
@@ -157,9 +158,11 @@ D. A. S. Carvalho, P. A. Souza Neto, G. Vargas-Solar, N. Bennani, C. Ghedira, Rh
 \center
 \includegraphics[scale=0.7]{calendar.png}
 \end{figure}
+\bigskip
 
-\noindent
-The figure below presents the perspectives described as activities in the following calendar. 
+
+Currently, we have been working on the SLA model to data integration, on the schema for user SLA, cloud SLA and integration SLA, and on a scenario description to illustrate our approach.
+Our perspectives and intended calendar considering the project are described in the figure: \\ https://www.dropbox.com/s/risn3fo2ostgrbk/calendar-perspectives-second-year.PNG?dl=0. 
 
 \bibliography{report}
 \bibliographystyle{plain} 
