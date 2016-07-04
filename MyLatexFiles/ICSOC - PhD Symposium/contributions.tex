@@ -1,57 +1,50 @@
-%This section introduces our new vision of data integration, proposes our approach and briefly presents our query rewriting algorithm guided by user preferences and SLAs.
-
-%\subsection{New vision of Data Integration}
-%In our work, we consider a new vision of data integration in a multi-cloud context (see figure~\ref{fig:scenario}).
-The metamodel in the figure~\ref{fig:scenario} illustrates our new vision of data integration. 
+The figure~\ref{fig:scenario} illustrates our data integration metamodel.
 The \textsl{Multi-Cloud} is configured as a set of \textsl{Cloud Infrastructures}. \textsl{Data producers} and \textsl{data consumers} subscribe to \textsl{cloud infrastructures}. 
 Their subscription credentials are illustrated thanks to a \textsl{SLA} (\textsl{Consumer SLA} or \textsl{Producer SLA}) defining what the \textsl{cloud infrastructure} offers to them through their subscription. 
-\textsl{Data} are provided and consumed by \textsl{Data Producers} and \textsl{Data Consumers}, respectively. \textsl{Data consumers} willing to process an \textsl{Integration} defines a \textsl{Query} according to his/her needs. 
-%The \textsl{Integration} process has an associated \textsl{SLA} (\textsl{Integration SLA}) which matches requirements and constraints from \textsl{Data Consumers}, \textsl{Data Producers} and	\textsl{Data} itself. 
-%
-Then, the \textsl{integration process} is triggered selecting \textsl{data consumers} deployed on the \textsl{multi-cloud} considering the \textsl{query} and its \textsl{producer SLA}. Moreover, the process deals also with consumer SLA in order to verify if the consumer has access to the selected producer and if he/she has enough resources for processing the \textsl{data producer}'s service. In addition, the \textsl{integration process} can also deal with \textsl{integration SLAs} verifying whether there is a previous integration request that can be reused for the actual integration.
-The \textsl{integration process} proposes an \textsl{integration plan} that retrieves data and integrate the \textsl{results}. These results are finally delivered to the consumer according to his/her requirements and constraints. When the integration is done, a new \textsl{integration SLA} is created to the last integration including all information about query, consumer requirements and constrains, selected data producers, integration plan, integration time and performance execution.
-%Thus, integrating data implies a multi-dimensional matching of the different types of \textsl{SLA}.
+\textsl{Data} are provided and consumed by \textsl{Data Producers} and \textsl{Data Consumers}, respectively.
 
 \begin{figure}[th!]
 \center
-\includegraphics[scale=0.70]{metamodel.pdf}
+\includegraphics[scale=0.50]{metamodel.pdf}
 \caption{Data integration metamodel}\label{fig:scenario}
 \end{figure}
 
-%\begin{figure*}[th!]
-%\center
-%\includegraphics[scale=0.50]{Cloud_SLA.pdf}
-%\caption{Cloud SLA model}\label{fig:cloudsla}
-%\end{figure*}
+The metamodel describes the 4 principal dimensions (\textsl{Data consumer}, \textsl{Data Producer}, \textsl{Cloud Infrastructure} and \textsl{Data}) considered in our proposed data integration meta-process (Figure~\ref{fig:metaprocess}).
+Three general steps compose it: query management, SLA management and query rewriting. Each step in the meta-process includes different actions used in our data integration process.
+The query management step includes activities concerning the query specification and preferences definition according to the user. The SLA management includes a set of activities associated to the SLA manipulation such as: search for previous integration SLA, create a new integration SLA, reuse an integration SLA, SLA enforcement, update an integration SLA and store an integration SLA. The query rewriting includes activities concerning the rewriting process according to the user requirements and the characteristics, and constraints of each entity in our data integration metamodel such as: search for data producers, filter data producers according to the SLAs, generate integration plan, execute integration plan, retrieve data, integrate results and deliver results.
 
-Therefore, given a \textsl{Data Consumer} query, his/her quality requirements and cloud subscription, the query is rewritten in terms of \textsl{Data Producers} that fulfill the integration requirements and constraints (associated to \textsl{Data Consumers}, \textsl{Data Producers} and \textsl{Data}), and deliver the expected results. This new vision brings challenges to data integration, such as: (i) \underline{Performance issues}. Given the huge amount of \textsl{Data Providers} in the \textsl{Multi-Cloud}, the \textsl{Integration} can require a huge amount of cloud resources and processing time; (ii) \underline{Economic model}. Even with the on-demand and pay-per-use imposed by the cloud, users are limited to the resources they have contracted and to the budget they are ready to pay for while asking for a integration. %\underline{Economic model}. The cloud provides resources in an on-demand and pay-per-use way to cloud consumers. However they are limited to the resources they have contracted and to the budget they are ready to pay for. 
-%Thus, it is crucial to design new methods for data integration adapted to this new context; 
-(iii) \underline{Quality issues}. Some rewritings produced and executed to the query could not satisfy his/her quality requirements concerning privacy, data provenance, cost, among others. Consequently, users may become dissatisfied with the obtained results; (iv) \underline{SLA heterogeneity}. In the multi-cloud, \textsl{Data Consumers} and \textsl{Data Producers} export their \textsl{SLAs} with different semantics and structure making the matching of integration requirements  and constraints more challenging. Moreover, while integrating services, we can also face incompatibilities of SLAs such as measures with the same meaning but with different names, measures with the same name but with different associated values and units, among others; and (iv) \underline{Reuse}. Rewriting and executing the \textsl{Query} is computationally costly in terms of processing time and economic cost. Thus, it is necessary to propose a manner of reusing previous integration in order to save time and money, but also meeting the user expectations.
-%\bigskip
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.50]{meta-process.png}
+\caption{Data integration meta-process}\label{fig:metaprocess}
+\end{figure}
 
-Motivated by these challenges, we propose a SLA-based data integration approach adapted to the multi-cloud which includes: (i) looking for \textsl{Data Producers}; (ii) \textsl{Data} retrieval and integration; and (iii) delivering results to the user considering their characteristics and constraints.  In this sense, our approach is divided in four steps:
-% as illustrated in the figure~\ref{fig:generalapproach}. 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale=0.33]{workflow-approach.pdf}
-%\caption{SLA-based data integration workflow.}
-%\label{fig:generalapproach}
-%\end{figure}
+Taking into consideration at real-time the entities presented in our metamodel and our meta-process, we propose a SLA-based data integration process adapted to the multi-cloud (Figure~\ref{fig:process}) below.
+%
+A users specifies a query according to his/her needs and requirements. In addition, he/she defines a set of preferences and associate them to the query. Given a query and user preferences, previous integration SLAs (that are associated to a previous integration) that matches with the actual query and preferences are searched. If a match is found, the information about this previous integration is reused and a new integration SLA is created using this information. On the other hand, if no match is found, a new integration SLA is created without any previous information. Then, a set of query rewriting activities are performed to generate the execution plan. Results are computed and the integration SLA is updated and stored to be used in a next integration request. The query rewriting activities sub-process include (i) searching for data producers that can produce an answer to the query;  (ii) filtering data producers according to the user preferences, to the consumer SLAs and to the producer SLAs. This means it is necessary to verify if the data producer is out of resources or not, and if the consumer has enough resources to process the data provided by the producer; (iii) generating the execution plan according to the SLAs; (iv) enforcing the SLAs associated to the involved services; and (v) executing the integration plan. Computing results sub-process retrieves data, integrates results and deliver them.
+%
 
-Given a user \textit{query}, a set of associated user \textit{preferences} and \textsl{Data Consumers}:
-\\
-\textbf{\underline{SLA derivation}}. In this step, we compute what we call an \textsl{integration SLA} that matches user' integration requirements (including quality constraints and data requirements) with the \textsl{SLA}'s provided by \textsl{data producers}, given a specific user cloud subscription. The user may have general requirements depending on the context he/she wants to integrate his/her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The \textit{SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration. Furthermore, the \textsl{integration SLA} guides the query evaluation, and the way results are computed and delivered. \\
-\textbf{\underline{Filtering data services}}. The \textsl{integration SLA} is used (i)
-to filter previous \textsl{integration SLA} derived for a similar request in order to reuse results; or (ii) to filter possible \textsl{data producers} that can be used for answering the query. \\ %The SLA exported by a selected \textit{cloud service} should satisfy the user \textit{preferences}. \\
-\textbf{\underline{Query rewriting}}. Given a set of \textit{data producers} that can
-potentially provide data for integrating the query result, a set of service compositions is generated according to the \textsl{integration SLA} and the agreed \textsl{Producer SLA} of each \textsl{data producer}. \\
-\textbf{\underline{Integrating a query result}}. The service compositions are
-executed with services from one or several clouds where the user has a
-subscription.
-The execution cost of service compositions must fulfill the \textsl{integration
-SLA}. The clouds resources needed by the user to execute the composition and how
-to use them is decided taking in consideration the economic cost determined by
-the data to be transferred, the number of external calls to services, data storage and delivery cost.
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.50]{process.png}
+\caption{Data integration process}\label{fig:process}
+\end{figure}
+
+
+%Given a user \textit{query}, a set of associated user \textit{preferences} and \textsl{Data Consumers}:
+%\\
+%\textbf{\underline{SLA derivation}}. In this step, we compute what we call an \textsl{integration SLA} that matches user' integration requirements (including quality constraints and data requirements) with the \textsl{SLA}'s provided by \textsl{data producers}, given a specific user cloud subscription. The user may have general requirements depending on the context he/she wants to integrate his/her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The \textit{SLA derivation} is the big challenge while dealing with SLAs and particularly for adding quality dimensions to data integration. Furthermore, the \textsl{integration SLA} guides the query evaluation, and the way results are computed and delivered. \\
+%\textbf{\underline{Filtering data services}}. The \textsl{integration SLA} is used (i)
+%to filter previous \textsl{integration SLA} derived for a similar request in order to reuse results; or (ii) to filter possible \textsl{data producers} that can be used for answering the query. \\ %The SLA exported by a selected \textit{cloud service} should satisfy the user \textit{preferences}. \\
+%\textbf{\underline{Query rewriting}}. Given a set of \textit{data producers} that can
+%potentially provide data for integrating the query result, a set of service compositions is generated according to the \textsl{integration SLA} and the agreed \textsl{Producer SLA} of each \textsl{data producer}. \\
+%\textbf{\underline{Integrating a query result}}. The service compositions are
+%executed with services from one or several clouds where the user has a
+%subscription.
+%The execution cost of service compositions must fulfill the \textsl{integration
+%SLA}. The clouds resources needed by the user to execute the composition and how
+%to use them is decided taking in consideration the economic cost determined by
+%the data to be transferred, the number of external calls to services, data storage and delivery cost.
 
 %The algorithm 1 describes in general lines our approach which integrate data
 %from multi-cloud environments considering quality aspects.
