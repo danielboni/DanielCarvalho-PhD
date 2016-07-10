@@ -1,6 +1,37 @@
 Current data integration systems imply consuming and integrating data from data services which deliver data under different quality conditions related to freshness, trust, cost, reliability, availability, among others. Selecting data services, producing query rewritings and executing query plans are computationally expensive. These data integration tasks can take advantages from multi-cloud architectures considering their elasticity, \textit{pay-per-use} model and parallel processing.
 
-Multi-cloud environments bring new challenges to data integration due to different entities (data provider, data consumer, infrastructure, and the data) that should be taken into account, and their associated constraints and characteristics. Thus, given a user query, the integration process deals with different matching problems. They are: (i) matching the query and data services - the data services have to produce a result for the query; (ii) matching the user preferences and the quality guarantees provided by the data provider - The preferences concern the data itself, the data services and the type of subscription the user has with the clouds; (iii) matching the user preferences and type of subscriptions - the subscriptions the user has with the clouds; and (iv) the data providers and the type of subscriptions - These subscription concern the ones data providers have with the clouds.
+Data integration environments bring new challenges to multi-cloud due to 4
+principal dimensions, they are: \textit{data provider, data consumer,
+infrastructure}, and the \textit{data}. By the other hand, multi-cloud imposes at
+real-time their associated constraints and characteristics such as access policies, access constraints,
+processing capacity, memory limits, among others. 
+%
+To better understand our problem, let us suppose the following scenario. 
+During Brazilian Olympic games 2016, Lucas is an spectator willing to collect information about the weather forecast near his actual location with a time interval of two days in advance. According to the weather different matches could be proposed, in different stadiums with different options of seats to buy (such as sunny seats or not, in the middle or in the sides, and in the side of a specific team).
+%
+Lucas may also have several preferences such privacy issues, time interval, budget, using free services or not, for instance. 
+%
+To achieve his needs, there are several data provider services distributed on different clouds that can be integrated to produce an answer for his query or part of it. 
+%
+Thus, given a user query, the integration process deals with different matching problems: 
+(i) matching the \textit{query} and \textit{data provider services} - the data provider services have to produce a result for the query; 
+(ii) matching the \textit{user preferences} and the \textit{quality guarantees} provided by the data provider - the user preferences and requirements concern the data itself, the data services and the type of subscription the user has with the clouds; 
+(iii) matching the \textit{user preferences} and \textit{user' type of subscriptions} - the user may have several subscriptions with different clouds that should influence the way to choose the services if the underlying cloud offers more resources to the user, and this cloud can be running out of budget for consuming the necessary resources; and 
+(iv) the \textit{data provider services} and \textit{their type of subscriptions} - the data provider services also have  subscription with the clouds, and they can also be out of budget and resources according to their subscription.
 
-In cloud computing, the quality conditions that the user can expect from a service are defined in contracts called service level agreements (SLA). Current SLA models are not sufficient to cover the data integration requirements. Usually, SLAs are related to cloud resources, and not to the services. Thus, we strongly believe that SLAs can be re-modeled in order (i) to cover the limitations regarding the users' integration requirements (including quality constraints and data requirements); and (ii) to enhance the quality and performance in the current data integration solutions. 
-Considering the aforementioned, the objectives of this PhD project contribute as following: (1) design of SLA model for data integration; (2) proposal of a data integration approach adapted to the vision of the economic model of the cloud. The originality of our approach consists in guiding the entire data integration solution - while selecting, filtering and composing cloud services, and delivering the results - taking into account (i) user preferences statements; (ii) SLA contracts exported by different cloud providers; and (iii) several QoS measures associated to data collections properties (for instance, trust, privacy, economic cost); and (3) validation of our approach in a multi-cloud scenario.
+In cloud computing, the quality conditions that the user can expect from a service are defined in contracts called service level agreements (SLA). 
+%
+Current SLA models are not sufficient to cover the data integration requirements. 
+%
+Usually, SLAs describe only cloud resources, and do not tackle the data integration aspects. 
+%
+Thus, we strongly believe that: 
+(\textit{i}) a new kind of SLA is need to unify all information regarding the constraints and requirements as a meaning for the integration process; and 
+(\textit{ii}) by using the new SLA, the integration history could be reused as much as possible to enhance the quality and performance in the current data integration solutions. 
+%
+Considering the problems and challenges aforementioned, this PhD project contributes designing a SLA model and an approach for data integration adapted to the cloud economic model. The originality of our approach consists in guiding the entire data integration solution - while selecting, filtering and composing cloud services, and delivering the results - taking into account (\textit{a}) user preferences statements; (\textit{b}) SLA contracts exported by different cloud providers; and (\textit{c}) several QoS measures associated to data collections properties (for instance, trust, privacy, economic cost); and (3) validation of our approach in a multi-cloud scenario.
+
+The reminder of this paper is organized as follows.
+Section 2 discusses the related works.
+Section 3 presents our SLA-based data integration approach
+Section 4 describes the preliminary results, and finally section 5 
