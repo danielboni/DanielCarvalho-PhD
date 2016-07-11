@@ -24,11 +24,11 @@ Taking into consideration at real-time the entities presented in our metamodel a
 A users specifies a query according to his/her needs and requirements. In addition, he/she defines a set of preferences and associate them to the query. Given a query and user preferences, previous integration SLAs (that are associated to a previous integration) that matches with the actual query and preferences are searched. If a match is found, the information about this previous integration is reused and a new integration SLA is created using this information. On the other hand, if no match is found, a new integration SLA is created without any previous information. Then, a set of query rewriting activities are performed to generate the execution plan. Results are computed and the integration SLA is updated and stored to be used in a next integration request. The query rewriting activities sub-process include (i) searching for data producers that can produce an answer to the query;  (ii) filtering data producers according to the user preferences, to the consumer SLAs and to the producer SLAs. This means it is necessary to verify if the data producer is out of resources or not, and if the consumer has enough resources to process the data provided by the producer; (iii) generating the execution plan according to the SLAs; (iv) enforcing the SLAs associated to the involved services; and (v) executing the integration plan. Computing results sub-process retrieves data, integrates results and deliver them.
 %
 
-\begin{figure}[h!]
-\center
-\includegraphics[scale=0.50]{process.png}
-\caption{Data integration process}\label{fig:process}
-\end{figure}
+%\textsc{\begin{figure}[h!]
+%\center
+%\includegraphics[scale=0.50]{process.png}
+%\caption{Data integration process}\label{fig:process}
+%\end{figure}}
 
 
 %Given a user \textit{query}, a set of associated user \textit{preferences} and \textsl{Data Consumers}:
