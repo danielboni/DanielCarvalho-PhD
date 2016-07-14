@@ -189,7 +189,7 @@
     
 % ------ title and authors ----- % 
 
-\title{Enhancing Instant Quality Data Integration on Multi-Cloud}
+\title{Towards Quality Guided Data Integration on Multi-Cloud Settings}
 \author{Daniel A. S. Carvalho \\ (Supervised by Chirine Ghedira-Guegan, Genoveva Vargas-Solar and
 	   Nadia Bennani, with inputs from Pl\'acido A. Souza Neto)}
  
@@ -204,13 +204,13 @@ Universit\'e Jean Moulin Lyon 3, Centre de Recherche Magellan, IAE, France
   
 % ------ abstract and keywords ----- %
 \begin{abstract}
-This PhD project addresses data integration in multi-cloud environments. Current data integration systems imply consuming data from data services deployed in cloud contexts and integrating the results.
-The project takes a new angle of the problem by considering at real-time the four dimensions (Data providers, data consumers, the infrastructure, and the data itself), their characteristics and constraints including quality, security, privacy expressed in SLAs, and proposing an SLA-based data integration approach in a multi-cloud environment.
-The objective is to enhance the quality and performance on data integration
-taking into consideration the rules implied by the service deployment and the economic model imposed by the cloud. 
-At this stage, our first results have shown that quality and performance can be
-enhanced, and the cost of the integration can be minimized by using our
-approach.   
+This PhD project addresses data integration considering data quality (freshness, provenance, cost, availability) properties and service level agreements (SLA). Beyond existing  approaches guided by heterogeneous data structures and formats, semantics and  integrity constraints, our work  explicitely considers data providers quality  and infrastructure properties (reliability, computing, storage and memory capacity, and cost) to guide the integration process. The objective is to customize data providers (services) look up and the data integration considering different data consumers requirements and expectations depending on the context in which  they consume data (e.g., mobile devices with few physical capacities, critical decision making). Our work relies on two assumptions: (i) the data integration process is totally or partially externalized on different clouds that provide necessary resources under different conditions (SLA); (ii) data can be retrieved from several data providers (i.e., services) with different quality properties. Thus, the data integration process becomes a combinatorial problem where a query result is a data collection integrated  by composing different data providers and data processing (cloud) services that fullfil quality constraints and SLA's specified by a data consumer.
+%The project takes a new angle of the problem by considering at real-time the four dimensions (Data providers, data consumers, the infrastructure, and the data itself), their characteristics and constraints including quality, security, privacy expressed in SLAs, and proposing an SLA-based data integration approach in a multi-cloud environment.
+%The objective is to enhance the quality and performance on data integration
+%taking into consideration the rules implied by the service deployment and the economic model imposed by the cloud. 
+%At this stage, our first results have shown that quality and performance can be
+%enhanced, and the cost of the integration can be minimized by using our
+%approach.   
 \end{abstract}
  
 \keywords{Data integration. Query rewriting algorithm. Cloud computing. SLA.}
