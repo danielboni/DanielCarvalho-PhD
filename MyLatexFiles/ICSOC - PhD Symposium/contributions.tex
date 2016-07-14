@@ -1,4 +1,4 @@
-To address the problem we proposed a metamodel to guide the solution and the specification of our approach. Figure~\ref{fig:scenario} illustrates our data integration metamodel.
+To illustrate our problem, we proposed a metamodel to show relationship among the entities that are implied in our proposal (Figure~\ref{fig:scenario}).
 The \textsl{Multi-Cloud} is configured as a set of \textsl{Cloud Infrastructures}. \textsl{Data producers} and \textsl{Data consumers} subscribe to \textsl{Cloud infrastructures}. 
 Their subscription credentials are illustrated thanks to a \textsl{SLA} (\textsl{Consumer SLA} or \textsl{Producer SLA}) defining what the \textsl{Cloud infrastructure} offers to them through their subscription. 
 \textsl{Data} are provided and consumed by \textsl{Data Producers} and \textsl{Data Consumers}, respectively. The \textsl{integration SLA} is a new type of SLA we introduce  to include the data regarding the entire integration process, user requirements and preferences, the \textsl{data producers} selected according to the constraints imposed by the environment, among others.
@@ -9,7 +9,7 @@ Their subscription credentials are illustrated thanks to a \textsl{SLA} (\textsl
 \caption{Data integration metamodel}\label{fig:scenario}
 \end{figure}
 
-We propose a data integration meta-process (see Figure~\ref{fig:metaprocess}) consisting of three macro-steps (query management, SLA management and query rewriting) which take into account  the four  dimensions (\textsl{Data consumer}, \textsl{Data Producer}, \textsl{Cloud Infrastructure} and \textsl{Data}) described by the metamodel.
+We propose a data integration meta-process (see Figure~\ref{fig:metaprocess}) consisting of three macro-steps (query management, SLA management and query rewriting) which take into account  the four  dimensions (\textsl{Data consumer}, \textsl{Data Producer}, \textsl{Cloud Infrastructures} and \textsl{Data}) described by the metamodel.
 A meta-process workflow defines data integration process activities: \textit{first}, query management activities  to define the user query and preferences; \textit{second}, SLA management activities  to search and reuse previous SLAs used on integration (what we call \textsl{integration SLA}), and to create a new \textsl{integration SLA} for the current request; \textit{third}, query rewriting activities (as we partially described in~\cite{carvalho2016}) to search and filter \textsl{data producers}, to generate and execute the integration plan, and to compute results; \textit{finally}, other SLA management activities  to enforce the SLA associated to the involved services, and to update and store the final \textsl{integration SLA}. 
 
 \begin{figure}[h!]
