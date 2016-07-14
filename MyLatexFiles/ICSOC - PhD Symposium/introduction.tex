@@ -8,23 +8,23 @@
 
 
 
-Our work addresses data integration considering data quality (freshness, provenance, cost, availability) properties and service level agreements (SLA). Beyond existing  approaches guided by heterogeneous data structures and formats, semantics and  integrity constraints, our work  explicitely considers data providers quality  and infrastructure properties (reliability, computing, storage and memory capacity, and cost) to guide the integration process. The objective is to customize data providers (services) look up and the data integration considering different data consumers requirements and expectations depending on the context in which  they consume data (e.g., mobile devices with few physical capacities, critical decision making). Our work relies on two assumptions: (i) the data integration process is totally or partially externalized on different clouds that provide necessary resources under different conditions (SLA); (ii) data can be retrieved from several data providers (i.e., services) with different quality properties.
+Our work addresses data integration considering data quality (freshness, provenance, cost, availability) properties and service level agreements (SLA). Beyond existing  approaches guided by heterogeneous data structures and formats, semantics and  integrity constraints, our work  explicitly considers data providers quality  and infrastructure properties (reliability, computing, storage and memory capacity, and cost) to guide the integration process. The objective is to customize data providers (services) look up and the data integration considering different data consumers requirements and expectations depending on the context in which  they consume data (e.g., mobile devices with few physical capacities, critical decision making). Our work relies on two assumptions: (i) the data integration process is totally or partially externalized on different clouds that provide necessary resources under different conditions (SLA); (ii) data can be retrieved from several data providers (i.e., services) with different quality properties.
 
 Let us suppose that during Brazilian Olympic games in 2016, Lucas wants to know two days in advance the weather forecast near his  location to make decisions about the events he wants to attend. According to the weather, OGApp is an application that proposes possible matches  in different stadiums with available seats   (sunny seats or not, in the middle or in the sides, and on the side of a specific team).
 %
- Lucas has several preferences regarding privacy  (i.e. he wants his personal data to be anonymous), time, schedule, budget, cost (e.g., using free data services or not). Several data provision and computing services  can be composed by OGApp to integrate data that can help Lucas to make his decision. Furthermore, since Lucas often looks for data in his mobile devises he is subscribed to several clouds to externalise "costly"  processes (e.g., storage of retrieved data, correlation and aggregation of data coming from different providers, data transmission on 3G). 
+ Lucas has several preferences regarding privacy  (i.e. he wants his personal data to be anonymous), time, schedule, budget, cost (e.g., using free data services or not). Several data provision and computing services  can be composed by OGApp to integrate data that can help Lucas to make his decision. Furthermore, since Lucas often looks for data in his mobile devices he is subscribed to several clouds to externalize ``costly"  processes (e.g., storage of retrieved data, correlation and aggregation of data coming from different providers, data transmission on 3G). 
 %
-OGApp will rely on the clouds to perform the integation process for Lucas respecting his preferences and the conditions of his subscriptions in the clouds. 
+OGApp will rely on the clouds to perform the integration process for Lucas respecting his preferences and the conditions of his subscriptions in the clouds. 
 %
-Thus, the data integration process becomes a combinatorial problem where a query result is a data collection integrated  by composing different data providers and data processing (cloud) services that fullfil quality constraints and SLA's specified by a data consumer.
+Thus, the data integration process becomes a combinatorial problem where a query result is a data collection integrated  by composing different data providers and data processing (cloud) services that fulfill quality constraints and SLAs specified by a data consumer.
 Given a user query, the integration process deals with different matching problems: 
 (i) matching the \textit{query} and \textit{data provider services} - the data provider services should be able to produce a (complete or partial) result for the query; 
 (ii) matching the \textit{user preferences} and the \textit{quality guarantees} provided by the data provider - the user preferences and requirements concern the data itself, the data services and the type of subscription the user has with the clouds; 
-(iii) matching the \textit{user preferences} and \textit{user' type of subscriptions} - the user may have several subscriptions with different clouds that should influence the way to choose the services according to the cloud resources offered thank to user subscription; and 
+(iii) matching the \textit{user preferences} and \textit{user's type of subscriptions} - the user may have several subscriptions with different clouds that should influence the way to choose the services according to the cloud resources offered thank to user subscription; and 
 (iv) the \textit{data provider services} and \textit{their type of subscriptions} - the data provider services also have  subscription with the clouds, and this imposes to adapt the way service is delivered according to the resources to which it has access.
 
 The quality conditions that the user can expect from a service are defined in
- service level agreements (SLA). In a multi-cloud setting accessing resources (services) provided by different clouds implies dealing with different SLA's determined by her subscriptions to those clouds. In our context, the data integration process guided by SLA's must consider that the tasks of the process will be done according to different SLA's. We need to identify which SLA's measures apply to the data integration process and how they should be taken into consideration for providing a final result that fulfills data consumers requirements.
+ service level agreements (SLA). In a multi-cloud setting accessing resources (services) provided by different clouds implies dealing with different SLAs determined by his/her subscriptions to those clouds. In our context, the data integration process guided by SLAs must consider that the tasks of the process will be done according to different SLAs. We need to identify which SLAs measures apply to the data integration process and how they should be taken into consideration for providing a final result that fulfills data consumers requirements.
 %
 %Current SLA models are not sufficient to cover the data integration requirements. 
 %
@@ -36,10 +36,10 @@ The quality conditions that the user can expect from a service are defined in
 
 %Considering the problems and challenges aforementioned, 
 This PhD project proposes 
-an approach for data integration guided by quality and SLA's partially or totally performed on multi-cloud settings.  The originality of our approach consists in guiding and personalizing
+an approach for data integration guided by quality and SLAs partially or totally performed on multi-cloud settings.  The originality of our approach consists in guiding and personalizing
 the entire data integration process - while selecting, filtering and composing
 cloud services, and delivering the results - taking into account (\textit{a})
-user preferences statements; (\textit{b}) SLA's exported by different
+user preferences statements; (\textit{b}) SLAs exported by different
 cloud providers; and (\textit{c}) several QoS measures associated to data
 collections properties (for instance, trust, privacy, economic cost).    
 
