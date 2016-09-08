@@ -1,5 +1,8 @@
-To illustrate our problem, we proposed a metamodel to show relationship among the entities that are implied in our proposal (Figure~\ref{fig:scenario}).
-The \textsl{Multi-Cloud} is configured as a set of \textsl{Cloud Infrastructures}. \textsl{Data producers} and \textsl{Data consumers} subscribe to \textsl{Cloud infrastructures}. 
+To explain our solution, in this section we present a metamodel that depicts implied entities and their relationship. 
+Then a meta-process will introduce the functionalities of the proposed solution.
+%To illustrate our problem, we proposed a metamodel to show relationship among the entities that are implied in our proposal (Figure~\ref{fig:scenario}).
+
+According to our metamodel (Figure~\ref{fig:scenario}), the \textsl{Multi-Cloud} is configured as a set of \textsl{Cloud Infrastructures}. \textsl{Data producers} and \textsl{Data consumers} subscribe to \textsl{Cloud infrastructures}. 
 Their subscription credentials are illustrated thanks to a \textsl{SLA} (\textsl{Consumer SLA} or \textsl{Producer SLA}) defining what the \textsl{Cloud infrastructure} offers to them through their subscription. 
 \textsl{Data} are provided and consumed by \textsl{Data Producers} and \textsl{Data Consumers}, respectively. The \textsl{integration SLA} is a new type of SLA we introduce  to include the data regarding the entire integration process, user requirements and preferences, the \textsl{data producers} selected according to the constraints imposed by the environment, among others.
 
@@ -20,9 +23,10 @@ A meta-process workflow defines data integration process activities: \textit{fir
 
 The activities defined in our meta-process bring the following challenges to our research:
 \begin{enumerate}
-\item \underline{Search and reuse of previous \textsl{integration SLA}}. The new kind of SLA what we call \textsl{integration SLA} should be designed to include the information concerning the user requirements and preferences, the user query and the services used in the integration that satisfy the requirements, preferences and constraints imposed by the multi-cloud. Moreover, we must identify important information collected during the integration that should be saved  to be reused in the next integration making the entire process more efficient. 
-\item \underline{Query rewriting activities}. The query rewriting activities deal with a complex matching process of user requirement and preferences with constraints imposed by the context, and expressed in different SLAs. Furthermore, during the execution, it is also necessary to enforce the SLAs associated to the \textsl{data producers}. In this process, perhaps a given \textsl{producer} can run out of resources for processing the request.
-\item \underline{Computing results}. Retrieving, integrating and delivering are tasks that requires a large amount of resources and processing time. Thus, it is necessary to study a clever manner to make efficient the overall execution, and also there is an important decision making step while choosing the best cloud to proceed with the integration.
+\item \underline{SLA design}. The issue is what are the important information that should be inserted in the integration SLA to facilitate further integration? These information should be collected and stored during the integration to help next integrations.
+\item \underline{Integration reuse}. How  to exploit cleverly the past integration processes? The new kind of SLA should be designed to include the information concerning the user requirements and preferences, the user query and the services used in the integration that satisfy the requirements, preferences and constraints imposed by the multi-cloud. Moreover, we must identify important information collected during the integration that should be saved  to be reused in the next integration making the entire process more efficient. 
+%\item \underline{Query rewriting activities}. The query rewriting activities deal with a complex matching process of user requirement and preferences with constraints imposed by the context, and expressed in different SLAs. Furthermore, during the execution, it is also necessary to enforce the SLAs associated to the \textsl{data producers}. In this process, perhaps a given \textsl{producer} can run out of resources for processing the request.
+\item \underline{Rewriting process}. How to optimize it to make the execution time acceptable? Retrieving, integrating and delivering are tasks that requires a large amount of resources and processing time. Thus, it is necessary to study a clever manner to make efficient the overall execution, and also there is an important decision making step while choosing the best cloud to proceed with the integration.
 \end{enumerate}
 
 %Taking into consideration at real-time the entities presented in our metamodel and our meta-process, we propose a SLA-based data integration process adapted to the multi-cloud below.
