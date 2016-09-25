@@ -1,0 +1,25 @@
+** Reuniao marcada depois que mandei um email falando que estava meio perdido depois dos comentarios dos revisores sobre o metamodelo, processo e de como ser mais especifico na solucao proposta.
+** INSA: Chirine e Nadia + Genoveva por Skype
+
+
+
+- Quais sao as coisas que tem que entrar na SLA? Baseada na 
+
+- SLA para a reescrita... sLA para a integracao (para o que ela corresponde, o que vc tem que colocar nela para usar em uma nova integracao)
+
+- Survey sobre SLA... how they are exploited... estrutura, quais sao as gramaticas utilizadas... 
+
+- o que colocar nela? pensar nisso lendo ... 
+
+- Pegar as referencias daquele trabalho de djamal ...
+
+- Resumir tudo sobre esses artigos ... area, contribuicao, comentarios pessoais sobre os artigos ...
+ 
+- a fundo no estado da arte ...
+
+- Qualificacao... 'relatorio' e apresentacao perante uma banca... 
+
+- Para segunda-feira (26/09/2016), o que eu fiz sobre SLA... o primeiro esquema... o que posso mudar nesse esquema antigo, baseado no metamodelo, o que devemos colocar nessa SLA, enumerar e por que?...
+
+
+

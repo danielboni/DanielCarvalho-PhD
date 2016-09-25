@@ -1,0 +1,5 @@
+corresponding author name: Daniel Aguiar da Silva Carvalho
+corresponding author email: danielboni@gmail.com
+First name: Daniel
+Last name: Carvalho
+Suggested abbreviated running head of the paper: Quality Guided Data Integration on Multi-Cloud
