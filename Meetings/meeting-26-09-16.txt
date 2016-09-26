@@ -1,0 +1,13 @@
+- wsla
+- quando uma nova consulta é requerida o que é interessante para mim ter na integration sla para eu reusar
+- colocar o desenho do modelo do artigo de Jose Garcia
+- achar os nossos conceitos e parear com os do jose maria
+- o que em alguma nuvem vem ela ser escolhida para integrar e naquele momento
+- decidir quais SLA eu vou ter...
+- explicar o novo esquema
+
+
+
+- esquema de cada SLA... mas preciso no SLA
+- enumerar o que pode mudar nas consultas... todos os casos para depois escolher alguns mais especificos
+- sistema de inferencia para a escrita... fuzzy??
