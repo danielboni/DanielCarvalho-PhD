@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="102mm"
+   height="118mm"
+   viewBox="0 0 361.41731 418.11024"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Service SLA Schema.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="235.13552"
+     inkscape:cy="244.65751"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-634.25196)">
+    <g
+       id="g4876"
+       transform="translate(-36,124)">
+      <g
+         transform="translate(0,-59.487393)"
+         id="g4765">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="124.7849"
+           y="727.87469"
+           id="text4136-0-1"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="124.7849"
+             y="727.87469"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4165-4">Performance</tspan><tspan
+             sodipodi:role="line"
+             x="124.7849"
+             y="746.62469"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4190">Guarantees</tspan></text>
+        <g
+           id="g4741"
+           transform="translate(0,20.552817)">
+          <rect
+             y="689.79547"
+             x="132.01584"
+             height="43.065464"
+             width="262.60138"
+             id="rect4460"
+             style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:0.54147005;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="125%"
+             id="text4136-4-7-0"
+             y="705.83136"
+             x="137.26903"
+             style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             xml:space="preserve"><tspan
+               id="tspan4285-4"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="705.83136"
+               x="137.26903"
+               sodipodi:role="line">- Availability</tspan><tspan
+               id="tspan4341"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="724.58136"
+               x="137.26903"
+               sodipodi:role="line">- Response time</tspan></text>
+        </g>
+      </g>
+      <g
+         transform="translate(0,-79.881708)"
+         id="g4754">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="124.33812"
+           y="808.26843"
+           id="text4136-0-1-6"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="124.33812"
+             y="808.26843"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4165-4-1">Security</tspan><tspan
+             sodipodi:role="line"
+             x="124.33812"
+             y="827.01843"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4190-4">Guarantees</tspan></text>
+        <g
+           id="g4747"
+           transform="translate(0,-57.250025)">
+          <text
+             sodipodi:linespacing="125%"
+             id="text4136-4-7-0-2"
+             y="854.56506"
+             x="137.26903"
+             style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             xml:space="preserve"><tspan
+               id="tspan4341-6"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="854.56506"
+               x="137.26903"
+               sodipodi:role="line">- Authentication</tspan><tspan
+               id="tspan4414"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="873.31506"
+               x="137.26903"
+               sodipodi:role="line">- Privacy</tspan><tspan
+               id="tspan4416"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="892.06506"
+               x="137.26903"
+               sodipodi:role="line">- Confidentiality</tspan></text>
+          <rect
+             style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:0.65828812;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4462"
+             width="262.48456"
+             height="63.680347"
+             x="132.07425"
+             y="837.68463" />
+        </g>
+      </g>
+      <g
+         transform="translate(0,3.9999982)"
+         id="g4860">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="124.30882"
+           y="840.92682"
+           id="text4136-0-1-5"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="124.30882"
+             y="840.92682"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4165-4-2">Data Quality</tspan><tspan
+             sodipodi:role="line"
+             x="124.30882"
+             y="859.67682"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4190-6">Guarantees</tspan></text>
+        <g
+           id="g4848"
+           transform="translate(0,-7.6293945e-6)">
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             x="137.26903"
+             y="784.58527"
+             id="text4418"
+             sodipodi:linespacing="125%"><tspan
+               sodipodi:role="line"
+               x="137.26903"
+               y="784.58527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               id="tspan4428">- Data type</tspan><tspan
+               id="tspan4444"
+               sodipodi:role="line"
+               x="137.26903"
+               y="803.33527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Degree of rawness</tspan><tspan
+               id="tspan4448"
+               sodipodi:role="line"
+               x="137.26903"
+               y="822.08527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Veracity</tspan><tspan
+               id="tspan4454"
+               sodipodi:role="line"
+               x="137.26903"
+               y="840.83527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Production rate</tspan><tspan
+               id="tspan4458"
+               sodipodi:role="line"
+               x="137.26903"
+               y="859.58527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Production time</tspan><tspan
+               id="tspan4728"
+               sodipodi:role="line"
+               x="137.26903"
+               y="878.33527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Provenance</tspan><tspan
+               id="tspan4730"
+               sodipodi:role="line"
+               x="137.26903"
+               y="897.08527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Freshness</tspan><tspan
+               id="tspan4732"
+               sodipodi:role="line"
+               x="137.26903"
+               y="915.83527"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start">- Trust</tspan></text>
+          <rect
+             y="767.10327"
+             x="132.25932"
+             height="155.65248"
+             width="262.11441"
+             id="rect4464"
+             style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:1.02845395;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+        </g>
+      </g>
+      <g
+         transform="translate(0,-2.7045191)"
+         id="g4775">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="124.7849"
+           y="611.9892"
+           id="text4136-0"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="124.7849"
+             y="611.9892"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4140-4">Business</tspan><tspan
+             sodipodi:role="line"
+             x="124.7849"
+             y="630.7392"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4165">Rules</tspan></text>
+        <g
+           id="g4734"
+           transform="translate(0,0.4097881)">
+          <text
+             sodipodi:linespacing="125%"
+             id="text4136-4-7"
+             y="600.71393"
+             x="137.26903"
+             style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             xml:space="preserve"><tspan
+               id="tspan4281"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="600.71393"
+               x="137.26903"
+               sodipodi:role="line">- Validity period</tspan><tspan
+               id="tspan4283"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="619.46393"
+               x="137.26903"
+               sodipodi:role="line">- Price per call</tspan><tspan
+               id="tspan4285"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+               y="638.21393"
+               x="137.26903"
+               sodipodi:role="line">- Number of request per day</tspan></text>
+          <rect
+             style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:0.6480943;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect4484"
+             width="262.49475"
+             height="61.721001"
+             x="132.06915"
+             y="584.81317" />
+        </g>
+      </g>
+      <g
+         transform="translate(0,3.9380743e-5)"
+         id="g4786">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="125.24632"
+           y="541.66498"
+           id="text4136"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4138"
+             x="125.24632"
+             y="541.66498"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end">General</tspan><tspan
+             sodipodi:role="line"
+             x="125.24632"
+             y="560.41498"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end"
+             id="tspan4140">Information</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="137.26904"
+           y="532.29004"
+           id="text4136-4"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="137.26904"
+             y="532.29004"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+             id="tspan4140-8">- SLA identifier</tspan><tspan
+             sodipodi:role="line"
+             x="137.26904"
+             y="551.04004"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+             id="tspan4246">- Service definition</tspan><tspan
+             sodipodi:role="line"
+             x="137.26904"
+             y="569.79004"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;text-anchor:start"
+             id="tspan4248">- Parent SLA identifier</tspan></text>
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#030000;stroke-width:0.64091283;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4497"
+           width="262.50192"
+           height="60.359081"
+           x="132.06557"
+           y="515.48816" />
+      </g>
+    </g>
+  </g>
+</svg>
