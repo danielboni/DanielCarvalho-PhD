@@ -1,7 +1,3 @@
-\begin{flushleft}
-\large \textbf{Basic definitions associated to \textsl{user requirements}}
-\end{flushleft}
-
 % ----------------------------------- DEFINITION 1 ABSTRACT SERVICE --------------------------------- %
 
 \noindent \textbf{Definition 1 (\textsl{Abstract service})}. An \textsl{abstract service} describes the small piece of function performed by a \textsl{service} deployed by a \textsl{data provider}. For instance, retrieve weather information, book a hotel, retrieve infected patients, among others. The \textsl{abstract service} is defined as follows: $A \ (\overline{I}; \ \overline{O})$ where $A$ is the name which identifies the \textsl{abstract service}. $\overline{I}$ and $\overline{O}$ are a set of comma-separated input and output parameters, respectively.
@@ -35,45 +31,46 @@ The \textsl{user requirements} can be associated to single \textsl{service} or t
 
 % ----------------------------------- DEFINITION 4 USER REQUIREMENTS DOMAIN --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 4 (\textsl{Requirement domain})}. A \textsl{requirement domain} is a set of possible values which can be assumed by an \textsl{user requirement} $r$, represented by $Dom(r)$. For instance, a \textsl{requirement domain} ``\textit{response time}'' includes the possible values associated to the \textit{response time} \textsl{user requirement}. Each \textsl{user requirement} $r_{i}$ has its own \textsl{requirement domain} $D_{i}$. 
+\noindent \textbf{Definition 4 (\textsl{Requirement domain})}. A \textsl{requirement domain (D)} groups \textsl{user requirements} which specify information in the same domain, and which can be comparable among each other. For instance, a \textsl{requirement domain} \textit{time} includes time-related \textsl{user requirements} such as \textsl{response time}, \textsl{total response time}, \textsl{latency}, among others.
 
-% ----------------------------------- DEFINITION 4 EVALUATION --------------------------------- %
+% ----------------------------------- DEFINITION 5 REQUIREMENTS DOMAIN EQUIVALENCE --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 5 (\textsl{User requirement evaluation})}. The evaluation of an \textsl{user requirement} $r$, indicated by $eval(r)$, returns a set of values $\lbrace v_{1},..,v_{i} \rbrace$ that can be assigned to $r$ such that $\lbrace v_{1},..,v_{i} \rbrace \subset Dom(r)$.
+\noindent \textbf{Definition 5 (\textsl{Requirement domain equivalence})}. A \textsl{requirement domain} $D_{1}$ is equivalent to a \textsl{requirement domain} $D_{2}$, represented by $D_{1} \cong D_{2}$, iff: $\forall r_{i} \in D_{1}, \ \exists r_{j} \in D_{2} \ \vert \ r_{i}.x = r_{j}.x \ and \ \vert D_{1} \vert = \vert D_{2} \vert$.
+
+% ----------------------------------- DEFINITION 6 REQUIREMENTS DOMAIN CONTAININMENT --------------------------------- %
+\bigskip
+\noindent \textbf{Definition 6 (\textsl{Requirement domain containment})}. A \textsl{requirement domain} $D_{1}$ is contained in a \textsl{requirement domain} $D_{2}$, represented by $D_{1} \subset D_{2}$, iff: $\forall r_{i} \in D_{1}, \ \exists r_{j} \in D_{2} \ \vert \ r_{i}.x = r_{j}.x \ and \ \vert D_{1} \vert < \vert D_{2} \vert$.
 
 % ----------------------------------- DEFINITION 7 REQUIREMENTS EQUIVALENCE --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 6 (\textsl{User requirements equivalence})}.
+\noindent \textbf{Definition 7 (\textsl{User requirements equivalence})}.
 A set of \textsl{user requirements} $R_{1}$ is equivalent to a set of \textsl{user requirements} $R_{2}$, represented by $R_{1} \cong R_{2}$, iff: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) = eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 
 % ----------------------------------- DEFINITION 8 REQUIREMENTS MORE RESTRICT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 7 (\textsl{User requirements more restrict})}.
+\noindent \textbf{Definition 8 (\textsl{User requirements more restrict})}.
 Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is more restrict than $R_{2}$, represented by $R_{1} \ \rhd \ R_{2}$, iff:
 \begin{flushleft}
 Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{flushleft}
 \begin{flushleft}
-Case 2: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ \vert R_{1} \vert > \vert R_{2} \vert$.
-\end{flushleft}
-\begin{flushleft}
-Case 3: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert > \vert R_{2} \vert$. 
+Case 2: $\forall D_{m} \in R_{1}, \ \exists D_{n} \in R_{2} \ \vert \ D_{n} \subset D_{m}$. \\
 \end{flushleft}
 
 % ----------------------------------- DEFINITION 9 REQUIREMENTS LESS RESTRICT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 8 (\textsl{User requirements less restrict})}.
+\noindent \textbf{Definition 9 (\textsl{User requirements less restrict})}.
 Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is less restrict than $R_{2}$, represented by $R_{1} \ \lhd \ R_{2}$, iff:
 \begin{flushleft}
 Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{flushleft}
 \begin{flushleft}
-Case 2: $\forall r_{j} \in R_{2}, \ \exists r_{i} \in R_{1} \ \vert \ eval (r_{j}) \subset eval(r_{i}) \ and \ \vert R_{1} \vert < \vert R_{2} \vert$.
+Case 2: $\forall D_{m} \in R_{1}, \ \exists D_{n} \in R_{2} \ \vert \ D_{m} \subset D_{n}$. \\
 \end{flushleft}
 
 % ----------------------------------- DEFINITION 10 PART MORE / LESS RESTRICT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 9 (\textsl{Part of the user requirements more restrict and part less restrict})}.
+\noindent \textbf{Definition 10 (\textsl{Part of the user requirements more restrict and part less restrict})}.
 Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, part of the \textsl{user requirements} $R_{1}$ can be more restrict and part less restrict than the \textsl{user requirements} $R_{2}$, represented by $R_{1} \ \diamond \ R_{2}$, iff:
 \begin{flushleft}
 $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ (eval (r_{i}) \subset eval(r_{j}) \ or \ eval (r_{i}) \supset eval(r_{j})) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
@@ -81,32 +78,32 @@ $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ (eval (r_{i}) \sub
 
 % ----------------------------------- DEFINITION 11 REQUIREMENTS COMPLETELY DIFFERENT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 10 (\textsl{User requirements different})}.
+\noindent \textbf{Definition 11 (\textsl{User requirements different})}.
 Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is different of $R_{2}$, represented by $R_{1} \ \neq \ R_{2}$, iff:
 \begin{flushleft}
-$\forall r_{i} \in R_{1}, \ \nexists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ or \ eval (r_{i}) \supset eval(r_{j})$.
+$\forall r_{i} \in R_{1}, \ \nexists r_{j} \in R_{2} \ \vert \ r_{i}.x = r_{j}.x$.
 \end{flushleft}
-%
-%% ----------------------------------- DEFINITION 7 QUERY EQUIVALENCE  --------------------------------- %
-%\bigskip
-%\noindent \textbf{Definition 11 (\textsl{Query equivalence})}.
-%Definition 2 (query equivalence): a query Q1 is equivalent to a query Q2 if: 
-%Q1 and Q2 have the same number of abstract services
-%For each abstract services in Q1 there is an equivalent in Q2
-%
-%% ----------------------------------- DEFINITION 8 QUERY SUBSET  --------------------------------- %
-%\bigskip
-%\noindent \textbf{Definition 12 (\textsl{Query subset})}.
-%Definition 10 (query subset): a query Q1 is a subset of the query Q2 if: 
-%Q1 has less abstract services than Q2
-%For each abstract service in Q1 there is an equivalent in Q2.
-%In other words, the query Q1 is contained in the query Q2.
-%
-%% ----------------------------------- DEFINITION 9 QUERY ??  --------------------------------- %
-%\bigskip
-%\noindent \textbf{Definition 13 (\textsl{different queries but with some abstract services in common})}.
-%Definition 11 (different queries but with some abstract services in common): this case occurs when given a query Q1 and a query Q2: 
-%Q1 and Q2 have a different number of abstract services
-%There is at least one abstract service in Q1 that has an equivalent in Q2;
-%There is at least one abstract service in Q1 that has no equivalent in Q2; and
-%There is at least one abstract service in Q2 that has no equivalent in Q1;
+
+% ----------------------------------- DEFINITION 7 QUERY EQUIVALENCE  --------------------------------- %
+\bigskip
+\noindent \textbf{Definition 7 (\textsl{Query equivalence})}.
+Definition 2 (query equivalence): a query Q1 is equivalent to a query Q2 if: 
+Q1 and Q2 have the same number of abstract services
+For each abstract services in Q1 there is an equivalent in Q2
+
+% ----------------------------------- DEFINITION 8 QUERY SUBSET  --------------------------------- %
+\bigskip
+\noindent \textbf{Definition 8 (\textsl{Query subset})}.
+Definition 10 (query subset): a query Q1 is a subset of the query Q2 if: 
+Q1 has less abstract services than Q2
+For each abstract service in Q1 there is an equivalent in Q2.
+In other words, the query Q1 is contained in the query Q2.
+
+% ----------------------------------- DEFINITION 9 QUERY ??  --------------------------------- %
+\bigskip
+\noindent \textbf{Definition 9 (\textsl{different queries but with some abstract services in common})}.
+Definition 11 (different queries but with some abstract services in common): this case occurs when given a query Q1 and a query Q2: 
+Q1 and Q2 have a different number of abstract services
+There is at least one abstract service in Q1 that has an equivalent in Q2;
+There is at least one abstract service in Q1 that has no equivalent in Q2; and
+There is at least one abstract service in Q2 that has no equivalent in Q1;
