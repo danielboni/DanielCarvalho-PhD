@@ -1,0 +1,4 @@
+- Concept of domain (math)
+- Definition 4: is missing that a requirement is include in a domain
+- Definition of evaluation
+- Send more things, interact more
