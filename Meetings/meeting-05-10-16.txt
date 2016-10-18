@@ -1,0 +1,20 @@
+- Resumir dois daqueles artigos para a proxima reuniao
+- Different variation of SLAs.
+- Como extraimos as clausulas e como interpretamos eles.
+- Relaçao entre SLAs e SLAc; equation for the derivation of SLAc; Como o DP poderia gerenciar as resources na cloud para os services.
+- Formalize the subset, explicar tudo formalmente
+- Illustration and how it will work, what could I do... o que acontece em cada situacao...
+- Explicar a situacao de cada query.. conceitualmente e formalmente
+- Throughput: explicar. 
+- What is behind each clause in the SLAc.
+- What is a service for each type of SLA.
+
+- Concepts: explain in detail each concept. What is a query? How it is defined? What is a subset of a query? what is a 'same query'? How the requirements are defined? what is 'same requirements' what is 'different requirements', etc.
+- Formalize these concepts.
+- What is the concept of service for each type of SLA.
+- What is each clause in the SLAs. Explain them.
+- Sumarize at least two of the paper concerning SLA and Heuristics.
+- Identify and describe the different SLA clauses variation (complete and partially matches). How do we interprete these clauses.
+- What is the relation between SLAs and SLAc. Define the equation for the derivation.
+- How could the data provider manage the cloud resources according to his data services.
+- Explain and Illustrate what happen in each query situation, how it will work.
