@@ -31,58 +31,62 @@ Variables appearing only in the \textit{body} are identified by $\overline{I}_{l
 \noindent \textbf{Definition 3 (\textsl{User requirement})}.
 An \textsl{user requirement} $r$ is in the form $x \otimes c$, where $x$ is an identifier; $c$ is a constant; and $\otimes \in\lbrace \geq, \leq, =, \neq, <, >\rbrace$. 
 %
-The \textsl{user requirements} can be associated to single \textsl{service} or to the entire composition. For instance, the \textsl{total response time} is obtained by adding the \textsl{response time} of each \textsl{service} involved in the composition.
+The \textsl{user requirement} $r$ could concern \textit{(i)} the entire \textsl{query}, in this case noted as $r_{Q}$; or \textit{(ii)} a single \textsl{service}, noted as $r_{S}$. For instance, the \textsl{total response time} is obtained by adding the \textsl{response time} of each \textsl{service} involved in the composition.
 
 % ----------------------------------- DEFINITION 4 USER REQUIREMENTS DOMAIN --------------------------------- %
 \bigskip
 \noindent \textbf{Definition 4 (\textsl{Requirement domain})}. A \textsl{requirement domain} is a set of possible values which can be assumed by an \textsl{user requirement} $r$, represented by $Dom(r)$. For instance, a \textsl{requirement domain} ``\textit{response time}'' includes the possible values associated to the \textit{response time} \textsl{user requirement}. Each \textsl{user requirement} $r_{i}$ has its own \textsl{requirement domain} $D_{i}$. 
 
-% ----------------------------------- DEFINITION 4 EVALUATION --------------------------------- %
+% ----------------------------------- DEFINITION 5 EVALUATION --------------------------------- %
 \bigskip
 \noindent \textbf{Definition 5 (\textsl{User requirement evaluation})}. The evaluation of an \textsl{user requirement} $r$, indicated by $eval(r)$, returns a set of values $\lbrace v_{1},..,v_{i} \rbrace$ that can be assigned to $r$ such that $\lbrace v_{1},..,v_{i} \rbrace \subset Dom(r)$.
 
+% ----------------------------------- DEFINITION 6 COMPARABLE REQUIREMENTS --------------------------------- %
+\bigskip
+\noindent \textbf{Definition 6 (\textsl{Comparable requirements})}. Given two \textsl{user requirements} $r_{1}$ and $r_{2}$, both can be comparable, denoted by $r_{1} \perp r_{2}$, if and only if:  $Dom(r_{1}) = Dom(r_{2})$.
+
 % ----------------------------------- DEFINITION 7 REQUIREMENTS EQUIVALENCE --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 6 (\textsl{User requirements equivalence})}.
-A set of \textsl{user requirements} $R_{1}$ is equivalent to a set of \textsl{user requirements} $R_{2}$, represented by $R_{1} \cong R_{2}$, iff: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) = eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+\noindent \textbf{Definition 7 (\textsl{User requirements equivalence})}.
+A set of \textsl{user requirements} $R_{1}$ is equivalent to a set of \textsl{user requirements} $R_{2}$, represented by $R_{1} \equiv R_{2}$, if and only if: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) = eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 
 % ----------------------------------- DEFINITION 8 REQUIREMENTS MORE RESTRICT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 7 (\textsl{User requirements more restrict})}.
-Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is more restrict than $R_{2}$, represented by $R_{1} \ \rhd \ R_{2}$, iff:
+\noindent \textbf{Definition 8 (\textsl{User requirements more restrict})}.
+Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is more restrict than $R_{2}$, represented by $R_{1} \ \rhd \ R_{2}$, if and only if:
 \begin{flushleft}
-Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2}, \ \nexists r_{k} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ eval (r_{k}) \subset eval(r_{i}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{flushleft}
 \begin{flushleft}
-Case 2: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ \vert R_{1} \vert > \vert R_{2} \vert$.
+Case 2: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{1}, \ \exists r_{k} \in R_{2}, \ \nexists r_{l} \in R_{2} \ \vert \ \neg (r_{j} \ \bot \ r_{k}) \ and \ eval (r_{l}) \subset eval(r_{i})$.
 \end{flushleft}
-\begin{flushleft}
-Case 3: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert > \vert R_{2} \vert$. 
-\end{flushleft}
+%\begin{flushleft}
+%Case 3: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert > \vert R_{2} \vert$. 
+%\end{flushleft}
 
 % ----------------------------------- DEFINITION 9 REQUIREMENTS LESS RESTRICT --------------------------------- %
-\bigskip
-\noindent \textbf{Definition 8 (\textsl{User requirements less restrict})}.
-Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is less restrict than $R_{2}$, represented by $R_{1} \ \lhd \ R_{2}$, iff:
-\begin{flushleft}
-Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
-\end{flushleft}
-\begin{flushleft}
-Case 2: $\forall r_{j} \in R_{2}, \ \exists r_{i} \in R_{1} \ \vert \ eval (r_{j}) \subset eval(r_{i}) \ and \ \vert R_{1} \vert < \vert R_{2} \vert$.
-\end{flushleft}
+%\bigskip
+%\noindent \textbf{Definition 9 (\textsl{User requirements less restrict})}.
+%Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is less restrict than $R_{2}$, represented by $R_{1} \ \lhd \ R_{2}$, if and only if:
+%\begin{flushleft}
+%Case 1: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+%\end{flushleft}
+%\begin{flushleft}
+%Case 2: $\forall r_{j} \in R_{2}, \ \exists r_{i} \in R_{1} \ \vert \ eval (r_{j}) \subset eval(r_{i}) \ and \ \vert R_{1} \vert < \vert R_{2} \vert$.
+%\end{flushleft}
 
 % ----------------------------------- DEFINITION 10 PART MORE / LESS RESTRICT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 9 (\textsl{Part of the user requirements more restrict and part less restrict})}.
-Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, part of the \textsl{user requirements} $R_{1}$ can be more restrict and part less restrict than the \textsl{user requirements} $R_{2}$, represented by $R_{1} \ \diamond \ R_{2}$, iff:
+\noindent \textbf{Definition 10 (\textsl{Part of the user requirements more restrict and part less restrict})}.
+Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, part of the \textsl{user requirements} $R_{1}$ can be more restrict and part less restrict than the \textsl{user requirements} $R_{2}$, represented by $R_{1} \ \diamond \ R_{2}$, if and only if:
 \begin{flushleft}
 $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ (eval (r_{i}) \subset eval(r_{j}) \ or \ eval (r_{i}) \supset eval(r_{j})) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{flushleft}
 
 % ----------------------------------- DEFINITION 11 REQUIREMENTS COMPLETELY DIFFERENT --------------------------------- %
 \bigskip
-\noindent \textbf{Definition 10 (\textsl{User requirements different})}.
-Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is different of $R_{2}$, represented by $R_{1} \ \neq \ R_{2}$, iff:
+\noindent \textbf{Definition 11 (\textsl{User requirements different})}.
+Given a set of \textsl{user requirements} $R_{1}$ and $R_{2}$, $R_{1}$ is different of $R_{2}$, represented by $R_{1} \ \neq \ R_{2}$, if and only if:
 \begin{flushleft}
 $\forall r_{i} \in R_{1}, \ \nexists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ or \ eval (r_{i}) \supset eval(r_{j})$.
 \end{flushleft}
@@ -110,3 +114,62 @@ $\forall r_{i} \in R_{1}, \ \nexists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \sub
 %There is at least one abstract service in Q1 that has an equivalent in Q2;
 %There is at least one abstract service in Q1 that has no equivalent in Q2; and
 %There is at least one abstract service in Q2 that has no equivalent in Q1;
+
+
+\section{Query Variations}
+
+For all the cases described bellow, we assume that there exists a previous processed integration request including \textit{(i)} a \textsl{query} $Q_{p}$; and \textit{(ii)} a set of \textsl{user requirements} $R_{p}$ specified over it.
+
+\subsection{Equivalent \textsl{query} and equivalent \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \equiv R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} This is the best case. The previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced. Thus, a new \textsl{integration SLA} would be produced and stored to the new request.
+
+\subsection{Equivalent \textsl{query} and more restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \triangleright R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case,  the previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced to the new request according to the new requirements. Otherwise, the \textsl{concrete services} that do not satisfy the \textsl{requirements} are re-allocated by the ones which satisfy. Once a new composition that is in accordance with the \textsl{requirements} is produced, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{Equivalent \textsl{query} and less restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{p} \triangleright R_{n}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case,  the previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced to the new request considering the their available cloud resources. Otherwise, the \textsl{concrete services} out of resources are re-allocated by the ones which have available resources and satisfy the \textsl{user requirements}. Once a new composition that is in accordance with the \textsl{requirements} is produced, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and equivalent \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \equiv R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the composition could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and more restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \triangleright R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the previous composition which is interesting to the new request could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources and that the \textsl{user requirements} are being satisfied. Otherwise, \textsl{services} out of resources or which do not satisfy the \textsl{requirements} are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and less restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{p} \triangleright R_{n}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the previous composition which is interesting to the new request could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} superset and equivalent \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \equiv R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources. The previous composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and more restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \triangleright R_{p}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources and the \textsl{user requirements} are met. The composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources or violating the \textsl{requirements} are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and less restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{p} \triangleright R_{n}$.
+
+\bigskip
+\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources. The composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
