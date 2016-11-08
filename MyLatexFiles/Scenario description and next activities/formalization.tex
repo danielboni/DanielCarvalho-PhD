@@ -137,60 +137,270 @@ $\forall r_{i} \in R_{1}, \ \nexists r_{j} \in R_{2} \ \vert \ eval (r_{i}) \sub
 %There is at least one abstract service in Q2 that has no equivalent in Q1;
 
 
-\section{Query Variations}
+\section{Taxonomy of query variations for promoting the reusability of rewriting results}
 
-For all the cases described bellow, we assume that there exists a previous processed integration request including \textit{(i)} a \textsl{query} $Q_{p}$; and \textit{(ii)} a set of \textsl{user requirements} $R_{p}$ specified over it.
+This section describes the different types of queries which \textit{(i)} can be processed by our integration approach; or \textit{(ii)} can be compared to previous integration requests in order to take advantage from previous integration plans.
 
-\subsection{Equivalent \textsl{query} and equivalent \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \equiv R_{p}$.
+Examples illustrate each kind of query and the reusability solution. 
+The table~\ref{table:abstractservices} introduces the \textsl{abstract services} used in the examples according to our medical scenario. Four \textsl{abstract services} are used for defining the queries and \textsl{concrete services}.
+
+
+
+\begin{table}[!ht]
+\center
+\begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{8cm}|}
+\hline 
+\textsl{\textbf{Abstract service}} & \textit{\textbf{Description}} \\ 
+\hline 
+$A_{1} (x?; y!)$ & Given a disease $x$, $A_{1}$ returns the list of patients $p$ that were infected by it. \\ 
+\hline 
+$A_{2} (z?; w!)$ & Given a patient id $z$, $A_{2}$ returns his/her personal information $w$. \\ 
+\hline 
+$A_{3} (d?; y!)$ & Given a doctor id $d$, $A_{3}$ returns the list of patients $y$ that were treated by $d$. \\ 
+\hline 
+$A_{4} (h?; y!)$ & Given a hospital $h$, $A_{4}$ returns the list of patients $y$ that were treated in it. \\ 
+\hline  
+\end{tabular}\label{table:abstractservices}
+\end{table}
+
+\begin{example}\label{example:query}
+To better understand the taxonomy of queries and the reusability solution, let us consider a previous integration request processed by doctor Marcel. \textit{He has searched for patients infected by pneumonia that were treated by doctor Paul using services with availability higher than 97\%, response time less than 3 seconds, price per call less than 2 cents, certified data providers, fresh data or not, the overall response time less than 10 seconds and the total cost less than 5 dollars}. This query can be expressed according to the grammar (defined in the section~\ref{idk}) as follows:
+\begin{flushleft}
+$\hspace{1cm} Q_{p} \ (disaese?, \ doctor?; \ p\_information!) \ := \ A_{1} (disease?; \ p!), \ A_{3} (doctor?; \ p!),$ \\ 
+$ \hspace{2cm} \ A_{2} (p?; \ p\_information!), \ availability > 97\%, \ response \ time < 3s,$ \\ 
+$ \hspace{2cm} \ price \ per \ call < 0.2\$, \ provenance = certified, \ freshness = no,$ \\ 
+$ \hspace{2cm} \ total \ response \ time < 10s, \ total \ cost < 5\$$
+\end{flushleft}
+\end{example}
+ 
+The following subsections describe the queries variation and their reusability solution. For all query variation described bellow, we assume a previous integration request defining the \textsl{query} $Q_{p}$ including its \textsl{user requirements} $R_{p}$ as presented in the Example~\ref{example:query}.
+
+\subsection{Case 1: Equivalent \textsl{query} and equivalent \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \equiv R_{p}$ (Figure \ref{fig:case1}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-1.pdf}\caption{Query case 1} \label{fig:case1}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} This is the best case. The previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced. Thus, a new \textsl{integration SLA} would be produced and stored to the new request.
+\noindent \textbf{Solution:} This is the best case processed by our data integration approach. There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced according to their available resources, the previous composition could be re-executed. Then, a new \textsl{integration SLA} would be produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced according to their available resources, these services would be re-allocated by our rewriting algorithm. Once a valid composition is produced, it can be re-executed. Then, a new \textsl{integration SLA} would be produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced according to their available resources, the new \textsl{query} will be dispatched to be rewriting by our rewriting algorithm.
 
 \subsection{Equivalent \textsl{query} and more restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \triangleright R_{p}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \triangleright R_{p}$ (See figures \ref{fig:case2a} and \ref{fig:case2b}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-2a.pdf}\caption{Query case 2a}\label{fig:case2a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-2b.pdf}\caption{Query case 2b}\label{fig:case2b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case,  the previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced to the new request according to the new requirements. Otherwise, the \textsl{concrete services} that do not satisfy the \textsl{requirements} are re-allocated by the ones which satisfy. Once a new composition that is in accordance with the \textsl{requirements} is produced, a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new requirements and their available resources, the previous composition could be re-executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, these services are re-allocated by our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
 
 \subsection{Equivalent \textsl{query} and less restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{p} \triangleright R_{n}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the \textsl{queries} are equivalent and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{p} \triangleright R_{n}$ (See figures \ref{fig:case3a} and \ref{fig:case3b}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-3a.pdf}\caption{Query case 3a} \label{fig:case3a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-3b.pdf}\caption{Query case 3b} \label{fig:case3b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case,  the previous composition generated to the integration could be re-executed if all involved \textsl{concrete services} could be enforced to the new request considering the their available cloud resources. Otherwise, the \textsl{concrete services} out of resources are re-allocated by the ones which have available resources and satisfy the \textsl{user requirements}. Once a new composition that is in accordance with the \textsl{requirements} is produced, a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:}  There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to their available resources, the previous composition could be re-executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to their available resources, these services are re-allocated by our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{Equivalent \textsl{queries} and part of the \textsl{user requirements} less restrict and part more restrict}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is equivalent to the previous \textsl{query} and part of the \textsl{requirements} are more restrict and part less restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \diamond R_{p}$ (See figures \ref{fig:case4a}, \ref{fig:case4b} and \ref{fig:case4c}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-4a.pdf}\caption{Query case 4a} \label{fig:case4a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-4b.pdf}\caption{Query case 4b} \label{fig:case4b}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-4c.pdf}\caption{Query case 4c} \label{fig:case4c}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new requirements and their available resources, the previous composition could be re-executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, these services are re-allocated by our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{Equivalent \textsl{query} and different \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is equivalent to the previous \textsl{query} and part of the \textsl{requirements} are more restrict and part less restrict occurs if and only if: $Q_{n} \equiv Q_{p}$ and $R_{n} \neq R_{p}$ (See figure \ref{fig:case5}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-5.pdf}\caption{Query case 5} \label{fig:case5}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new requirements and their available resources, the previous composition could be re-executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, these services are re-allocated by our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new requirements and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
 
 \subsection{\textsl{Query} subset and equivalent \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \equiv R_{p}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \equiv R_{p}$ (See figure \ref{fig:case6}). 
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-6.pdf}\caption{Query case 6} \label{fig:case6}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the composition could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to their available resources, the previous composition could be extended to include the service which are missing to achieve the user results. The rewriting algorithm is responsible to select and include this new service. Once a valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to their available resources, these services are re-allocated and the services missing to achieve the user needs are included by our rewriting algorithm. Once a new valid composition is produced, it  could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
 
 \subsection{\textsl{Query} subset and more restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \triangleright R_{p}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{n} \triangleright R_{p}$ (See figures \ref{fig:case7a} and \ref{fig:case7b}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-7a.pdf}\caption{Query case 7a} \label{fig:case7a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-7b.pdf}\caption{Query case 7b} \label{fig:case7b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the previous composition which is interesting to the new request could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources and that the \textsl{user requirements} are being satisfied. Otherwise, \textsl{services} out of resources or which do not satisfy the \textsl{requirements} are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new \textsl{requirements} and their available resources, the previous composition could be extended to include the services which are missing to achieve the user results. The rewriting algorithm is responsible to select and include new services. Once a valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, these services are re-allocated and the services missing to achieve the user needs are included by our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
 
 \subsection{\textsl{Query} subset and less restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{p} \triangleright R_{n}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{p} \triangleright R_{n}$ (See figures \ref{fig:case8a} and \ref{fig:case8b}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-8a.pdf}\caption{Query case 8a} \label{fig:case8a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-8b.pdf}\caption{Query case 8b} \label{fig:case8b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the previous composition generated to the previous integration will be partially reused. The subset of the previous composition which is interesting to the new request could be re-executed if all involved \textsl{concrete services} could be enforced considering that they have available resources. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to their available resources, the previous composition could be extended to include the services which are missing to achieve the user results. The rewriting algorithm is responsible to select and include new services. Once a valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to their available resources, these services are re-allocated and the services missing to achieve the user needs are included by our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and part of the \textsl{user requirements} less restrict and part more restrict}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{p} \diamond R_{n}$ (See figures \ref{fig:case9a} and \ref{fig:case9b}, \ref{fig:case9c}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-9a.pdf}\caption{Query case 9a} \label{fig:case9a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-9b.pdf}\caption{Query case 9b} \label{fig:case9b}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-9c.pdf}\caption{Query case 9c} \label{fig:case9c}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new \textsl{requirements} and their available resources, the previous composition could be extended to include the services which are missing to achieve the user results. The rewriting algorithm is responsible to select and include new services. Once a valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, these services are re-allocated and the services missing to achieve the user needs are included by our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
+
+\subsection{\textsl{Query} subset and different \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a subset of the previous \textsl{query} and the \textsl{requirements} for the new request are less restrict occurs if and only if: $Q_{n} \subset Q_{p}$ and $R_{p} \neq R_{n}$ (See figure \ref{fig:case10}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-10.pdf}\caption{Query case 10} \label{fig:case10}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible workflows: First, if all involved \textsl{concrete services} could be enforced to the new request according to the new \textsl{requirements} and their available resources, the previous composition could be extended to include the services which are missing to achieve the user results. The rewriting algorithm is responsible to select and include new services. Once a valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Second, if part of the involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, these services are re-allocated and the services missing to achieve the user needs are included by our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request. Third, if all involved \textsl{concrete services} could not be enforced to the new request according to the new \textsl{requirements} and their available resources, the new \textsl{query} is dispatched to our rewriting algorithm. Once a new valid composition is produced, it could be executed. Then, a new \textsl{integration SLA} is produced and stored to the new request.
 
 \subsection{\textsl{Query} superset and equivalent \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \equiv R_{p}$.
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} are equivalent occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \equiv R_{p}$ (See figure \ref{fig:case11}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-11.pdf}\caption{Query case 11} \label{fig:case11}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources. The previous composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible solutions for this case. First, if the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, they could be composed and executed. Second, if part of the services  used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, it will be reused. However, the other services necessary to achieve the results will be selected and composed using our rewriting algorithm. Then, when the final composition is produced in accordance with the new \textsl{requirements}, it can be executed. And, third, if none of the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, the new \textsl{query} will be dispatched to our rewriting algorithm to produce a valid rewriting for this request.
 
-\subsection{\textsl{Query} subset and more restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \triangleright R_{p}$.
+\subsection{\textsl{Query} superset and more restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{n} \triangleright R_{p}$ (See figures \ref{fig:case12a} and \ref{fig:case12b}.
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-12a.pdf}\caption{Query case 12a} \label{fig:case12a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-12b.pdf}\caption{Query case 12b} \label{fig:case12b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources and the \textsl{user requirements} are met. The composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources or violating the \textsl{requirements} are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible solutions for this case. First, if the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, they could be composed and executed. Second, if part of the services  used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, it will be reused. However, the other services necessary to achieve the results will be selected and composed using our rewriting algorithm. Then, when the final composition is produced in accordance with the new \textsl{requirements}, it can be executed. And, third, if none of the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, the new \textsl{query} will be dispatched to our rewriting algorithm to produce a valid rewriting for this request.
 
-\subsection{\textsl{Query} subset and less restrict \textsl{user requirements}}
-Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{p} \triangleright R_{n}$.
+\subsection{\textsl{Query} superset and less restrict \textsl{user requirements}}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{p} \triangleright R_{n}$ (See figures \ref{fig:case13a} and \ref{fig:case13b}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-13a.pdf}\caption{Query case 13a} \label{fig:case13a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-13b.pdf}\caption{Query case 13b} \label{fig:case13b}
+\end{figure}
 
 \bigskip
-\noindent \textbf{Solution:} In this case, the composition generated to the previous integration will be reused if all involved \textsl{concrete services} could be enforced considering that they have available resources. The composition will be extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Otherwise, \textsl{services} out of resources are re-allocated with the ones that satisfy the \textsl{user requirement} and have available resources. The composition is now extended to include the \textsl{services} remaining to achieve the user needs. Once the composition is produced meeting the \textsl{requirements}, it is executed. Thus, the new composition is executed and a new \textsl{integration SLA} is produced and stored to the new request.
+\noindent \textbf{Solution:} There are three possible solutions for this case. First, if the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, they could be composed and executed. Second, if part of the services  used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, it will be reused. However, the other services necessary to achieve the results will be selected and composed using our rewriting algorithm. Then, when the final composition is produced in accordance with the new \textsl{requirements}, it can be executed. And, third, if none of the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the resources available, the new \textsl{query} will be dispatched to our rewriting algorithm to produce a valid rewriting for this request.
+
+\subsection{\textsl{Query} superset and part of the \textsl{user requirements} less restrict and part more restrict}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: $Q_{p} \subset Q_{n}$ and $R_{p} \diamond R_{n}$. The figures \ref{fig:case14a}, \ref{fig:case14b} and \ref{fig:case14c} illustrate the different variation of \textsl{requirements}.
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-14a.pdf}\caption{Query case 14a} \label{fig:case14a}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-14b.pdf}\caption{Query case 14b} \label{fig:case14b}
+\end{figure}
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-14c.pdf}\caption{Query case 14c} \label{fig:case14c}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible solutions for this case. First, if the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, they could be composed and executed. Second, if part of the services  used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, it will be reused. However, the other services necessary to achieve the results will be selected and composed using our rewriting algorithm. Then, when the final composition is produced in accordance with the new \textsl{requirements}, it can be executed. And, third, if none of the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, the new \textsl{query} will be dispatched to our rewriting algorithm to produce a valid rewriting for this request.
+
+
+\subsection{\textsl{Query} superset and different \textsl{user requirements}}
+\textcolor{red}{I think that this case can be included as one more sub-case of queries with more restrict requirements.}
+Given a user request defining a \textsl{query} $Q_{n}$ and a set of \textsl{requirements} $R_{n}$, the case in which the the incoming \textsl{query} is a superset of the previous \textsl{query} and the \textsl{requirements} for the new request are more restrict occurs if and only if: the result of the previous \textsl{query} is contained in the result of the incoming \textsl{query} ($Q_{p} \subset Q_{n}$) and the set of requirements $R_{n}$ defines only requirements that are not present in the set of requirement $R_{p}$ (see figure~\ref{fig:case15}).
+
+\begin{figure}[h!]
+\center
+\includegraphics[scale=0.85]{figures/query-case-15.pdf}\caption{Query case 15} \label{fig:case15}
+\end{figure}
+
+\bigskip
+\noindent \textbf{Solution:} There are three possible solutions for this case. First, if the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, they could be composed and executed. Second, if part of the services  used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, it will be reused. However, the other services necessary to achieve the results will be selected and composed using our rewriting algorithm. Then, when the final composition is produced in accordance with the new \textsl{requirements}, it can be executed. And, third, if none of the services used in $Q_{p}$ which are interesting for the \textsl{query} $Q_{n}$ could be correctly mapped and enforced according to the new \textsl{requirements} and the resources available, the new \textsl{query} will be dispatched to our rewriting algorithm to produce a valid rewriting for this request.
+
+\subsection{Different \textsl{queries}}
+The last query variation is the worst case processed by our data integration approach. It occurs when the queries are completely different. This means that the expected result of the new \textsl{query} $Q_{n}$ can not be compared with the result of any other previous integration request $Q_{p}$. In such situation, there is no reusability solution. The new \textsl{query} should be dispatched to our rewriting algorithm (presented in the section~\ref{section:algorithm}) to produce a service composition according to the user needs.
