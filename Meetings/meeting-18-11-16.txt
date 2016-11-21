@@ -1,0 +1,2 @@
+- Colocar as hiposetes que devem ser assumidas para aceitar os diagramas
+- Colocar no mesmo lugar os diagramas
