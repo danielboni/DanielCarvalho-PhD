@@ -1,1 +1,55 @@
-Teste!
+\chapter{No-name yet}
+
+\newpage
+
+\section{Query taxonomy and re-usability formalization}
+
+A query is defined as a $n$-tuple as follows:
+%
+\begin{center}
+$Q := \langle A, P_{s}, P_{c}, DS, R, r  \rangle$
+\end{center}
+%
+where:
+\begin{description}
+\item $A$ is a set of abstract services defining the query $Q$.
+\item $P_{s}$ is a set of user preferences over the data services that will be selected to potentially answer the query $Q$.
+\item $P_{c}$ is a set of user preferences over the composition of data services that potentially can answer the query $Q$.
+\item $DS$ is a set of data services that were selected satisfying the restrictions defined by $P_{s}$ to potentially rewrite the query $Q$.
+\item $R$ is a set of rewritings produced using the data services in $DS$ and satisfying the restrictions defined by $P_{c}$ that potentially can answer the query $Q$.
+\item $r$ is the rewriting that were selected and executed to answer the query $Q$. 
+\end{description} 
+
+The query taxonomy presented below is defined according to the relation that can be established between two queries. 
+Considering two queries $Q_{1}$ and $Q_{2}$, the taxonomy specifies thirteen types of query classified in four groups: 
+\begin{enumerate}
+\item $Q_{1}$ and $Q_{2}$'s answer expect the same data. For example, $Q_{1}$ and $Q_{2}$ retrieve patients that were infected by pneumonia.
+\item The data denoted by the answer of $Q_{1}$ is a subset of the data denoted by the answer of $Q_{2}$. For example, $Q_{2}$ retrieves patients that were infected by pneumonia and $Q_{1}$ retrieves patients that were infected by pneumonia and treated by the doctor Lucas.
+\item The data denoted by the answer of $Q_{1}$ is a superset of the data denoted by the answer of $Q_{2}$. For example, $Q_{2}$ retrieves patients that were infected by pneumonia and treated by the doctor Lucas, and $Q_{1}$ retrieves patients that were infected by pneumonia.
+\item The data denoted by the answer of $Q_{1}$ is different of the data denoted by the answer of $Q_{2}$. For example, $Q_{2}$ retrieves patients that were infected by pneumonia and treated by the doctor Lucas, and $Q_{1}$ retrieves patients that were infected by pneumonia with admission in the hospital Edouard Herriot.
+\end{enumerate}
+
+The types of queries are described below and organized by their groups.
+
+\bigskip
+\noindent \textbf{Query type 1 (Group 1): $Q_{1}$ is equivalent to $Q_{2}$.}
+
+This is the simplest case. Two queries are equivalents when:
+\begin{enumerate}
+\item They expect the same data as answer, which means they cover the same abstract services. The set of abstract service of $Q_{1}$, denoted as $Q_{1}.A$, is equals to the set of abstract services of $Q_{2}$, denoted as $Q_{2}.A$.
+%
+\begin{center}
+$Q_{1}.A = Q_{2}.A$
+\end{center}
+%
+\item For each user preference over data services $p_{si}$ defined in $Q_{1}.P_{s}$, there is a user preference $p_{sj}$ equivalent defined in $Q_{2}.P_{s}$ such that the evaluation of $p_{si}$ is equal to the evaluation of $p_{sj}$. 
+Consequently, the score of $Q_{1}.P_{s}$ is equals to the score of $Q_{2}.P_{s}$.
+\item For each user preference over composition $p_{ci}$ defined in $Q_{1}.P_{c}$, there is a user preference $p_{cj}$ equivalent defined in $Q_{2}.P_{c}$ such that the evaluation of $p_{ci}$ is equal to the evaluation of $p_{cj}$. 
+Consequently, the score of $Q_{1}.P_{c}$ is equals to the score of $Q_{2}.P_{c}$.
+\end{enumerate}
+
+In the re-usability point of view, the data services that were selected to answer the query $Q_{1}$, denoted by $Q_{1}.DS$, could be used to answer the query $Q_{2}$ assuming that they are available in the moment. In other words, $Q_{1}.DS$ is equivalent to $Q_{2}.DS$. Moreover, the rewritings produced to the query $Q_{1}$ could also be used to answer the query $Q_{2}$ assuming that the data services are available.
+
+\begin{definition}
+Teste
+\end{definition}
