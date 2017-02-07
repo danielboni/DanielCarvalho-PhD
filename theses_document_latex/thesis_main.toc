@@ -6,7 +6,7 @@
 \contentsline {chapter}{\numberline {2}No-name yet}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Query taxonomy and re-usability formalization}{4}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Queries that can potentially be completely reusable}{5}{subsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.1.1}Query type 2: $Q_{2}$ is a subset of $Q_{1}$}{8}{subsubsection.2.1.1.1}
-\contentsline {chapter}{\numberline {A}Appendix Example}{9}{appendix.A}
-\contentsline {section}{\numberline {A.1}Appendix Example section}{9}{section.A.1}
-\contentsline {chapter}{Bibliography}{11}{appendix*.3}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Query type 2: $Q_{2}$ is a subset of $Q_{1}$}{9}{subsubsection.2.1.1.1}
+\contentsline {chapter}{\numberline {A}Appendix Example}{11}{appendix.A}
+\contentsline {section}{\numberline {A.1}Appendix Example section}{11}{section.A.1}
+\contentsline {chapter}{Bibliography}{13}{appendix*.3}

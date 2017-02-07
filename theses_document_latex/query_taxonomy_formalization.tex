@@ -70,13 +70,13 @@ Consequently, the score of $Q_{1}.R$ is equals to the score of $Q_{2}.R$. The \t
 
 \begin{figure}[!htbp]
 \center
-\includegraphics[scale=0.9]{images/QT1.pdf}
-\caption{Query type 1 representation.}
-\label{fig:qt1}
+\includegraphics[scale=0.7]{images/QT2-ABSTRACT-SERVICES.pdf}
+\caption{Query type 2 representation.}
+\label{fig:qt2}
 \end{figure}
 
 \begin{definition}\label{def:reqeq}
-A set of \textsl{user requirements} $R_{1}$ is equivalent to a set of \textsl{user requirements} $R_{2}$, represented by $R_{1} \equiv R_{2}$, if and only if: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) = eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+A set of user requirements $R_{1}$ is equivalent to a set of \textsl{user requirements} $R_{2}$, represented by $R_{1} \equiv R_{2}$, if and only if: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2} \ \vert \ eval (r_{i}) = eval(r_{j}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{definition}
 
 \begin{definition}\label{def:qt1}
@@ -84,39 +84,98 @@ Query Type 1 -- a query $Q_{1}$ is equivalent to a query $Q_{2}$, if and only if
 \end{definition}
 
 From the re-usability point of view, everything from $Q_{1}$ could be reused to answer $Q_{2}$. All data services filtered to the query $Q_{1}$, denoted $Q_{1}.S$, potentially could be reused in the query $Q_{2}$, excepting the ones that are not online in the exact moment. 
+
+\begin{figure}[!htbp]
+\center
+\includegraphics[scale=0.7]{images/QT1-DATA-SERVICES.pdf}
+\caption{Query type 1 representation.}
+\label{fig:qt1}
+\end{figure}
+
 The set of compositions produced to the query $Q_{1}$, denoted as $Q_{1}.C$, potentially could be used to answer the query $Q_{2}$, excepting the ones using offline data services. Following, the reusability function for data services, rewritings and queries are presented. 
 
-The service reusability function, denoted as $reuse \ services(<query>, <query \ type>)$, receives as parameters a query and a query type, and returns a set of reusable data services.
+\begin{figure}[!h]
+\center
+\includegraphics[scale=0.7]{images/QT1-COMPOSITIONS.pdf}
+\caption{Query type 1 - relation between composition sets.}
+\label{fig:qt1-c}
+\end{figure}
+
+The service reusability function -- denoted as $reuse\_services(q_{1},\ q_{2})$ where $q_{1}$ is a stored query and $q_{2}$ an incoming query -- returns a set of reusable data services for $q_{2}$ based on the data services of $q_{1}$.
 
 \begin{definition}\label{def:rsqt1}
-Given $Q_{1}$ and $Q_{2}$, queries of type 1, the reusability of services $reuse \ services(Q_{1}, type \ 1)$ selects and returns all data services in $Q_{1}.S$ online in the exact moment. 
+The service reusability function $reuse\_services(q_{1},\ q_{2})$ -- for queries of group 1 -- returns a set of data services $S_{o}$, which are online in this exact moment in the data services of $q_{1}$. 
 \begin{center}
-$Q_{2}.S = Q_{2}.S \ \cup \ \lbrace ds_{i} \rbrace, \ \forall ds_{i} \in Q_{1}.S \ \vert \ ds_{i} \ is \ online$.
+$ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\ such\ that\ \lbrace \forall ds_{i} \in q_{1}.S \ \vert \ ds_{i} \ is \ online\rbrace$.
 \end{center}
 \end{definition}
 
-The rewritings reusability function, denoted as $reuse \ rewritings(<query>, <query>)$, receives as parameters a previous query and the new query, and returns a set of reusable rewritings to answer the last one.
+The rewritings reusability function -- denoted as $reuse\_rewritings(q_{1},\ q_{2})$ where $q_{1}$ is a stored query and $q_{2}$ an incoming query -- returns a set of reusable compositions to answer $q_{2}$ based on the data services and compositions of $q_{1}$.
 
 \begin{definition}\label{def:rrqt1}
-Given $Q_{1}$ and $Q_{2}$, queries of type 1, the reusability of rewritings $reuse \ rewritings(Q_{1}, \ Q_{2})$ selects and returns all rewritings in $Q_{1}.C$ which uses the services in $Q_{2}.S$. 
+The rewritings reuse function $\mathbf{reuse\_rewritings(q_{1},\ q_{2})}$ returns a set of rewritings $C_{o}$, which uses the data services $S_{o}$ returned by $reuse\_services(q_{1},\ q_{2})$. 
 \begin{center}
-$Q_{2}.C = Q_{2}.C \ \cup \ \lbrace c_{i} \rbrace, \ \forall c_{i} \in Q_{1}.C \ \vert \
-   \lbrace \ \forall ds_{j} \in c_{i}, \ \nexists ds_{k} \in c_{i} \ \vert \ ds_{j} \in Q_{2}.S \ and \ ds_{k} \notin Q_{2}.S \rbrace$.
+$C_{o} \leftarrow C_{o} \ \cup \ \lbrace c_{i} \rbrace\ \vert\ \lbrace \forall c_{i} \in q_{1}.C,\ \exists ds_{j} \in c_{i},\ \nexists ds_{k} \in c_{i} \ \vert \
+   ds_{j} \in S_{o} \ and \ ds_{k} \notin S_{o} \rbrace$.
 \end{center}
 \end{definition}
 
 \begin{enumerate}[b)]
-\item \textcolor{red}{Continuar aqui..query less restrict} \textit{Query type 1:} the \textit{first} type is the simplest case. The figure~\ref{fig:qt1} illustrates the manner this query is represented. Given a previous query $Q_{1}$ and an incoming query $Q_{2}$, $Q_{1}$ is equivalent to $Q_{2}$ when: \textit{(1)} both queries expect the same data as answer, which means they cover the same abstract services (Figure~\ref{fig:qt1} - Data point of view). In this sense, the set of abstract service of $Q_{1}$, denoted as $Q_{1}.A$, is equals to the set of abstract services of $Q_{2}$, denoted as $Q_{2}.A$.
+\item \textit{Query type 2} comprehends a query case including less restrict user requirements.  
+This type of query is a general case of \textit{query type 1} as introduced in the figure~\ref{fig:qt2}.
+Given a previous query $Q_{1}$ and an incoming query $Q_{2}$, $Q_{2}$ is a subset case of $Q_{1}$ when: \textit{(1)} both queries expect the same data as answer, which means they cover the same abstract services. 
+For example, in the figure~\ref{fig:qt2} (Data point of view), it possible to note that both queries includes the abstract services $A_{1}$, $A_{2}$ and $A_{3}$ in their definition.
+In this sense, the set of abstract service of $Q_{1}$, denoted as $Q_{1}.A$, is equals to the set of abstract services of $Q_{2}$, denoted as $Q_{2}.A$.  
 %
 \begin{center}
 $Q_{1}.A = Q_{2}.A$
 \end{center}
 %
-\textit{(2)} For each user requirement $r_{i}$ in $Q_{1}.R$, there is a user requirement $r_{j}$ in $Q_{2}.R$ such that the evaluation of $r_{i}$ is equal to the evaluation of $r_{j}$. 
-Consequently, the score of $Q_{1}.R$ is equals to the score of $Q_{2}.R$. The \textit{query type 1} and the equivalence between requirements are formally defined below.
+\textit{(2)} There exists at least one user requirement $r_{i}$ in $Q_{2}.R$ and $r_{j}$ in $Q_{1}.R$ such that the evaluation of $r_{i}$ contains the evaluation of $r_{j}$. 
+\textit{(3)} There not exists a user requirement $r_{k}$ in $Q_{2}.R$ such that the evaluation of $r_{k}$ is contained in the evaluation of $r_{j}$.
+Consequently, the score of $Q_{1}.R$ is higher than the score of $Q_{2}.R$. 
+The \textit{query type 2} and the less restrict user requirements are formally defined below.
 \end{enumerate}
 
+\begin{definition}
+Given a set of user requirements $R_{1}$ and $R_{2}$, $R_{1}$ is less restrict than $R_{2}$, represented by $R_{1} \ \lhd \ R_{2}$, if and only if: 
+$\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2}, \ \nexists r_{k} \in R_{2} \ \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ eval (r_{i}) \subset eval(r_{k}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+\end{definition}
 
+Once queries of \textit{type 2} are general cases of queries of \textit{type 1}, $Q_{2}$ could profit from the entire data (data services and compositions) collected/stored to answer $Q_{1}$. 
+The set of data services selected to $Q_{1}$ ($Q_{1}.S$) -- respecting the user requirements specified in $Q_{1}$ -- is a potential subset of the data services selected to $Q_{2}$ ($Q_{2}.S$).
+In other words, $Q_{1}.S$ is contained in the set $Q_{2}.S$ (see figure~\ref{fig:qt2-ds}).
+Although $Q_{2}.S$ could accept other data services which are not in $Q_{1}.S$ (if the rewriting process was launched from the beginning), all data services from $Q_{1}.S$ are reusable in $Q_{2}.S$ excepting the services offline in the exact moment. 
+The service reusability function for queries \textit{type 2} is the same defined for the queries \textit{type 1} (see definition~\ref{def:rsqt1}).
+
+\begin{figure}[!h]
+\center
+\includegraphics[scale=0.7]{images/QT2-DATA-SERVICES.pdf}
+\caption{Query type 2 - relation between sets of data services.}
+\label{fig:qt2-ds}
+\end{figure}
+
+The set of compositions produced to the query $Q_{1}$ ($Q_{1}.C$) is a potential subset of the compositions to answer the query $Q_{2}$ even if the user requirements of $Q_{2}$ ($Q_{2}.R$) are less restrict than the requirements of $Q_{1}$ ($Q_{1}.R$). 
+This means $Q_{1}.C$ is contained in $Q_{2}.C$ (see figure~\ref{fig:qt2-c}).
+Although $Q_{2}$ could be answered by other compositions which are not in $Q_{1}.C$ (if the rewriting process was launched from the beginning), all compositions from $Q_{1}.C$ are reusable in $Q_{2}.C$ excepting those that uses data services offline in the exact moment. 
+The rewritings reusability function for queries of \textit{type 2} is the same defined for queries \textit{type 1} (see definition~\ref{def:rrqt1}). 
+
+\begin{figure}[!h]
+\center
+\includegraphics[scale=0.7]{images/QT2-COMPOSITIONS.pdf}
+\caption{Query type 2 - relation between sets of data services.}
+\label{fig:qt2-c}
+\end{figure}
+
+Finally, the query reusability function -- denoted as $\mathbf{reuse\_query(q_{1}, \ q_{2})}$ where $q_{1}$ is a stored query and $q_{2}$ a incoming query -- provides the information concerning the data services and compositions that can be used to answer the user request by reusing results from $q_{1}$ in $q_{2}$. 
+
+\begin{definition}
+The query reusability function $\mathbf{reuse\_query(q_{1}, \ q_{2})}$ returns $q_{2}$ such that $q_{2}.S \leftarrow reuse\_services(q_{1}, type\ 1) \ and \ q_{2}.C \leftarrow reuse\_rewritings(q_{1}, q_{2})$.
+\end{definition}
+
+\textcolor{red}{Atualizar funcoes antes de passar para o outro grupo.}
+
+\textcolor{red}{daqui para baixo sera o outro grupo}
 \subsubsection{Query type 2: $Q_{2}$ is a subset of $Q_{1}$}
 
 The \textit{second} type deals with \textit{query subsets} due to more restrict user requirements. Given two queries $Q_{1}$ and $Q_{2}$, $Q_{2}$ is a subset of $Q_{1}$ when:
