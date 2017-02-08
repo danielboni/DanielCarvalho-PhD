@@ -170,12 +170,178 @@ The rewritings reusability function for queries of \textit{type 2} is the same d
 Finally, the query reusability function -- denoted as $\mathbf{reuse\_query(q_{1}, \ q_{2})}$ where $q_{1}$ is a stored query and $q_{2}$ a incoming query -- provides the information concerning the data services and compositions that can be used to answer the user request by reusing results from $q_{1}$ in $q_{2}$. 
 
 \begin{definition}
-The query reusability function $\mathbf{reuse\_query(q_{1}, \ q_{2})}$ returns $q_{2}$ such that $q_{2}.S \leftarrow reuse\_services(q_{1}, type\ 1) \ and \ q_{2}.C \leftarrow reuse\_rewritings(q_{1}, q_{2})$.
+The query reusability function $\mathbf{reuse\_query(q_{1}, \ q_{2})}$ returns $q_{2}$ such that $q_{2}.S \leftarrow reuse\_services(q_{1}, q_{2}) \ and \ q_{2}.C \leftarrow reuse\_rewritings(q_{1}, q_{2})$.
 \end{definition}
 
 \textcolor{red}{Atualizar funcoes antes de passar para o outro grupo.}
 
 \textcolor{red}{daqui para baixo sera o outro grupo}
+
+\subsection{Group 2}
+
+\begin{enumerate}[a)]
+\item Query equivalent with user requirements more restrict
+\end{enumerate}
+
+\begin{definition}
+$Q_{1}.A = Q_{2}.A$
+\end{definition}
+
+\begin{definition}
+Definir servico concreto: 
+\begin{center}
+$ds := \langle A, R  \rangle$
+\end{center}
+\end{definition}
+
+\begin{definition}
+Definir QoS aspects of the service respect user requirements, denoted ds satisfies R: 
+\begin{center}
+$\forall r_{i} \in ds.R, \ \exists r_{j} \in R_{q} \ \vert \ eval (r_{i}) = eval(r_{j}) \ or \ eval (r_{i}) \subset eval(r_{j})$.
+\end{center}
+\end{definition}
+
+\begin{definition}\label{def:??}
+%The service reusability function $reuse\_services(q_{1},\ q_{2})$ -- for queries of group 1 -- returns a set of data services $S_{o}$, which are online in this exact moment in the data services of $q_{1}$. 
+\textbf{RS-2}
+\begin{center}
+$ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\ such\ that\ \lbrace \forall ds_{i} \in q_{1}.S \ \vert \ ds_{i} \ is \ online\ and\ ds_{i}\ satisfies\ q_{2}.R \rbrace$.
+\end{center}
+reuse rewriting: \textbf{RR-1}
+\end{definition}
+
+\begin{enumerate}[b)]
+\item Query equivalent with user requirements more and less restrict. Definicoes iguais ao anterior.
+\end{enumerate}
+
+\subsection{Group 3}
+
+\begin{enumerate}[a)]
+\item Query q2 is a subset of q1 with equivalent user requirements
+\end{enumerate}
+
+\begin{definition}
+$Q_{1}.A \subset Q_{2}.A$
+\end{definition}
+
+\begin{definition}\label{def:??}
+%The service reusability function $reuse\_services(q_{1},\ q_{2})$ -- for queries of group 1 -- returns a set of data services $S_{o}$, which are online in this exact moment in the data services of $q_{1}$. 
+Igual ao query type 1. O reuse rewritings tb.
+\begin{center}
+$ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\ such\ that\ \lbrace \forall ds_{i} \in q_{1}.S \ \vert \ ds_{i} \ is \ online\ \rbrace$.
+\end{center}
+\end{definition}
+
+\begin{definition}
+\textbf{RQ-2}:
+\begin{flushleft}
+$ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
+$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
+$ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
+$ C_{1} \leftarrow algorithm\_Y (C_{0}, S_{1}, q_{2})$. \\
+$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
+\end{flushleft}
+\end{definition}
+
+\begin{enumerate}[b)]
+\item Query q2 is a subset of q1 with user requirements less restrict
+\end{enumerate}
+
+\begin{definition}
+Tudo igual ao anterior...
+\end{definition}
+
+\subsection{Group 4}
+
+\begin{enumerate}[a)]
+\item Query q2 is a subset of q1 with user requirements more restrict
+\item Query q2 is a subset of q1 with user requirements more/less restrict
+\end{enumerate}
+
+\begin{definition}
+\textbf{RS-2} \textbf{RR-1} and \textbf{RQ-2}
+\end{definition}
+
+\subsection{Group 5}
+\begin{enumerate}[a)]
+\item Query q2 is a superset of q1 with user requirements equivalents
+\item Query q2 is a superset of q1 with user requirements less restrict
+\end{enumerate}
+
+\begin{definition}
+Data service ds covers the query q: 
+\begin{center}
+$ \forall a_{i} \in ds.A,\ \nexists a_{j} \in ds.A \ \vert \ a_{i} \in q.A\ and\ a_{j} \notin q.A$
+\end{center}
+\end{definition}
+
+\begin{definition}
+\textbf{RS-3}:
+\begin{flushleft}
+$ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\  st.\ \lbrace \forall ds_{i} \in q_{1}.S\ \vert \ ds_{i} \ is \ online\ and\ ds_{i}\ covers\ q_{2} \rbrace$. \\
+\end{flushleft}
+\end{definition}
+
+\textbf{RR1 igual..}
+
+\begin{definition}
+\textbf{RQ-3}:
+\begin{flushleft}
+$ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
+$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
+$ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
+$ C_{1} \leftarrow algorithm\_Z (C_{0}, S_{1}, q_{2})$. \\
+$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
+\end{flushleft}
+\end{definition}
+
+\subsection{Group 6}
+\begin{enumerate}[a)]
+\item Query q2 is a superset of q1 with user requirements more restrict
+\item Query q2 is a superset of q1 with user requirements more/less restrict
+\end{enumerate}
+
+\begin{definition}
+\textbf{RS-4}:
+\begin{flushleft}
+$ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\  st.\ \lbrace \forall ds_{i} \in q_{1}.S\ \vert \ ds_{i} \ is \ online\ and\ ds_{i}\ covers\ q_{2}\ and\ \newline ds_{i}\ satisfies\ q_{2}.R\ \rbrace$. \\
+\end{flushleft}
+
+\textbf{RR1 and RQ-3}
+\end{definition}
+
+
+\subsection{Group 7}
+\begin{enumerate}[a)]
+\item Query q2 is different from q1 but both have abstract services in common
+
+\begin{definition}
+$ \forall a_{i} \in q_{1}.A,\ \exists a_{j} \in  q_{1}.A,\ \exists a_{k} \in  q_{2}.A\ \vert \newline  
+a_{j} \subset  q_{2}.A\ and\ 
+a_{j} \subsetneq  q_{2}.A\ and\
+a_{k} \subsetneq  q_{1}.A \rbrace$. \\
+$n(Q_{1}.A \cap Q_{2}.A) > 1$ \\
+caso contrario eh melhor reescrever
+\end{definition}
+\end{enumerate}
+
+\begin{definition}
+\textbf{RS-4} and \textbf{RR-1} iguais....
+\end{definition}
+
+\begin{definition}
+\textbf{RQ-4}:
+\begin{flushleft}
+$ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
+$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
+$ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
+$ C_{1} \leftarrow algorithm\_w (C_{0}, S_{1}, q_{2})$. \\
+$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
+\end{flushleft}
+\end{definition}
+
+\textbf{A case outside of this taxonomy requires a full rewriting process.}
+
 \subsubsection{Query type 2: $Q_{2}$ is a subset of $Q_{1}$}
 
 The \textit{second} type deals with \textit{query subsets} due to more restrict user requirements. Given two queries $Q_{1}$ and $Q_{2}$, $Q_{2}$ is a subset of $Q_{1}$ when:
