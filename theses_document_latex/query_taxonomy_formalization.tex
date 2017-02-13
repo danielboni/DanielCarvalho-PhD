@@ -10,7 +10,7 @@ This section presents the description and formalization of the different types o
 A query is defined as a $n$-tuple:
 %
 \begin{center}
-$Q := \langle A, R, S, C, w  \rangle$
+$Q := \langle s, t, A, R, S, C, w  \rangle$
 \end{center}
 %
 where: $A$ is a set of abstract services defining the query $Q$;
@@ -142,6 +142,10 @@ Given a set of user requirements $R_{1}$ and $R_{2}$, $R_{1}$ is less restrict t
 $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2}, \ \nexists r_{k} \in R_{2} \ \ \vert \ eval (r_{i}) \supset eval(r_{j}) \ and \ eval (r_{i}) \subset eval(r_{k}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
 \end{definition}
 
+\begin{definition}\label{def:qt1}
+Query Type 2 -- a query $Q_{2}$ is a subset case of a query $Q_{1}$, if and only if: $Q_{1}.A = Q_{2}.A$ and $Q_{2}.R \lhd Q_{1}.R$.
+\end{definition}
+
 Once queries of \textit{type 2} are general cases of queries of \textit{type 1}, $Q_{2}$ could profit from the entire data (data services and compositions) collected/stored to answer $Q_{1}$. 
 The set of data services selected to $Q_{1}$ ($Q_{1}.S$) -- respecting the user requirements specified in $Q_{1}$ -- is a potential subset of the data services selected to $Q_{2}$ ($Q_{2}.S$).
 In other words, $Q_{1}.S$ is contained in the set $Q_{2}.S$ (see figure~\ref{fig:qt2-ds}).
@@ -232,15 +236,44 @@ $ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\ such\ that\ \lbrace \f
 \end{center}
 \end{definition}
 
+% RQ-2
 \begin{definition}
-\textbf{RQ-2}:
-\begin{flushleft}
-$ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
-$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
-$ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
-$ C_{1} \leftarrow algorithm\_Y (C_{0}, S_{1}, q_{2})$. \\
-$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
-\end{flushleft}
+Given two queries $Q_{1}$ and $Q_{1}$ as follows:
+\begin{center}
+$Q_{1} = \langle s,\ t,\ A,\ R,\ S,\ C,\ w \rangle$ \\
+$Q_{2} = \langle s,\ t,\ A,\ R,\ S?,\ C?,\ w? \rangle$
+\end{center}
+Where query $Q_{2}$ contains undefined sets of data services ($Q_{2}.S?$) and compositions ($Q_{2}.C?$), and the composition ($Q_{2}.w?$) selected to answer the request.
+The query reusability function of $Q_{2}$ based on $Q_{1}$, denoted as $reuse\_query(Q_{1},\ Q_{2})$, completes and returns $Q_{2}$ such that:
+\begin{center}
+$ Q_{2}.S \leftarrow S_{i}\ \cup\ S_{Q_{2}-Q_{1}} $
+\end{center}
+Where $ S_{i}$ is a set of reusable data services obtained from $Q_{1}.S$ and $S_{Q_{2}-Q_{1}}$ is a set of data services selected by the algorithm X:
+\begin{center}
+$S_{i} \leftarrow reuse\_service (Q_{1},\ Q_{2})$ \\
+$S_{Q_{2}-Q_{1}} \leftarrow algorithm\_X (Q_{1},\ Q_{2})$
+\end{center}
+This algorithm is responsible (i) to identify and (ii) to select data services that cover the abstract services in the set $Q_{2}.A - Q_{1}.A$. In other words, it selects services that are necessary to complete $Q_{1}$ compositions to satisfy $Q_{2}$.
+
+The set of compositions of $Q_{2}$ is obtained by invoking the algorithm Y.
+\begin{center}
+$Q_{2}.C \leftarrow algorithm\_Y (C_{0}, S_{Q_{2}-Q_{1}}, Q_{2})$
+\end{center}
+This algorithm is a simple and reduced rewriting step responsible to improve each composition in $Q_{1}.C$ adding the absent services to satisfy $Q_{2}$. 
+The algorithm expects three inputs (i) the set of reusable compositions $C_{0}$ from $Q_{1}$ obtained from the reuse rewriting function: 
+\begin{center}
+$ C_{0} \leftarrow reuse\_rewritings (Q_{1},\ Q_{2})$
+\end{center}
+ii) the set of services to complete the compositions $S_{Q_{2}-Q_{1}}$; and (iii) the query  $Q_{2}$.
+%\begin{flushleft}
+%$ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
+%$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
+%$ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
+%$ C_{1} \leftarrow algorithm\_Y (C_{0}, S_{1}, q_{2})$. \\
+%$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
+%\end{flushleft}
+Finally, the composition $Q_{2}.w$ selected to answer $Q_{2}$ is the one with the highest score among the compositions in the set $Q_{2}.C$. 
+The query $Q_{2}$ is now complete.
 \end{definition}
 
 \begin{enumerate}[b)]
@@ -288,10 +321,9 @@ $ S_{o} \leftarrow S_{o} \ \cup \ \lbrace ds_{i} \rbrace\  st.\ \lbrace \forall 
 \textbf{RQ-3}:
 \begin{flushleft}
 $ S_{0} \leftarrow reuse\_service (q_{1}, q_{2})$. \\
-$ S_{1} \leftarrow algorithm\_X (q_{1}, q_{2})$. \\
 $ C_{0} \leftarrow reuse\_rewritings (q_{1}, q_{2})$. \\
-$ C_{1} \leftarrow algorithm\_Z (C_{0}, S_{1}, q_{2})$. \\
-$ q_{2}.S \leftarrow S_{0} \cup S_{1}\ and\ q_{2}.C \leftarrow C_{1}$.
+$ C_{1} \leftarrow algorithm\_Z (C_{0}, q_{2})$. \\
+$ q_{2}.S \leftarrow S_{0} and\ q_{2}.C \leftarrow C_{1}$.
 \end{flushleft}
 \end{definition}
 
@@ -368,5 +400,50 @@ With respect to the compositions, a subset of the rewritings produced to the que
 The query type 2 definition is presented below.
 
 \begin{definition}\label{def:qt2}
-Query Type 2 -- a query $Q_{1}$ is a subset of a query $Q_{2}$, if and only if: $Q_{1}.A = Q_{2}.A$ and $Q_{1}.R_{1} \rhd Q_{2}.R_{2}$
+Query Type 3 -- a query $Q_{1}$ is a subset of a query $Q_{2}$, if and only if: $Q_{1}.A = Q_{2}.A$ and $Q_{1}.R_{1} \rhd Q_{2}.R_{2}$
+\end{definition}
+
+
+\begin{definition}\label{def:reqmoreless}
+Given a set of  requirements $R_{1}$ and $R_{2}$, $R_{1}$ contains mixed types of requirements compared to $R_{2}$, represented by $R_{1} \ \neq \ R_{2}$, if and only if: $\forall r_{i} \in R_{1}, \ \exists r_{j} \in R_{2}, \ \exists r_{k} \in R_{2} \ \vert \ eval (r_{i}) \subset eval(r_{j}) \ and \ eval (r_{k}) \subset eval(r_{i}) \ and \ \vert R_{1} \vert = \vert R_{2} \vert$.
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 4 -- a query $Q_{2}$ is a subset of a query $Q_{1}$, if and only if: $Q_{1}.A = Q_{2}.A$ and $Q_{1}.R_{1} \neq Q_{2}.R_{2}$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 5 -- a query $Q_{2}$ is a superset of a query $Q_{1}$, if and only if: $Q_{1}.A \subset Q_{2}.A$ and $Q_{1}.R_{1} \equiv Q_{2}.R_{2}$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 6 -- a query $Q_{2}$ is a superset of a query $Q_{1}$, if and only if: $Q_{1}.A \subset Q_{2}.A$ and $Q_{2}.R \triangleleft Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 7 -- a query $Q_{2}$ is a superset of a query $Q_{1}$, if and only if: $Q_{1}.A \subset Q_{2}.A$ and $Q_{2}.R \triangleright Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 8 -- a query $Q_{2}$ is a superset of a query $Q_{1}$, if and only if: $Q_{1}.A \subset Q_{2}.A$ and $Q_{2}.R \neq Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 9 -- a query $Q_{2}$ is a subset of a query $Q_{1}$, if and only if: $Q_{1}.A \supset Q_{2}.A$ and $Q_{2}.R \equiv Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 10 -- a query $Q_{2}$ is a subset of a query $Q_{1}$, if and only if: $Q_{1}.A \supset Q_{2}.A$ and $Q_{2}.R \triangleleft Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 11 -- a query $Q_{2}$ is a subset of a query $Q_{1}$, if and only if: $Q_{1}.A \supset Q_{2}.A$ and $Q_{2}.R \triangleright Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 12 -- a query $Q_{2}$ is a subset of a query $Q_{1}$, if and only if: $Q_{1}.A \supset Q_{2}.A$ and $Q_{2}.R \neq Q_{1}.R$
+\end{definition}
+
+\begin{definition}\label{def:qt2}
+Query Type 13 -- a query $Q_{2}$ is different of a query $Q_{1}$, but sharing abstract services, if and only if: $Q_{1}.A \neq Q_{2}.A$ and $n(Q_{1}.A \cap Q_{2}.A) > 1$.
 \end{definition}
