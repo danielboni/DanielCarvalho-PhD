@@ -21,9 +21,9 @@ insert into tb_abstract_service values
 select * from tb_abstract_service;
 
 create table if not exists tb_concrete_service (
-id int primary key auto_increment,
+id int primary key,
 name varchar(50) not null,
-description varchar(80) not null
+description varchar(100) not null
 );
 
 desc tb_concrete_service;
@@ -36,7 +36,6 @@ insert into tb_concrete_service values
 (default, 'DS15', 'given patient x, returns his personal information y');
 
 select * from tb_concrete_service;
-
 
 create table if not exists tb_concrete_abstract (
 id int primary key auto_increment,

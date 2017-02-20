@@ -6,8 +6,11 @@ public class FeedingDatabaseMain {
 
 	public static void main(String[] args) throws DocumentException {
 
-		FeedingAbstractServices feedAbstract = new FeedingAbstractServices();
-		feedAbstract.populate();
+		/* FeedingAbstractServices feedAbstract = new FeedingAbstractServices();
+		feedAbstract.populate(); */
+		
+		FeedingDataServices feedDataServices = new FeedingDataServices();
+		feedDataServices.populate();
 		
 //		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
