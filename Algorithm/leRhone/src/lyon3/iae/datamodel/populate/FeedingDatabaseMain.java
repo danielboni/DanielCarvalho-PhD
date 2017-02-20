@@ -9,9 +9,12 @@ public class FeedingDatabaseMain {
 		/* FeedingAbstractServices feedAbstract = new FeedingAbstractServices();
 		feedAbstract.populate(); */
 		
-		FeedingDataServices feedDataServices = new FeedingDataServices();
-		//feedDataServices.populate();
-		feedDataServices.populateJoinTable();
+		/* FeedingDataServices feedDataServices = new FeedingDataServices();
+		feedDataServices.populate();
+		feedDataServices.populateJoinTable(); */
+		
+		FeedingQueryHistory feedQueries = new FeedingQueryHistory();
+		feedQueries.populate();
 		
 //		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();

@@ -48,9 +48,10 @@ primary key (id_concrete)
 select * from tb_concrete_abstract;
 
 create table if not exists tb_query_history (
-id int primary key auto_increment,
+id int primary key,
 status  varchar(50) not null,
-timestap datetime not null
+timestap datetime not null,
+description varchar(100) not null
 );
 
 select * from tb_query_history;
@@ -101,7 +102,7 @@ alter table tb_query_history add column trust varchar(50);
 alter table tb_query_history add column degree_of_rawness varchar(50);
 alter table tb_query_history add column veracity varchar(50);
 alter table tb_query_history add column production_time varchar(50);
-alter table tb_query_history add column production_rate varchar(50);
+alter table tb_query_history add column production_rate float(10,2);
 alter table tb_query_history add column data_type varchar(50);
 alter table tb_query_history add column freshness varchar(50);
 alter table tb_query_history add column provenance varchar(50);
