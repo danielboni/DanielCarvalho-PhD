@@ -2,9 +2,9 @@ create database if not exists query_history;
 use query_history;
 
 create table if not exists tb_abstract_service (
-id int primary key auto_increment,
+id int primary key,
 name varchar(50) not null,
-description varchar(80) not null
+description varchar(100) not null
 );
 
 show tables;
@@ -86,8 +86,43 @@ drop foreign key tb_coverage_domain_ibfk_1;
 delete from tb_concrete_service where id = 20;
 
 											
-                                                        
-													
+desc tb_query_history;
+select * from tb_query_history;
+-- Q11(x?, d?; y!) := A1(x?; p!), A3(d?; p!), A2(p?; y!)
                                                                 
-                                                                
+alter table tb_query_history modify column definition varchar(100);
+alter table tb_query_history change definition definition varchar(100);
+
+alter table tb_query_history add column availability int;
+alter table tb_query_history add column response_time int;
+alter table tb_query_history add column price_per_call float(4,2);
+alter table tb_query_history add column authentication varchar(50);
+alter table tb_query_history add column privacy varchar(50);
+alter table tb_query_history add column trust varchar(50);
+alter table tb_query_history add column degree_of_rawness varchar(50);
+alter table tb_query_history add column veracity varchar(50);
+alter table tb_query_history add column production_time varchar(50);
+alter table tb_query_history add column production_rate varchar(50);
+alter table tb_query_history add column data_type varchar(50);
+alter table tb_query_history add column freshness varchar(50);
+alter table tb_query_history add column provenance varchar(50);
+alter table tb_query_history add column total_cost float(4,2);
+alter table tb_query_history add column total_response_time float(10,2);
+
+alter table tb_query_history change production_rate production_rate float(10,2);
+
+alter table tb_concrete_service add column availability int;
+alter table tb_concrete_service add column response_time int;
+alter table tb_concrete_service add column price_per_call float(4,2);
+alter table tb_concrete_service add column authentication varchar(50);
+alter table tb_concrete_service add column privacy varchar(50);
+alter table tb_concrete_service add column trust varchar(50);
+alter table tb_concrete_service add column degree_of_rawness varchar(50);
+alter table tb_concrete_service add column veracity varchar(50);
+alter table tb_concrete_service add column production_time varchar(50);
+alter table tb_concrete_service add column production_rate float(10,2);
+alter table tb_concrete_service add column data_type varchar(50);
+alter table tb_concrete_service add column freshness varchar(50);
+alter table tb_concrete_service add column provenance varchar(50);
+
                                                                 
