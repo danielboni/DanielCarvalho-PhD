@@ -13,8 +13,9 @@ public class FeedingDatabaseMain {
 		feedDataServices.populate();
 		feedDataServices.populateJoinTable(); */
 		
-		FeedingQueryHistory feedQueries = new FeedingQueryHistory();
+		/* FeedingQueryHistory feedQueries = new FeedingQueryHistory();
 		feedQueries.populate();
+		feedQueries.populateJoinTable(); */
 		
 //		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();

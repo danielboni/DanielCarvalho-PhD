@@ -139,48 +139,52 @@ public class FeedingQueryHistory {
 			System.out.println("Feeding the database in the join table concrete/abstract services...");			
 			
 			for (int i = 1; i < 21; i++) {
-				String sql1 = "insert into tb_concrete_abstract values (?, '1');";
-				
+				String sql1 = "insert into tb_query_abstract values (?, ?);";
 				PreparedStatement stmt = connection.prepareStatement(sql1);
 				stmt.setInt(1, i);
-				
-				stmt.execute();
+				for (int j = 1; j < 3; j++) {
+					stmt.setInt(2, j);
+					stmt.execute();
+				}
 				stmt.close();
 			}
 			
 			for (int i = 21; i < 41; i++) {
-				String sql1 = "insert into tb_concrete_abstract values (?, '2');";
-				
+				String sql1 = "insert into tb_query_abstract values (?, ?);";
 				PreparedStatement stmt = connection.prepareStatement(sql1);
 				stmt.setInt(1, i);
-				
-				stmt.execute();
+				for (int j = 1; j < 4; j++) {
+					stmt.setInt(2, j);
+					stmt.execute();
+				}
 				stmt.close();
 			}
 			
 			for (int i = 41; i < 61; i++) {
-				String sql1 = "insert into tb_concrete_abstract values (?, '3');";
-				
+				String sql1 = "insert into tb_query_abstract values (?, ?);";
 				PreparedStatement stmt = connection.prepareStatement(sql1);
 				stmt.setInt(1, i);
-				
-				stmt.execute();
+				for (int j = 1; j < 5; j++) {
+					stmt.setInt(2, j);
+					stmt.execute();
+				}
 				stmt.close();
 			}
 			
 			for (int i = 61; i < 81; i++) {
-				String sql1 = "insert into tb_concrete_abstract values (?, '4');";
-				
+				String sql1 = "insert into tb_query_abstract values (?, ?);";
 				PreparedStatement stmt = connection.prepareStatement(sql1);
 				stmt.setInt(1, i);
-				
-				stmt.execute();
+				for (int j = 3; j < 5; j++) {
+					stmt.setInt(2, j);
+					stmt.execute();
+				}
 				stmt.close();
 			}
-
+			
 	        connection.close();
 	        
-	        System.out.println("Concrete/Abstract services registered.");
+	        System.out.println("Query/Abstract services registered.");
 	        
 		} catch (SQLException e) {
 			e.printStackTrace();
