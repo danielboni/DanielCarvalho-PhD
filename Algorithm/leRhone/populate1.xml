@@ -1,10 +1,5 @@
 <testcases>
 	<testcase id="0">
-	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</query>					  			
-	  <service>DS1(x?,y!) := A1(x?,y!)[availability = 95, response time = 1, price per call = 5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</service>
-	  <service>DS1(x?,y!) := A2(x?,y!)[availability = 95, response time = 1, price per call = 5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</service>
-	  <service>DS1(x?,y!) := A3(x?,y!)[availability = 95, response time = 1, price per call = 5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</service>
-	  <service>DS1(x?,y!) := A4(x?,y!)[availability = 95, response time = 1, price per call = 5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</service>
-	  <service>DS1(x?,y!) := A5(x?,y!)[availability = 95, response time = 1, price per call = 5, authentication = true, privacy = true, trust = high, degree of rawness = high, veracity = true, production time = 6, production rate = 2, data type = text, freshness = false, provenance = certified]</service>  
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = high, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = certified]</query>					  			
 	</testcase>
 </testcases>

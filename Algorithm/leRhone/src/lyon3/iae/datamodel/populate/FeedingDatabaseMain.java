@@ -2,6 +2,9 @@ package lyon3.iae.datamodel.populate;
 
 import org.dom4j.DocumentException;
 
+import lyon3.iae.parser.InputHandler;
+import lyon3.iae.rhone.Rhone;
+
 public class FeedingDatabaseMain {
 
 	public static void main(String[] args) throws DocumentException {
@@ -17,7 +20,8 @@ public class FeedingDatabaseMain {
 		feedQueries.populate();
 		feedQueries.populateJoinTable(); */
 		
-//		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
+		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
+		rhone.printQuery();
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
 //		for (ConcreteService concreteService : concreteServices) {
 //			System.out.println(concreteService);

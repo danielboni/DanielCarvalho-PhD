@@ -95,6 +95,45 @@ public class InputHandler {
 		q.setUserPreferences(getUserPreferences(q.getBody()));
 		
 		q.setAbstractServices(getAbstractServices(q.getBody()));
+		
+		
+		List<UserPreference> listOfPreferences = q.getUserPreferences();
+		for (UserPreference userPreference : listOfPreferences) {
+			if(userPreference.getMeasure().equalsIgnoreCase("availability"))
+				q.setAvailability(Double.parseDouble(userPreference.getValue()));
+			else if (userPreference.getMeasure().equalsIgnoreCase("response time"))
+				q.setResponseTime(Double.parseDouble(userPreference.getValue()));
+			else if (userPreference.getMeasure().equalsIgnoreCase("price per call"))
+				q.setPricePerCall(Double.parseDouble(userPreference.getValue()));
+			else if (userPreference.getMeasure().equalsIgnoreCase("authentication"))
+				q.setAuthentication(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("privacy"))
+				q.setPrivacy(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("trust"))
+				q.setTrust(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("degree of rawness"))
+				q.setDegreeOfRawness(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("authentication"))
+				q.setAuthentication(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("veracity"))
+				q.setVeracity(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("production time"))
+				q.setProductionTime(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("production rate"))
+				q.setProductionRate(Double.parseDouble(userPreference.getValue()));
+			else if (userPreference.getMeasure().equalsIgnoreCase("data type"))
+				q.setDataType(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("freshness"))
+				q.setFreshness(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("provenance"))
+				q.setProvenance(userPreference.getValue());
+			else if (userPreference.getMeasure().equalsIgnoreCase("total cost"))
+				q.setTotalCost(Double.parseDouble(userPreference.getValue()));
+			else if (userPreference.getMeasure().equalsIgnoreCase("total response time"))
+				q.setTotalResponseTime(Double.parseDouble(userPreference.getValue()));
+			
+		}
+		
 		q.setSize(q.getAbstractServices().size());
 		q.setConstraints(getConstraints(q.getBody()));
 		q.setDependencies(query_findDependencies(q));

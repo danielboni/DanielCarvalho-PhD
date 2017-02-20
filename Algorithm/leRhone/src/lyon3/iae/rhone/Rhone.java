@@ -1,5 +1,9 @@
 package lyon3.iae.rhone;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -63,6 +67,77 @@ public class Rhone {
 		this.cadidateConcreteServices.clear();
 		this.setCadidateConcreteServices(tempList);
 	}
+	
+	/*  This method selects the data services from our database
+	 *  taking into consideration the user preferences defined
+	 *  in the query. */
+	public void selectCandidateServicesFromDB(){
+		
+		// TODO remove the code to access the database from this file. 
+		
+		System.out.println("Selecting candidate data services...");
+		
+		String driverName = "com.mysql.jdbc.Driver";                        
+		 
+		try {
+			Class.forName(driverName);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+
+		String serverName = "localhost";  
+		String mydatabase = "query_history";       
+		String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+		String username = "root";      
+		String password = "1234";
+
+		try {
+			Connection connection = DriverManager.getConnection(url, username, password);
+			
+			if (connection != null)
+				 System.out.println("Connected to the database.");
+			
+			System.out.println("Searching for data services...");			
+			
+			for (int i = 1; i < 21; i++) {
+				String sql1 = "insert into tb_query_abstract values (?, ?);";
+				PreparedStatement stmt = connection.prepareStatement(sql1);
+				stmt.setInt(1, i);
+				for (int j = 1; j < 3; j++) {
+					stmt.setInt(2, j);
+					stmt.execute();
+				}
+				stmt.close();
+			}
+
+	        connection.close();
+	        
+	        System.out.println("Query/Abstract services registered.");
+	        
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
+		
+		for (ConcreteService c: concreteServices){
+			if (this.isCandidateService(c))
+				this.cadidateConcreteServices.add(c);
+		}
+		
+		List<ConcreteService> tempList = new LinkedList<ConcreteService>();
+		
+		this.queryAggregatedPreferences = new LinkedList<UserPreference>();
+		for (ConcreteService c: this.cadidateConcreteServices) {
+			if (this.itViolatesPreferences(c)) {
+				tempList.add(c);
+			}
+		}
+		this.cadidateConcreteServices.clear();
+		this.setCadidateConcreteServices(tempList);
+	}
+	
+	
 	
 	/**
 	 * This method checks if the quality preferences in the concrete 

@@ -68,8 +68,10 @@ primary key (id_query, id_abstract)
 
 
 desc tb_query_abstract;
+truncate tb_query_abstract;
 
 select * from tb_query_abstract ;
+select * from tb_query_abstract where id_query = 25;
 
 create table if not exists tb_coverage_domain (
 id_query  int not null,
@@ -125,4 +127,48 @@ alter table tb_concrete_service add column data_type varchar(50);
 alter table tb_concrete_service add column freshness varchar(50);
 alter table tb_concrete_service add column provenance varchar(50);
 
-                                                                
+select distinct * from tb_concrete_service ds;
+
+select distinct * from tb_concrete_service ds, tb_concrete_abstract ca
+where ds.id = ca.id_concrete and
+	  (ca.id_abstract = 1 or ca.id_abstract = 2);
+                                       
+-- Identificando servicos que cobrem a minha consulta. 
+-- Tipo 1: abstratos ids 1 e 2
+
+select distinct ds.id from tb_concrete_service ds, tb_concrete_abstract ca
+where ds.id = ca.id_concrete and
+	  (ca.id_abstract = 1 or ca.id_abstract = 2) and 
+      ds.availability > 95 and
+      ds.response_time < 2 and
+      ds.price_per_call <= 0.5 and
+      ds.authentication = 'yes' and
+      ds.privacy = 'yes' and
+      (ds.trust = 'medium' or ds.trust = 'high') and
+      (ds.degree_of_rawness = 'high' or ds.degree_of_rawness = 'medium' or ds.degree_of_rawness = 'low') and
+      ds.veracity = 'reliable' and 
+      ds.production_time = 'working hours' and
+      ds.production_rate <= '2' and
+      ds.data_type = 'text' and
+      (ds.freshness = 'no' or ds.freshness = 'yes') and
+      (ds.provenance = 'certified' or ds.provenance = 'not certified')
+;
+
+select distinct ds.id from tb_concrete_service ds, tb_concrete_abstract ca
+where ds.id = ca.id_concrete and
+	  (ca.id_abstract = 1 or ca.id_abstract = 2) and 
+      ds.availability > 95 and
+      ds.response_time < 2 and
+      ds.price_per_call <= 0.5 and
+      ds.authentication = 'yes' and
+      ds.privacy = 'yes' and
+      ds.trust = 'high' and
+      (ds.degree_of_rawness = 'high' or ds.degree_of_rawness = 'medium' or ds.degree_of_rawness = 'low') and 
+      ds.veracity = 'reliable' and 
+      ds.production_time = 'working hours' and
+      ds.production_rate <= '2' and
+      ds.data_type = 'text' and
+      (ds.freshness = 'false' or ds.freshness = 'true') and 
+      ds.provenance = 'certified'
+;
+                                       
