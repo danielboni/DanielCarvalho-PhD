@@ -38,11 +38,11 @@ insert into tb_concrete_service values
 select * from tb_concrete_service;
 
 create table if not exists tb_concrete_abstract (
-id int primary key auto_increment,
 id_concrete  int not null,
 id_abstract int not null,
 foreign key (id_concrete) references tb_concrete_service (id),
-foreign key (id_abstract) references tb_abstract_service (id)
+foreign key (id_abstract) references tb_abstract_service (id),
+primary key (id_concrete)
 );
 
 select * from tb_concrete_abstract;
