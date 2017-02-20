@@ -50,7 +50,7 @@ select * from tb_composition;
 -- algorithm Z makes a projection of the compositions of Q1 that satisfies Q2. 
 -- For this example Q1 is id=6 and Q2 is id=1.
 
-select * from tb_composition c, tb_concrete_abstract abs
+select c.id, c.id_concrete from tb_composition c, tb_concrete_abstract abs
 where c.id_query = '6' and 
       c.id_concrete = abs.id_concrete and
       abs.id_abstract in (
