@@ -134,6 +134,20 @@ public class InputHandler {
 			
 		}
 		
+		// TODO Isto deveria ser feito automatico durante o parsing.
+		// Armazenando os abstratos como itens inteiros.
+		List<AbstractService> listOfAbstracts = q.getAbstractServices();
+		for (AbstractService abstractService : listOfAbstracts) {
+			if (abstractService.getName().equalsIgnoreCase("A1"))
+				q.getAbstractServicesAsInt().add(1);
+			else if (abstractService.getName().equalsIgnoreCase("A2"))
+				q.getAbstractServicesAsInt().add(2);
+			else if (abstractService.getName().equalsIgnoreCase("A3"))
+				q.getAbstractServicesAsInt().add(3);
+			else if (abstractService.getName().equalsIgnoreCase("A4"))
+				q.getAbstractServicesAsInt().add(4);
+		}
+		
 		q.setSize(q.getAbstractServices().size());
 		q.setConstraints(getConstraints(q.getBody()));
 		q.setDependencies(query_findDependencies(q));

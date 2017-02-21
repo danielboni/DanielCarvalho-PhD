@@ -1,5 +1,5 @@
 <testcases>
 	<testcase id="0">
-	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = high, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = certified]</query>					  			
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
 	</testcase>
 </testcases>

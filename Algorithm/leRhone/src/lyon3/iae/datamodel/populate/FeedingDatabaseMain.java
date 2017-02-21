@@ -22,6 +22,7 @@ public class FeedingDatabaseMain {
 		
 		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
 		rhone.printQuery();
+		rhone.selectCandidateServicesFromDB();
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
 //		for (ConcreteService concreteService : concreteServices) {
 //			System.out.println(concreteService);

@@ -3,6 +3,7 @@ package lyon3.iae.rhone;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -97,44 +98,122 @@ public class Rhone {
 			if (connection != null)
 				 System.out.println("Connected to the database.");
 			
-			System.out.println("Searching for data services...");			
+			System.out.println("Searching for candidate data services...");			
 			
-			for (int i = 1; i < 21; i++) {
-				String sql1 = "insert into tb_query_abstract values (?, ?);";
-				PreparedStatement stmt = connection.prepareStatement(sql1);
-				stmt.setInt(1, i);
-				for (int j = 1; j < 3; j++) {
-					stmt.setInt(2, j);
-					stmt.execute();
-				}
-				stmt.close();
+			int quantidadeDeAbstract = this.query.getAbstractServicesAsInt().size(); 
+			
+			// SQL para procurar por serviços que respeitem a minha consulta.
+			String sql = "select distinct * from tb_concrete_service ds, tb_concrete_abstract ca "
+					+ "where ds.id = ca.id_concrete and ";
+			
+			if (quantidadeDeAbstract == 1) {
+				sql += "( ca.id_abstract = ? ) ";
+			} else {
+				for (int i = 0; i < quantidadeDeAbstract; i++) {
+					if (i == 0) {
+						sql += "( ca.id_abstract = ? ";
+					}else if (i == quantidadeDeAbstract-1){
+						sql += "or ca.id_abstract = ? ) and ";
+					}else {
+						sql += "or ca.id_abstract = ? ";
+					}
+				}	
+			}
+			
+			sql += "ds.availability > ? and ds.response_time < ? and "
+					+ "ds.price_per_call <= ? and ds.authentication = ? and "
+					+ "ds.privacy = ? and ";
+			
+			if (this.query.getTrust().equalsIgnoreCase("low")) {
+				sql += "(ds.trust = 'high' or ds.trust = 'medium' or ds.trust = 'low') and ";
+			} else if (this.query.getTrust().equalsIgnoreCase("medium")) {
+				sql += "(ds.trust = 'high' or ds.trust = 'medium') and ";
+			} else {
+				sql += "ds.trust = 'high' and ";
+			}
+			
+			if (this.query.getDegreeOfRawness().equalsIgnoreCase("low")) {
+				sql += "(ds.degree_of_rawness = 'high' or ds.degree_of_rawness = 'medium' or ds.degree_of_rawness = 'low') and ";
+			} else if (this.query.getDegreeOfRawness().equalsIgnoreCase("medium")) {
+				sql += "(ds.degree_of_rawness = 'high' or ds.degree_of_rawness = 'medium') and ";
+			} else {
+				sql += "ds.degree_of_rawness = 'high' and ";
+			}
+			
+			sql += "ds.veracity = ? and ds.production_time = ? and "	
+					+ "ds.production_rate <= ? and ds.data_type = ? and ";
+			
+			if (this.query.getFreshness().equalsIgnoreCase("yes")) {
+				sql += "ds.freshness = 'yes' and ";
+			} else {
+				sql += "(ds.freshness = 'yes' or ds.freshness = 'no') and ";
+			}
+			
+			if (this.query.getProvenance().equalsIgnoreCase("certified")) {
+				sql += "ds.provenance = 'certified';";
+			} else {
+				sql += "(ds.provenance = 'certified' or ds.provenance = 'not certified'); ";
 			}
 
+			System.out.println("SQL: " + sql);
+			
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			/* K = Variable to be used in the set of query parameters. */
+			int k = 1;
+			for (int i = 0; i < quantidadeDeAbstract; i++) {
+				stmt.setInt(k++, this.query.getAbstractServicesAsInt().get(i));
+			}	
+			
+			stmt.setDouble(k++, this.query.getAvailability());
+			stmt.setDouble(k++, this.query.getResponseTime());
+			stmt.setDouble(k++, this.query.getPricePerCall());
+			stmt.setString(k++, this.query.getAuthentication());
+			stmt.setString(k++, this.query.getPrivacy());		
+			stmt.setString(k++, this.query.getVeracity());
+			stmt.setString(k++, this.query.getProductionTime());
+			stmt.setDouble(k++, this.query.getProductionRate());
+			stmt.setString(k++, this.query.getDataType());
+			
+			System.out.println("K= " + k);
+			
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+//				String nome = rs.getString("first_name");
+//				String sobrenome = rs.getString("last_name");
+//				int ativo = rs.getInt("active");
+//				int loja = rs.getInt("store_id");
+	
+				System.out.println("Funcionou: " + rs.getString("id"));
+			}
+			
+			stmt.execute();
+			stmt.close();
 	        connection.close();
 	        
-	        System.out.println("Query/Abstract services registered.");
+	        System.out.println("Data services idenfied.");
 	        
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
-		
-		for (ConcreteService c: concreteServices){
-			if (this.isCandidateService(c))
-				this.cadidateConcreteServices.add(c);
-		}
-		
-		List<ConcreteService> tempList = new LinkedList<ConcreteService>();
-		
-		this.queryAggregatedPreferences = new LinkedList<UserPreference>();
-		for (ConcreteService c: this.cadidateConcreteServices) {
-			if (this.itViolatesPreferences(c)) {
-				tempList.add(c);
-			}
-		}
-		this.cadidateConcreteServices.clear();
-		this.setCadidateConcreteServices(tempList);
+//		this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
+//		
+//		for (ConcreteService c: concreteServices){
+//			if (this.isCandidateService(c))
+//				this.cadidateConcreteServices.add(c);
+//		}
+//		
+//		List<ConcreteService> tempList = new LinkedList<ConcreteService>();
+//		
+//		this.queryAggregatedPreferences = new LinkedList<UserPreference>();
+//		for (ConcreteService c: this.cadidateConcreteServices) {
+//			if (this.itViolatesPreferences(c)) {
+//				tempList.add(c);
+//			}
+//		}
+//		this.cadidateConcreteServices.clear();
+//		this.setCadidateConcreteServices(tempList);
 	}
 	
 	
