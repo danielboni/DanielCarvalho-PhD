@@ -1,5 +1,7 @@
 package lyon3.iae.datamodel.populate;
 
+import java.lang.management.ManagementFactory;
+
 import org.dom4j.DocumentException;
 
 import lyon3.iae.parser.InputHandler;
@@ -21,8 +23,19 @@ public class FeedingDatabaseMain {
 		feedQueries.populateJoinTable(); */
 		
 		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
-		rhone.printQuery();
+		
+		long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
+		
 		rhone.selectCandidateServicesFromDB();
+		rhone.divideGroups2_NEW();
+		rhone.combine2_NEW();
+		
+		long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
+		
+		System.out.println("Testcase: " + 0 + " \tNumber of concrete services: " + rhone.getCadidateConcreteServices().size() +
+        		"\tNumber of rewritings: " + rhone.combinations.size() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
+		
+		
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
 //		for (ConcreteService concreteService : concreteServices) {
 //			System.out.println(concreteService);

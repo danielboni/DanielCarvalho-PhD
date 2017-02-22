@@ -74,7 +74,9 @@ public class Rhone {
 	 *  in the query. */
 	public void selectCandidateServicesFromDB(){
 		
-		// TODO remove the code to access the database from this file. 
+		// TODO remove the code to access the database from this file.
+		// TODO Insert the code concerning mapping of variables.
+		// TODO Adapt the create CSD. For now, it is not working correctly.
 		
 		System.out.println("Selecting candidate data services...");
 		
@@ -175,16 +177,30 @@ public class Rhone {
 			stmt.setDouble(k++, this.query.getProductionRate());
 			stmt.setString(k++, this.query.getDataType());
 			
-			System.out.println("K= " + k);
+			this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
 			
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-//				String nome = rs.getString("first_name");
-//				String sobrenome = rs.getString("last_name");
-//				int ativo = rs.getInt("active");
-//				int loja = rs.getInt("store_id");
-	
-				System.out.println("Funcionou: " + rs.getString("id"));
+				ConcreteService dataService = new ConcreteService();
+				dataService.setId(rs.getInt("id"));
+				dataService.setIdAbstract(rs.getInt("id_abstract"));
+				dataService.setName(rs.getString("name"));
+				dataService.setAvailability(rs.getDouble("availability"));
+				dataService.setResponseTime(rs.getDouble("response_time"));
+				dataService.setPricePerCall(rs.getDouble("price_per_call"));
+				dataService.setAuthentication(rs.getString("authentication"));
+				dataService.setPrivacy(rs.getString("privacy"));
+				dataService.setTrust(rs.getString("trust"));
+				dataService.setDegreeOfRawness(rs.getString("degree_of_rawness"));
+				dataService.setVeracity(rs.getString("veracity"));
+				dataService.setProductionTime(rs.getString("production_time"));
+				dataService.setProductionRate(rs.getDouble("production_rate"));
+				dataService.setDataType(rs.getString("data_type"));
+				dataService.setFreshness(rs.getString("freshness"));
+				dataService.setProvenance(rs.getString("provenance"));
+				dataService.setDescription(rs.getString("description"));
+				
+				this.cadidateConcreteServices.add(dataService);
 			}
 			
 			stmt.execute();
@@ -196,24 +212,6 @@ public class Rhone {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-//		this.setCadidateConcreteServices(new LinkedList<ConcreteService>());
-//		
-//		for (ConcreteService c: concreteServices){
-//			if (this.isCandidateService(c))
-//				this.cadidateConcreteServices.add(c);
-//		}
-//		
-//		List<ConcreteService> tempList = new LinkedList<ConcreteService>();
-//		
-//		this.queryAggregatedPreferences = new LinkedList<UserPreference>();
-//		for (ConcreteService c: this.cadidateConcreteServices) {
-//			if (this.itViolatesPreferences(c)) {
-//				tempList.add(c);
-//			}
-//		}
-//		this.cadidateConcreteServices.clear();
-//		this.setCadidateConcreteServices(tempList);
 	}
 	
 	
@@ -1127,6 +1125,78 @@ public class Rhone {
 		this.initiateAggregateMeasures();
 	}
 	
+	public List<List<ConcreteService>> combinations;
+	
+	public void combine2_NEW(){
+		combinations = new LinkedList<List<ConcreteService>>();
+
+		for (ConcreteService concrete1: this.covarageDomain1){
+			for (ConcreteService concrete2: this.covarageDomain2){
+				List<ConcreteService> combination = new LinkedList<ConcreteService>();
+				combination.add(concrete1);
+				combination.add(concrete2);
+				this.combinations.add(combination);
+			}
+		}
+	}
+	
+	public void combine3_NEW(){
+		combinations = new LinkedList<List<ConcreteService>>();
+
+		for (ConcreteService concrete1: this.covarageDomain1){
+			for (ConcreteService concrete2: this.covarageDomain2){
+				for (ConcreteService concrete3: this.covarageDomain3){
+					List<ConcreteService> combination = new LinkedList<ConcreteService>();
+					combination.add(concrete1);
+					combination.add(concrete2);
+					combination.add(concrete3);
+					this.combinations.add(combination);
+				}
+			}
+		}
+	}
+
+	public void combine4_NEW(){
+		combinations = new LinkedList<List<ConcreteService>>();
+
+		for (ConcreteService concrete1: this.covarageDomain1){
+			for (ConcreteService concrete2: this.covarageDomain2){
+				for (ConcreteService concrete3: this.covarageDomain3){
+					for (ConcreteService concrete4: this.covarageDomain4){
+						List<ConcreteService> combination = new LinkedList<ConcreteService>();
+						combination.add(concrete1);
+						combination.add(concrete2);
+						combination.add(concrete3);
+						combination.add(concrete4);
+						this.combinations.add(combination);
+					}
+				}
+			}
+		}
+	}
+
+	public void combine5_NEW(){
+		combinations = new LinkedList<List<ConcreteService>>();
+
+		for (ConcreteService concrete1: this.covarageDomain1){
+			for (ConcreteService concrete2: this.covarageDomain2){
+				for (ConcreteService concrete3: this.covarageDomain3){
+					for (ConcreteService concrete4: this.covarageDomain4){
+						for (ConcreteService concrete5: this.covarageDomain5){
+							List<ConcreteService> combination = new LinkedList<ConcreteService>();
+							combination.add(concrete1);
+							combination.add(concrete2);
+							combination.add(concrete3);
+							combination.add(concrete4);
+							combination.add(concrete5);
+							this.combinations.add(combination);
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	public void combine3(){
 		csdsPermutations = new LinkedList<List<CSD>>();
 
@@ -1338,6 +1408,12 @@ public class Rhone {
 	private List<CSD> group5;
 	private List<CSD> group6;
 	
+	private List<ConcreteService> covarageDomain1;
+	private List<ConcreteService> covarageDomain2;
+	private List<ConcreteService> covarageDomain3;
+	private List<ConcreteService> covarageDomain4;
+	private List<ConcreteService> covarageDomain5;
+	
 	public void divideGroups2(){
 		group1 = new LinkedList<CSD>();
 		group2 = new LinkedList<CSD>();
@@ -1360,6 +1436,72 @@ public class Rhone {
 					}
 				}
 			}	
+		}
+	}
+	
+	public void divideGroups2_NEW(){
+		covarageDomain1 = new LinkedList<ConcreteService>();
+		covarageDomain2 = new LinkedList<ConcreteService>();
+		
+		for (ConcreteService dataService : this.getCadidateConcreteServices()) {
+			if (dataService.getIdAbstract() == 1)
+				covarageDomain1.add(dataService);
+			else if(dataService.getIdAbstract() == 2)
+				covarageDomain2.add(dataService);
+		}
+	}
+	
+	public void divideGroups3_NEW(){
+		covarageDomain1 = new LinkedList<ConcreteService>();
+		covarageDomain2 = new LinkedList<ConcreteService>();
+		covarageDomain3 = new LinkedList<ConcreteService>();
+		
+		for (ConcreteService dataService : this.getCadidateConcreteServices()) {
+			if (dataService.getIdAbstract() == 1)
+				covarageDomain1.add(dataService);
+			else if(dataService.getIdAbstract() == 2)
+				covarageDomain2.add(dataService);
+			else if(dataService.getIdAbstract() == 3)
+				covarageDomain3.add(dataService);
+		}
+	}
+	
+	public void divideGroups4_NEW(){
+		covarageDomain1 = new LinkedList<ConcreteService>();
+		covarageDomain2 = new LinkedList<ConcreteService>();
+		covarageDomain3 = new LinkedList<ConcreteService>();
+		covarageDomain4 = new LinkedList<ConcreteService>();
+		
+		for (ConcreteService dataService : this.getCadidateConcreteServices()) {
+			if (dataService.getIdAbstract() == 1)
+				covarageDomain1.add(dataService);
+			else if(dataService.getIdAbstract() == 2)
+				covarageDomain2.add(dataService);
+			else if(dataService.getIdAbstract() == 3)
+				covarageDomain3.add(dataService);
+			else if(dataService.getIdAbstract() == 4)
+				covarageDomain4.add(dataService);
+		}
+	}
+	
+	public void divideGroups5_NEW(){
+		covarageDomain1 = new LinkedList<ConcreteService>();
+		covarageDomain2 = new LinkedList<ConcreteService>();
+		covarageDomain3 = new LinkedList<ConcreteService>();
+		covarageDomain4 = new LinkedList<ConcreteService>();
+		covarageDomain5 = new LinkedList<ConcreteService>();
+		
+		for (ConcreteService dataService : this.getCadidateConcreteServices()) {
+			if (dataService.getIdAbstract() == 1)
+				covarageDomain1.add(dataService);
+			else if(dataService.getIdAbstract() == 2)
+				covarageDomain2.add(dataService);
+			else if(dataService.getIdAbstract() == 3)
+				covarageDomain3.add(dataService);
+			else if(dataService.getIdAbstract() == 4)
+				covarageDomain4.add(dataService);
+			else if(dataService.getIdAbstract() == 5)
+				covarageDomain5.add(dataService);
 		}
 	}
 	
