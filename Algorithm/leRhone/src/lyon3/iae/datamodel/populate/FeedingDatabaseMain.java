@@ -1,6 +1,7 @@
 package lyon3.iae.datamodel.populate;
 
 import java.lang.management.ManagementFactory;
+import java.sql.SQLException;
 
 import org.dom4j.DocumentException;
 
@@ -9,7 +10,7 @@ import lyon3.iae.rhone.Rhone;
 
 public class FeedingDatabaseMain {
 
-	public static void main(String[] args) throws DocumentException {
+	public static void main(String[] args) throws DocumentException, SQLException {
 
 		/* FeedingAbstractServices feedAbstract = new FeedingAbstractServices();
 		feedAbstract.populate(); */
@@ -35,6 +36,10 @@ public class FeedingDatabaseMain {
 		System.out.println("Testcase: " + 0 + " \tNumber of concrete services: " + rhone.getCadidateConcreteServices().size() +
         		"\tNumber of rewritings: " + rhone.combinations.size() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
 		
+		FeedingQueryHistory feedQueries = new FeedingQueryHistory();
+		//feedQueries.populate();
+		//feedQueries.populateJoinTable();
+		feedQueries.populateRewritings(1, rhone.getCombinations());
 		
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
 //		for (ConcreteService concreteService : concreteServices) {

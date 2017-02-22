@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
+
+import lyon3.iae.datamodel.ConcreteService;
 
 
 
@@ -189,5 +192,65 @@ public class FeedingQueryHistory {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void populateRewritings(int idQuery, List<List<ConcreteService>> combinations) throws SQLException{
+		int idComb = 1;
+		for (List<ConcreteService> list : combinations) {
+			PreparedStatement stmt = null;
+			Connection connection = null;
+			for (ConcreteService concreteService : list) {
+					
+				String driverName = "com.mysql.jdbc.Driver";                        
+				 
+				try {
+					Class.forName(driverName);
+				} catch (ClassNotFoundException e1) {
+					e1.printStackTrace();
+				}
+
+
+				String serverName = "localhost";  
+				String mydatabase = "query_history";       
+				String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
+
+				String username = "root";      
+				String password = "1234";
+
+				try {
+					connection = DriverManager.getConnection(url, username, password);
+					
+					if (connection != null)
+						 System.out.println("Connected to the database.");
+					
+					System.out.println("Feeding the database combinations of data services...");			
+					
+					String sql = "insert into tb_combination values (?, ?);";
+					
+					stmt = connection.prepareStatement(sql);
+					stmt.setInt(1, idComb);
+					stmt.setInt(2, concreteService.getId());
+					stmt.execute();
+			        System.out.println("Combinations registered.");
+			        
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		
+			// Inserir na tabela rewritings
+			System.out.println("Feeding the database rewritings of the query...");	
+			String sql2 = "insert into tb_rewriting values (?, ?);";
+			
+			stmt = connection.prepareStatement(sql2);
+			stmt.setInt(1, idQuery);
+			stmt.setInt(2, idComb);
+			stmt.execute();
+	        System.out.println("Combinations registered.");
+			
+			stmt.close();
+	        connection.close();
+			idComb++;
+		}	
 	}
 }

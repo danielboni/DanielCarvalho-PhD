@@ -83,6 +83,24 @@ foreign key (id_concrete) references tb_concrete_service (id),
 primary key (id_query, id_abstract, id_concrete)
 );
 
+create table if not exists tb_combination (
+id  int not null,
+id_concrete int not null,
+foreign key (id_concrete) references tb_concrete_service (id),
+primary key (id, id_concrete)
+);
+
+create table if not exists tb_rewriting (
+id_query  int not null,
+id_combination int not null,
+foreign key (id_query) references tb_query_history (id),
+foreign key (id_combination) references tb_combination (id),
+primary key (id_query, id_combination)
+);
+
+select * from tb_combination;
+select count(*) from tb_rewriting;
+
 alter table tb_coverage_domain 
 drop foreign key tb_coverage_domain_ibfk_1;
 delete from tb_concrete_service where id = 20;
@@ -136,7 +154,7 @@ where ds.id = ca.id_concrete and
 -- Identificando servicos que cobrem a minha consulta. 
 -- Tipo 1: abstratos ids 1 e 2
 
-select distinct ds.id from tb_concrete_service ds, tb_concrete_abstract ca
+select distinct * from tb_concrete_service ds, tb_concrete_abstract ca
 where ds.id = ca.id_concrete and
 	  (ca.id_abstract = 1 or ca.id_abstract = 2) and 
       ds.availability > 95 and

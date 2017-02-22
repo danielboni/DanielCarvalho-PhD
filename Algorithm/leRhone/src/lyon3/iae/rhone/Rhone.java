@@ -1127,6 +1127,14 @@ public class Rhone {
 	
 	public List<List<ConcreteService>> combinations;
 	
+	public List<List<ConcreteService>> getCombinations() {
+		return combinations;
+	}
+
+	public void setCombinations(List<List<ConcreteService>> combinations) {
+		this.combinations = combinations;
+	}
+
 	public void combine2_NEW(){
 		combinations = new LinkedList<List<ConcreteService>>();
 
