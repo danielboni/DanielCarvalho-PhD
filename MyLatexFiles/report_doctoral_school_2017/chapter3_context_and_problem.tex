@@ -2,16 +2,49 @@
 \label{chap:context}
 \minitoc
 
-\section{Context and problem statement}
-Data integration problem is widely studied in the database domain~\cite{Lenzerini:2002}. 
-Current data integration implies consuming data from different data services and integrating the results while meeting users' quality requirements. Such requirements include the data that is retrieved and integrated, but also the properties of the data, its producers and the conditions in which such data is produced and processed. For example, whether the user accepts to pay for data, its provenance, veracity and freshness and how much is the user ready to pay for the resources necessary for integrating her expected result. 
+\section{Context and motivation}
+%
+Combining data from different data sources (known in advance) and providing 
+a unified view of the result to data consumers is a well-known problem in 
+database theory called data integration. 
+%
+Many authors have proposed algorithms for rewriting a data consumer query
+according to different views expressed over different database schemas.
+%
+In general, these approaches are expensive in terms of computing resources
+sharing the 
+same performance problem while combining the different query concepts 
+in order to produce a rewrite according to the expectations. 
 
+Data integration solutions could take advantages from cloud architectures.
+%
+Cloud providers deliver on-demand computing resources to cloud consumers
+(for example, an end-user, a data service or another cloud)
+according to the quality of service they have agreed in a service level 
+agreement (SLA) contract. 
+%
+An SLA states what the data consumer can expect from a service or a system
+behavior.
+
+Data integration can be seen in the cloud computing as a service matching 
+and composition problem which implies consuming data from different data 
+services and integrating results. 
+%
+Researches in this domain also deal with problema de processamento ...have proposed 
+
+\bigskip
 Data services and data processing services can be deployed in cloud infrastructures under different quality measures. Such measures describe the conditions in which a service can provide or process data. These measures can be expressed in a service level agreement (SLA), which states what the user can expect from a service or system behavior.
-%For example, whether it implements an authentication process, if it respects data consumer's privacy and the quality of the data the service can deliver, like freshness, veracity, reputation and other non-functional conditions like the business model that controls data delivery. 
 However, the current SLAs are mainly interested in performance aspects (such response time, availability, memory and others) putting aside data quality requirements (such as freshness, veracity, type and others).
 
+%Data integration problem is widely studied in the database domain~\cite{Lenzerini:2002}. 
+%Current data integration implies consuming data from different data services and integrating the results while meeting users' quality requirements. Such requirements include the data that is retrieved and integrated, but also the properties of the data, its producers and the conditions in which such data is produced and processed. For example, whether the user accepts to pay for data, its provenance, veracity and freshness and how much is the user ready to pay for the resources necessary for integrating her expected result. 
+
+%Data services and data processing services can be deployed in cloud infrastructures under different quality measures. Such measures describe the conditions in which a service can provide or process data. These measures can be expressed in a service level agreement (SLA), which states what the user can expect from a service or system behavior.
+%For example, whether it implements an authentication process, if it respects data consumer's privacy and the quality of the data the service can deliver, like freshness, veracity, reputation and other non-functional conditions like the business model that controls data delivery. 
+%However, the current SLAs are mainly interested in performance aspects (such response time, availability, memory and others) putting aside data quality requirements (such as freshness, veracity, type and others).
+
 %Data integration can be seen in the cloud computing as a service composition problem. 
-In our previous work~\cite{Carvalho2015}, we have identified that QoS aspects has started to be considered while integrating data, and the cloud has become a popular environment to perform data integration. Moreover, data integration combined with SLA is an open issue in the cloud. 
+%In our previous work~\cite{Carvalho2015}, we have identified that QoS aspects has started to be considered while integrating data, and the cloud has become a popular environment to perform data integration. Moreover, data integration combined with SLA is an open issue in the cloud. 
 In this sense, the objective of this work is to address data integration in a multi-cloud context. 
 The originality of our approach consists in guiding the entire data integration solution taking into consideration
 (i) user preferences statements (regarding data quality requirements); 
@@ -19,11 +52,62 @@ The originality of our approach consists in guiding the entire data integration 
 (iii) SLA contracts exported by different cloud providers; and 
 (iv) several QoS measures associated to data collections properties (for instance, trust, privacy, economic cost).
 
-Thus, the \textbf{first challenge} is to compute what we call an integrated SLA that matches the user's integration preferences (including quality constraints and data requirements) with the SLA's provided by cloud services, given a specific user cloud subscription. The user may have general preferences depending on the context she wants to integrate her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The SLA's associated to the cloud services can be of different types: user - data service, data service - cloud provider, data provision service - data processing service, and cloud provider - cloud provider. In this context, matching the user integration preferences with the services that can contribute to produce a result can lead to search and identify in the chain of SLAs. Probably it is possible to find an incompatibility between the preferences and a SLA in the chain, in this case it is necessary to propose a strategy to solve the problem. 
+%Thus, the \textbf{first challenge} is to compute what we call an integrated SLA that matches the user's integration preferences (including quality constraints and data requirements) with the SLA's provided by cloud services, given a specific user cloud subscription. The user may have general preferences depending on the context she wants to integrate her data such as economic cost, bandwidth limit, free services, and storage and processing limits. The SLA's associated to the cloud services can be of different types: user - data service, data service - cloud provider, data provision service - data processing service, and cloud provider - cloud provider. In this context, matching the user integration preferences with the services that can contribute to produce a result can lead to search and identify in the chain of SLAs. Probably it is possible to find an incompatibility between the preferences and a SLA in the chain, in this case it is necessary to propose a strategy to solve the problem. 
 %
 %Furthermore, in order to fulfill requirements and satisfy user expectations, it is possible to have a collaboration between different clouds. This collaboration implies the agreement through SLAs between services deployed in different cloud providers. In consequence, matching user preferences with SLA's can lead to deal with heterogeneous SLA specifications (different schemata, different measures semantics and granularities). Computing an integrated SLA can imply dealing with heterogeneous SLA specifications and SLA-preferences incompatibilities.
 
-The \textbf{second challenge} is to guide data integration taking into consideration the integrated SLA. Here, the data integration process includes (i) looking up services that can be used as data providers, and for services required to process retrieved data and build an integrated result; (ii) performing data retrieval, processing and integration and (iii) deliver results to the user considering her preferences (quality requirements, context and resources consumption). The integrated SLA can guide services filtering in the look up phase; it can help to control the amounts of data to retrieve and process according to consumption rights depending on the user subscription to the participating cloud providers and how to deliver data considering the user's context.
+%The \textbf{second challenge} is to guide data integration taking into consideration the integrated SLA. Here, the data integration process includes (i) looking up services that can be used as data providers, and for services required to process retrieved data and build an integrated result; (ii) performing data retrieval, processing and integration and (iii) deliver results to the user considering her preferences (quality requirements, context and resources consumption). The integrated SLA can guide services filtering in the look up phase; it can help to control the amounts of data to retrieve and process according to consumption rights depending on the user subscription to the participating cloud providers and how to deliver data considering the user's context.
+
+\section{Problem statement}
+%
+The multi-cloud architecture brings new challenges to data integration
+and data processing applications.
+%
+Instead of taking into consideration the user query and his/her requirements
+with respect to services' performance capabilities (such as percentage of 
+availability and response time) in isolation, the integration process 
+must consider in addition the new constraints imposed by context: 
+%
+\begin{itemize}
+\renewcommand{\labelitemi}{$-$}
+\item User requirements concerns not only data services' performance 
+capabilities but also quality requirements of the data which is provided
+(such as freshness, cost, provenance, data type, veracity among others).
+%
+\item Data provision is constrained to the available computing resources agreed
+between data services and cloud providers on service level agreement (SLA) contracts. 
+%
+\item The data integration process requires a high level of computing resources.
+The huge amount of data and data services on multi-cloud settings increases even 
+more the complexity of the solutions.
+\end{itemize}
+%
+In this sense, current data integration solutions introduces a multi-dimensional 
+matching problem that should take into account:
+%
+\begin{itemize}
+\renewcommand{\labelitemi}{$-$}
+\item Expressing data consumer requirements with respect to performance 
+capabilities of data services and to the quality of the expected data.
+%
+\item Matching and selecting data services according to the data consumer expectations 
+(concerning performance and data quality requirements) with respect to data 
+services quality measures defined in SLA contracts. 
+%
+\item Matching and selecting data services which have available resources according
+to different SLAs that they have agreed with different cloud providers.
+%
+\item Delivering results with respect to the data consumer requirements and expectations 
+depending on the context which he/she consumes the data.
+\end{itemize}
+%
+Thus, the intention of this thesis project is to address data integration on multi-cloud 
+environments.
+%
+The aim is propose a data integration approach adapted to the multi-cloud context in 
+which data is delivered according to data consumers expectations by profiting from 
+previous integration results instead of launching the expensive data integration 
+process from the first step. 
 
 
 \section{State of the Art}
