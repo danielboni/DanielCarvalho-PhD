@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {3.3}State of the Art}{7}{section.3.3}
 \contentsline {section}{\numberline {3.4}Synthesis of the work}{8}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}First year}{8}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Second year}{9}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.2}Second year}{8}{subsection.3.4.2}
 \contentsline {subsection}{\numberline {3.4.3}Third year}{11}{subsection.3.4.3}
 \contentsline {chapter}{\numberline {A}Can Data Integration Quality be Enhanced on Multi-cloud using SLA?}{13}{appendix.A}
 \contentsline {chapter}{\numberline {B}Rhone: a quality-based query rewriting algorithm for data integration}{27}{appendix.B}
