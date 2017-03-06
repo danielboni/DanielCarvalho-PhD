@@ -149,33 +149,178 @@ process from the first step.
 
 
 \section{State of the Art}
-
-The state of the art comprehend four topics: 
+%
+The state of the art comprehend four topics, which are discussed in the following sections: 
 (i) data integration and data quality in the database domain; 
 (ii) data integration approaches in the cloud and in service-oriented contexts; 
 (iii) query rewriting approaches; and 
 (iv) service level agreements for cloud computing.
 
-Data integration has been widely discussed in the database domain.
-It consists in merging data from different databases and providing a unified view of this data to the user.
-\cite{Lenzerini:2002} discussed theoretical aspects in data integration including modeling applications, query evaluation, dealing with inconsistencies and reasoning queries.
-Moreover, \cite{Halevy:2001} reviewed several query rewriting approaches. 
-\cite{Batini2006} surveyed data quality aspects in data integration systems. 
-\cite{Scannapieco:2004} presented a data quality broker that allows to submit queries with associated quality requirements over a global schema and to provide results according to them.
+\subsection{Data integration and data quality in the database domain}
+The data integration problem intends to offer to data consumers an integrated view of data 
+build by combining and merging several databases \textit{known-in-advance}.  
+This problem has been widely examined in the database theory.
+\cite{Lenzerini:2002} discussed theoretical aspects in data integration including modeling 
+applications, query evaluation, dealing with inconsistencies and reasoning queries.
+The core of data integration is the rewriting process.
+Many authors have reported algorithms for this purpose. 
+For instance, \cite{Levy:1996} proposed the \textit{bucket algorithm}, which generates 
+combinations of the different \textit{buckets} (views mapped to a given subgoal), and checks 
+whether each one is a rewriting of the query. 
+\cite{Duschka:1997} introduced the \textit{inverse-rules algorithm}, which produces a set of
+\textit{inverse rules} from local views to the global view. Then, a rewriting is obtained by 
+unfolding the query in terms of the \textit{inverse rules}. 
+\cite{Pottinger:2001} presented the \textit{MiniCon algorithm} funded in ideas 
+of~\cite{Duschka:1997}.
+Although \textit{MiniCon} has shown a more efficient implementation, these kind of algorithm
+share the same performance problem while combining views to produce a rewriting.
+Several query rewriting approaches were reviewed in~\cite{Halevy:2001}.
 
-\cite{Correndo2010,ElSheikh2013} performed data integration in service-oriented contexts, particularly considering data services. However, they  consider computing resources consumption versus performance for guiding the data integration process. 
-%\cite{YauY08} addressed data privacy  to integrate data collected from different data services. 
-\cite{Tian2010} proposed an inter-cloud data integration system considering privacy requirements and the cost for protecting and processing data. 
-\cite{Scannapieco:2004,Tian2010,YauY08} tackled quality aspects of the integration, but do not consider crucial aspects such as data consumers and data providers requirements and constraints, the associated infrastructures and the data quality itself. %It is also important to include these criteria in the way services are composed to produce  query plans.
+Data quality issues in data integration have been explored in many researches. 
+\cite{Gertz1998} designed a framework for modeling quality aspects
+(such as timeliness, accuracy and completeness) in databases integration. The framework
+stores quality aspects as meta-data in the integration level, and based on this information
+delivers a high-quality data from local databases.
+\cite{Scannapieco:2004} presented a data quality broker that allows to submit 
+queries with associated quality requirements over a global schema and to 
+provide results according to them.
+\cite{Batista07} proposed a quality criteria (such as reputation, availability, 
+response time, completeness, among others) analysis of data integration elements 
+(sources, schemas and data) to improve quality on query execution. 
+\cite{Moneim2015} proposed a method to improve quality in data integration solutions
+by adding and storing a set of data quality measures in data sources. Then, given a 
+user query and quality preferences, the most relevant sources are selected to answer
+the query.
+\cite{Monem2016} introduced a framework (called DIRA), which produces the \textit{top-k}
+query answers using an algorithm that selects data sources based on quality aspects stored
+as meta-data in a data source such as accuracy, validity, completeness, among others. 
+Others data integration issues and quality aspects in data integration systems are tackled
+in~\cite{Batini2006,Angeles2009,Boufares2012}. 
 
-As traditional databases theory, data integration on cloud and service-oriented context deals with query rewriting issues. Existing works like~\cite{ba2014,Barhamgi2010,Benouaret2011,Umberto} have refered it as a service composition problem. Given a query, the objective is to lookup and compose data services that can contribute to produce a result. In general, these works must address performance issues, because they use algorithms that can become expensive according to the complexity of the query and on the number of available services. Although \cite{ba2014,Benouaret2011} have considered preferences and scores to produce rewritings, the multi-cloud context introduces new requirements and constraints to the integration process. Currently, the approaches are not sufficient to cover the new challenges. Thus, they should be revisited and adapted in order to make the integration efficient in this new environment. 
 
-Several researches have reported their studies on SLA in different domains~\cite{AlhamadDC11}.
-Contributions related to SLA in cloud computing concern (i) SLA management~\cite{Mavrogeorgi2013}; 
-(ii) inclusion of security requirements on SLAs~\cite{rak2013}; (iii) SLA negotiation~\cite{Falasi2016, Son2014}; (iv) SLA matching~\cite{Redl2012}; and (v) monitoring and allocation of cloud resources to detect and avoid SLA violations~\cite{Leitner2010}. 
-These contributions are mainly focusing on performance aspects (for example, response time, memory, VMs allocation and others) in their SLA rather than quality issues regarding the delivered data itself (for example, data type, freshness, provenance and others).
-Thus, we strongly believe that SLAs can be used  to explicitly introduce the notion of quality in the current data integration solutions. 
-In this sense, the use of SLAs to guide the entire data integration in a multi-cloud context seems original and promising for providing new perspectives to the data integration problem.
+\subsection{Data integration in the cloud and in service-oriented domains}
+The data integration has also been addressed in cloud and service-oriented contexts.
+%
+For instance, \cite{YauY08} introduced a repository in which based on user 
+integration requirements, the repository retrieves and integrates the data
+collected from different services focusing on data privacy issues. 
+%
+\cite{Tian2010} proposed an inter-cloud data integration system which considers 
+privacy requirements and the cost for protecting and processing data. 
+According to the user privacy requirements, the system decides where is the best
+location to execute the query while meeting privacy and cost constraints:
+direct on service providers or on its own cloud repository.
+%
+\cite{benslimane2013} designed a composition-based approach for data integration
+taking into consideration the privacy of the data manipulated by web services and 
+compositions.
+%
+\cite{YauY08,Tian2010,benslimane2013} considered privacy and cost while integrating data, but 
+other quality aspects associated to data itself (such as veracity, type, freshness,
+among others) and to the infrastructure are still missing.
+%
+
+Some authors have addressed data integration in service-oriented contexts
+taking into consideration the requirement of computing resources for integrating data
+across several data service.
+%
+For instance, \cite{Correndo2010} presented a method for data integration using SPARQL
+on Linked Data. The objective is to solve the entity co-reference problem 
+and to exploit ontology alignments interested in data manipulation. 
+%
+\cite{Thor:2011} introduced an mashup-based integration system called \textit{CloudFuice}.
+It provides a language for specifying dataflows for performing parallel data integration
+tasks.	
+%
+\cite{Alsubaiee:2012} introduced a system which allows to store, consume, integrate and
+analyze social and wed data in a scalable manner.
+\cite{Mubeen2012} proposed a new architecture for web-scale data integration in which
+the data extracted from services are stored in a single cloud data store.
+%
+\cite{ElSheikh2013} designed the \textit{SODIM} which combines data integration,
+service oriented architecture and distributed processing applying MapReduce techniques. 
+The system works on a pool of collaborative services and it can process a large number 
+of databases represented as web services. 
+\cite{Hong2014} introduced a cloud data service system to integrate data from distributed
+data services considering three level of data security focusing on data privacy.
+In general, \cite{Correndo2010,Thor:2011,Alsubaiee:2012,Mubeen2012,ElSheikh2013,Hong2014}
+exploited parallel settings for implementation costly data integration processes.
+
+\subsection{Query rewriting approaches}
+In traditional databases theory, query rewriting activities are essential to 
+data integration solutions. On cloud and service-oriented context query rewriting issues
+are commonly referred as a service matching and composition problem in which given a query, 
+the objective is to match and compose services that can contribute to produce a result. 
+\cite{Barhamgi2010} proposed a query rewriting approach which processes queries on data provider services.
+The query and data services are modeled as RDF views. Then, a rewriting answer is a 
+service composition in which the set of data service graphs fully satisfy the query graph.  
+%
+Inspired by~\cite{Barhamgi2010}, \cite{Benouaret2011} introduced a service composition 
+framework to answer preference queries which ranks the compositions based on previously 
+computed scores.
+%
+\cite{Umberto} presented a refinement approach of web service compositions in which
+given an abstract query specification, a set of concrete service compositions are produced.
+%
+\cite{ba2014} extended \cite{Umberto} introducing the notion of user preferences and scores 
+used to rank services and compositions while rewriting the query specification.
+%
+As in the database domain, the algorithms discussed above deal with performance issues
+while rewriting depending on complexity of the query and on the number of available services.
+Although \cite{Benouaret2011,ba2014} have considered preferences and scores to produce rewritings, the multi-cloud context introduces new requirements and constraints to the integration process. Currently, the approaches are not sufficient to cover the new challenges. Thus, they should be revisited and adapted in order to make the integration efficient in this environment. 
+
+%As traditional databases theory, data integration on cloud and service-oriented context deals with query rewriting issues. Existing works like~\cite{ba2014,Barhamgi2010,Benouaret2011,Umberto} have refered it as a service composition problem. Given a query, the objective is to lookup and compose data services that can contribute to produce a result. In general, these works must address performance issues, because they use algorithms that can become expensive according to the complexity of the query and on the number of available services. Although \cite{ba2014,Benouaret2011} have considered preferences and scores to produce rewritings, the multi-cloud context introduces new requirements and constraints to the integration process. Currently, the approaches are not sufficient to cover the new challenges. Thus, they should be revisited and adapted in order to make the integration efficient in this new environment. 
+
+%In general, these approaches share the same performance problem as the traditional database algorithms. Furthermore, they do not take into consideration user's integration requirements which can lead to produce rewritings that are not satisfactory to the user in terms of quality requirements and cost.
+
+\subsection{Service level agreements for cloud computing}
+Service level agreements (SLA) state what a \textsl{consumer} can expect from a system or 
+system behavior.
+Several researchers have reported studies on SLAs in different domains~\cite{AlhamadDC11}.
+On cloud computing, contributions associated to SLAs manly comprehend: \textit{(i)} management, 
+negotiation and matching of SLAs; \textit{(ii)} security issues; and \textit{(iii)} resource allocation. 
+
+For instance, \cite{Redl2012} introduced a method for matching of SLA elements exported by different cloud providers.
+%
+\cite{Mavrogeorgi2013} presented a SLA management framework responsible to negotiate and enforce
+customized SLAs enriched with the information of the cloud federation and renegotiation rules.
+%
+\cite{Son2014} introduced SLA negotiation strategies for a multi-cloud broker and discussed
+design issues.
+%
+\cite{Falasi2016} designed an SLA negotiation model to based on the game-theory to allow cloud
+services to specify, negotiate and establish SLAs.
+%  
+
+Other proposals intends to assure security aspects in the cloud by defining and including
+security requirements on contracts. For instance, \cite{rak2013} introduced an approach to specify,
+assess and integrate security requirements to cloud services. 
+%
+\cite{Rojas2016} proposed a framework for management of SLA security requirements and enforcing them
+during the entire SLA lifecycle.
+%
+\cite{Casola2016} specified a catalogue of security services that can be monitored and negotiated through SLAs.
+
+Finally, several works address SLA monitoring to detect and avoid violations.
+For example, \cite{Brandic2010} designed a model to identify and propagate
+SLA violation to the cloud providers. 
+\cite{Leitner2010} introduced a event-based system to predict SLA violations
+and take necessary measures before they have impacted the provider SLA.
+\cite{Emeakaroha2012} proposed a system to monitor SLA in order to detect violation
+and provide tools for resource allocation and scheduling. 
+\cite{Hussain2015} described a profile-based SLA prediction model, which predicts
+the necessary resources based on user reputation history.
+ 
+To the best of our knowledge, related work on SLA models does not seem to 
+address data integration in multi-cloud architectures. Probably, because the 
+contributions are mainly interested in specifying and monitoring performance 
+aspects (for example, response time, memory, availability, among others) in the SLA 
+rather than quality issues regarding the data properties (such as data type, 
+veracity, freshness, provenance and others).
+Thus, we strongly believe that SLAs can be used to explicitly introduce the 
+notion of quality in the current data integration solutions. 
+In this sense, the use of SLAs to guide the entire data integration in a 
+multi-cloud context seems original and promising for providing new perspectives to the data integration problem.
 
 % In the cloud context, Rak \textit{et al.} proposed an approach to specify security requirement and to associate them to cloud services~\cite{rak2013}. Mavrogeorgi \textit{et al.} introduced a SLA management framework that allows the creation and enforcement of customized SLAs~\cite{Mavrogeorgi2013}. Leitner \textit{et al.} presented an approach to monitor and predict SLA violations before they impacted the provider's SLA~\cite{Leitner2010}. In general, proposals regarding SLAs in the deployment of services focus on two aspects: (\textit{i}) approaches focusing on the life cycle of the SLA mainly interested in the contract negotiation phase between the cloud and the service consumer; and (\textit{ii}) works monitoring contracts and cloud resources in order to avoid SLA violations, and consequently penalties due to its violation. In this sense, to the best of our knowledge, we have not identified any other approach that proposes the use of SLA associated to a data integration solution in a multi-cloud environment.
 

@@ -10,11 +10,15 @@
 \contentsline {section}{\numberline {3.1}Context and motivation}{5}{section.3.1}
 \contentsline {section}{\numberline {3.2}Problem statement}{6}{section.3.2}
 \contentsline {section}{\numberline {3.3}State of the Art}{7}{section.3.3}
-\contentsline {section}{\numberline {3.4}Synthesis of the work}{8}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}First year}{8}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Second year}{8}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Third year}{11}{subsection.3.4.3}
-\contentsline {chapter}{\numberline {A}Can Data Integration Quality be Enhanced on Multi-cloud using SLA?}{13}{appendix.A}
-\contentsline {chapter}{\numberline {B}Rhone: a quality-based query rewriting algorithm for data integration}{27}{appendix.B}
-\contentsline {chapter}{\numberline {C}Towards a Quality Guided Data Integration on Multi-Cloud Settings}{37}{appendix.C}
-\contentsline {chapter}{Bibliography}{45}{appendix*.2}
+\contentsline {subsection}{\numberline {3.3.1}Data integration and data quality in the database domain}{7}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Data integration in the cloud and in service-oriented domains}{8}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Query rewriting approaches}{8}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Service level agreements for cloud computing}{9}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Synthesis of the work}{10}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}First year}{10}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Second year}{11}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Third year}{13}{subsection.3.4.3}
+\contentsline {chapter}{\numberline {A}Can Data Integration Quality be Enhanced on Multi-cloud using SLA?}{15}{appendix.A}
+\contentsline {chapter}{\numberline {B}Rhone: a quality-based query rewriting algorithm for data integration}{29}{appendix.B}
+\contentsline {chapter}{\numberline {C}Towards a Quality Guided Data Integration on Multi-Cloud Settings}{39}{appendix.C}
+\contentsline {chapter}{Bibliography}{47}{appendix*.2}
