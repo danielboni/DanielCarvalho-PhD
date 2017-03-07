@@ -96,7 +96,7 @@ properties (provenance, freshness, veracity, data type, among others);
 
 %The \textbf{second challenge} is to guide data integration taking into consideration the integrated SLA. Here, the data integration process includes (i) looking up services that can be used as data providers, and for services required to process retrieved data and build an integrated result; (ii) performing data retrieval, processing and integration and (iii) deliver results to the user considering her preferences (quality requirements, context and resources consumption). The integrated SLA can guide services filtering in the look up phase; it can help to control the amounts of data to retrieve and process according to consumption rights depending on the user subscription to the participating cloud providers and how to deliver data considering the user's context.
 
-\section{Problem statement}
+\section{Problem statement}\label{problem}
 %
 The multi-cloud architecture brings new challenges to data integration
 and data processing applications.
@@ -327,55 +327,72 @@ multi-cloud context seems original and promising for providing new perspectives 
 
 
 \section{Synthesis of the work}
-%
-%
-\subsection{First year}
 
-During the first year of project, we have been working on the state of the art. The idea is to be aware of all types of publications close related to the thesis proposal. To reach this, we proceeded with a literature analysis using a systematic mapping methodology. 
+In order to address our research problem (see section~\ref{problem}), we have proposed data integration approach in which given a query and a set of user requirements associated to it, the query execution process is divided in three phases. The figure~\ref{approach} illustrates our approach.
+
+
+%During the first year of project, we have been working on the state of the art. The idea is to be aware of all types of publications close related to the thesis proposal. To reach this, we proceeded with a literature analysis using a systematic mapping methodology. 
 	
-Briefly, the methodology consists in retrieving papers from scientific databases using the same search string. 
-These papers are filtered according to an inclusion and exclusion criteria that should be defined based on the research interests. 
-The papers will be classified in different categories (called facets) and for each facet in a specific dimension. 
-The facets and dimension are defined based on the authors' knowledge and interests. 
-Taking the final papers collection, the abstracts should be read in order to classify each paper into the dimensions for each facet. 
-This methodology allowed us to identify trends and open issues regarding our research topic and proposing an approach that fills some gaps and proposes an original data integration solution according to current trends in the area.
-The table~\ref{table:sysmap} presents our results. We retrieved 1832 papers. 114 papers were selected based on our inclusion and exclusion criteria.
-As result of this work, we have published a paper on DEXA 2015 (See annex~\ref{chap:appendix1}).
+%Briefly, the methodology consists in retrieving papers from scientific databases using the same search string. 
+%These papers are filtered according to an inclusion and exclusion criteria that should be defined based on the research interests. 
+%The papers will be classified in different categories (called facets) and for each facet in a specific dimension. 
+%The facets and dimension are defined based on the authors' knowledge and interests. 
+%Taking the final papers collection, the abstracts should be read in order to classify each paper into the dimensions for each facet. 
+%This methodology allowed us to identify trends and open issues regarding our research topic and proposing an approach that fills some gaps and proposes an original data integration solution according to current trends in the area.
+%The table~\ref{table:sysmap} presents our results. We retrieved 1832 papers. 114 papers were selected based on our inclusion and exclusion criteria.
+%As result of this work, we have published a paper on DEXA 2015 (See annex~\ref{chap:appendix1}).
 
-\begin{table}
-\center
-\begin{tabular}{|c|c|c|c|}
-\hline 
-\textbf{Database} & \textbf{Amount} & \textbf{Include} & \textbf{Excluded} \\ 
-\hline 
-\textit{IEEE} & 658 & 56 & 602 \\ 
-\hline 
-\textit{ACM} & 649 & 31 & 618 \\ 
-\hline 
-\textit{Science Direct} & 106 & 6 & 100 \\ 
-\hline 
-\textit{CiteSeerX} & 419 & 21 & 398 \\ 
-\hline 
-\textit{Total} & 1832 & \underline{114} & 1718 \\ 
-\hline 
-\end{tabular} 
-\caption{Systematic Mapping: sumary of paper per databse.}\label{table:sysmap}
-\end{table} 
+%\begin{table}
+%\center
+%\begin{tabular}{|c|c|c|c|}
+%\hline 
+%\textbf{Database} & \textbf{Amount} & \textbf{Include} & \textbf{Excluded} \\ 
+%\hline 
+%\textit{IEEE} & 658 & 56 & 602 \\ 
+%\hline 
+%\textit{ACM} & 649 & 31 & 618 \\ 
+%\hline 
+%\textit{Science Direct} & 106 & 6 & 100 \\ 
+%\hline 
+%\textit{CiteSeerX} & 419 & 21 & 398 \\ 
+%\hline 
+%\textit{Total} & 1832 & \underline{114} & 1718 \\ 
+%\hline 
+%\end{tabular} 
+%\caption{Systematic Mapping: sumary of paper per databse.}\label{table:sysmap}
+%\end{table} 
 
-\subsection{Second year}
+% \subsection{Second year}
 
-During the second year, we have been working on the development of our data integration approach. Given a query and a set of user preferences associated to it, the query execution process is divided in three phases. The figure 1 illustrates our data integration approach.
+%During the second year, we have been working on the development of our data integration approach. Given a query and a set of user preferences associated to it, the query execution process is divided in three phases. The figure 1 illustrates our data integration approach.
 
 \begin{figure}[h!]
 \center
 \includegraphics[scale=0.7]{/images/general_approach.PNG} 
-\caption{SLA-guided data integration approach}
+\caption{SLA-guided data integration approach}\label{approach}
 \end{figure}
 
-\underline{The first phase} is the SLA derivation in which a SLA for the user request is created. It consists in looking for a (stored, integrated) SLA derived for a similar request. If a similar SLA is found, the request is forwarded to the query evaluation phase. Otherwise, a new SLA to the integration (called integrated SLA) is produced. The query is expressed as a service composition with associated user preferences. In \underline{the second phase}, service composition, the query is rewritten in terms of different services considering the user preferences and the SLAs of each service involved in the composition. The rewriting result is stored for further uses. \underline{Finally}, in the query evaluation phase, the query is optimized in terms of user preferences and SLAs concerning the consumed resources and the economic cost of the query. Once optimized, the query processed in the execution engine. In addition, we are assuming a SLA management module and monitoring system responsible to verify if the SLA contracts are being respected. Firstly, we have worked on the phases two in order to have an algorithm that will allow us to run important experiments to evaluate our approach. 
+\underline{The first phase} is the SLA derivation in which a SLA for the user request is created. It consists in looking for a (stored, integrated) SLA derived for a similar request in our history. If a similar SLA is found, the request is forwarded to the query evaluation phase. Otherwise, a new SLA to the integration (called integrated SLA) is produced. 
+%The query is expressed as a service composition with associated user preferences. 
+In \underline{the second phase}, service composition, the query is rewritten in terms of different \textsl{data services} considering the user requirements (according to service properties and data properties) and the SLAs of each service involved in the composition. The rewriting result is stored in the history for further uses. \underline{Finally}, in the query evaluation phase, the query is optimized in terms of user preferences and SLAs concerning the consumed resources and the economic cost of the query. Once optimized, the query processed in the execution engine. In addition, we are assuming a SLA management module and monitoring system responsible to verify if the SLA contracts are being respected. 
+%Firstly, we have worked on the phases two in order to have an algorithm that will allow us to run important experiments to evaluate our approach. 
 %The following activities were developed to achieve our objectives:
+
+Following the contributions of this work are presented. Note that this work was built based on a set of papers collected by applying the systematic mapping methodology. This exercise allowed us to identify new trends and open issues concerning data integration and SLA. As result, we have published a paper on DEXA 2015 (See appendix~\ref{chap:appendix1}).
+
 	
-\cite{ba2014} have proposed an algorithm for refining services composition. Their goal was to use user preferences to select and rank services in order to avoid the exponential problem while combining and producing compositions. Composition are incrementally produced until to reach a (predefined) desired number. In collaboration with our colleagues in Brazil (authors in~\cite{ba2014}), we have worked on an adapted version of \cite{ba2014} to our data integration solution extending their data structure to map services to the query, and adding the concepts of user preferences to the query and quality measures to the services. However, while performing the integration we have identified some design issues that made it useless to our approach: (i) their concept of user preferences are scores associated to services previous defined by the user while, for us, user preferences are quality requirements expected by the user concerning the whole integration; (ii) their algorithm accepts rewriting including calls to services that are not interest for the composition. Assuming that on the cloud each service has a price associated to its request, these composition that calls useless services produces an extra cost to the user. This adaptation process helped us to identify important issues to be applied to our own implementation such as developing an better approach to produce the combinations of services.
+\bigskip
+\noindent \textbf{Service-based query rewriting algorithm:}
+Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA). The \textit{Rhone} assumes that there are a set of quality measures associated to services which we suppose they are previously extract from their SLA. These measures will guide the service selection and the entire rewriting process.  Our work address this issue and proposes the algorithm with two original aspects: (i) the user can express her quality preferences and associated them to his query; and (ii) service's quality aspects defined in SLAs guide the service selection and the whole rewriting process taking into consideration that services and rewritings should meet the user requirements, and the different cases of incompatibilities of SLAs, uncompleted SLA and the integration SLA. 
+%and (ii) while trying to fulfill the user quality preferences, service’s quality aspects defined in SLAs guide the service selection and the whole rewriting process (Services and rewritings should meet the user requirements).
+Given a set of abstract services, a set of concrete services and a user query (both defined in terms of abstract services), and a set of user quality preferences, the \textit{Rhone} derives a set of service compositions that answer the query and that fulfill the quality preferences regarding the context of data service deployment. The algorithm consists in four steps: (i) \textit{Selecting concrete services}. Similar to~\cite{Levy:1996,Pottinger:2001} our algorithm selects services based on the abstract services that exists in the query, but it includes two differences: first, a concrete service cannot be select if it contains an abstract service that is not present in the query; and second, the service' quality aspects (extracted from its SLA) must be in accordance with the user quality preferences; (ii) \textit{creating mappings from concrete services to the query (called concrete service description (CSD))} inspired in~\cite{Pottinger:2001} including also the information concerning the services' SLA; (iii) \textit{combining CSDs}; and (iv) \textit{producing rewritings} until fulfilling the user requirements according to the services' SLA. Each phase of the algorithm and each concept (query, concrete services, mapping rules, for instance) were formally specified and described. As result to this work, we have published a paper on ADBIS 2016 (See appendix~\ref{chap:appendix2}).
+
+
+%
+%\cite{ba2014} have proposed an algorithm for refining services composition. Their goal was to use user preferences to select and rank services in order to avoid the exponential problem while combining and producing compositions. Composition are incrementally produced until to reach a (predefined) desired number. In collaboration with our colleagues in Brazil (authors in~\cite{ba2014}), we have worked on an adapted version of \cite{ba2014} to our data integration solution extending their data structure to map services to the query, and adding the concepts of user preferences to the query and quality measures to the services. However, while performing the integration we have identified some design issues that made it useless to our approach: (i) their concept of user preferences are scores associated to services previous defined by the user while, for us, user preferences are quality requirements expected by the user concerning the whole integration; (ii) their algorithm accepts rewriting including calls to services that are not interest for the composition. Assuming that on the cloud each service has a price associated to its request, these composition that calls useless services produces an extra cost to the user. This adaptation process helped us to identify important issues to be applied to our own implementation such as developing an better approach to produce the combinations of services.
+%
+%
+%\cite{ba2014} have proposed an algorithm for refining services composition. Their goal was to use user preferences to select and rank services in order to avoid the exponential problem while combining and producing compositions. Composition are incrementally produced until to reach a (predefined) desired number. In collaboration with our colleagues in Brazil (authors in~\cite{ba2014}), we have worked on an adapted version of \cite{ba2014} to our data integration solution extending their data structure to map services to the query, and adding the concepts of user preferences to the query and quality measures to the services. However, while performing the integration we have identified some design issues that made it useless to our approach: (i) their concept of user preferences are scores associated to services previous defined by the user while, for us, user preferences are quality requirements expected by the user concerning the whole integration; (ii) their algorithm accepts rewriting including calls to services that are not interest for the composition. Assuming that on the cloud each service has a price associated to its request, these composition that calls useless services produces an extra cost to the user. This adaptation process helped us to identify important issues to be applied to our own implementation such as developing an better approach to produce the combinations of services.
 
 %a) Adapting a previous query rewriting algorithm to our approach. This work was performed in collaboration with our colleagues in Brazil. The idea was to adapt a previous work from their lab to our data integration solution. While integrating we have identified some design problems that made it useless to our approach. However, the work in group help us to identify important issues to be applied to our own implementation.
 
@@ -383,46 +400,46 @@ During the second year, we have been working on the development of our data inte
 
 %Starting from the knowledge acquired while working on~\cite{ba2014}, we have produced a state of the art about query rewriting algorithm. The approaches can be divided into two domains: database and service-oriented architecture. In the database domain, studies (such as \cite{Duschka:1997,Levy:1996,Pottinger:2001}) have documented their approaches for answering queries using views. In general, while producing rewritings, these approaches suffer from the time exponential problem depending on the size of the query and the quantity of views. In the service-oriented domain, query rewriting can be seen as a service composition problem. Approaches (such as \cite{Barhamgi2010,Benouaret2011,Umberto}) share the same problem as on the database domain while producing services composition which is a task extremely costly depending on the size of the composition (query) and the amount of services to be combined. \cite{ba2014} have tried to minimize the effort to produce rewritings by considering user preferences (as scores) and by limiting the desired number of rewritings.
 
-%Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA).
-Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA). The \textit{Rhone} assumes that there are a set of quality measures associated to services which we suppose they are previously extract from their SLA. These measures will guide the service selection and the entire rewriting process.  Our work address this issue and proposes the algorithm with two original aspects: (i) the user can express her quality preferences and associated them to his query; and (ii) service's quality aspects defined in SLAs guide the service selection and the whole rewriting process taking into consideration that services and rewritings should meet the user requirements, and the different cases of incompatibilities of SLAs, uncompleted SLA and the integration SLA. 
-%and (ii) while trying to fulfill the user quality preferences, service’s quality aspects defined in SLAs guide the service selection and the whole rewriting process (Services and rewritings should meet the user requirements).
-Given a set of abstract services, a set of concrete services and a user query (both defined in terms of abstract services), and a set of user quality preferences, the \textit{Rhone} derives a set of service compositions that answer the query and that fulfill the quality preferences regarding the context of data service deployment. The algorithm consists in four steps: (i) \textit{Selecting concrete services}. Similar to~\cite{Levy:1996,Pottinger:2001} our algorithm selects services based on the abstract services that exists in the query, but it includes two differences: first, a concrete service cannot be select if it contains an abstract service that is not present in the query; and second, the service' quality aspects (extracted from its SLA) must be in accordance with the user quality preferences; (ii) \textit{creating mappings from concrete services to the query (called concrete service description (CSD))} inspired in~\cite{Pottinger:2001} including also the information concerning the services' SLA; (iii) \textit{combining CSDs}; and (iv) \textit{producing rewritings} until fulfilling the user requirements according to the services' SLA. Each phase of the algorithm and each concept (query, concrete services, mapping rules, for instance) were formally specified and described. As result to this work, we have published a paper on ADBIS 2016 (See annex~\ref{chap:appendix2}).
+%Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA). The \textit{Rhone} assumes that there are a set of quality measures associated to services which we suppose they are previously extract from their SLA. These measures will guide the service selection and the entire rewriting process.  Our work address this issue and proposes the algorithm with two original aspects: (i) the user can express her quality preferences and associated them to his query; and (ii) service's quality aspects defined in SLAs guide the service selection and the whole rewriting process taking into consideration that services and rewritings should meet the user requirements, and the different cases of incompatibilities of SLAs, uncompleted SLA and the integration SLA. 
+%%and (ii) while trying to fulfill the user quality preferences, service’s quality aspects defined in SLAs guide the service selection and the whole rewriting process (Services and rewritings should meet the user requirements).
+%Given a set of abstract services, a set of concrete services and a user query (both defined in terms of abstract services), and a set of user quality preferences, the \textit{Rhone} derives a set of service compositions that answer the query and that fulfill the quality preferences regarding the context of data service deployment. The algorithm consists in four steps: (i) \textit{Selecting concrete services}. Similar to~\cite{Levy:1996,Pottinger:2001} our algorithm selects services based on the abstract services that exists in the query, but it includes two differences: first, a concrete service cannot be select if it contains an abstract service that is not present in the query; and second, the service' quality aspects (extracted from its SLA) must be in accordance with the user quality preferences; (ii) \textit{creating mappings from concrete services to the query (called concrete service description (CSD))} inspired in~\cite{Pottinger:2001} including also the information concerning the services' SLA; (iii) \textit{combining CSDs}; and (iv) \textit{producing rewritings} until fulfilling the user requirements according to the services' SLA. Each phase of the algorithm and each concept (query, concrete services, mapping rules, for instance) were formally specified and described. As result to this work, we have published a paper on ADBIS 2016 (See annex~\ref{chap:appendix2}).
 
 %d) Configuration of a multi-cloud environment. We have worked on the configuration of a multi-cloud environment. However, we found some problems at this point: (i) the configuration and deployment of cloud infrastructure using open source technologies is not easy and requires important technical skills while configuring the network resources; (ii) it requires a powerful machine. Due to that we have configured a simulation of cloud; and (iii) we have searched for private cloud providers, but they allow few access and power permissions to manage resources. In addition, they are quite expensive. We are still working on best way to manage this issue.
+
 \bigskip
+\noindent \textbf{Algorithm implementation and evaluation, and the cloud infrastructure:}
 In order to evaluate our approach and the \textit{Rhone} algorithm, we began configuring a multi-cloud environment. We have searched for open source solutions instead of privates once they are (i) quite expensive; and (ii) do not allow to extend and access directly the different level of SLAs. The OpenStack was selected as our technology. We have installed and configured the different modules necessaries to the OpenStack. However, we have some issues: (i) the configuration and deployment of cloud infrastructure require important technical skills while configuring the network resources; (ii) it requires a powerful machine. Due to these reasons we have configured a simulation of cloud run our experiments.
 
-\textit{Rhone} was implemented using Java according to its formal definition. The algorithm was tested in a cloud simulation containing 100 services in its service registry. We have tested different types of query varying on the size and on the number of user preferences. Although our algorithm shares the same time performance problem as the previous approaches while combining compositions, the experiments have shown that the \textit{Rhone} can enhance the quality and reduce the cost in data integration by considering the user preferences and service's quality aspects extracted from service level agreements.
-The results can be found in the annex~\ref{chap:appendix2}.
+\textit{Rhone} was implemented using Java according to its formal definition. The algorithm was tested in a cloud simulation containing 100 services in its service registry. We have tested different types of query varying on size and on number of user preferences. Although our algorithm shares the same time performance problem as the previous approaches while combining compositions, the experiments have shown that the \textit{Rhone} can enhance the quality and reduce the cost in data integration by considering the user preferences and service's quality aspects extracted from service level agreements.
+The results can be found in appendix~\ref{chap:appendix2}.
  
 
 %We developed an improved version of the algorithm that better manages the manner in which lists of objects are managed. We have applied this version to a new set of experiments running 100 concrete services. With the results obtained from this experiment and the final version of our formalization, we are working on a new paper that included an extensive description of the algorithm and its evaluation to be submitted to ADBIS 2016 (deadline 27th March).
 
 %h) SLA model to data integration. The state of the art on SLA have been analyzed to serve as basis to our SLA model. The works on SLA to cloud computing can be divided in two groups: (i) approaches dealing with the SLA negotiation phase. They focus on methods to stablish good and well-defined agreements between providers and customers; and (ii) works focus on monitoring/allocating resources in order to detect and avoid SLA violations. These works helped while proposing our SLA model and schema. Note that the SLA is the main concept in our proposal. It is responsible to guide the entire approach from the beginning to the end. There are some challenges regarding SLA: (i) once we are inserted into a multi-cloud context, we are dealing with a large heterogeneity of SLAs among different clouds. It is possible to have the same concept defined in a different way depending on the cloud; (ii) there are different levels of SLA: user SLAs, service SLAs and cloud SLAs. It is necessary to have a mapping between SLA measures that can be expressed in a different manner depending on the level; and (iii) it is possible to face a diversity chain of SLA from different levels and to map and identify measures is a hard process.
 
-Moreover, we have designed \textit{(i)} a meta-model to data integration on multi-cloud environment and \textit{(ii)} schemas for user' SLA and cloud' SLA.
-The meta-model has improved the scenario description to illustrate our approach.
-As result of this work, we had a paper accept in the ICSOC PhD Symposium 2016 (See annex~\ref{chap:appendix3}).
+\bigskip
+\noindent \textbf{Data integration meta-model and SLA schemas:}
+In order to better describe the our context to illustrate the approach, we have designed a meta-model for data integration. Current SLA schemas are focused on service properties aspects such as availability and response time. Thus, to better fit on the data integration requirements, we have proposed \textsl{cloud SLA} that is an agreement between a \textsl{data service} and a \textsl{cloud provider}, and a \textsl{service SLA} which is a new kind of agreement defined by \textsl{data services} exposing the properties of the data they provide. As result of this work, we had a paper accept in the ICSOC PhD Symposium 2016 (See appendix~\ref{chap:appendix3}).
 
 %With this work performed, we have been designing our SLA model to data integration. As mentioned before, proposals to SLA in cloud computing can be divided in two groups: (i) approaches dealing with the SLA negotiation phase. They focus on methods to establish good and well-defined agreements between providers and customers; and (ii) works focus on monitoring/allocating resources in order to detect and avoid SLA violations. These works helped us while proposing our SLA model and schema. The SLA is the main concept in our proposal. It is responsible to guide the entire approach from the beginning to the end while fulfilling the user requirements. At this point, some challenges arises: (i) In a multi-cloud context, we are dealing with a large heterogeneity of SLAs among different clouds in terms of semantics and structure. A SLA and its measure can be defined in a different way depending on the cloud; (ii) there are different levels of SLA: between users and services, between services and clouds, between clouds and clouds. Consequently, a user requirement defined in a user SLA is computed in terms of different measures on Service and Cloud SLAs. It is necessary to have a mechanism that maps and compute the user requirement and SLA measures; and (iii) it is possible to exists a chain of SLA, and to map and computed measures in this chain can require a hard processing. i) Paper to ADBIS and VLDB PhD consortium. Currently, we have been working on a paper that focus on the description of our SLA model, schema and data integration approach to be submitted to the VLDB PhD workshop (deadline 4 April).
 
-%i) Paper to ADBIS and VLDB PhD consortium. Currently, with our last results, we have been working on two new papers: one concerning the algorithm to be submitted to ADBIS 2016 (deadline 27th March), and another one focusing on the SLA model, schema and data integration approach to be submitted to the VLDB PhD workshop (deadline 4 April).
+\bigskip
+\noindent \textbf{A method for service and composition selection:}
+Current data integration implies dealing with a huge number of \textsl{data services}. Consequently, query rewriting activities become more expensive in terms of computing resources and generation time. In this scenario, it is mandatory to develop a method to identify the best services to produce the best compositions that can achieve the user satisfaction. Thus, we have proposed an heuristic to rank \textsl{data services} and \textsl{compositions} based on SLA measures concerning  service properties (percentage of availability, response time, throughput and others) and data properties (data type, freshness, veracity, provenance and others).
 
-\subsection{Third year}
+\bigskip
+\noindent \textbf{Definition and formalization of a taxonomy of queries:}
+We have defined and formalized a set of possible relations between queries which differ in terms of \textsl{abstract services}, service properties and data properties.
 
-In the third year, we have worked on the following activities: 
-\begin{enumerate} [a)]
-\item Identifying related works on heuristics to service selection. As result, proposing a heuristic to \textit{(i)} service selection and ranking, but also to \textit{(ii)} rank compositions based on the services' SLA measures.
-\item Definition and formalization of a taxonomy of queries treated by the integration approach.
-\item Definition and formalization of reusability aspects applied to the query taxonomy in order to profit from previous integration results. 
-\item Design of a data model to our query history.
-\item Implementation of the query history and adaptation of the \textit{Rhone} algorithm to process its queries based on the data model.
-\end{enumerate}
+\bigskip
+\noindent \textbf{A method for reusing queries:}
+It is well-known that query rewriting is expensive. Thus, based on the proposed query taxonomy, we have designed and formalized a reusability approach which allows to reuse \textsl{data services} and \textsl{compositions} from previous integration in order to profit from them.
 
-Ongoing work: 
-\begin{enumerate} [a)]
-\item Extending the \textit{Rhone} to include the reusability functions and run new experiments, and compare them to the previous results.
-\item Improving the formalization aspects and performing corrections.
-\end{enumerate}
+\bigskip
+\noindent \textbf{Query history data model and implementation:}
+The reusability approach is based on a history of previous integrated queries. While defining the query taxonomy and reusability issues, we have identified the key information that should be part of the history allowing a satisfactory reusability process. A query history data model, which includes queries, abstract services, data services and compositions, was designed using the collected information. Further, the \textsl{Rhone} algorithm was adapted to be in accordance with the model.
 
-As result to this work, we are planning to write a paper to the 36th International Conference on Conceptual Modeling (ER 2017) -- to be submitted in 17th April.
+\bigskip
+\noindent \textbf{Ongoing work: algorithms and experimentation.}
+The reusability process required the specification of three algorithms to implement reusability functions. These algorithms are being introduced in \textit{Rhone}. Currently, we are in process of building the proof of concept to the approach: the query history was implemented in a relational database and we are running new experiments in order to compare them to the previous results. This work will result in a paper to the 36th International Conference on Conceptual Modeling (ER 2017) -- to be submitted in 17th April 2017.
