@@ -10,10 +10,10 @@
 \BOOKMARK [1][]{section.3.1}{Context and motivation}{chapter.3}% 10
 \BOOKMARK [1][]{section.3.2}{Problem statement}{chapter.3}% 11
 \BOOKMARK [1][]{section.3.3}{State of the Art}{chapter.3}% 12
-\BOOKMARK [2][]{subsection.3.3.1}{Data integration and data quality in the database domain}{section.3.3}% 13
-\BOOKMARK [2][]{subsection.3.3.2}{Data integration in the cloud and in service-oriented domains}{section.3.3}% 14
-\BOOKMARK [2][]{subsection.3.3.3}{Query rewriting approaches}{section.3.3}% 15
-\BOOKMARK [2][]{subsection.3.3.4}{Service level agreements for cloud computing}{section.3.3}% 16
+\BOOKMARK [2][]{subsection.3.3.1}{Data integration in service-oriented domains}{section.3.3}% 13
+\BOOKMARK [2][]{subsection.3.3.2}{Query rewriting approaches}{section.3.3}% 14
+\BOOKMARK [2][]{subsection.3.3.3}{Data integration and data quality in the database domain}{section.3.3}% 15
+\BOOKMARK [2][]{subsection.3.3.4}{Service level agreements}{section.3.3}% 16
 \BOOKMARK [1][]{section.3.4}{Synthesis of the work}{chapter.3}% 17
 \BOOKMARK [0][]{appendix.A}{Can Data Integration Quality be Enhanced on Multi-cloud using SLA?}{}% 18
 \BOOKMARK [0][]{appendix.B}{Rhone: a quality-based query rewriting algorithm for data integration}{}% 19
