@@ -115,12 +115,25 @@ services quality measures defined in SLA contracts; and \textit{(ii)} to data se
 \item Delivering results with respect to the data consumer requirements depending on the context which he/she consumes the data (for example, using a mobile phone).
 \end{itemize}
 %
-Thus, this thesis addresses data integration on service-oriented environments.
+
+\bigskip
+\noindent Thus, this thesis addresses data integration on service-oriented environments.
 %
 The aim is to propose a data integration approach targeting (multi-)cloud context in 
-which data is delivered according to data consumers expectations and financial constraints by profiting from 
-previous integration results instead of launching entirely the expensive data integration 
-process. 
+which data is delivered according to data consumers expectations and financial constraints.
+The multi-cloud introduces a new vision to the problem considering that \textsl{data services} could deploy services in different \textsl{cloud providers}, under different quality conditions (with respect to performance and data properties) which are agreed in several SLA contracts under different pricing conditions. Furthermore, the explosion in the number of services increases the complexity of service selection and combination, and the decision of which rewriting will be done according to the different quality aspects and cost. To achieve this, this thesis aims to fulfill this three main contributions: 
+\begin{itemize}
+\item A new query rewriting algorithm which takes into account user requirements regarding regarding data properties and service properties according to the deployment context (see appendix~\ref{chap:appendix2});
+\item Enhancing the algorithm by proposing an heuristic-based approach to avoid the combinatorial problem while searching and composing services (Future work); and
+\item Reducing the rewriting frequency by building a framework that reuses previous data integration based on a query history (work in progress). 
+\end{itemize}
+
+
+
+
+%  by profiting from 
+%previous integration results instead of launching entirely the expensive data integration 
+%process. 
 
 
 \section{State of the Art}
@@ -404,7 +417,7 @@ In order to better describe our context to illustrate the approach, we have desi
 
 \bigskip
 \noindent \textbf{A method for service and composition selection:}
-Current data integration implies dealing with a huge number of \textsl{data services}. Consequently, query rewriting activities become more expensive in terms of computing resources and generation time. In this scenario, it is mandatory to develop a method to identify the best services to produce the best compositions that can achieve the user satisfaction. Thus, we have proposed an heuristic to rank \textsl{data services} and \textsl{compositions} based on SLA measures concerning  service properties (percentage of availability, response time, throughput and others) and data properties (data type, freshness, veracity, provenance and others).
+Current data integration implies dealing with a huge number of \textsl{data services}. Consequently, query rewriting activities become more expensive in terms of computing resources and generation time. In this scenario, it is mandatory to develop a method to identify the best services to produce the best compositions that can achieve the user satisfaction. Thus, we have started working in an heuristic to rank \textsl{data services} and \textsl{compositions} based on SLA measures concerning  service properties (percentage of availability, response time, throughput and others) and data properties (data type, freshness, veracity, provenance and others).
 
 \bigskip
 \noindent \textbf{Definition and formalization of a taxonomy of queries:}
@@ -420,4 +433,8 @@ The reusability approach is based on a history of previous integrated queries. W
 
 
 \section{Perspectives}
-The reusability approach required the specification of three algorithms to implement reusability functions. These algorithms are being introduced in \textit{Rhone}. Currently, we are in process of building the proof of concept to the approach: the query history was implemented in a relational database and we are running new experiments in order to compare them to the previous results. This work will result in a paper to the 36th International Conference on Conceptual Modeling (ER 2017) -- to be submitted in 17th April 2017.
+Our perspective is to tackle what is remaining in the contributions while writing the final thesis document to June.
+
+The reusability approach required the specification of three algorithms to implement reusability functions. 
+Willing to test these algorithms, we have extended \textit{Rhone} algorithm to let it output rewriting information that will constitute the data integration history. This history is mandatory to test the reusing algorithms. 
+Currently, we are in process of building the proof of concept to the approach: the query history structure was implemented in as a relational database. The idea is to validate the algorithm and to evaluate the reusing efficiency. This work will result in a paper to the 36th International Conference on Conceptual Modeling (ER 2017) to be submitted in 17th April 2017.

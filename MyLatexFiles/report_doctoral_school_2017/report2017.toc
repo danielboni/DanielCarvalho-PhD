@@ -17,7 +17,7 @@
 \contentsline {section}{\numberline {3.3}State of the Art}{7}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Data integration in service-oriented domains}{7}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Query rewriting approaches}{8}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Data integration and data quality in the database domain}{8}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.3}Data integration and data quality in the database domain}{9}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}Service Level Agreement}{9}{subsection.3.3.4}
 \contentsline {section}{\numberline {3.4}Results and Contribution}{10}{section.3.4}
 \contentsline {section}{\numberline {3.5}Perspectives}{13}{section.3.5}
