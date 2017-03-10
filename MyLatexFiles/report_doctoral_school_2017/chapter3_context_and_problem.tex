@@ -1,12 +1,12 @@
-\chapter{Thesis Advancement}
+\chapter{Current Research Results}
 \label{chap:context}
 \minitoc
 
 \section{Context and motivation}
 
-Current data integration implies consuming data by matching and composing different data services, and integrating the results while respecting data consumers quality requirements. 
+User-guided data integration implies consuming data by matching and composing different data services, and integrating the results while respecting data consumers quality requirements. 
 %
-These requirements are defined in service level agreement (SLA) contracts 
+These requirements could be defined in service level agreement (SLA) contracts 
 established between data consumers and data providers.
 %
 The SLA defines what a data consumer can expect as system behavior, 
@@ -18,11 +18,11 @@ Several authors have introduced algorithms for data integration in service-orien
 They have focused on the query rewriting problem, which in this context includes matching, selecting and composing services
 according to some data requirements and constraints. 
 %
-The problem of composing services has been proven to be an NP-hard problem which implies a performance problem while combining services.
+The problem of composing services has been proven to be an NP-hard problem which implies a performance problem while searching for service combinations.
 %
 To tackle it, heuristics for computing and identifying the best services and compositions based on quality aspects have been proposed (such as~\cite{Cardoso2004,Berbner2006,Menasce:2008,Sasikaladevi2014}).
 %
-However, current work focus on services' properties neglecting data properties and the new constraints imposed by the service-oriented context. 
+However, current work focus on services' properties neglecting data properties and the new constraints imposed by the service-oriented context (for example, a given \textsl{data service} could be out of resources according to what he agreed on  SLA with his \textsl{service provider}). 
 
 %
 Thus, the objective of this work is to address data integration targeting the multi-cloud context. 
@@ -87,7 +87,7 @@ The originality of our approach consists in guiding the entire data integration 
 %
 The service-oriented context brings challenges to query rewriting in data integration solutions.
 %
-Instead of taking into consideration only the user query and his/her requirements with respect to services' properties (such as percentage of availability and response time), the integration process must consider in addition the new constraints imposed by context: 
+Instead of taking into consideration only the user query and his/her requirements with respect to services' properties (such as percentage of availability and response time), the integration process must consider in addition the new constraints imposed by the context: 
 %
 \begin{itemize}
 \renewcommand{\labelitemi}{$-$}
@@ -95,7 +95,7 @@ Instead of taking into consideration only the user query and his/her requirement
 %
 \item Data provision is constrained to the available computing resources agreed between data services and service providers on service level agreement (SLA) contracts. For example, a data service could have agreed to perform a limited quantity of requests per day.
 %
-\item The data integration process requires a high level of computing resources.
+\item The data integration process requires a high level of computing resources while searching for services and producing compositions.
 The huge amount of data and data services in the service context increases even 
 more the complexity of the solutions.
 \end{itemize}
@@ -115,17 +115,17 @@ services quality measures defined in SLA contracts; and \textit{(ii)} to data se
 \item Delivering results with respect to the data consumer requirements depending on the context which he/she consumes the data (for example, using a mobile phone).
 \end{itemize}
 %
-Thus, this thesis project addresses data integration on service-oriented environments.
+Thus, this thesis addresses data integration on service-oriented environments.
 %
-The aim is propose a data integration approach targeting (multi-)cloud context in 
-which data is delivered according to data consumers expectations by profiting from 
+The aim is to propose a data integration approach targeting (multi-)cloud context in 
+which data is delivered according to data consumers expectations and financial constraints by profiting from 
 previous integration results instead of launching entirely the expensive data integration 
 process. 
 
 
 \section{State of the Art}
 %
-The state of the art comprehend four groups, which are discussed in the following sections: 
+The state of the art comprehends four groups, which are discussed in the following sections: 
 \textit{(i)} data integration approaches in service-oriented contexts;
 \textit{(ii)} query rewriting approaches;
 \textit{(iii)} data integration and data quality in the database domain; and \textit{(iv)} service level agreements.
@@ -248,7 +248,7 @@ as meta-data in a data source such as accuracy, validity, completeness, among ot
 Others data integration issues and quality aspects in data integration systems are tackled
 in~\cite{Batini2006,Angeles2009,Boufares2012}. 
 
-\subsection{Service level agreements}
+\subsection{Service Level Agreement}
 Service level agreements (SLA) state what a \textsl{consumer} can expect from a system or 
 system behavior.
 Several researchers have reported studies on SLAs in different domains~\cite{AlhamadDC11}.
@@ -301,7 +301,7 @@ service-oriented context seems original and promising for providing new perspect
 
 
 
-\section{Synthesis of the work}
+\section{Results and Contribution}
 
 In order to address our research problem (see section~\ref{problem}), we have proposed data integration approach in which given a query and a set of user requirements associated to it, the query execution process is divided in three phases. The figure~\ref{approach} illustrates our approach.
 
@@ -358,9 +358,9 @@ Following the contributions of this work are presented. Note that this work was 
 	
 \bigskip
 \noindent \textbf{Service-based query rewriting algorithm:}
-Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA). The \textit{Rhone} assumes that there are a set of quality measures associated to services which we suppose they are previously extract from their SLA. These measures will guide the service selection and the entire rewriting process.  Our work address this issue and proposes the algorithm with two original aspects: (i) the user can express her quality preferences and associated them to his query; and (ii) service's quality aspects defined in SLAs guide the service selection and the whole rewriting process taking into consideration that services and rewritings should meet the user requirements, and the different cases of incompatibilities of SLAs, uncompleted SLA and the integration SLA. 
+Based on the related work, we have developed and formalized the \textit{Rhone} service-based query rewriting algorithm guided by service level agreements (SLA). The \textit{Rhone} assumes that there are a set of quality measures associated to services which we suppose they are previously extracted from their SLA. These measures will guide the service selection and the entire rewriting process.  Our work address this issue and proposes the algorithm with two original aspects: (i) the user can express his/her quality preferences and associated them to his/her query; and (ii) service's quality aspects defined in SLAs guide the service selection and the whole rewriting process taking into consideration that services and rewritings should meet the user requirements, and the different cases of incompatibilities of SLAs, uncompleted SLA and the integration SLA. 
 %and (ii) while trying to fulfill the user quality preferences, service’s quality aspects defined in SLAs guide the service selection and the whole rewriting process (Services and rewritings should meet the user requirements).
-Given a set of abstract services, a set of concrete services and a user query (both defined in terms of abstract services), and a set of user quality preferences, the \textit{Rhone} derives a set of service compositions that answer the query and that fulfill the quality preferences regarding the context of data service deployment. The algorithm consists in four steps: (i) \textit{Selecting concrete services}. Similar to~\cite{Levy:1996,Pottinger:2001} our algorithm selects services based on the abstract services that exists in the query, but it includes two differences: first, a concrete service cannot be select if it contains an abstract service that is not present in the query; and second, the service' quality aspects (extracted from its SLA) must be in accordance with the user quality preferences; (ii) \textit{creating mappings from concrete services to the query (called concrete service description (CSD))} inspired in~\cite{Pottinger:2001} including also the information concerning the services' SLA; (iii) \textit{combining CSDs}; and (iv) \textit{producing rewritings} until fulfilling the user requirements according to the services' SLA. Each phase of the algorithm and each concept (query, concrete services, mapping rules, for instance) were formally specified and described. As result to this work, we have published a paper on ADBIS 2016 (See appendix~\ref{chap:appendix2}).
+Given a set of abstract services, a set of concrete services and a user query (both defined in terms of abstract services), and a set of user quality preferences, the \textit{Rhone} derives a set of service compositions that answer the query and that fulfill the quality preferences regarding the services and datas' properties. The algorithm consists in four steps: (i) \textit{Selecting concrete services}. Similar to~\cite{Levy:1996,Pottinger:2001} our algorithm selects services based on the abstract services that exists in the query, but it includes two differences: first, a concrete service cannot be selected if it contains an abstract service that is not present in the query; and second, the service' quality aspects (extracted from its SLA) must be in accordance with the user quality preferences; (ii) \textit{creating mappings from concrete services to the query (called concrete service description (CSD))} inspired in~\cite{Pottinger:2001} including also the information concerning the services' SLA; (iii) \textit{combining CSDs}; and (iv) \textit{producing rewritings} until fulfilling the user requirements according to the services' SLA. Each phase of the algorithm and each concept (query, concrete services, mapping rules, for instance) were formally specified and described. The results of this part of our work have been published on ADBIS 2016 (See appendix~\ref{chap:appendix2}).
 
 
 %
@@ -382,9 +382,12 @@ Given a set of abstract services, a set of concrete services and a user query (b
 %d) Configuration of a multi-cloud environment. We have worked on the configuration of a multi-cloud environment. However, we found some problems at this point: (i) the configuration and deployment of cloud infrastructure using open source technologies is not easy and requires important technical skills while configuring the network resources; (ii) it requires a powerful machine. Due to that we have configured a simulation of cloud; and (iii) we have searched for private cloud providers, but they allow few access and power permissions to manage resources. In addition, they are quite expensive. We are still working on best way to manage this issue.
 
 \bigskip
-\noindent \textbf{Algorithm implementation and evaluation, and the cloud infrastructure:}
+\noindent \textbf{Cloud infrastructure:}
 In order to evaluate our approach and the \textit{Rhone} algorithm, we began configuring a multi-cloud environment. We have searched for open source solutions instead of privates once they are (i) quite expensive; and (ii) do not allow to extend and access directly the different level of SLAs. The OpenStack was selected as our technology. We have installed and configured the different modules necessaries to the OpenStack. However, we have some issues: (i) the configuration and deployment of cloud infrastructure require important technical skills while configuring the network resources; (ii) it requires a powerful machine. Due to these reasons we have configured a simulation of cloud run our experiments.
 
+
+\bigskip
+\noindent \textbf{Algorithm implementation and evaluation:}
 \textit{Rhone} was implemented using Java according to its formal definition. The algorithm was tested in a cloud simulation containing 100 services in its service registry. We have tested different types of query varying on size and on number of user preferences. Although our algorithm shares the same time performance problem as the previous approaches while combining compositions, the experiments have shown that the \textit{Rhone} can enhance the quality and reduce the cost in data integration by considering the user preferences and service's quality aspects extracted from service level agreements.
 The results can be found in appendix~\ref{chap:appendix2}.
  
@@ -395,7 +398,7 @@ The results can be found in appendix~\ref{chap:appendix2}.
 
 \bigskip
 \noindent \textbf{Data integration meta-model and SLA schemas:}
-In order to better describe the our context to illustrate the approach, we have designed a meta-model for data integration. Current SLA schemas are focused on service properties aspects such as availability and response time. Thus, to better fit on the data integration requirements, we have proposed \textsl{cloud SLA} that is an agreement between a \textsl{data service} and a \textsl{cloud provider}, and a \textsl{service SLA} which is a new kind of agreement defined by \textsl{data services} exposing the properties of the data they provide. As result of this work, we had a paper accept in the ICSOC PhD Symposium 2016 (See appendix~\ref{chap:appendix3}).
+In order to better describe our context to illustrate the approach, we have designed a meta-model for data integration. Current SLA schemas are focused on service properties aspects such as availability and response time. Thus, to better fit on the data integration requirements, we have proposed \textsl{cloud SLA} that is an agreement between a \textsl{data service} and a \textsl{cloud provider}, and a \textsl{service SLA} which is a new kind of agreement defined by \textsl{data services} exposing the properties of the data they provide. The results of this part of our work have been accepted in the ICSOC PhD Symposium 2016 (See appendix~\ref{chap:appendix3}).
 
 %With this work performed, we have been designing our SLA model to data integration. As mentioned before, proposals to SLA in cloud computing can be divided in two groups: (i) approaches dealing with the SLA negotiation phase. They focus on methods to establish good and well-defined agreements between providers and customers; and (ii) works focus on monitoring/allocating resources in order to detect and avoid SLA violations. These works helped us while proposing our SLA model and schema. The SLA is the main concept in our proposal. It is responsible to guide the entire approach from the beginning to the end while fulfilling the user requirements. At this point, some challenges arises: (i) In a multi-cloud context, we are dealing with a large heterogeneity of SLAs among different clouds in terms of semantics and structure. A SLA and its measure can be defined in a different way depending on the cloud; (ii) there are different levels of SLA: between users and services, between services and clouds, between clouds and clouds. Consequently, a user requirement defined in a user SLA is computed in terms of different measures on Service and Cloud SLAs. It is necessary to have a mechanism that maps and compute the user requirement and SLA measures; and (iii) it is possible to exists a chain of SLA, and to map and computed measures in this chain can require a hard processing. i) Paper to ADBIS and VLDB PhD consortium. Currently, we have been working on a paper that focus on the description of our SLA model, schema and data integration approach to be submitted to the VLDB PhD workshop (deadline 4 April).
 
@@ -415,6 +418,6 @@ It is well-known that query rewriting is expensive. Thus, based on the proposed 
 \noindent \textbf{Query history data model and implementation:}
 The reusability approach is based on a history of previous integrated queries. While defining the query taxonomy and reusability issues, we have identified the key information that should be part of the history allowing a satisfactory reusability process. A query history data model, which includes queries, abstract services, data services and compositions, was designed using the collected information. Further, the \textsl{Rhone} algorithm was adapted to be in accordance with the model.
 
-\bigskip
-\noindent \textbf{Ongoing work: algorithms and experimentation.}
-The reusability process required the specification of three algorithms to implement reusability functions. These algorithms are being introduced in \textit{Rhone}. Currently, we are in process of building the proof of concept to the approach: the query history was implemented in a relational database and we are running new experiments in order to compare them to the previous results. This work will result in a paper to the 36th International Conference on Conceptual Modeling (ER 2017) -- to be submitted in 17th April 2017.
+
+\section{Perspectives}
+The reusability approach required the specification of three algorithms to implement reusability functions. These algorithms are being introduced in \textit{Rhone}. Currently, we are in process of building the proof of concept to the approach: the query history was implemented in a relational database and we are running new experiments in order to compare them to the previous results. This work will result in a paper to the 36th International Conference on Conceptual Modeling (ER 2017) -- to be submitted in 17th April 2017.
