@@ -1,0 +1,2 @@
+Results from rewriting queries with 5 abstract services and 100 matches.
+Done in: 	11500	 Number of matchings 100	 Number of rewritings 3200000

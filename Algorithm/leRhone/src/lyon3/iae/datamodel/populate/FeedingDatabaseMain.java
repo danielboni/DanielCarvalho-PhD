@@ -15,31 +15,48 @@ public class FeedingDatabaseMain {
 		/* FeedingAbstractServices feedAbstract = new FeedingAbstractServices();
 		feedAbstract.populate(); */
 		
-		/* FeedingDataServices feedDataServices = new FeedingDataServices();
-		feedDataServices.populate();
-		feedDataServices.populateJoinTable(); */
+//		FeedingDataServices feedDataServices = new FeedingDataServices();
+//		feedDataServices.populate();
+//		feedDataServices.populateJoinTable(); 
 		
-		/* FeedingQueryHistory feedQueries = new FeedingQueryHistory();
-		feedQueries.populate();
-		feedQueries.populateJoinTable(); */
+//		FeedingQueryHistory_10000 feedQueries = new FeedingQueryHistory_10000();
+//		feedQueries.populate("query_history_11");
+//		feedQueries.populateJoinTable("query_history_11");
 		
-		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
 		
-		long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
+		FeedingQueryHistory_2500 feedQueries = new FeedingQueryHistory_2500();
+		feedQueries.populate("query_history_10");
+		feedQueries.populateJoinTable("query_history_10");
 		
-		rhone.selectCandidateServicesFromDB();
-		rhone.divideGroups2_NEW();
-		rhone.combine2_NEW();
+//		
+//		FeedingQueryHistory_5000 feedQueries = new FeedingQueryHistory_5000();
+//		feedQueries.populate("query_history_9");
+//		feedQueries.populateJoinTable("query_history_9"); 
+//		
 		
-		long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
 		
-		System.out.println("Testcase: " + 0 + " \tNumber of concrete services: " + rhone.getCadidateConcreteServices().size() +
-        		"\tNumber of rewritings: " + rhone.combinations.size() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
+//		FeedingQueryHistory_7500 feedQueries = new FeedingQueryHistory_7500();
+//		feedQueries.populate("query_history_8");
+//		feedQueries.populateJoinTable("query_history_8");
 		
-		FeedingQueryHistory feedQueries = new FeedingQueryHistory();
-		//feedQueries.populate();
-		//feedQueries.populateJoinTable();
-		feedQueries.populateRewritings(1, rhone.getCombinations());
+		
+//		Rhone rhone = InputHandler.handleArguments("populate1.xml", "0");
+		
+//		long start = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime();
+		
+//		rhone.selectCandidateServicesFromDB();
+//		rhone.divideGroups2_NEW();
+//		rhone.combine2_NEW();
+		
+//		long time = ManagementFactory.getThreadMXBean().getCurrentThreadUserTime() - start;
+		
+//		System.out.println("Testcase: " + 0 + " \tNumber of concrete services: " + rhone.getCadidateConcreteServices().size() +
+//        		"\tNumber of rewritings: " + rhone.combinations.size() +  " \t--Done in: " + (double)time/1000000000 + " seconds \n");
+		
+//		FeedingQueryHistory feedQueries = new FeedingQueryHistory();
+//		feedQueries.populate();
+//		feedQueries.populateJoinTable();
+		//feedQueries.populateRewritings(1, rhone.getCombinations());
 		
 //		List<ConcreteService> concreteServices =  rhone.getConcreteServices();
 //		for (ConcreteService concreteService : concreteServices) {

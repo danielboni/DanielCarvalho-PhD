@@ -1,0 +1,3 @@
+Results from rewriting queries with 4 abstract services and 500 matches.
+Done in: 	8312	 Number of matchings 500	 Number of rewritings 0Results from rewriting queries with 4 abstract services and 500 matches.
+Done in: 	726537	 Number of matchings 500	 Number of rewritings 0

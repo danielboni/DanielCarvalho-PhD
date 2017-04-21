@@ -1,0 +1,152 @@
+<testcases>
+	<testcase id="0">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 96, response time = 2, total response time = 10, cost = 6, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = yes, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="1">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 96, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="2">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 96, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="3">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 94, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="4">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="5">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="6">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="7">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="8">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="9">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="10">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="11">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="12">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="13">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="14">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="15">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="16">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="17">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="18">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="19">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="20">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="21">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="22">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="23">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="24">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="25">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="26">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 98, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="27">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 93, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="28">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 94, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="29">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="30">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 96, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="31">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="32">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="33">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="34">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="35">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="36">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="37">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="38">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="39">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="40">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="41">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="42">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="43">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="44">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="45">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="46">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="47">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="48">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+	<testcase id="49">
+	  <query>Q1(x?,y!) := A1(x?,p!),A2(p?,y!),A3(p?,z!){x = "K"}[availability = 95, response time = 2, total response time = 6, cost = 10, price per call = 0.5, authentication = yes, privacy = yes, trust = medium, degree of rawness = low, veracity = reliable, production time = working hours, production rate = 2, data type = text, freshness = no, provenance = not certified]</query>					  			
+	</testcase>
+</testcases>

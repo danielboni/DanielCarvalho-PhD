@@ -52,7 +52,7 @@ public class FeedingDataServices {
 					+ "'98', '2', '0.7', 'yes', 'yes', 'medium', 'low', 'reliable', 'working hours', '2', 'text', 'yes', 'not certified');";
 			*/
 			
-			
+			/*
 			for (int i = 5; i < 21; i++) {
 				String sql1 = "insert into tb_concrete_service values (?, ?, ?, "
 						+ "'96', '1', '0.5', 'yes', 'yes', 'medium', 'low', 'reliable', 'working hours', '2', 'text', 'yes', 'not certified');";
@@ -103,6 +103,19 @@ public class FeedingDataServices {
 				
 				stmt.execute();
 				stmt.close();
+			} */
+			
+			for (int i = 81; i < 101; i++) {
+				String sql1 = "insert into tb_concrete_service values (?, ?, ?, "
+						+ "'97', '1', '0.5', 'yes', 'yes', 'medium', 'low', 'reliable', 'working hours', '2', 'text', 'yes', 'not certified');";
+				
+				PreparedStatement stmt = connection.prepareStatement(sql1);
+				stmt.setInt(1, i);
+				stmt.setString(2, "DS"+i);
+		        stmt.setString(3, "DS"+i+"(x?; y!) := A5(x?; y!)");
+				
+				stmt.execute();
+				stmt.close();
 			}
 	        
 	        /* stmt = connection.prepareStatement(sql2);
@@ -150,7 +163,7 @@ public class FeedingDataServices {
 			
 			System.out.println("Feeding the database in the join table concrete/abstract services...");			
 			
-			for (int i = 1; i < 21; i++) {
+			/*for (int i = 1; i < 21; i++) {
 				String sql1 = "insert into tb_concrete_abstract values (?, '1');";
 				
 				PreparedStatement stmt = connection.prepareStatement(sql1);
@@ -188,8 +201,18 @@ public class FeedingDataServices {
 				
 				stmt.execute();
 				stmt.close();
-			}
+			}*/
 
+			for (int i = 81; i < 101; i++) {
+				String sql1 = "insert into tb_concrete_abstract values (?, '5');";
+				
+				PreparedStatement stmt = connection.prepareStatement(sql1);
+				stmt.setInt(1, i);
+				
+				stmt.execute();
+				stmt.close();
+			}
+			
 	        connection.close();
 	        
 	        System.out.println("Concrete/Abstract services registered.");

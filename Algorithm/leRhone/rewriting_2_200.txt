@@ -1,0 +1,8 @@
+Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	390	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	360	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	350	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	350	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	370	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	380	 Number of matchings 200	 Number of rewritings 10000Results from rewriting queries with 2 abstract services and 200 matches.
+Done in: 	410	 Number of matchings 200	 Number of rewritings 10000

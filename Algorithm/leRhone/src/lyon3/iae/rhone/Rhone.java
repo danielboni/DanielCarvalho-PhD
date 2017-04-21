@@ -1,5 +1,9 @@
 package lyon3.iae.rhone;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -72,13 +76,13 @@ public class Rhone {
 	/*  This method selects the data services from our database
 	 *  taking into consideration the user preferences defined
 	 *  in the query. */
-	public void selectCandidateServicesFromDB(){
+	public void selectCandidateServicesFromDB(String dbName){
 		
 		// TODO remove the code to access the database from this file.
 		// TODO Insert the code concerning mapping of variables.
 		// TODO Adapt the create CSD. For now, it is not working correctly.
 		
-		System.out.println("Selecting candidate data services...");
+		// System.out.println("Selecting candidate data services...");
 		
 		String driverName = "com.mysql.jdbc.Driver";                        
 		 
@@ -89,7 +93,7 @@ public class Rhone {
 		}
 
 		String serverName = "localhost";  
-		String mydatabase = "query_history";       
+		String mydatabase = dbName;       
 		String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 		String username = "root";      
 		String password = "1234";
@@ -97,10 +101,10 @@ public class Rhone {
 		try {
 			Connection connection = DriverManager.getConnection(url, username, password);
 			
-			if (connection != null)
-				 System.out.println("Connected to the database.");
+			//if (connection != null)
+				 // System.out.println("Connected to the database.");
 			
-			System.out.println("Searching for candidate data services...");			
+			// System.out.println("Searching for candidate data services...");			
 			
 			int quantidadeDeAbstract = this.query.getAbstractServicesAsInt().size(); 
 			
@@ -122,7 +126,7 @@ public class Rhone {
 				}	
 			}
 			
-			sql += "ds.availability > ? and ds.response_time < ? and "
+			sql += "ds.availability >= ? and ds.response_time <= ? and "
 					+ "ds.price_per_call <= ? and ds.authentication = ? and "
 					+ "ds.privacy = ? and ";
 			
@@ -157,7 +161,7 @@ public class Rhone {
 				sql += "(ds.provenance = 'certified' or ds.provenance = 'not certified'); ";
 			}
 
-			System.out.println("SQL: " + sql);
+			// System.out.println("SQL: " + sql);
 			
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
@@ -207,7 +211,7 @@ public class Rhone {
 			stmt.close();
 	        connection.close();
 	        
-	        System.out.println("Data services idenfied.");
+	        // System.out.println("Data services identified.");
 	        
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -1126,7 +1130,13 @@ public class Rhone {
 	}
 	
 	public List<List<ConcreteService>> combinations;
+
+	private int numberOfCombinations;
 	
+	public int getNumberOfCombinations() {
+		return numberOfCombinations;
+	}
+
 	public List<List<ConcreteService>> getCombinations() {
 		return combinations;
 	}
@@ -1137,7 +1147,7 @@ public class Rhone {
 
 	public void combine2_NEW(){
 		combinations = new LinkedList<List<ConcreteService>>();
-
+		
 		for (ConcreteService concrete1: this.covarageDomain1){
 			for (ConcreteService concrete2: this.covarageDomain2){
 				List<ConcreteService> combination = new LinkedList<ConcreteService>();
@@ -1164,45 +1174,77 @@ public class Rhone {
 		}
 	}
 
-	public void combine4_NEW(){
+	public void combine4_NEW() throws IOException{
 		combinations = new LinkedList<List<ConcreteService>>();
-
+		List<ConcreteService> combination = new LinkedList<ConcreteService>();
+		
+		FileOutputStream fout = new FileOutputStream("combinacoes.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(fout);
+		
+		
+		int i = 0;
 		for (ConcreteService concrete1: this.covarageDomain1){
 			for (ConcreteService concrete2: this.covarageDomain2){
 				for (ConcreteService concrete3: this.covarageDomain3){
 					for (ConcreteService concrete4: this.covarageDomain4){
-						List<ConcreteService> combination = new LinkedList<ConcreteService>();
 						combination.add(concrete1);
 						combination.add(concrete2);
 						combination.add(concrete3);
 						combination.add(concrete4);
-						this.combinations.add(combination);
+						// this.combinations.add(combination);
+						
+						oos.writeObject(combination);
+						
+						
+						i++;
+						combination.clear();
 					}
 				}
 			}
 		}
+		this.setNumberOfCombinations(i);
+		oos.close();
 	}
 
-	public void combine5_NEW(){
-		combinations = new LinkedList<List<ConcreteService>>();
+	private void storeRewritings(List<ConcreteService> combination) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	private void setNumberOfCombinations(int i) {
+		this.numberOfCombinations = i;
+	}
+
+	public void combine5_NEW() throws IOException{
+		combinations = new LinkedList<List<ConcreteService>>();
+		List<ConcreteService> combination = new LinkedList<ConcreteService>();
+		
+		FileOutputStream fout = new FileOutputStream("D:\\combinacoes5.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(fout);
+		
+		int i = 0;
+		
 		for (ConcreteService concrete1: this.covarageDomain1){
 			for (ConcreteService concrete2: this.covarageDomain2){
 				for (ConcreteService concrete3: this.covarageDomain3){
 					for (ConcreteService concrete4: this.covarageDomain4){
 						for (ConcreteService concrete5: this.covarageDomain5){
-							List<ConcreteService> combination = new LinkedList<ConcreteService>();
 							combination.add(concrete1);
 							combination.add(concrete2);
 							combination.add(concrete3);
 							combination.add(concrete4);
 							combination.add(concrete5);
-							this.combinations.add(combination);
+							//this.combinations.add(combination);
+							oos.writeObject(combination);
+							i++;
+							combination.clear();
 						}
 					}
 				}
 			}
 		}
+		this.setNumberOfCombinations(i);
+		oos.close();
 	}
 	
 	public void combine3(){

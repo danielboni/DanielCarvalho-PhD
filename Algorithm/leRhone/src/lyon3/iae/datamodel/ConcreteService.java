@@ -1,9 +1,14 @@
 package lyon3.iae.datamodel;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ConcreteService {
+public class ConcreteService implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String description;
 	private int idAbstract;
@@ -23,10 +28,10 @@ public class ConcreteService {
 	private String name;
 	private String head;
 	private String body;
-	private List<Variable> headVariables;
-	private List<AbstractService> abstractServices;
-	private List<QualityAspect> qualityAspects;
-	private List<Dependency> dependencies;
+	private transient List<Variable> headVariables;
+	private transient List<AbstractService> abstractServices;
+	private transient List<QualityAspect> qualityAspects;
+	private transient List<Dependency> dependencies;
 	
 	private double availability;
 	private double responseTime;

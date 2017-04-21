@@ -127,7 +127,7 @@ public class InputHandler {
 				q.setFreshness(userPreference.getValue());
 			else if (userPreference.getMeasure().equalsIgnoreCase("provenance"))
 				q.setProvenance(userPreference.getValue());
-			else if (userPreference.getMeasure().equalsIgnoreCase("total cost"))
+			else if (userPreference.getMeasure().equalsIgnoreCase("cost"))
 				q.setTotalCost(Double.parseDouble(userPreference.getValue()));
 			else if (userPreference.getMeasure().equalsIgnoreCase("total response time"))
 				q.setTotalResponseTime(Double.parseDouble(userPreference.getValue()));
@@ -146,6 +146,18 @@ public class InputHandler {
 				q.getAbstractServicesAsInt().add(3);
 			else if (abstractService.getName().equalsIgnoreCase("A4"))
 				q.getAbstractServicesAsInt().add(4);
+			else if (abstractService.getName().equalsIgnoreCase("A5"))
+				q.getAbstractServicesAsInt().add(5);
+			else if (abstractService.getName().equalsIgnoreCase("A6"))
+				q.getAbstractServicesAsInt().add(6);
+			else if (abstractService.getName().equalsIgnoreCase("A7"))
+				q.getAbstractServicesAsInt().add(7);
+			else if (abstractService.getName().equalsIgnoreCase("A8"))
+				q.getAbstractServicesAsInt().add(8);
+			else if (abstractService.getName().equalsIgnoreCase("A9"))
+				q.getAbstractServicesAsInt().add(9);
+			else if (abstractService.getName().equalsIgnoreCase("A10"))
+				q.getAbstractServicesAsInt().add(10);
 		}
 		
 		q.setSize(q.getAbstractServices().size());
