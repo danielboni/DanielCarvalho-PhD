@@ -46,6 +46,37 @@ public class QueryManager {
 			return null;
 		} 
 		
+		// retrieve previous equivalent queries that contains the incoming query
+		List<Integer> equivalentSupersetQueries = dao.findEquivalentSupersetQueries(incomingQuery);
+		// now we are working with previous equivalent queries that contains the incoming query
+		if (equivalentSupersetQueries.size() > 0) {
+			// now we need to choose one and reuse.
+			// searching for availability
+			System.out.println("EquivalentSupersetQueries: " + equivalentSupersetQueries.size());
+			return null;
+		}
+		
+		// retrieve previous more restrict queries that contains the incoming query
+		List<Integer> moreRestrictSupersetQueries = dao.findEquivalentSupersetQueriesMoreRestrict(incomingQuery);
+		// now we are working with previous more restrict queries that contains the incoming query
+		if (moreRestrictSupersetQueries.size() > 0) {
+			// now we need to choose one and reuse.
+			// searching for availability
+			System.out.println("moreRestrictSupersetQueries: " + moreRestrictSupersetQueries.size());
+			return null;
+		}
+		
+		// retrieve previous less restrict queries that contains the incoming query
+		List<Integer> lessRestrictSupersetQueries = dao.findEquivalentSupersetQueriesLessRestrict(incomingQuery);
+		// now we are working with previous less restrict queries that contains the incoming query
+		if (lessRestrictSupersetQueries.size() > 0) {
+			// now we need to choose one and reuse.
+			// searching for availability and matching on requirements
+			System.out.println("lessRestrictSupersetQueries: " + lessRestrictSupersetQueries.size());
+			return null;
+		}
+		
+		
 		// Continuo para os outros tipos ...
 		String retorno = "Query equivalents: " + equivalentQueries.size() + 
 				" Query equivalents More: " + equivalentQueriesMoreRestrict.size() +
