@@ -1,6 +1,7 @@
 package lyon3.iae.reusability;
 
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 
 import lyon3.iae.datamodel.Query;
@@ -16,6 +17,8 @@ public class QueryManager {
 	 */
 	//public QueryManager findSimilarityType (Query incomingQuery, String dbName) throws SQLException {
 	public String findSimilarityType (Query incomingQuery, String dbName) throws SQLException {
+		
+		List<Integer> originalAbstracts = incomingQuery.getAbstractServicesAsInt();
 		
 		QueryDAO dao = new QueryDAO(dbName);
 		
@@ -76,6 +79,184 @@ public class QueryManager {
 			return null;
 		}
 		
+		// before rewrite, search for possible combination of queries (this is an extension of the third algorithm)
+		// retrieve previous equivalent subset queries that is contained in the incoming query
+		List<Integer> equivalentSubsetQueries = dao.findEquivalentSubsetQueries(incomingQuery);
+		if (!equivalentSubsetQueries.isEmpty()) {
+			System.out.println("equivalentSubsetQueries");
+			// need to be improved to keep searching for other combinations, for now uses the first one
+			int queryID = equivalentSubsetQueries.get(0);
+			// method that gets the ids of the abstracts in a query
+			List<Integer> abstracts = dao.findAbstractServices(queryID);
+			incomingQuery.getAbstractServicesAsInt().removeAll(abstracts);
+//			List<Integer> temp = new LinkedList<Integer>();
+//			
+//			System.out.println("abstracts: " + abstracts.size());
+//			
+//			
+//			for (Integer integer : incomingQuery.getAbstractServicesAsInt()) {
+//				if (!abstracts.contains(integer))
+//					temp.add(integer);
+//			}
+			
+			//System.out.println("temp: " + incomingQuery.getAbstractServicesAsInt().size());
+			
+			//incomingQuery.setAbstractServicesAsInt(temp);
+			
+			// Preciso melhorar isso aqui
+			
+			String typeOfComplementaryQueries = "";
+			int numberOfComplementaryQueries = 0;
+			
+			
+			// Chamo metodo que vai no banco e pega queries 100% equivalents
+			List<Integer> equivalentQueries2 = dao.findEquivalentQueries(incomingQuery);
+			if (!equivalentQueries2.isEmpty()) {
+
+				typeOfComplementaryQueries = "EquivalentQueries";
+				numberOfComplementaryQueries = equivalentQueries2.size();
+			} else {
+				// Chamo metodo que vai no banco e pega queries equivalentes com preferencias mais restritas
+				List<Integer> equivalentQueriesMoreRestrict2 = dao.findEquivalentQueriesMoreRestrict(incomingQuery);
+							
+				if (!equivalentQueriesMoreRestrict2.isEmpty()) {
+
+					typeOfComplementaryQueries = "EquivalentQueriesMoreRestric";
+					numberOfComplementaryQueries = equivalentQueriesMoreRestrict2.size();
+				} else {
+					// Chamo metodo que vai no banco e pega queries equivalentes com preferencias menos restritas
+					List<Integer> equivalentQueriesLessRestrict2 = dao.findEquivalentQueriesLessRestrict(incomingQuery);
+					
+					if (!equivalentQueriesLessRestrict2.isEmpty()) {
+
+						typeOfComplementaryQueries = "EquivalentQueriesLessRestric";
+						numberOfComplementaryQueries = equivalentQueriesLessRestrict2.size();
+					} 
+				}
+			}
+			// Retorna o manager desse tipo
+			System.out.println("Found complementary queries: EquivalentSubsetQueries (" + equivalentSubsetQueries.size() + ") + Complementary" +  typeOfComplementaryQueries + "(" + numberOfComplementaryQueries + ")");
+			return null;
+		}
+		
+		// retrieve previous more restrict subset queries that is contained in the incoming query
+		List<Integer> moreRestrictSubsetQueries = dao.findEquivalentSubsetQueriesMoreRestrict(incomingQuery);
+		if (!moreRestrictSubsetQueries.isEmpty()) {
+			System.out.println("moreRestrictSubsetQueries");
+			// need to be improved to keep searching for other combinations, for now uses the first one
+			int queryID = moreRestrictSubsetQueries.get(0);
+			// method that gets the ids of the abstracts in a query
+			List<Integer> abstracts = dao.findAbstractServices(queryID);
+			incomingQuery.getAbstractServicesAsInt().removeAll(abstracts);
+//			List<Integer> temp = new LinkedList<Integer>();
+//			
+//			System.out.println("abstracts: " + abstracts.size());
+//			
+//			
+//			for (Integer integer : incomingQuery.getAbstractServicesAsInt()) {
+//				if (!abstracts.contains(integer))
+//					temp.add(integer);
+//			}
+			
+			//System.out.println("temp: " + incomingQuery.getAbstractServicesAsInt().size());
+			
+			//incomingQuery.setAbstractServicesAsInt(temp);
+			
+			// Preciso melhorar isso aqui
+
+			String typeOfComplementaryQueries = "";
+			int numberOfComplementaryQueries = 0;
+
+
+			// Chamo metodo que vai no banco e pega queries 100% equivalents
+			List<Integer> equivalentQueries2 = dao.findEquivalentQueries(incomingQuery);
+			if (!equivalentQueries2.isEmpty()) {
+
+				typeOfComplementaryQueries = "EquivalentQueries";
+				numberOfComplementaryQueries = equivalentQueries2.size();
+			} else {
+				// Chamo metodo que vai no banco e pega queries equivalentes com preferencias mais restritas
+				List<Integer> equivalentQueriesMoreRestrict2 = dao.findEquivalentQueriesMoreRestrict(incomingQuery);
+
+				if (!equivalentQueriesMoreRestrict2.isEmpty()) {
+
+					typeOfComplementaryQueries = "EquivalentQueriesMoreRestric";
+					numberOfComplementaryQueries = equivalentQueriesMoreRestrict2.size();
+				} else {
+					// Chamo metodo que vai no banco e pega queries equivalentes com preferencias menos restritas
+					List<Integer> equivalentQueriesLessRestrict2 = dao.findEquivalentQueriesLessRestrict(incomingQuery);
+
+					if (!equivalentQueriesLessRestrict2.isEmpty()) {
+
+						typeOfComplementaryQueries = "EquivalentQueriesLessRestric";
+						numberOfComplementaryQueries = equivalentQueriesLessRestrict2.size();
+					} 
+				}
+			}
+			// Retorna o manager desse tipo
+			System.out.println("Found complementary queries: MoreRestrictSubsetQueries (" + moreRestrictSubsetQueries.size() + ") + Complementary" +  typeOfComplementaryQueries + "(" + numberOfComplementaryQueries + ")");
+			return null;
+		}
+		
+		// retrieve previous less restrict subset queries that is contained in the incoming query
+		List<Integer> lessRestrictSubsetQueries = dao.findEquivalentSubsetQueriesLessRestrict(incomingQuery);
+		if (!lessRestrictSubsetQueries.isEmpty()) {
+			System.out.println("lessRestrictSubsetQueries");
+			// need to be improved to keep searching for other combinations, for now uses the first one
+			int queryID = lessRestrictSubsetQueries.get(0);
+			// method that gets the ids of the abstracts in a query
+			List<Integer> abstracts = dao.findAbstractServices(queryID);
+			incomingQuery.getAbstractServicesAsInt().removeAll(abstracts);
+//			List<Integer> temp = new LinkedList<Integer>();
+//			
+//			System.out.println("abstracts: " + abstracts.size());
+//			System.out.println("temp: " + temp.size());
+//			
+//			for (Integer integer : incomingQuery.getAbstractServicesAsInt()) {
+//				if (!abstracts.contains(integer))
+//					temp.add(integer);
+//			}
+			
+			//System.out.println("temp: " + incomingQuery.getAbstractServicesAsInt().size());
+			
+			//incomingQuery.setAbstractServicesAsInt(temp);
+
+			
+			// Preciso melhorar isso aqui
+
+			String typeOfComplementaryQueries = "";
+			int numberOfComplementaryQueries = 0;
+
+
+			// Chamo metodo que vai no banco e pega queries 100% equivalents
+			List<Integer> equivalentQueries2 = dao.findEquivalentQueries(incomingQuery);
+			if (!equivalentQueries2.isEmpty()) {
+
+				typeOfComplementaryQueries = "EquivalentQueries";
+				numberOfComplementaryQueries = equivalentQueries2.size();
+			} else {
+				// Chamo metodo que vai no banco e pega queries equivalentes com preferencias mais restritas
+				List<Integer> equivalentQueriesMoreRestrict2 = dao.findEquivalentQueriesMoreRestrict(incomingQuery);
+
+				if (!equivalentQueriesMoreRestrict2.isEmpty()) {
+
+					typeOfComplementaryQueries = "EquivalentQueriesMoreRestric";
+					numberOfComplementaryQueries = equivalentQueriesMoreRestrict2.size();
+				} else {
+					// Chamo metodo que vai no banco e pega queries equivalentes com preferencias menos restritas
+					List<Integer> equivalentQueriesLessRestrict2 = dao.findEquivalentQueriesLessRestrict(incomingQuery);
+
+					if (!equivalentQueriesLessRestrict2.isEmpty()) {
+
+						typeOfComplementaryQueries = "EquivalentQueriesLessRestric";
+						numberOfComplementaryQueries = equivalentQueriesLessRestrict2.size();
+					} 
+				}
+			}
+			// Retorna o manager desse tipo
+			System.out.println("Found complementary queries: LessRestrictSubsetQueries (" + lessRestrictSubsetQueries.size() + ") + Complementary" +  typeOfComplementaryQueries + "(" + numberOfComplementaryQueries + ")");
+			return null;
+		}
 		
 		// Continuo para os outros tipos ...
 		String retorno = "Query equivalents: " + equivalentQueries.size() + 

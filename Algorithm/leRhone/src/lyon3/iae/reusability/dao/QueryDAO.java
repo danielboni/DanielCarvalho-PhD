@@ -1086,4 +1086,25 @@ public class QueryDAO {
 		this.util = util;
 	}
 
+	public List<Integer> findAbstractServices(int queryID) throws SQLException {
+		Connection connection = this.getUtil().getConnection();
+		
+		String sql = "select a.id_abstract from tb_query_abstract a where a.id_query = ?;";
+		
+		PreparedStatement stmt = connection.prepareStatement(sql);
+		stmt.setInt(1, queryID);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		List<Integer> abstracts = new LinkedList<Integer>();
+		while (rs.next()) {
+			abstracts.add(rs.getInt("id_abstract"));
+		}
+		
+		stmt.close();
+		connection.close();
+		
+		return abstracts;
+	}
+
 }
