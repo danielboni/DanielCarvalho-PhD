@@ -1,5 +1,6 @@
 create database if not exists query_history;
 use query_history;
+desc tb_query_history;
 
 create table if not exists tb_abstract_service (
 id int primary key,

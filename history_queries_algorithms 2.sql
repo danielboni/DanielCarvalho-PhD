@@ -67,10 +67,12 @@ select * from tb_query_history;
 select distinct q.id from tb_query_history q, tb_query_abstract a where q.id = a.id_query and
  q.availability <= 96.0 and q.response_time <= 2.0 and q.price_per_call <= 0.5 and
  (q.authentication = 'yes' or q.authentication = 'no') and (q.privacy = 'yes' or q.privacy = 'no') and (q.trust = 'low' or q.trust = 'medium') and q.degree_of_rawness = 'low' and (q.veracity = 'reliable' or q.veracity = 'unreliable') and q.production_time = 'working hours' and q.production_rate <= 2.0 and q.freshness = 'yes' and q.provenance = 'not certified' and q.total_cost <= 10.0 and q.total_response_time >= 6.0 
-and q.id not in (select distinct qq.id from tb_query_history qq, tb_query_abstract aa where qq.id = aa.id_query and aa.id_abstract not in (1, 2, 3));
+and q.id not in (select distinct qq.id from tb_query_history qq, tb_query_abstract aa where qq.id = aa.id_query and aa.id_abstract not in (1, 2, 3) and (select count(id_query) from tb_query_abstract where id_query = qq.id) < 3);
 
-select distinct qq.id from tb_query_history qq, tb_query_abstract aa where qq.id = aa.id_query and aa.id_abstract not in (1, 2, 3);
+select distinct qq.id from tb_query_history qq, tb_query_abstract aa where qq.id = aa.id_query and aa.id_abstract not in (1, 2, 3)
+and (select count(id_query) from tb_query_abstract where id_query = qq.id) = 2;
 
+select count(id_query) from tb_query_abstract where id_query = 1;
 select * from tb_query_abstract where id_query = 1;
 
 select * from tb_query_abstract a where a.id_query = 1;

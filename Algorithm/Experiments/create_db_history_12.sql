@@ -1,5 +1,5 @@
-create database if not exists query_history_31;
-use query_history_31;
+create database if not exists query_history_40;
+use query_history_40;
 
 create table if not exists tb_abstract_service (
 id int primary key,
@@ -75,7 +75,7 @@ foreign key (id_combination) references tb_combination (id),
 primary key (id_query, id_combination)
 );
 
-alter table tb_query_history add column definition varchar(100);
+alter table tb_query_history add column definition varchar(255);
 alter table tb_query_history add column availability int;
 alter table tb_query_history add column response_time int;
 alter table tb_query_history add column price_per_call float(4,2);
