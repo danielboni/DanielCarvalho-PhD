@@ -85,7 +85,6 @@ alter table tb_query_history add column freshness varchar(50);
 alter table tb_query_history add column provenance varchar(50);
 alter table tb_query_history add column total_cost float(4,2);
 alter table tb_query_history add column total_response_time float(10,2);
-
 alter table tb_query_history change production_rate production_rate float(10,2);
 
 alter table tb_concrete_service add column availability int;
