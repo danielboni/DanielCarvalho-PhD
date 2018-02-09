@@ -98,6 +98,7 @@ foreign key (id_composition) references tb_composition (id),
 primary key (id_query, id_composition)
 );
 
+select * from tb_abstract_service;
 
 
 

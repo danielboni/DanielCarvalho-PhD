@@ -252,7 +252,7 @@ public class FeedingQueryHistory_10000_5 {
 				stmt.setInt(2, 1);
 				stmt.execute();
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			for (int i = 101; i < 201; i++) {
@@ -262,7 +262,7 @@ public class FeedingQueryHistory_10000_5 {
 				stmt.setInt(2, 2);
 				stmt.execute();
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			for (int i = 201; i < 301; i++) {
@@ -272,7 +272,7 @@ public class FeedingQueryHistory_10000_5 {
 				stmt.setInt(2, 3);
 				stmt.execute();
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 		
 			for (int i = 301; i < 401; i++) {
@@ -282,7 +282,7 @@ public class FeedingQueryHistory_10000_5 {
 				stmt.setInt(2, 4);
 				stmt.execute();
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 	
 			for (int i = 401; i < 501; i++) {
@@ -292,7 +292,7 @@ public class FeedingQueryHistory_10000_5 {
 				stmt.setInt(2, 5);
 				stmt.execute();
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			connection.close();
@@ -339,7 +339,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 101; j < 201; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -348,7 +348,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -360,7 +360,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 101; j < 201; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -369,7 +369,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 201; j < 301; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -378,7 +378,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -390,7 +390,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 101; j < 201; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -399,7 +399,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 201; j < 301; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -408,7 +408,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 301; j < 401; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -417,7 +417,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -429,7 +429,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 101; j < 201; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -438,7 +438,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 201; j < 301; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -447,7 +447,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 301; j < 401; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -456,7 +456,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 				for (int j = 401; j < 501; j++) {
 					String sql1 = "insert into tb_composition values (?, ?);";
@@ -465,7 +465,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -512,7 +512,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -524,7 +524,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -536,7 +536,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -548,7 +548,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.setInt(2, j);
 					stmt.execute();
 					stmt.close();
-					System.out.println("feito " + i);
+					//System.out.println("feito " + i);
 				}
 			}
 			
@@ -598,7 +598,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.execute();
 				}
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			System.out.println("3 abstracts...");
@@ -611,7 +611,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.execute();
 				}
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			System.out.println("4 abstracts...");
@@ -624,7 +624,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.execute();
 				}
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 			System.out.println("5 abstracts...");
@@ -637,7 +637,7 @@ public class FeedingQueryHistory_10000_5 {
 					stmt.execute();
 				}
 				stmt.close();
-				System.out.println("feito " + i);
+				//System.out.println("feito " + i);
 			}
 			
 //			System.out.println("Associando os serviços abstratos com as consultas de tamanho 5...");
